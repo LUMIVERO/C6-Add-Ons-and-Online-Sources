@@ -1,0 +1,121 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManifestoForAddOns", "Manifesto\ManifestoForAddOns.csproj", "{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportSequenceNumberAddon", "ImportSequenceNumber\ImportSequenceNumberAddon.csproj", "{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddOns", "AddOns", "{64924FF9-5FD3-4605-8927-C668C6FA7621}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DerivePageCountFromPageRangeAddon", "DerivePageCountFromPageRangeAddOn\DerivePageCountFromPageRangeAddon.csproj", "{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageMacrosAddon", "SwissAcademic.Addons.Macros\ManageMacrosAddon.csproj", "{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportJournalsAddon", "ImportJournals\ImportJournalsAddon.csproj", "{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeAllCapitalAuthorNamesAddon", "NormalizeAllCapitalAuthorNames\NormalizeAllCapitalAuthorNamesAddon.csproj", "{1541D624-73E8-4946-8FB7-470615C496A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Debug|x86.Build.0 = Debug|Any CPU
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Release|x86.ActiveCfg = Release|Any CPU
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}.Release|x86.Build.0 = Release|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Debug|x86.Build.0 = Debug|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Release|x86.ActiveCfg = Release|Any CPU
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}.Release|x86.Build.0 = Release|Any CPU
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Debug|x86.ActiveCfg = Debug|x86
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Debug|x86.Build.0 = Debug|x86
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Release|x86.ActiveCfg = Release|x86
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}.Release|x86.Build.0 = Release|x86
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Debug|x86.Build.0 = Debug|Any CPU
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Release|x86.ActiveCfg = Release|Any CPU
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}.Release|x86.Build.0 = Release|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}.Release|x86.Build.0 = Release|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Debug|x86.Build.0 = Debug|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Release|x86.ActiveCfg = Release|Any CPU
+		{1541D624-73E8-4946-8FB7-470615C496A0}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
+		{1541D624-73E8-4946-8FB7-470615C496A0} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2012:8080/tfs/citavicollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Manifesto\\ManifestoForAddOns.csproj
+		SccProjectTopLevelParentUniqueName1 = AddOnsProductive.sln
+		SccProjectName1 = Manifesto
+		SccLocalPath1 = Manifesto
+		SccProjectUniqueName2 = DerivePageCountFromPageRangeAddOn\\DerivePageCountFromPageRangeAddOn.csproj
+		SccProjectTopLevelParentUniqueName2 = AddOnsProductive.sln
+		SccProjectName2 = DerivePageCountFromPageRangeAddOn
+		SccLocalPath2 = DerivePageCountFromPageRangeAddOn
+		SccProjectUniqueName3 = ImportJournals\\ImportJournalsAddon.csproj
+		SccProjectTopLevelParentUniqueName3 = AddOnsProductive.sln
+		SccProjectName3 = ImportJournals
+		SccLocalPath3 = ImportJournals
+		SccProjectUniqueName4 = NormalizeAllCapitalAuthorNames\\NormalizeAllCapitalAuthorNamesAddon.csproj
+		SccProjectTopLevelParentUniqueName4 = AddOnsProductive.sln
+		SccProjectName4 = NormalizeAllCapitalAuthorNames
+		SccLocalPath4 = NormalizeAllCapitalAuthorNames
+		SccProjectUniqueName5 = ImportSequenceNumber\\ImportSequenceNumberAddon.csproj
+		SccProjectTopLevelParentUniqueName5 = AddOnsProductive.sln
+		SccProjectName5 = ImportSequenceNumber
+		SccLocalPath5 = ImportSequenceNumber
+		SccProjectUniqueName6 = SwissAcademic.Addons.Macros\\ManageMacrosAddon.csproj
+		SccProjectTopLevelParentUniqueName6 = AddOnsProductive.sln
+		SccProjectName6 = SwissAcademic.Addons.Macros
+		SccLocalPath6 = SwissAcademic.Addons.Macros
+	EndGlobalSection
+EndGlobal
