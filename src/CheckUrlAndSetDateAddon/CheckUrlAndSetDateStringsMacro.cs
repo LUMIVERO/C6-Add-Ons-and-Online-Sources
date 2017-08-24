@@ -27,7 +27,7 @@ namespace CheckUrlAndSetDateAddon
             // DO NOT EDIT BELOW THIS LINE
             // ****************************************************************************************************************
 
-            if (MessageBox.Show(mainForm, CheckUrlAndSetDateStrings.IsBackupAvailableMessage.Replace("\r\n", Environment.NewLine), "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;        
+            if (MessageBox.Show(mainForm, CheckUrlAndSetDateStrings.IsBackupAvailableMessage.Replace("\r\n", Environment.NewLine), "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
 
             var dateTimeFormat = Program.Engine.Settings.General.DateTimeFormat;
             var newAccessDate = setToDate ?? DateTime.Today.ToString(dateTimeFormat);
@@ -47,7 +47,7 @@ namespace CheckUrlAndSetDateAddon
             if (referencesWithUrl.Count == 0)
             {
                 MessageBox.Show(mainForm, CheckUrlAndSetDateStrings.NoReferencesFoundedMessage, "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-                    return;
+                return;
             }
 
             foreach (var reference in referencesWithUrl)
