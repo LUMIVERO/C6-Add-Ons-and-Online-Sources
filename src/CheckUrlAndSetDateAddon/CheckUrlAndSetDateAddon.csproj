@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}</ProjectGuid>
+    <ProjectGuid>{93D81773-5279-4A8C-8B58-E88D147900E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ImportJournalsAddon</RootNamespace>
-    <AssemblyName>ImportJournalsAddon</AssemblyName>
+    <RootNamespace>CheckUrlAndSetDateAddon</RootNamespace>
+    <AssemblyName>CheckUrlAndSetDateAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -21,26 +21,35 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Citavi Source\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Citavi Source\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="Citavi">
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
@@ -57,72 +66,45 @@
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Macros\ImportJournalsByFileMacro.cs" />
-    <Compile Include="ImportJournalsAddon.cs" />
-    <Compile Include="Utilities\IssnValidator.cs" />
+    <Compile Include="Addon.cs" />
+    <Compile Include="CheckUrlAndSetDateStringsMacro.cs" />
+    <Compile Include="Properties\Ressource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ressource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\AddonKeys.Designer.cs">
+    <Compile Include="Properties\CheckUrlAndSetDateStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AddonKeys.resx</DependentUpon>
+      <DependentUpon>CheckUrlAndSetDateStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\ImportJournalsStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ImportJournalsStrings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Macros\ImportJournalsByPubMedMacro.cs" />
-    <Compile Include="Macros\ImportJournalsByWoodwardMacro.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\AddonKeys.resx">
+    <EmbeddedResource Include="Properties\Ressource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AddonKeys.Designer.cs</LastGenOutput>
+      <LastGenOutput>Ressource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\ImportJournalsStrings.de.resx" />
-    <EmbeddedResource Include="Properties\ImportJournalsStrings.resx">
+    <EmbeddedResource Include="Properties\CheckUrlAndSetDateStrings.de.resx" />
+    <EmbeddedResource Include="Properties\CheckUrlAndSetDateStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ImportJournalsStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>CheckUrlAndSetDateStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="addon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\addon.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

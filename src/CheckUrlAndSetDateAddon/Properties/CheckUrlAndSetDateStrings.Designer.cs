@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NormalizeAllCapitalAuthorNamesAddon.Properties {
+namespace CheckUrlAndSetDateAddon.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace NormalizeAllCapitalAuthorNamesAddon.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AddonStrings {
+    internal class CheckUrlAndSetDateStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AddonStrings() {
+        internal CheckUrlAndSetDateStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace NormalizeAllCapitalAuthorNamesAddon.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NormalizeAllCapitalAuthorNamesAddon.Properties.AddonStrings", typeof(AddonStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CheckUrlAndSetDateAddon.Properties.CheckUrlAndSetDateStrings", typeof(CheckUrlAndSetDateStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,56 @@ namespace NormalizeAllCapitalAuthorNamesAddon.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0} names have been normalised. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Links im Feld Online-Adresse überprüfen ähnelt.
         /// </summary>
-        internal static string Finally_Message {
+        internal static string CheckUrlAndSetDateCommandText {
             get {
-                return ResourceManager.GetString("Finally_Message", resourceCulture);
+                return ResourceManager.GetString("CheckUrlAndSetDateCommandText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Important: This macro will make irreversible changes to your project.\r\n\r\nMake sure you have a current backup of your project before you run this macro.\r\nIf you aren&apos;t sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.\r\n\r\nDo you want to continue? ähnelt.
         /// </summary>
-        internal static string IsBackupAvailable_Message {
+        internal static string IsBackupAvailableMessage {
             get {
-                return ResourceManager.GetString("IsBackupAvailable_Message", resourceCulture);
+                return ResourceManager.GetString("IsBackupAvailableMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Autorennamen in Großbuchstaben korrigieren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die  *** Link {0} checked on {1}: {2}; original access date: {3} *** ähnelt.
         /// </summary>
-        internal static string NormalizeAuthorNamesCommandText {
+        internal static string LinkCheckNotes {
             get {
-                return ResourceManager.GetString("NormalizeAuthorNamesCommandText", resourceCulture);
+                return ResourceManager.GetString("LinkCheckNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} links checked:\n{1} URLs valid\n{2} URLs not reachable\n Would you like to show a selection with references having an unreachable Online Address? ähnelt.
+        /// </summary>
+        internal static string MacroResultMessage {
+            get {
+                return ResourceManager.GetString("MacroResultMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [de] Es wurden keine Titel mit Links im Feld Online-Adresse gefunden. ähnelt.
+        /// </summary>
+        internal static string NoReferencesFoundedMessage {
+            get {
+                return ResourceManager.GetString("NoReferencesFoundedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die References with invalid URLs ähnelt.
+        /// </summary>
+        internal static string ReferenceInvalidFilterName {
+            get {
+                return ResourceManager.GetString("ReferenceInvalidFilterName", resourceCulture);
             }
         }
     }

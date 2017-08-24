@@ -22,14 +22,14 @@ namespace ImportJournalsAddon.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AddonStrings {
+    internal class ImportJournalsStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AddonStrings() {
+        internal ImportJournalsStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ImportJournalsAddon.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImportJournalsAddon.Properties.AddonStrings", typeof(AddonStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ImportJournalsAddon.Properties.ImportJournalsStrings", typeof(ImportJournalsStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,38 @@ namespace ImportJournalsAddon.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurde(n) {0} Zeitschrift(en) eingelesen. \n(Dubletten wurden unterdrückt.) ähnelt.
-        /// </summary>
-        internal static string FileEngine_Finally_Message {
-            get {
-                return ResourceManager.GetString("FileEngine_Finally_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [en] Diese Datei enthält ungültige Zeichen und kann daher nicht importiert werden. ähnelt.
         /// </summary>
-        internal static string FileEngine_NotSupportedCharacters_Message {
+        internal static string FileMacroNotSupportedCharactersMessage {
             get {
-                return ResourceManager.GetString("FileEngine_NotSupportedCharacters_Message", resourceCulture);
+                return ResourceManager.GetString("FileMacroNotSupportedCharactersMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [en] Text Dateien (*.txt)|*.txt|Alle Dateien (*.*)|*.* ähnelt.
         /// </summary>
-        internal static string FileEngine_OpenFileDialog_Filters {
+        internal static string FileMacroOpenFileDialogFilters {
             get {
-                return ResourceManager.GetString("FileEngine_OpenFileDialog_Filters", resourceCulture);
+                return ResourceManager.GetString("FileMacroOpenFileDialogFilters", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [en] Wählen Sie die zu importierende Zeitschriften-Datei aus (Text-Format) ähnelt.
         /// </summary>
-        internal static string FileEngine_OpenFileDialog_Text {
+        internal static string FileMacroOpenFileDialogSubject {
             get {
-                return ResourceManager.GetString("FileEngine_OpenFileDialog_Text", resourceCulture);
+                return ResourceManager.GetString("FileMacroOpenFileDialogSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurde(n) {0} Zeitschrift(en) eingelesen. \n(Dubletten wurden unterdrückt.) ähnelt.
+        /// </summary>
+        internal static string FileMacroResultMessage {
+            get {
+                return ResourceManager.GetString("FileMacroResultMessage", resourceCulture);
             }
         }
         
@@ -135,45 +135,45 @@ namespace ImportJournalsAddon.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die An error occurred importing the journal data:\n\n{0} ähnelt.
         /// </summary>
-        internal static string Macro_ImportingError_Message {
+        internal static string MacroImportingErrorMessage {
             get {
-                return ResourceManager.GetString("Macro_ImportingError_Message", resourceCulture);
+                return ResourceManager.GetString("MacroImportingErrorMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Could not read file from {0}: {1}&quot; ähnelt.
         /// </summary>
-        internal static string PubMedEngine_ReadError_Message {
+        internal static string PubMedMacroReadErrorMessage {
             get {
-                return ResourceManager.GetString("PubMedEngine_ReadError_Message", resourceCulture);
+                return ResourceManager.GetString("PubMedMacroReadErrorMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die {0} journal(s) were imported (not counting duplicates) ähnelt.
         /// </summary>
-        internal static string PubMedEngine_Result_Message {
+        internal static string PubMedMacroResultMessage {
             get {
-                return ResourceManager.GetString("PubMedEngine_Result_Message", resourceCulture);
+                return ResourceManager.GetString("PubMedMacroResultMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die {0} journal(s) were imported (not counting duplicates)\n {1} reference(s) were changed. ähnelt.
         /// </summary>
-        internal static string WoodwardEngine_Finally_Message {
+        internal static string WoodwardMacroResultMessage {
             get {
-                return ResourceManager.GetString("WoodwardEngine_Finally_Message", resourceCulture);
+                return ResourceManager.GetString("WoodwardMacroResultMessage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Would you like to update journal information for references in current selection (all references if no selection is active)? ähnelt.
         /// </summary>
-        internal static string WoodwardEngine_Update_Message {
+        internal static string WoodwardMacroUpdateMessage {
             get {
-                return ResourceManager.GetString("WoodwardEngine_Update_Message", resourceCulture);
+                return ResourceManager.GetString("WoodwardMacroUpdateMessage", resourceCulture);
             }
         }
     }

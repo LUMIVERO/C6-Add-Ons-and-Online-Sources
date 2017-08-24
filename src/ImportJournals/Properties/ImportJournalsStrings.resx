@@ -117,43 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FileEngine_Finally_Message" xml:space="preserve">
-    <value>Es wurde(n) {0} Zeitschrift(en) eingelesen. \n(Dubletten wurden unterdrückt.)</value>
+  <data name="FileMacroNotSupportedCharactersMessage" xml:space="preserve">
+    <value>[en] Diese Datei enthält ungültige Zeichen und kann daher nicht importiert werden.</value>
   </data>
-  <data name="FileEngine_NotSupportedCharacters_Message" xml:space="preserve">
-    <value>Diese Datei enthält ungültige Zeichen und kann daher nicht importiert werden.</value>
+  <data name="FileMacroOpenFileDialogFilters" xml:space="preserve">
+    <value>[en] Text Dateien (*.txt)|*.txt|Alle Dateien (*.*)|*.*</value>
   </data>
-  <data name="FileEngine_OpenFileDialog_Filters" xml:space="preserve">
-    <value>Text Dateien (*.txt)|*.txt|Alle Dateien (*.*)|*.*</value>
+  <data name="FileMacroOpenFileDialogSubject" xml:space="preserve">
+    <value>[en] Wählen Sie die zu importierende Zeitschriften-Datei aus (Text-Format)</value>
   </data>
-  <data name="FileEngine_OpenFileDialog_Text" xml:space="preserve">
-    <value>Wählen Sie die zu importierende Zeitschriften-Datei aus (Text-Format)</value>
+  <data name="FileMacroResultMessage" xml:space="preserve">
+    <value>[en] Es wurde(n) {0} Zeitschrift(en) eingelesen. \n(Dubletten wurden unterdrückt.)</value>
   </data>
   <data name="ImportJournalsByFileCommandText" xml:space="preserve">
-    <value>aus Datei…</value>
+    <value>[en] aus Datei…</value>
   </data>
   <data name="ImportJournalsByPubMedCommandText" xml:space="preserve">
-    <value>von PubMed…</value>
+    <value>[en] von PubMed…</value>
   </data>
   <data name="ImportJournalsByWoodwardLibraryCommandText" xml:space="preserve">
-    <value>von der Universität von British Columbia…</value>
+    <value>[en] von der Universität von British Columbia…</value>
   </data>
   <data name="ImportJournalsMenu" xml:space="preserve">
-    <value>Zeitschriftenliste importieren</value>
+    <value>[en] Zeitschriftenliste importieren</value>
   </data>
-  <data name="Macro_ImportingError_Message" xml:space="preserve">
-    <value>[de] An error occurred importing the journal data:\n\n{0}</value>
+  <data name="MacroImportingErrorMessage" xml:space="preserve">
+    <value>An error occurred importing the journal data:\n\n{0}</value>
   </data>
-  <data name="PubMedEngine_ReadError_Message" xml:space="preserve">
-    <value>[de] Could not read file from {0}: {1}"</value>
+  <data name="PubMedMacroReadErrorMessage" xml:space="preserve">
+    <value>Could not read file from {0}: {1}"</value>
   </data>
-  <data name="PubMedEngine_Result_Message" xml:space="preserve">
-    <value>[de] {0} journal(s) were imported (not counting duplicates)</value>
+  <data name="PubMedMacroResultMessage" xml:space="preserve">
+    <value>{0} journal(s) were imported (not counting duplicates)</value>
   </data>
-  <data name="WoodwardEngine_Finally_Message" xml:space="preserve">
-    <value>[de] {0} journal(s) were imported (not counting duplicates)\n{1} reference(s) were changed.</value>
+  <data name="WoodwardMacroResultMessage" xml:space="preserve">
+    <value>{0} journal(s) were imported (not counting duplicates)\n {1} reference(s) were changed.</value>
   </data>
-  <data name="WoodwardEngine_Update_Message" xml:space="preserve">
-    <value>[de] Would you like to update journal information for references in current selection (all references if no selection is active)?</value>
+  <data name="WoodwardMacroUpdateMessage" xml:space="preserve">
+    <value>Would you like to update journal information for references in current selection (all references if no selection is active)?</value>
   </data>
 </root>

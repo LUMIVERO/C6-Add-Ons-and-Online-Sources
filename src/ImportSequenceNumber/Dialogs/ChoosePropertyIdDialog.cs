@@ -70,7 +70,7 @@ namespace ImportSequenceNumberAddon
         {
             btnOk.Text = ControlTexts.okButton;
             btnCancel.Text = ControlTexts.CancelButton;
-            lblDescription.Text = AddonStrings.ChooseFieldMessage;
+            lblDescription.Text = ImportSequenceNumberStrings.ChooseFieldMessage;
 
             cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField1].LabelText);
             cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField2].LabelText);

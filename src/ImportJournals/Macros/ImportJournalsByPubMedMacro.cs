@@ -38,7 +38,7 @@ namespace ImportJournalsAddon
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(form, AddonStrings.PubMedEngine_ReadError_Message.FormatString(journalUrl, e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(form, ImportJournalsStrings.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -135,7 +135,7 @@ namespace ImportJournalsAddon
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(form, AddonStrings.Macro_ImportingError_Message.FormatString(e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(form, ImportJournalsStrings.MacroImportingErrorMessage.FormatString(e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -147,7 +147,7 @@ namespace ImportJournalsAddon
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(form, AddonStrings.PubMedEngine_Result_Message.FormatString(journalCollection.Count.ToString()), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(form, ImportJournalsStrings.PubMedMacroResultMessage.FormatString(journalCollection.Count.ToString()), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 

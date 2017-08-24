@@ -80,10 +80,10 @@
     <Compile Include="Dialogs\ChoosePropertyIdDialog.Designer.cs">
       <DependentUpon>ChoosePropertyIdDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AddonStrings.Designer.cs">
+    <Compile Include="Properties\ImportSequenceNumberStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AddonStrings.resx</DependentUpon>
+      <DependentUpon>ImportSequenceNumberStrings.resx</DependentUpon>
     </Compile>
     <Compile Include="ImportSequenceNumberAddon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,10 +99,10 @@
     <EmbeddedResource Include="Dialogs\ChoosePropertyIdDialog.resx">
       <DependentUpon>ChoosePropertyIdDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\AddonStrings.de.resx" />
-    <EmbeddedResource Include="Properties\AddonStrings.resx">
+    <EmbeddedResource Include="Properties\ImportSequenceNumberStrings.de.resx" />
+    <EmbeddedResource Include="Properties\ImportSequenceNumberStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AddonStrings.Designer.cs</LastGenOutput>
+      <LastGenOutput>ImportSequenceNumberStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\AddonKeys.resx">
       <Generator>ResXFileCodeGenerator</Generator>

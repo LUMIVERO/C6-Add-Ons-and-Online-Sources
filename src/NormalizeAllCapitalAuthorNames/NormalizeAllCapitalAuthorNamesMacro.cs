@@ -31,7 +31,7 @@ namespace NormalizeAllCapitalAuthorNamesAddon
 
             int counter = 0;
 
-            if (MessageBox.Show(form, AddonStrings.IsBackupAvailable_Message, "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
+            if (MessageBox.Show(form, NormalizeAllCapitalAuthorNamesStrings.IsBackupAvailableMessage.Replace("\r\n", System.Environment.NewLine), "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
 
             //get names and exit if none are present
             Person[] authors = project.Persons.ToArray();
@@ -86,7 +86,7 @@ namespace NormalizeAllCapitalAuthorNamesAddon
                 }
             }
 
-            MessageBox.Show(form, AddonStrings.Finally_Message.FormatString(counter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(form, NormalizeAllCapitalAuthorNamesStrings.ResultMessage.FormatString(counter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace NormalizeAllCapitalAuthorNamesAddon
                 _normalizeAuthorNamesButton = personListFrom
                                                 .GetCommandbar(PersonListCommandbarId.Menu)
                                                 .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                                                .InsertCommandbarButton(2, AddonKeys.NormalizeAuthorNamesButton, AddonStrings.NormalizeAuthorNamesCommandText, image: Resources.addon);
+                                                .InsertCommandbarButton(2, AddonKeys.NormalizeAuthorNamesButton, NormalizeAllCapitalAuthorNamesStrings.NormalizeAuthorNamesCommandText, image: Resources.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -61,7 +61,7 @@ namespace NormalizeAllCapitalAuthorNamesAddon
 
         protected override void OnLocalizing(System.Windows.Forms.Form form)
         {
-            if (_normalizeAuthorNamesButton != null) _normalizeAuthorNamesButton.Text = AddonStrings.NormalizeAuthorNamesCommandText;
+            if (_normalizeAuthorNamesButton != null) _normalizeAuthorNamesButton.Text = NormalizeAllCapitalAuthorNamesStrings.NormalizeAuthorNamesCommandText;
 
             base.OnLocalizing(form);
         }

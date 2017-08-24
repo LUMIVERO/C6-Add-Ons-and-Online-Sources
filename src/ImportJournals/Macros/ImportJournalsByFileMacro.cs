@@ -22,8 +22,8 @@ namespace ImportJournalsAddon
                 // Dialog zum Auswählen des gewünschten Ordners einblenden
                 using (var openFileDialog = new OpenFileDialog
                 {
-                    Filter = AddonStrings.FileEngine_OpenFileDialog_Filters,
-                    Title = AddonStrings.FileEngine_OpenFileDialog_Text
+                    Filter = ImportJournalsStrings.FileMacroOpenFileDialogFilters,
+                    Title = ImportJournalsStrings.FileMacroOpenFileDialogSubject
                 })
                 {
                     if (openFileDialog.ShowDialog(form) != DialogResult.OK) return;
@@ -51,7 +51,7 @@ namespace ImportJournalsAddon
                 if (testRegex.IsMatch(journalList))
                 {   //this is most likely not a textfile
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show(form, AddonStrings.FileEngine_NotSupportedCharacters_Message, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(form, ImportJournalsStrings.FileMacroNotSupportedCharactersMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -108,7 +108,7 @@ namespace ImportJournalsAddon
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(form, AddonStrings.FileEngine_Finally_Message.FormatString(journalCollection.Count), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(form, ImportJournalsStrings.FileMacroResultMessage.FormatString(journalCollection.Count), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 

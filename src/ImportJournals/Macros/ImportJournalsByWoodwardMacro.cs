@@ -91,7 +91,7 @@ namespace ImportJournalsAddon
 
                 }
 
-                DialogResult updateReferences = MessageBox.Show(shell.ActiveForm, AddonStrings.WoodwardEngine_Update_Message, "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                DialogResult updateReferences = MessageBox.Show(shell.ActiveForm, ImportJournalsStrings.WoodwardMacroUpdateMessage, "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                  MessageBoxDefaultButton.Button2);
 
                 // update references that have identical titles
@@ -121,7 +121,7 @@ namespace ImportJournalsAddon
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(shell.ActiveForm, AddonStrings.Macro_ImportingError_Message.FormatString(e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(shell.ActiveForm, ImportJournalsStrings.MacroImportingErrorMessage.FormatString(e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
             }
@@ -132,7 +132,7 @@ namespace ImportJournalsAddon
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(shell.ActiveForm, AddonStrings.WoodwardEngine_Finally_Message.FormatString(journalCollection.Count, refCounter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(shell.ActiveForm, ImportJournalsStrings.WoodwardMacroResultMessage.FormatString(journalCollection.Count, refCounter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 

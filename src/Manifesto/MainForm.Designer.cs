@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
+            this.newButton = new System.Windows.Forms.Button();
+            this.idValueLabel = new System.Windows.Forms.Label();
+            this.idLabel = new System.Windows.Forms.Label();
             this.versionValueLabel = new System.Windows.Forms.Label();
             this.versionLabel = new System.Windows.Forms.Label();
             this.urlTextBox = new System.Windows.Forms.TextBox();
@@ -113,6 +116,9 @@
             // 
             // generalTabPage
             // 
+            this.generalTabPage.Controls.Add(this.newButton);
+            this.generalTabPage.Controls.Add(this.idValueLabel);
+            this.generalTabPage.Controls.Add(this.idLabel);
             this.generalTabPage.Controls.Add(this.versionValueLabel);
             this.generalTabPage.Controls.Add(this.versionLabel);
             this.generalTabPage.Controls.Add(this.urlTextBox);
@@ -133,11 +139,41 @@
             this.generalTabPage.Text = "Allgemein";
             this.generalTabPage.UseVisualStyleBackColor = true;
             // 
+            // newButton
+            // 
+            this.newButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.newButton.Location = new System.Drawing.Point(328, 373);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(117, 27);
+            this.newButton.TabIndex = 10;
+            this.newButton.Text = "Neu";
+            this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            // 
+            // idValueLabel
+            // 
+            this.idValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.idValueLabel.AutoSize = true;
+            this.idValueLabel.Location = new System.Drawing.Point(172, 345);
+            this.idValueLabel.Name = "idValueLabel";
+            this.idValueLabel.Size = new System.Drawing.Size(0, 15);
+            this.idValueLabel.TabIndex = 9;
+            // 
+            // idLabel
+            // 
+            this.idLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(20, 345);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(21, 15);
+            this.idLabel.TabIndex = 8;
+            this.idLabel.Text = "ID:";
+            // 
             // versionValueLabel
             // 
             this.versionValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.versionValueLabel.AutoSize = true;
-            this.versionValueLabel.Location = new System.Drawing.Point(172, 336);
+            this.versionValueLabel.Location = new System.Drawing.Point(172, 319);
             this.versionValueLabel.Name = "versionValueLabel";
             this.versionValueLabel.Size = new System.Drawing.Size(0, 15);
             this.versionValueLabel.TabIndex = 7;
@@ -146,7 +182,7 @@
             // 
             this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(20, 336);
+            this.versionLabel.Location = new System.Drawing.Point(20, 319);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(49, 15);
             this.versionLabel.TabIndex = 7;
@@ -807,6 +843,9 @@
         private System.Windows.Forms.TextBox name_PT_TextBox;
         private System.Windows.Forms.Label summary_PT_Label;
         private System.Windows.Forms.Label name_PT_Label;
+        private System.Windows.Forms.Label idValueLabel;
+        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.Button newButton;
     }
 }
 

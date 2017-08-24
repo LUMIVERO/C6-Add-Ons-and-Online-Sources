@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\Citavi Source\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\AddOns</OutputPath>
+    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -76,10 +76,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddonKeys.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AddonStrings.Designer.cs">
+    <Compile Include="Properties\NormalizeAllCapitalAuthorNamesStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AddonStrings.resx</DependentUpon>
+      <DependentUpon>NormalizeAllCapitalAuthorNamesStrings.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -99,14 +99,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\AddonStrings.de.resx" />
+    <EmbeddedResource Include="Properties\NormalizeAllCapitalAuthorNamesStrings.de.resx" />
     <EmbeddedResource Include="Properties\AddonKeys.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AddonKeys.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\AddonStrings.resx">
+    <EmbeddedResource Include="Properties\NormalizeAllCapitalAuthorNamesStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AddonStrings.Designer.cs</LastGenOutput>
+      <LastGenOutput>NormalizeAllCapitalAuthorNamesStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

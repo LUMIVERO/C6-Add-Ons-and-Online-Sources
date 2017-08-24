@@ -31,7 +31,7 @@ namespace ImportSequenceNumberAddon
         {
             if (hostingForm is MainForm mainForm)
             {
-                _button = mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject).AddCommandbarButton(AddonKeys.MenuCommand, AddonStrings.MenuCaption);
+                _button = mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject).AddCommandbarButton(AddonKeys.MenuCommand, ImportSequenceNumberStrings.MenuCaption);
                 if (_button != null) _button.HasSeparator = true;
             }
 
@@ -47,8 +47,8 @@ namespace ImportSequenceNumberAddon
                 {
                     using (var openFileDialog = new OpenFileDialog()
                     {
-                        Title = AddonStrings.OpenFileDialogTitle,
-                        Filter = AddonStrings.OpenFileDialogFilters,
+                        Title = ImportSequenceNumberStrings.OpenFileDialogTitle,
+                        Filter = ImportSequenceNumberStrings.OpenFileDialogFilters,
                         CheckFileExists = true,
                         CheckPathExists = true,
                         Multiselect = false
@@ -77,13 +77,13 @@ namespace ImportSequenceNumberAddon
                                                 switch (successCount)
                                                 {
                                                     case 0:
-                                                        MessageBox.Show(e.Form, AddonStrings.CompleteZeroResultMessage, AddonStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        MessageBox.Show(e.Form, ImportSequenceNumberStrings.CompleteZeroResultMessage, ImportSequenceNumberStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         break;
                                                     case 1:
-                                                        MessageBox.Show(e.Form, AddonStrings.CompleteSingleResultMessage, AddonStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        MessageBox.Show(e.Form, ImportSequenceNumberStrings.CompleteSingleResultMessage, ImportSequenceNumberStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         break;
                                                     default:
-                                                        MessageBox.Show(e.Form, AddonStrings.CompleteMultipleResultsMessage.FormatString(successCount), AddonStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        MessageBox.Show(e.Form, ImportSequenceNumberStrings.CompleteMultipleResultsMessage.FormatString(successCount), ImportSequenceNumberStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         break;
                                                 }
                                             }
@@ -91,23 +91,23 @@ namespace ImportSequenceNumberAddon
                                     }
                                     else
                                     {
-                                        MessageBox.Show(e.Form, AddonStrings.FoundReferenceCountNull, AddonStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show(e.Form, ImportSequenceNumberStrings.FoundReferenceCountNull, ImportSequenceNumberStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show(e.Form, AddonStrings.OpenProtectedProjectMessage, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show(e.Form, ImportSequenceNumberStrings.OpenProtectedProjectMessage, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(e.Form, AddonStrings.OpenProjectConfigurationException, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(e.Form, ImportSequenceNumberStrings.OpenProjectConfigurationException, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                 }
                 else
                 {
-                    MessageBox.Show(e.Form, AddonStrings.OnlyDesktopProjectsSupport, AddonStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(e.Form, ImportSequenceNumberStrings.OnlyDesktopProjectsSupport, ImportSequenceNumberStrings.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 e.Handled = true;
             }
@@ -117,7 +117,7 @@ namespace ImportSequenceNumberAddon
         {
             if (_button != null)
             {
-                _button.Text = AddonStrings.MenuCaption;
+                _button.Text = ImportSequenceNumberStrings.MenuCaption;
             }
 
             base.OnLocalizing(hostingForm);

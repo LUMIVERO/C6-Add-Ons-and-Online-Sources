@@ -76,10 +76,10 @@ namespace ImportJournalsAddon
         {
             if (form is PeriodicalList periodicalList)
             {
-                _importJournalsMenu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu).GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals).InsertCommandbarMenu(3, AddonKeys.ImportJournalsAddonMenu, AddonStrings.ImportJournalsMenu, image: Resources.addon);
-                _importJournalsByFileButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.ImportJournalsByFile, AddonStrings.ImportJournalsByFileCommandText);
-                _importJournalsByPubMedButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.ImportJournalsByPubMed, AddonStrings.ImportJournalsByPubMedCommandText);
-                _importJournalsByWoodwardButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.ImportJournalsByWoodward, AddonStrings.ImportJournalsByWoodwardLibraryCommandText);
+                _importJournalsMenu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu).GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals).InsertCommandbarMenu(3, AddonKeys.ImportJournalsAddonMenu, ImportJournalsStrings.ImportJournalsMenu, image: Resources.addon);
+                _importJournalsByFileButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.ImportJournalsByFile, ImportJournalsStrings.ImportJournalsByFileCommandText);
+                _importJournalsByPubMedButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.ImportJournalsByPubMed, ImportJournalsStrings.ImportJournalsByPubMedCommandText);
+                _importJournalsByWoodwardButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.ImportJournalsByWoodward, ImportJournalsStrings.ImportJournalsByWoodwardLibraryCommandText);
             }
 
             base.OnHostingFormLoaded(form);
@@ -87,10 +87,10 @@ namespace ImportJournalsAddon
 
         protected override void OnLocalizing(System.Windows.Forms.Form form)
         {
-            if (_importJournalsMenu != null) _importJournalsMenu.Text = AddonStrings.ImportJournalsMenu;
-            if (_importJournalsByFileButton != null) _importJournalsByFileButton.Text = AddonStrings.ImportJournalsByFileCommandText;
-            if (_importJournalsByPubMedButton != null) _importJournalsByPubMedButton.Text = AddonStrings.ImportJournalsByPubMedCommandText;
-            if (_importJournalsByWoodwardButton != null) _importJournalsByWoodwardButton.Text = AddonStrings.ImportJournalsByWoodwardLibraryCommandText;
+            if (_importJournalsMenu != null) _importJournalsMenu.Text = ImportJournalsStrings.ImportJournalsMenu;
+            if (_importJournalsByFileButton != null) _importJournalsByFileButton.Text = ImportJournalsStrings.ImportJournalsByFileCommandText;
+            if (_importJournalsByPubMedButton != null) _importJournalsByPubMedButton.Text = ImportJournalsStrings.ImportJournalsByPubMedCommandText;
+            if (_importJournalsByWoodwardButton != null) _importJournalsByWoodwardButton.Text = ImportJournalsStrings.ImportJournalsByWoodwardLibraryCommandText;
 
             base.OnLocalizing(form);
         }

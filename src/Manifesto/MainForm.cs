@@ -8,10 +8,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Manifesto
 {
@@ -34,7 +37,7 @@ namespace Manifesto
 
         #region Eigenschaften
 
-        AddOnManifest Manifest { get; set; }
+        CitaviResourceManifest Manifest { get; set; }
         string ManifestPath { get; set; }
 
         #endregion
@@ -46,16 +49,20 @@ namespace Manifesto
         void Accept()
         {
             Manifest.Name = nameTextBox.Text;
-            Manifest.Summary = summaryTextBox.Text;
             Manifest.Description = descriptionTextBox.Text;
-            Manifest.Url = urlTextBox.Text;
-            Manifest.Version = new Version(Manifest.Version.Major, Manifest.Version.Minor, Manifest.Version.Build + 1, Manifest.Version.Revision);
+            Manifest.Version = new Version(Manifest.Version.Major, Manifest.Version.Minor, Manifest.Version.Build, Manifest.Version.Revision + 1);
 
+            if (Manifest is AddOnManifest)
+            {
+                ((AddOnManifest)Manifest).Summary = summaryTextBox.Text;
+                ((AddOnManifest)Manifest).Url = urlTextBox.Text;
+            }
             foreach (TabPage tabPage in mainTabControl.TabPages)
             {
                 if (tabPage.Tag == null) continue;
                 AcceptLng(tabPage);
             }
+            versionValueLabel.Text = Manifest.Version.ToString(4);
         }
 
         void AcceptLng(TabPage tab)
@@ -68,20 +75,26 @@ namespace Manifesto
             }
 
             Manifest.NameLocalized.Remove(lng);
-            Manifest.SummaryLocalized.Remove(lng);
+
             Manifest.DescriptionLocalized.Remove(lng);
 
             if (!string.IsNullOrEmpty(set["Name"].Text))
             {
                 Manifest.NameLocalized[lng] = set["Name"].Text;
             }
-            if(!string.IsNullOrEmpty(set["Summary"].Text))
-            {
-                Manifest.SummaryLocalized[lng] = set["Summary"].Text;
-            }
+
             if (!string.IsNullOrEmpty(set["Description"].Text))
             {
                 Manifest.DescriptionLocalized[lng] = set["Description"].Text;
+            }
+
+            if (Manifest is AddOnManifest)
+            {
+                ((AddOnManifest)Manifest).SummaryLocalized.Remove(lng);
+                if (!string.IsNullOrEmpty(set["Summary"].Text))
+                {
+                    ((AddOnManifest)Manifest).SummaryLocalized[lng] = set["Summary"].Text;
+                }
             }
         }
 
@@ -91,19 +104,32 @@ namespace Manifesto
 
         void Init()
         {
-            nameTextBox.Text = Manifest.Name;
-            summaryTextBox.Text = Manifest.Summary;
-            descriptionTextBox.Text = Manifest.Description;
-            urlTextBox.Text = Manifest.Url;
-            versionValueLabel.Text = Manifest.Version.ToString(4);
+            urlTextBox.Enabled = Manifest is AddOnManifest;
+            summaryTextBox.Enabled = Manifest is AddOnManifest;
 
-            foreach(TabPage tabPage in mainTabControl.TabPages)
+            if (Manifest is AddOnManifest)
+            {
+                Text = "Manifesto: Citavi AddOn";
+                summaryTextBox.Text = ((AddOnManifest)Manifest).Summary ?? string.Empty;
+                urlTextBox.Text = ((AddOnManifest)Manifest).Url ?? string.Empty;
+                descriptionTextBox.Text = ((AddOnManifest)Manifest).Description ?? string.Empty;
+            }
+            else
+            {
+                Text = "Manifesto: Zitationsstil-Element";
+                descriptionTextBox.Text = ((CitationStyleElementManifest)Manifest).Description ?? string.Empty;
+                summaryTextBox.Text = string.Empty;
+                urlTextBox.Text = string.Empty;
+            }
+            nameTextBox.Text = Manifest.Name;
+            versionValueLabel.Text = Manifest.Version.ToString(4);
+            idValueLabel.Text = Manifest.Id.ToString();
+            foreach (TabPage tabPage in mainTabControl.TabPages)
             {
                 if (tabPage.Tag == null) continue;
                 InitLng(tabPage);
             }
         }
-
         void InitLng(TabPage tab)
         {
             var lng = tab.Tag.ToString();
@@ -121,14 +147,7 @@ namespace Manifesto
             {
                 set["Name"].Text = string.Empty;
             }
-            if (Manifest.SummaryLocalized.TryGetValue(lng, out _))
-            {
-                set["Summary"].Text = Manifest.SummaryLocalized[lng];
-            }
-            else
-            {
-                set["Summary"].Text = string.Empty;
-            }
+
             if (Manifest.DescriptionLocalized.TryGetValue(lng, out _))
             {
                 set["Description"].Text = Manifest.DescriptionLocalized[lng];
@@ -136,6 +155,16 @@ namespace Manifesto
             else
             {
                 set["Description"].Text = string.Empty;
+            }
+
+            set["Summary"].Text = string.Empty;
+            set["Summary"].Enabled = Manifest is AddOnManifest;
+            if (Manifest is AddOnManifest)
+            {
+                if (((AddOnManifest)Manifest).SummaryLocalized.TryGetValue(lng, out _))
+                {
+                    set["Summary"].Text = ((AddOnManifest)Manifest).SummaryLocalized[lng];
+                }
             }
         }
 
@@ -145,27 +174,94 @@ namespace Manifesto
 
         #region Ereignishandler
 
+        #region New
+        void newButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var fileDialog = new OpenFileDialog())
+                {
+                    fileDialog.Filter = "Zitationsstil-Element (*.xml)|*.xml|Citavi AddOn (*.dll)|*.dll";
+                    if (fileDialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        if (fileDialog.FileName.EndsWith(".xml"))
+                        {
+                            Manifest = new CitationStyleElementManifest();
+                            var doc = XDocument.Load(File.OpenRead(fileDialog.FileName));
+                            Manifest.Id = new Guid(doc.Root.Attributes("id").First().Value);
+                            if (doc.Root.Name == "BibliographyGroupingSet")
+                            {
+                                Manifest.Name = doc.Root.Elements("Name").First().Value;
+                            }
+                            ManifestPath = Path.Combine(Path.GetDirectoryName(fileDialog.FileName), Path.GetFileNameWithoutExtension(fileDialog.FileName) + ".json");
+                        }
+                        else
+                        {
+                            ManifestPath = Path.Combine(Path.GetDirectoryName(fileDialog.FileName), "manifest.json");
+                            Manifest = new AddOnManifest();
+                            ((AddOnManifest)Manifest).EntryPoint = Path.GetFileName(fileDialog.FileName);
+                            var asm = Assembly.LoadFrom(fileDialog.FileName);
+                            Manifest.Id = new Guid(((GuidAttribute)asm.GetCustomAttributes(typeof(GuidAttribute), true).First()).Value);
+                            ((AddOnManifest)Manifest).SummaryLocalized = new Dictionary<string, string>();
+                        }
+
+                        Manifest.NameLocalized = new Dictionary<string, string>();
+                        Manifest.DescriptionLocalized = new Dictionary<string, string>();
+                        Manifest.Version = new Version(1, 0, 0, 0);
+                        Manifest.CitaviMinVersion = new Version(5, 8, 0, 0);
+                        Manifest.ManifestVersion = 1;
+                        Init();
+
+                        newButton.Hide();
+                        loadButton.Enabled = false;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
         #region Load
 
         void loadButton_Click(object sender, EventArgs e)
         {
-            using (var fileDialog = new OpenFileDialog())
+            try
             {
-                fileDialog.FileName = "manifest.json";
-                if (fileDialog.ShowDialog(this) == DialogResult.OK)
+                using (var fileDialog = new OpenFileDialog())
                 {
-                    try
+                    fileDialog.Filter = "Manifest (*.json)|*.json";
+                    if (fileDialog.ShowDialog(this) == DialogResult.OK)
                     {
-                        var manifestJson = File.ReadAllText(fileDialog.FileName);
-                        Manifest = JsonConvert.DeserializeObject<AddOnManifest>(manifestJson);
-                        ManifestPath = fileDialog.FileName;
-                        Init();
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        try
+                        {
+                            newButton.Hide();
+                            saveButton.Show();
+                            var manifestJson = File.ReadAllText(fileDialog.FileName);
+                            if (manifestJson.Contains("EntryPoint"))
+                            {
+                                Manifest = JsonConvert.DeserializeObject<AddOnManifest>(manifestJson);
+                            }
+                            else
+                            {
+                                Manifest = JsonConvert.DeserializeObject<CitationStyleElementManifest>(manifestJson);
+                            }
+                            ManifestPath = fileDialog.FileName;
+                            Init();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
