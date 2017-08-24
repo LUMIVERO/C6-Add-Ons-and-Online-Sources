@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SwissAcademic;
-using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using SwissAcademic.Drawing;
 using System.Windows.Forms;
 using CheckUrlAndSetDateAddon.Properties;
 
@@ -21,8 +15,8 @@ namespace CheckUrlAndSetDateAddon
         #endregion
 
         #region Properties
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
 
+        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
 
         #endregion
 

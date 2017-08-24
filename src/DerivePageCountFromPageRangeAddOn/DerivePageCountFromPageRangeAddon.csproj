@@ -73,27 +73,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Citavi">
-      <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
-      <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Citavi.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
-      <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Controls.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Resources">
-      <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Resources.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SwissAcademic.WordProcessing">
-      <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.WordProcessing.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Resources.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

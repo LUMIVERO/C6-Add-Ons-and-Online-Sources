@@ -18,14 +18,11 @@ namespace ImportSequenceNumberAddon
 
         #region Properties
 
-        public override AddOnHostingForm HostingForm
-        {
-            get { return AddOnHostingForm.MainForm; }
-        }
+        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
 
         #endregion
 
-        #region Eventhandler
+        #region Methods
 
         protected override void OnHostingFormLoaded(Form hostingForm)
         {

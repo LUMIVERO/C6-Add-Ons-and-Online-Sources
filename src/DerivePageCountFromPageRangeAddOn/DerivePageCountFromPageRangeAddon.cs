@@ -10,7 +10,27 @@ namespace DerivePageCountFromPageRangeAddon
 {
     public class DerivePageCountFromPageRangeAddon : CitaviAddOn
     {
-        #region Events
+
+        #region Fields
+
+        List<Project> _observedProjects = new List<Project>();
+
+        #endregion
+
+        #region Properties
+
+        #region HostingForm
+
+        public override AddOnHostingForm HostingForm
+        {
+            get { return AddOnHostingForm.MainForm; }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Methods
 
         #region OnBeforePerformingCommand
 
@@ -101,29 +121,6 @@ namespace DerivePageCountFromPageRangeAddon
         }
 
         #endregion
-
-        #endregion
-
-        #region Fields
-
-        List<Project> _observedProjects = new List<Project>();
-
-        #endregion
-
-        #region Properties
-
-        #region HostingForm
-
-        public override AddOnHostingForm HostingForm
-        {
-            get { return AddOnHostingForm.MainForm; }
-        }
-
-        #endregion
-
-        #endregion
-
-        #region Methods
 
         #region DerivePageCountFromPageRange
 
