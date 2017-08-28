@@ -8,6 +8,6 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 {
     public static class AddonKeys
     {
-        public static string AddonCommandButton => "SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.AddonCommandButton";
+        public static string CommandbarButton => "SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.CommandbarButton";
     }
 }
