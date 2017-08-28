@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManifestoForAddOns", "Manif
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportSequenceNumber", "ImportSequenceNumber\ImportSequenceNumber.csproj", "{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddOns", "AddOns", "{64924FF9-5FD3-4605-8927-C668C6FA7621}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DerivePageCountFromPageRange", "DerivePageCountFromPageRange\DerivePageCountFromPageRange.csproj", "{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacroManager", "MacroManager\MacroManager.csproj", "{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}"
@@ -18,6 +16,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeAllCapitalAuthorNames", "NormalizeAllCapitalAuthorNames\NormalizeAllCapitalAuthorNames.csproj", "{1541D624-73E8-4946-8FB7-470615C496A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckUrlAndSetDate", "CheckUrlAndSetDate\CheckUrlAndSetDate.csproj", "{93D81773-5279-4A8C-8B58-E88D147900E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddOns", "AddOns", "{43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{92E6E362-5BE1-44F8-BABE-B71366259D34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,49 +90,15 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
-		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
-		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
-		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
-		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
-		{1541D624-73E8-4946-8FB7-470615C496A0} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
-		{93D81773-5279-4A8C-8B58-E88D147900E1} = {64924FF9-5FD3-4605-8927-C668C6FA7621}
+		{A7CB18F2-A148-43DE-8BF6-FE0523BD4988} = {92E6E362-5BE1-44F8-BABE-B71366259D34}
+		{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{84D6D803-B871-4FF3-8DF0-DDBB543E08F2} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{1541D624-73E8-4946-8FB7-470615C496A0} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{93D81773-5279-4A8C-8B58-E88D147900E1} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 8
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs2012:8080/tfs/citavicollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Manifesto\\ManifestoForAddOns.csproj
-		SccProjectTopLevelParentUniqueName1 = C6Addons.sln
-		SccProjectName1 = Manifesto
-		SccLocalPath1 = Manifesto
-		SccProjectUniqueName2 = DerivePageCountFromPageRange\\DerivePageCountFromPageRange.csproj
-		SccProjectTopLevelParentUniqueName2 = C6Addons.sln
-		SccProjectName2 = DerivePageCountFromPageRange
-		SccLocalPath2 = DerivePageCountFromPageRange
-		SccProjectUniqueName3 = ImportJournals\\ImportJournals.csproj
-		SccProjectTopLevelParentUniqueName3 = C6Addons.sln
-		SccProjectName3 = ImportJournals
-		SccLocalPath3 = ImportJournals
-		SccProjectUniqueName4 = NormalizeAllCapitalAuthorNames\\NormalizeAllCapitalAuthorNames.csproj
-		SccProjectTopLevelParentUniqueName4 = C6Addons.sln
-		SccProjectName4 = NormalizeAllCapitalAuthorNames
-		SccLocalPath4 = NormalizeAllCapitalAuthorNames
-		SccProjectUniqueName5 = ImportSequenceNumber\\ImportSequenceNumber.csproj
-		SccProjectTopLevelParentUniqueName5 = C6Addons.sln
-		SccProjectName5 = ImportSequenceNumber
-		SccLocalPath5 = ImportSequenceNumber
-		SccProjectUniqueName6 = MacroManager\\MacroManager.csproj
-		SccProjectTopLevelParentUniqueName6 = C6Addons.sln
-		SccProjectName6 = MacroManager
-		SccLocalPath6 = MacroManager
-		SccProjectUniqueName7 = CheckUrlAndSetDate\\CheckUrlAndSetDate.csproj
-		SccProjectTopLevelParentUniqueName7 = C6Addons.sln
-		SccProjectName7 = CheckUrlAndSetDate
-		SccLocalPath7 = CheckUrlAndSetDate
 	EndGlobalSection
 EndGlobal

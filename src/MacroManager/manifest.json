@@ -3,7 +3,7 @@
   "citavi_min_version": "5.8.0.0",
   "Description": "Auf den Webseiten des Citavi Supports finden Sie mehrere Makros. Diese Makros helfen, spezielle Aufgaben schneller zu erledigen. Speichern Sie die Makros an einem beliebigen Ort. Öffnen Sie die Makros dann mit Citavis Makroeditor (ALT+F11). Nachdem das Makro einmal erfolgreich durchgelaufen ist, steht es danach in der Liste der verwendeten Makros zur schnellen Auswahl zur Verfügung.",
   "description_localized": { "de": "Auf den Webseiten des Citavi Supports finden Sie mehrere Makros. Diese Makros helfen, spezielle Aufgaben schneller zu erledigen. Speichern Sie die Makros an einem beliebigen Ort. Öffnen Sie die Makros dann mit Citavis Makroeditor (ALT+F11). Nachdem das Makro einmal erfolgreich durchgelaufen ist, steht es danach in der Liste der verwendeten Makros zur schnellen Auswahl zur Verfügung." },
-  "EntryPoint": "ManageMacrosAddon.dll",
+  "EntryPoint": "MacroManagerAddon.dll",
   "Id": "00bd021e-1234-1234-8014-7095d94f639b",
   "Icon": "addon.png",
   "Name": "Makros anzeigen",

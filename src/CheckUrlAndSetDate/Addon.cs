@@ -1,19 +1,13 @@
-﻿using System;
+﻿using SwissAcademic.Addons.CheckUrlAndSetDate.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
+using System;
 using System.Windows.Forms;
-using CheckUrlAndSetDateAddon.Properties;
 
-namespace CheckUrlAndSetDateAddon
+namespace SwissAcademic.Addons.CheckUrlAndSetDate
 {
     public class Addon : CitaviAddOn
     {
-        #region Fields
-
-        CommandbarButton _CheckUrlAndSetDateButton;
-
-        #endregion
-
         #region Properties
 
         public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
@@ -24,7 +18,7 @@ namespace CheckUrlAndSetDateAddon
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Ressource.CheckUrlAndSetDateButton, StringComparison.OrdinalIgnoreCase) && (e.Form is MainForm mainForm))
+            if (e.Key.Equals(AddonKeys.CommandbarButton, StringComparison.OrdinalIgnoreCase) && (e.Form is MainForm mainForm))
             {
                 if (Program.ProjectShells.Count != 0)
                 {
@@ -41,10 +35,10 @@ namespace CheckUrlAndSetDateAddon
 
             if (form is MainForm mainForm)
             {
-                _CheckUrlAndSetDateButton = mainForm.GetMainCommandbarManager()
-                                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                                    .InsertCommandbarButton(7, Ressource.CheckUrlAndSetDateButton, CheckUrlAndSetDateStrings.CheckUrlAndSetDateCommandText, image: Ressource.addon);
+                mainForm.GetMainCommandbarManager()
+                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                        .InsertCommandbarButton(7, AddonKeys.CommandbarButton, CheckUrlAndSetDateResources.CheckUrlAndSetDateCommandText, image: CheckUrlAndSetDateResources.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -52,8 +46,15 @@ namespace CheckUrlAndSetDateAddon
 
         protected override void OnLocalizing(Form form)
         {
-            if (_CheckUrlAndSetDateButton != null) _CheckUrlAndSetDateButton.Text = CheckUrlAndSetDateStrings.CheckUrlAndSetDateCommandText;
+            if (form is MainForm mainForm)
+            {
+                var button = mainForm.GetMainCommandbarManager()
+                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                    .GetCommandbarButton(AddonKeys.CommandbarButton);
 
+                if (button != null) button.Text = CheckUrlAndSetDateResources.CheckUrlAndSetDateCommandText;
+            }
             base.OnLocalizing(form);
         }
 

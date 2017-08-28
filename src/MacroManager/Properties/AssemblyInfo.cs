@@ -7,12 +7,12 @@ using System.Windows;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("SwissAcademic.Addons.Macros")]
+[assembly: AssemblyTitle("MacroManagerAddon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SwissAcademic.Addons.Macros")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCompany("Swiss Academic Software")]
+[assembly: AssemblyProduct("MacroManagerAddon")]
+[assembly: AssemblyCopyright("Copyright ©  Swiss Academic Software 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: Guid("00BD021E-1234-1234-8014-7095D94F639B")]

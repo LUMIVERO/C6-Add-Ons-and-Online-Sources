@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PageRange2NumberOfPagesAddOn")]
+[assembly: AssemblyTitle("DerivePageCountFromPageRangeAddon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("PageRange2NumberOfPagesAddOn")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
+[assembly: AssemblyCompany("Swiss Academic Software")]
+[assembly: AssemblyProduct("DerivePageCountFromPageRangeAddon")]
+[assembly: AssemblyCopyright("Copyright © Swiss Academic Software 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
-namespace ImportJournalsAddon
+namespace SwissAcademic.Addons.ImportJournals
 {
     internal static class IssnValidator
     {
@@ -9,28 +10,28 @@ namespace ImportJournalsAddon
             //example of a valid ISSN
             //string issn = "0317-8471";
 
-            issn = System.Text.RegularExpressions.Regex.Replace(issn, @"[^\dxX]", "");
+            issn = Regex.Replace(issn, @"[^\dxX]", "");
             if (issn.Length != 8) return false;
 
-            char[] issnchars = issn.ToCharArray();
-            string[] issnsubstrings = new string[issnchars.Length];
-            for (int i = 0; i < issnchars.Length; i++)
+            var issnchars = issn.ToCharArray();
+            var issnsubstrings = new string[issnchars.Length];
+            for (var i = 0; i < issnchars.Length; i++)
             {
                 issnsubstrings[i] = issnchars[i].ToString();
             }
 
-            if (issnsubstrings[7].ToUpper() == "X")
+            if (issnsubstrings[7].Equals("X", StringComparison.OrdinalIgnoreCase))
             {
                 issnsubstrings[7] = "10";
             }
-            int sum = 0;
-            for (int i = 0; i < issnsubstrings.Length; i++)
+
+            var sum = 0;
+            for (var i = 0; i < issnsubstrings.Length; i++)
             {
                 sum += ((8 - i) * Int32.Parse(issnsubstrings[i]));
             };
+
             return ((sum % 11) == 0);
-
-
         }
     }
 }

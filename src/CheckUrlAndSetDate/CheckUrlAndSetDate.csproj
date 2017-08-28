@@ -8,7 +8,7 @@
     <ProjectGuid>{93D81773-5279-4A8C-8B58-E88D147900E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CheckUrlAndSetDateAddon</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.CheckUrlAndSetDate</RootNamespace>
     <AssemblyName>CheckUrlAndSetDateAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -69,28 +69,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="CheckUrlAndSetDateStringsMacro.cs" />
-    <Compile Include="Properties\Ressource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ressource.resx</DependentUpon>
-    </Compile>
+    <Compile Include="AddonKeys.cs" />
+    <Compile Include="Utilities\CheckUrlAndSetDateStringsMacro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\CheckUrlAndSetDateStrings.Designer.cs">
+    <Compile Include="Properties\CheckUrlAndSetDateResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CheckUrlAndSetDateStrings.resx</DependentUpon>
+      <DependentUpon>CheckUrlAndSetDateResources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Ressource.resx">
+    <EmbeddedResource Include="Properties\CheckUrlAndSetDateResources.de.resx" />
+    <EmbeddedResource Include="Properties\CheckUrlAndSetDateResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Ressource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\CheckUrlAndSetDateStrings.de.resx" />
-    <EmbeddedResource Include="Properties\CheckUrlAndSetDateStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CheckUrlAndSetDateStrings.Designer.cs</LastGenOutput>
+      <LastGenOutput>CheckUrlAndSetDateResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -102,9 +95,6 @@
     <None Include="addon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\addon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
