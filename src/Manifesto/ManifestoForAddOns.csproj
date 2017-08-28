@@ -46,7 +46,7 @@
       <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.dll</HintPath>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>..\..\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Citavi.dll</HintPath>
+      <HintPath>lib\SwissAcademic.Citavi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
