@@ -1,0 +1,15 @@
+﻿<BibliographyGroupingSet id="2d817ca3-72db-4c9b-8409-6575b213aacc" version="1.0.0.2">
+  <Groupings>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <GroupingMode>All</GroupingMode>
+      <GroupingType>Groups</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+  </Groupings>
+  <Name>Neue Gruppierung</Name>
+  <UngroupedReferencesSettings>
+    <Position>Top</Position>
+    <Suppress>False</Suppress>
+  </UngroupedReferencesSettings>
+</BibliographyGroupingSet>
