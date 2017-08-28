@@ -5,19 +5,19 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManifestoForAddOns", "Manifesto\ManifestoForAddOns.csproj", "{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportSequenceNumberAddon", "ImportSequenceNumber\ImportSequenceNumberAddon.csproj", "{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportSequenceNumber", "ImportSequenceNumber\ImportSequenceNumber.csproj", "{0E5D30F8-306C-4F05-9C53-BEC0A9D7EDBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddOns", "AddOns", "{64924FF9-5FD3-4605-8927-C668C6FA7621}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DerivePageCountFromPageRangeAddon", "DerivePageCountFromPageRangeAddOn\DerivePageCountFromPageRangeAddon.csproj", "{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DerivePageCountFromPageRange", "DerivePageCountFromPageRange\DerivePageCountFromPageRange.csproj", "{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageMacrosAddon", "SwissAcademic.Addons.Macros\ManageMacrosAddon.csproj", "{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacroManager", "MacroManager\MacroManager.csproj", "{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportJournalsAddon", "ImportJournals\ImportJournalsAddon.csproj", "{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportJournals", "ImportJournals\ImportJournals.csproj", "{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeAllCapitalAuthorNamesAddon", "NormalizeAllCapitalAuthorNames\NormalizeAllCapitalAuthorNamesAddon.csproj", "{1541D624-73E8-4946-8FB7-470615C496A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalizeAllCapitalAuthorNames", "NormalizeAllCapitalAuthorNames\NormalizeAllCapitalAuthorNames.csproj", "{1541D624-73E8-4946-8FB7-470615C496A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckUrlAndSetDateAddon", "CheckUrlAndSetDateAddon\CheckUrlAndSetDateAddon.csproj", "{93D81773-5279-4A8C-8B58-E88D147900E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckUrlAndSetDate", "CheckUrlAndSetDate\CheckUrlAndSetDate.csproj", "{93D81773-5279-4A8C-8B58-E88D147900E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,32 +105,32 @@ Global
 		SccTeamFoundationServer = http://tfs2012:8080/tfs/citavicollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = Manifesto\\ManifestoForAddOns.csproj
-		SccProjectTopLevelParentUniqueName1 = AddOnsProductive.sln
+		SccProjectTopLevelParentUniqueName1 = C6Addons.sln
 		SccProjectName1 = Manifesto
 		SccLocalPath1 = Manifesto
-		SccProjectUniqueName2 = DerivePageCountFromPageRangeAddOn\\DerivePageCountFromPageRangeAddon.csproj
-		SccProjectTopLevelParentUniqueName2 = AddOnsProductive.sln
-		SccProjectName2 = DerivePageCountFromPageRangeAddOn
-		SccLocalPath2 = DerivePageCountFromPageRangeAddOn
-		SccProjectUniqueName3 = ImportJournals\\ImportJournalsAddon.csproj
-		SccProjectTopLevelParentUniqueName3 = AddOnsProductive.sln
+		SccProjectUniqueName2 = DerivePageCountFromPageRange\\DerivePageCountFromPageRange.csproj
+		SccProjectTopLevelParentUniqueName2 = C6Addons.sln
+		SccProjectName2 = DerivePageCountFromPageRange
+		SccLocalPath2 = DerivePageCountFromPageRange
+		SccProjectUniqueName3 = ImportJournals\\ImportJournals.csproj
+		SccProjectTopLevelParentUniqueName3 = C6Addons.sln
 		SccProjectName3 = ImportJournals
 		SccLocalPath3 = ImportJournals
-		SccProjectUniqueName4 = NormalizeAllCapitalAuthorNames\\NormalizeAllCapitalAuthorNamesAddon.csproj
-		SccProjectTopLevelParentUniqueName4 = AddOnsProductive.sln
+		SccProjectUniqueName4 = NormalizeAllCapitalAuthorNames\\NormalizeAllCapitalAuthorNames.csproj
+		SccProjectTopLevelParentUniqueName4 = C6Addons.sln
 		SccProjectName4 = NormalizeAllCapitalAuthorNames
 		SccLocalPath4 = NormalizeAllCapitalAuthorNames
-		SccProjectUniqueName5 = ImportSequenceNumber\\ImportSequenceNumberAddon.csproj
-		SccProjectTopLevelParentUniqueName5 = AddOnsProductive.sln
+		SccProjectUniqueName5 = ImportSequenceNumber\\ImportSequenceNumber.csproj
+		SccProjectTopLevelParentUniqueName5 = C6Addons.sln
 		SccProjectName5 = ImportSequenceNumber
 		SccLocalPath5 = ImportSequenceNumber
-		SccProjectUniqueName6 = SwissAcademic.Addons.Macros\\ManageMacrosAddon.csproj
-		SccProjectTopLevelParentUniqueName6 = AddOnsProductive.sln
-		SccProjectName6 = SwissAcademic.Addons.Macros
-		SccLocalPath6 = SwissAcademic.Addons.Macros
-		SccProjectUniqueName7 = CheckUrlAndSetDateAddon\\CheckUrlAndSetDateAddon.csproj
-		SccProjectTopLevelParentUniqueName7 = AddOnsProductive.sln
-		SccProjectName7 = CheckUrlAndSetDateAddon
-		SccLocalPath7 = CheckUrlAndSetDateAddon
+		SccProjectUniqueName6 = MacroManager\\MacroManager.csproj
+		SccProjectTopLevelParentUniqueName6 = C6Addons.sln
+		SccProjectName6 = MacroManager
+		SccLocalPath6 = MacroManager
+		SccProjectUniqueName7 = CheckUrlAndSetDate\\CheckUrlAndSetDate.csproj
+		SccProjectTopLevelParentUniqueName7 = C6Addons.sln
+		SccProjectName7 = CheckUrlAndSetDate
+		SccLocalPath7 = CheckUrlAndSetDate
 	EndGlobalSection
 EndGlobal
