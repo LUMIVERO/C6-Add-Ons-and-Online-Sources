@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddOns", "AddOns", "{43BC8C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{92E6E362-5BE1-44F8-BABE-B71366259D34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportPdfsAndCategorySystem", "ImportPdfsAndCategorySystem\ImportPdfsAndCategorySystem.csproj", "{A4888F2C-83AB-43A0-9716-09193F684981}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,14 @@ Global
 		{93D81773-5279-4A8C-8B58-E88D147900E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93D81773-5279-4A8C-8B58-E88D147900E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{93D81773-5279-4A8C-8B58-E88D147900E1}.Release|x86.Build.0 = Release|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Debug|x86.Build.0 = Debug|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Release|x86.ActiveCfg = Release|Any CPU
+		{A4888F2C-83AB-43A0-9716-09193F684981}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +107,7 @@ Global
 		{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{1541D624-73E8-4946-8FB7-470615C496A0} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{93D81773-5279-4A8C-8B58-E88D147900E1} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{A4888F2C-83AB-43A0-9716-09193F684981} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}
