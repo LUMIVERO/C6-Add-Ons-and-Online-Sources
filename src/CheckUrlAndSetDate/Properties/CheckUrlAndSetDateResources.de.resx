@@ -141,6 +141,6 @@ Would you like to show a selection with references having an unreachable Online 
     <value>Es wurden keine Titel mit Links im Feld Online-Adresse gefunden.</value>
   </data>
   <data name="ReferenceInvalidFilterName" xml:space="preserve">
-    <value>[de] References with invalid URLs</value>
+    <value>[de] Titel mit ungültigen Online-Adressen</value>
   </data>
 </root>
