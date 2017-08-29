@@ -118,7 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>[de] Important: This macro will make irreversible changes to your project.\r\n\r\nMake sure you have a current backup of your project before you run this macro.\r\nIf you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.\r\n\r\nDo you want to continue?</value>
+    <value>[de]Important: This macro will make irreversible changes to your project.
+
+Make sure you have a current backup of your project before you run this macro.
+If you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
+
+Do you want to continue?</value>
   </data>
   <data name="NormalizeAuthorNamesCommandText" xml:space="preserve">
     <value>Autorennamen in Großbuchstaben korrigieren</value>

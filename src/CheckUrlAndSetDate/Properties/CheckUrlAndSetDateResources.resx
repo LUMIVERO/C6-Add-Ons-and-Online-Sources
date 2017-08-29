@@ -125,13 +125,21 @@
     <value>[en] Links im Feld Online-Adresse überprüfen</value>
   </data>
   <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>Important: This macro will make irreversible changes to your project.\r\n\r\nMake sure you have a current backup of your project before you run this macro.\r\nIf you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.\r\n\r\nDo you want to continue?</value>
+    <value>Important: This macro will make irreversible changes to your project.
+
+Make sure you have a current backup of your project before you run this macro.
+If you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
+
+Do you want to continue?</value>
   </data>
   <data name="LinkCheckNotes" xml:space="preserve">
     <value> *** Link {0} checked on {1}: {2}; original access date: {3} ***</value>
   </data>
   <data name="MacroResultMessage" xml:space="preserve">
-    <value>{0} links checked:\n{1} URLs valid\n{2} URLs not reachable\n Would you like to show a selection with references having an unreachable Online Address?</value>
+    <value>{0} links checked:
+{1} URLs valid
+{2} URLs not reachable
+Would you like to show a selection with references having an unreachable Online Address?</value>
   </data>
   <data name="NoReferencesFoundedMessage" xml:space="preserve">
     <value>[de] Es wurden keine Titel mit Links im Feld Online-Adresse gefunden.</value>

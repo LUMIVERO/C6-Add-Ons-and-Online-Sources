@@ -28,9 +28,14 @@ namespace Manifesto
 
         #region Konstruktor
 
-        public MainForm()
+        public MainForm(string[] args)
         {
             InitializeComponent();
+
+            if (args.Length != 0)
+            {
+                LoadJsonObject(args.FirstOrDefault(str => !string.IsNullOrEmpty(str) && File.Exists(str) && Path.GetExtension(str).Equals(".json", StringComparison.OrdinalIgnoreCase)));
+            }
         }
 
         #endregion
@@ -168,6 +173,32 @@ namespace Manifesto
             }
         }
 
+        void LoadJsonObject(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return;
+
+            try
+            {
+                newButton.Hide();
+                saveButton.Show();
+                var manifestJson = File.ReadAllText(path);
+                if (manifestJson.Contains("EntryPoint"))
+                {
+                    Manifest = JsonConvert.DeserializeObject<AddOnManifest>(manifestJson);
+                }
+                else
+                {
+                    Manifest = JsonConvert.DeserializeObject<CitationStyleElementManifest>(manifestJson);
+                }
+                ManifestPath = path;
+                Init();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         #endregion
 
         #endregion
@@ -217,7 +248,7 @@ namespace Manifesto
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -236,30 +267,11 @@ namespace Manifesto
                     fileDialog.Filter = "Manifest (*.json)|*.json";
                     if (fileDialog.ShowDialog(this) == DialogResult.OK)
                     {
-                        try
-                        {
-                            newButton.Hide();
-                            saveButton.Show();
-                            var manifestJson = File.ReadAllText(fileDialog.FileName);
-                            if (manifestJson.Contains("EntryPoint"))
-                            {
-                                Manifest = JsonConvert.DeserializeObject<AddOnManifest>(manifestJson);
-                            }
-                            else
-                            {
-                                Manifest = JsonConvert.DeserializeObject<CitationStyleElementManifest>(manifestJson);
-                            }
-                            ManifestPath = fileDialog.FileName;
-                            Init();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                        LoadJsonObject(fileDialog.FileName);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

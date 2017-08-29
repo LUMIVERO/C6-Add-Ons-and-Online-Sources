@@ -80,7 +80,12 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Important: This macro will make irreversible changes to your project.\r\n\r\nMake sure you have a current backup of your project before you run this macro.\r\nIf you aren&apos;t sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.\r\n\r\nDo you want to continue? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Important: This macro will make irreversible changes to your project.
+        ///
+        ///Make sure you have a current backup of your project before you run this macro.
+        ///If you aren&apos;t sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
+        ///
+        ///Do you want to continue? ähnelt.
         /// </summary>
         internal static string IsBackupAvailableMessage {
             get {
@@ -98,7 +103,10 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0} links checked:\n{1} URLs valid\n{2} URLs not reachable\n Would you like to show a selection with references having an unreachable Online Address? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} links checked:
+        ///{1} URLs valid
+        ///{2} URLs not reachable
+        ///Would you like to show a selection with references having an unreachable Online Address? ähnelt.
         /// </summary>
         internal static string MacroResultMessage {
             get {

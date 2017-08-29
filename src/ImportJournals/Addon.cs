@@ -40,7 +40,7 @@ namespace SwissAcademic.Addons.ImportJournals
                     ImportJournalsByPubMedMacro.Run(e.Form, Program.ActiveProjectShell.Project);
                     e.Handled = true;
                 }
-                if (e.Key.Equals(AddonKeys.CommandbarButtonWoodward, StringComparison.OrdinalIgnoreCase))
+                if (e.Key.Equals(AddonKeys.CommandbarButtonByWoodward, StringComparison.OrdinalIgnoreCase))
                 {
                     ImportJournalsByWoodwardMacro.Main(Program.ActiveProjectShell, Program.ActiveProjectShell.Project);
                     e.Handled = true;
@@ -59,7 +59,7 @@ namespace SwissAcademic.Addons.ImportJournals
                                                     .InsertCommandbarMenu(3, AddonKeys.CommandbarMenu, ImportJournalsResources.ImportJournalsMenu, image: ImportJournalsResources.addon);
                 _importJournalsByFileButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.CommandbarButtonByFile, ImportJournalsResources.ImportJournalsByFileCommandText);
                 _importJournalsByPubMedButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.CommandbarButtonByPubmed, ImportJournalsResources.ImportJournalsByPubMedCommandText);
-                _importJournalsByWoodwardButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.CommandbarButtonWoodward, ImportJournalsResources.ImportJournalsByWoodwardLibraryCommandText);
+                _importJournalsByWoodwardButton = _importJournalsMenu?.AddCommandbarButton(AddonKeys.CommandbarButtonByWoodward, ImportJournalsResources.ImportJournalsByWoodwardLibraryCommandText);
             }
 
             base.OnHostingFormLoaded(form);

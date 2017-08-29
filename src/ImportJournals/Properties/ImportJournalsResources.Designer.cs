@@ -98,7 +98,8 @@ namespace SwissAcademic.Addons.ImportJournals.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurde(n) {0} Zeitschrift(en) eingelesen. \n(Dubletten wurden unterdrückt.) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurde(n) {0} Zeitschrift(en) eingelesen.
+        ///(Dubletten wurden unterdrückt.) ähnelt.
         /// </summary>
         internal static string FileMacroResultMessage {
             get {
@@ -143,7 +144,9 @@ namespace SwissAcademic.Addons.ImportJournals.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die An error occurred importing the journal data:\n\n{0} ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die An error occurred importing the journal data:
+        ///
+        ///{0} ähnelt.
         /// </summary>
         internal static string MacroImportingErrorMessage {
             get {
@@ -170,7 +173,8 @@ namespace SwissAcademic.Addons.ImportJournals.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0} journal(s) were imported (not counting duplicates)\n {1} reference(s) were changed. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} journal(s) were imported (not counting duplicates)
+        ///{1} reference(s) were changed. ähnelt.
         /// </summary>
         internal static string WoodwardMacroResultMessage {
             get {

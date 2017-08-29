@@ -131,7 +131,8 @@
     <value>[en] Wählen Sie die zu importierende Zeitschriften-Datei aus (Text-Format)</value>
   </data>
   <data name="FileMacroResultMessage" xml:space="preserve">
-    <value>[en] Es wurde(n) {0} Zeitschrift(en) eingelesen. \n(Dubletten wurden unterdrückt.)</value>
+    <value>[en] Es wurde(n) {0} Zeitschrift(en) eingelesen.
+(Dubletten wurden unterdrückt.)</value>
   </data>
   <data name="ImportJournalsByFileCommandText" xml:space="preserve">
     <value>[en] aus Datei…</value>
@@ -146,7 +147,9 @@
     <value>[en] Zeitschriftenliste importieren</value>
   </data>
   <data name="MacroImportingErrorMessage" xml:space="preserve">
-    <value>An error occurred importing the journal data:\n\n{0}</value>
+    <value>An error occurred importing the journal data:
+
+{0}</value>
   </data>
   <data name="PubMedMacroReadErrorMessage" xml:space="preserve">
     <value>Could not read file from {0}: {1}"</value>
@@ -155,7 +158,8 @@
     <value>{0} journal(s) were imported (not counting duplicates)</value>
   </data>
   <data name="WoodwardMacroResultMessage" xml:space="preserve">
-    <value>{0} journal(s) were imported (not counting duplicates)\n {1} reference(s) were changed.</value>
+    <value>{0} journal(s) were imported (not counting duplicates)
+{1} reference(s) were changed.</value>
   </data>
   <data name="WoodwardMacroUpdateMessage" xml:space="preserve">
     <value>Would you like to update journal information for references in current selection (all references if no selection is active)?</value>

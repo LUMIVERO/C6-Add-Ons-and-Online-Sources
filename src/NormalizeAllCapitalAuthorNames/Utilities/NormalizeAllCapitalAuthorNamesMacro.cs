@@ -16,7 +16,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
             var normalizeCapitalLastname = true;
             var counter = 0;
 
-            if (MessageBox.Show(form, NormalizeAllCapitalAuthorNamesResources.IsBackupAvailableMessage.Replace("\r\n", System.Environment.NewLine), "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
+            if (MessageBox.Show(form, NormalizeAllCapitalAuthorNamesResources.IsBackupAvailableMessage, "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
 
             var authors = project.Persons.ToArray();
             if (!authors.Any()) return;

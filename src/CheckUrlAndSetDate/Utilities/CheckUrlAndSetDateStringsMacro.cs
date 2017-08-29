@@ -18,7 +18,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
             string setToDate = null;
             var setDateAlways = false;
 
-            if (MessageBox.Show(mainForm, CheckUrlAndSetDateResources.IsBackupAvailableMessage.Replace("\r\n", System.Environment.NewLine), "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
+            if (MessageBox.Show(mainForm, CheckUrlAndSetDateResources.IsBackupAvailableMessage, "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
 
             var dateTimeFormat = Program.Engine.Settings.General.DateTimeFormat;
             var newAccessDate = setToDate ?? DateTime.Today.ToString(dateTimeFormat);
