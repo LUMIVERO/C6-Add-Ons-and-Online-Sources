@@ -131,9 +131,9 @@ Möchten Sie fortfahren?</value>
     <value> *** Link {0} geprüft am {1}: {2}; ursprüngliches Zugriffsdatum: {3} ***</value>
   </data>
   <data name="MacroResultMessage" xml:space="preserve">
-    <value>{0} Links geprüft:
-{1} Links gültig und erreichbar
-{2} Links nicht erreichbar
+    <value>{0} Link(s) geprüft:
+{1} Link(s) gültig und erreichbar
+{2} Link(s) nicht erreichbar
 
 Möchten Sie eine Auswahl der Titel erstellen, deren Links nicht erreichbar sind?</value>
   </data>
