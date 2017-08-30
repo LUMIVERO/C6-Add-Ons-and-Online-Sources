@@ -143,21 +143,21 @@
     <value>Zeitschriftenliste importieren</value>
   </data>
   <data name="MacroImportingErrorMessage" xml:space="preserve">
-    <value>[de] An error occurred importing the journal data:
+    <value>Beim Importieren der Zeitschriften-Datei ist ein Fehler aufgetreten:
 
 {0}</value>
   </data>
   <data name="PubMedMacroReadErrorMessage" xml:space="preserve">
-    <value>[de] Could not read file from {0}: {1}"</value>
+    <value>Die Datei konnte nicht gelesen werden ab {0}: {1}"</value>
   </data>
   <data name="PubMedMacroResultMessage" xml:space="preserve">
-    <value>[de] {0} journal(s) were imported (not counting duplicates)</value>
+    <value>{0} Zeitschriften wurden importiert (Duplikate werden nicht gezählt)</value>
   </data>
   <data name="WoodwardMacroResultMessage" xml:space="preserve">
-    <value>[de] {0} journal(s) were imported (not counting duplicates)
-{1} reference(s) were changed.</value>
+    <value>{0} Zeitschriften wurden importiert (Duplikate werden nicht gezählt) 
+{1} Titel wurde(n) geändert.</value>
   </data>
   <data name="WoodwardMacroUpdateMessage" xml:space="preserve">
-    <value>[de] Would you like to update journal information for references in current selection (all references if no selection is active)?</value>
+    <value>Möchten Sie die Zeitschriften-Daten der ausgewählten Titel aktualisieren (es werden alle Titel aktualisiert, wenn keine Auswahl getroffen ist)?</value>
   </data>
 </root>
