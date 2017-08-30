@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DerivePageCountFromPageRange" xml:space="preserve">
-    <value>"Anzahl Seiten" aus "Seiten von–bis" ableiten</value>
+    <value>"Anzahl Seiten" aus "Seiten von–bis" berechnen</value>
   </data>
   <data name="FilterInfo" xml:space="preserve">
     <value>Dieser Befehl wirkt sich auf alle Titel der aktuellen Auswahl aus.</value>
