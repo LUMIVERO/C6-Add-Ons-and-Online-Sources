@@ -118,17 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>[de]Important: This macro will make irreversible changes to your project.
+    <value>Wichtig: Das Add-on nimmt Änderungen an Ihren Daten vor.
 
-Make sure you have a current backup of your project before you run this macro.
-If you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
+Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Datei &gt; Dieses Projekt &gt; Sicherungskopie erstellen.
 
-Do you want to continue?</value>
+Möchten Sie fortfahren?</value>
   </data>
   <data name="NormalizeAuthorNamesCommandText" xml:space="preserve">
     <value>Autorennamen in Großbuchstaben korrigieren</value>
   </data>
   <data name="ResultMessage" xml:space="preserve">
-    <value>[de] {0} names have been normalised.</value>
+    <value>{0} Name(n) wurden korrigiert.</value>
   </data>
 </root>
