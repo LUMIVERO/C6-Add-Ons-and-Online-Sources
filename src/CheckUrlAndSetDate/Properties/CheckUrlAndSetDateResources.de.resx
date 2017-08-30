@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckUrlAndSetDateCommandText" xml:space="preserve">
-    <value>Links im Feld Online-Adresse überprüfen</value>
+    <value>Links überprüfen und Zugriffsdatum aktualisieren</value>
   </data>
   <data name="IsBackupAvailableMessage" xml:space="preserve">
     <value>Wichtig: Das Add-on nimmt Änderungen an Ihren Daten vor.
 
-Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Citavi &gt; Menü Datei &gt; Sicherungskopie erstellen.
+Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Datei &gt; Dieses Projekt &gt; Sicherungskopie erstellen.
 
 Möchten Sie fortfahren?</value>
   </data>
@@ -134,6 +134,7 @@ Möchten Sie fortfahren?</value>
     <value>{0} Links geprüft:
 {1} Links gültig und erreichbar
 {2} Links nicht erreichbar
+
 Möchten Sie eine Auswahl der Titel erstellen, deren Links nicht erreichbar sind?</value>
   </data>
   <data name="NoReferencesFoundedMessage" xml:space="preserve">
