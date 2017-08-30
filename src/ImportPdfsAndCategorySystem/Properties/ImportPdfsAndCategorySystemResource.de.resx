@@ -121,18 +121,17 @@
     <value>PDFs mit Ordnern als Kategorien importieren...</value>
   </data>
   <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>[de] Important: This macro will make irreversible changes to your project.
+    <value>Wichtig: Das Add-on nimmt Änderungen an Ihren Daten vor.
 
-Make sure you have a current backup of your project before you run this macro.
-If you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
+Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Datei &gt; Dieses Projekt &gt; Sicherungskopie erstellen.
 
-Do you want to continue?</value>
+Möchten Sie fortfahren?</value>
   </data>
   <data name="MacroResultMessage" xml:space="preserve">
-    <value>[de]Macro has finished execution.
-{0} changes were made.</value>
+    <value>Der Import war erfolgreich.
+{0} Änderung(en) wurde(n) vorgenommen.</value>
   </data>
   <data name="FolderBrowserDialogDescription" xml:space="preserve">
-    <value>[de]Select a root folder for the PDF files to be imported...</value>
+    <value>Wählen Sie den übergeordneten Ordner, aus welchem die PDF-Dateien importiert werden sollen...</value>
   </data>
 </root>
