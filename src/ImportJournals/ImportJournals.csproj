@@ -42,20 +42,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Citavi">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
     </Reference>
     <Reference Include="SwissAcademic">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic.Resources">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Resources.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
