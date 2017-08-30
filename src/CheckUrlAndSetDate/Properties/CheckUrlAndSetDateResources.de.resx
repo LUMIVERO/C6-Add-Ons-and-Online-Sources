@@ -121,26 +121,25 @@
     <value>Links im Feld Online-Adresse überprüfen</value>
   </data>
   <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>[de] Important: This macro will make irreversible changes to your project.
+    <value>Wichtig: Das Add-on nimmt Änderungen an Ihren Daten vor.
 
-Make sure you have a current backup of your project before you run this macro.
-If you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
+Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Citavi &gt; Menü Datei &gt; Sicherungskopie erstellen.
 
-Do you want to continue?</value>
+Möchten Sie fortfahren?</value>
   </data>
   <data name="LinkCheckNotes" xml:space="preserve">
-    <value>[de] *** Link {0} checked on {1}: {2}; original access date: {3} ***</value>
+    <value> *** Link {0} geprüft am {1}: {2}; ursprüngliches Zugriffsdatum: {3} ***</value>
   </data>
   <data name="MacroResultMessage" xml:space="preserve">
-    <value>[de] {0} links checked:
-{1} URLs valid
-{2} URLs not reachable
-Would you like to show a selection with references having an unreachable Online Address?</value>
+    <value>{0} Links geprüft:
+{1} Links gültig und erreichbar
+{2} Links nicht erreichbar
+Möchten Sie eine Auswahl der Titel erstellen, deren Links nicht erreichbar sind?</value>
   </data>
   <data name="NoReferencesFoundedMessage" xml:space="preserve">
     <value>Es wurden keine Titel mit Links im Feld Online-Adresse gefunden.</value>
   </data>
   <data name="ReferenceInvalidFilterName" xml:space="preserve">
-    <value>[de] Titel mit ungültigen Online-Adressen</value>
+    <value>Titel mit nicht erreichbaren Links</value>
   </data>
 </root>
