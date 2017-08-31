@@ -50,7 +50,6 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
                 var url = location.Address.Resolve().ToString();
 
-
                 loopCounter++;
 
                 var oldAccessDate = reference.AccessDate;

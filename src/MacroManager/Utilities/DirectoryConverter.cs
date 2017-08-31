@@ -9,7 +9,7 @@ namespace SwissAcademic.Addons.MacroManager
 {
     public static class DirectoryConverter
     {
-        public static void Travers(CommandbarMenu commandbarMenu, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> keyFiles, List<ToolBase> tools,bool isFirst)
+        public static void Travers(CommandbarMenu commandbarMenu, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, List<ToolBase> tools, bool isFirst)
         {
             try
             {
@@ -24,11 +24,11 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add((ToolBase)menu.Tool);
-                    Travers(menu, ref folderCounter, ref fileCounter, directory, keyFiles, tools, isFirst);
+                    tools.Add(menu.Tool);
+                    Travers(menu, ref folderCounter, ref fileCounter, directory, macroCommands, tools, isFirst);
                 }
 
-                foreach (string strFile in Directory.GetFiles(path, "*.cs"))
+                foreach (var strFile in Directory.GetFiles(path, "*.cs"))
                 {
                     fileCounter++;
 
@@ -41,14 +41,14 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add((ToolBase)menu.Tool);
+                    tools.Add(menu.Tool);
                     key = AddonKeys.DirectoryCommand + "." + fileCounter + ".1";
                     var button = menu.AddCommandbarButton(key, MacroManagerResources.EditCommand);
-                    keyFiles.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
+                    macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
                     tools.Add(button.Tool);
                     key = AddonKeys.DirectoryCommand + "." + fileCounter + ".2";
                     button = menu.AddCommandbarButton(AddonKeys.DirectoryCommand + "." + fileCounter + ".2", MacroManagerResources.RunCommand);
-                    keyFiles.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
+                    macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
                     tools.Add(button.Tool);
                 }
             }

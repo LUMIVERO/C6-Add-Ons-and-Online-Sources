@@ -142,4 +142,19 @@
   <data name="RunCommand" xml:space="preserve">
     <value>[en] Ausführen</value>
   </data>
+  <data name="ConfigurateCommand" xml:space="preserve">
+    <value> [en] Konfiguration</value>
+  </data>
+  <data name="ConfigurateAddonMessage" xml:space="preserve">
+    <value>[en] Bitte wählen Sie zunächt unter Konfiguration den Ordner aus in dem die Makros abgespeichert werden.</value>
+  </data>
+  <data name="DirectoryNotFoundMessage" xml:space="preserve">
+    <value>[en] Der Ordner mit den Makros wurde nicht gefunden. Bitte konfigurieren Sie diesen neu.</value>
+  </data>
+  <data name="FolderBrowseDialogDescription" xml:space="preserve">
+    <value>[en] Bitte wählen Sie den Ordner aus in dem die Makros abgespeichert sind.</value>
+  </data>
+  <data name="PathNotFoundMessage" xml:space="preserve">
+    <value>[en] Die angegebene Pfad '{0}' wurde nicht gefunden. Die Liste wird nun aktualisiert.</value>
+  </data>
 </root>

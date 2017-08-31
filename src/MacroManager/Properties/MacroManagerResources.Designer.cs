@@ -71,11 +71,47 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bitte wählen Sie zunächt unter Konfiguration den Ordner aus in dem die Makros abgespeichert werden. ähnelt.
+        /// </summary>
+        internal static string ConfigurateAddonMessage {
+            get {
+                return ResourceManager.GetString("ConfigurateAddonMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  [en] Konfiguration ähnelt.
+        /// </summary>
+        internal static string ConfigurateCommand {
+            get {
+                return ResourceManager.GetString("ConfigurateCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Der Ordner mit den Makros wurde nicht gefunden. Bitte konfigurieren Sie diesen neu. ähnelt.
+        /// </summary>
+        internal static string DirectoryNotFoundMessage {
+            get {
+                return ResourceManager.GetString("DirectoryNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bearbeiten ähnelt.
         /// </summary>
         internal static string EditCommand {
             get {
                 return ResourceManager.GetString("EditCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bitte wählen Sie den Ordner aus in dem die Makros abgespeichert sind. ähnelt.
+        /// </summary>
+        internal static string FolderBrowseDialogDescription {
+            get {
+                return ResourceManager.GetString("FolderBrowseDialogDescription", resourceCulture);
             }
         }
         
@@ -104,6 +140,15 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         internal static string MacroEditorCommand {
             get {
                 return ResourceManager.GetString("MacroEditorCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Die angegebene Pfad &apos;{0}&apos; wurde nicht gefunden. Die Liste wird nun aktualisiert. ähnelt.
+        /// </summary>
+        internal static string PathNotFoundMessage {
+            get {
+                return ResourceManager.GetString("PathNotFoundMessage", resourceCulture);
             }
         }
         

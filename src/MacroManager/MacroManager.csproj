@@ -107,9 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="Utilities\AddonInfo.cs" />
-    <Compile Include="Utilities\AddonInfoValidator.cs" />
     <Compile Include="AddonKeys.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="Utilities\DirectoryConverter.cs" />
     <Compile Include="Utilities\MacroCommand.cs" />
     <Compile Include="Utilities\MacroAction.cs" />

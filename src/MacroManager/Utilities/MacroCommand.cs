@@ -4,19 +4,19 @@
     {
         #region Constructors
 
-        public MacroCommand(string macroPath, MacroAction macroAction)
+        public MacroCommand(string path, MacroAction action)
         {
-            MacroPath = macroPath;
-            MacroAction = macroAction;
+            Path = path;
+            Action = action;
         }
 
         #endregion
 
         #region Properties
 
-        public string MacroPath { get; }
+        public string Path { get; }
 
-        public MacroAction MacroAction { get; }
+        public MacroAction Action { get; }
 
         #endregion
     }

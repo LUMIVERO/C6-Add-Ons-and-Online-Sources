@@ -1,5 +1,4 @@
-﻿
-namespace SwissAcademic.Addons.MacroManager
+﻿namespace SwissAcademic.Addons.MacroManager
 {
     public enum MacroAction
     {
