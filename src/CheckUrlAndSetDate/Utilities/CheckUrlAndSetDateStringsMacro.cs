@@ -1,5 +1,6 @@
 ﻿using SwissAcademic.Addons.CheckUrlAndSetDate.Properties;
 using SwissAcademic.Citavi;
+using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
@@ -41,11 +42,20 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
             foreach (var reference in referencesWithUrl)
             {
 
+                var location = (from l in reference.Locations
+                                where l.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
+                                select l).FirstOrDefault();
+
+                if (location?.Address.LinkedResourceType != LinkedResourceType.RemoteUri) continue;
+
+                var url = location.Address.Resolve().ToString();
+
+
                 loopCounter++;
 
                 var oldAccessDate = reference.AccessDate;
 
-                if (RemoteFileExists(reference.OnlineAddress, timeOut, out string urlResult))
+                if (RemoteFileExists(url, timeOut, out string urlResult))
                 {
                     reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
                     reference.AccessDate = newAccessDate;
