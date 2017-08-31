@@ -14,9 +14,6 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
     {
         public static void Run(MainForm mainForm)
         {
-
-            if (MessageBox.Show(mainForm, ImportPdfsAndCategorySystemResource.IsBackupAvailableMessage, "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
-
             int counter = 0;
 
             try

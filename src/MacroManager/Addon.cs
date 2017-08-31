@@ -33,7 +33,7 @@ namespace SwissAcademic.Addons.MacroManager
 
         MacroEditorForm GetMacroEditor(Form form, bool hide = false)
         {
-            _macroEditor = hide ? new MacroEditorForm { Owner = form } : new MacroEditorForm { Owner = form, WindowState = FormWindowState.Minimized, Opacity = 0.00 };
+            _macroEditor = hide ? new MacroEditorForm { Owner = form, WindowState = FormWindowState.Minimized, Opacity = 0.00 } : new MacroEditorForm { Owner = form };
             _macroEditor.FormClosed += MacroEditorForm_FormClosed;
 
 #if DEBUG
@@ -131,6 +131,17 @@ namespace SwissAcademic.Addons.MacroManager
             base.OnHostingFormLoaded(form);
         }
 
+        protected override void OnLocalizing(Form hostingForm)
+        {
+            if (_commandbarMenu != null)
+            {
+                _commandbarMenu.Text = MacroManagerResources.MacroCommand;
+                Refresh();
+            }
+
+            base.OnLocalizing(hostingForm);
+        }
+
         void RunDirectoryConverter()
         {
             if (_commandbarMenu != null)
@@ -175,16 +186,7 @@ namespace SwissAcademic.Addons.MacroManager
             RunDirectoryConverter();
         }
 
-        protected override void OnLocalizing(Form hostingForm)
-        {
-            if (_commandbarMenu != null)
-            {
-                _commandbarMenu.Text = MacroManagerResources.MacroCommand;
-                Refresh();
-            }
-
-            base.OnLocalizing(hostingForm);
-        }
+       
 
 
         #endregion

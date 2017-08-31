@@ -61,7 +61,7 @@ namespace SwissAcademic.Addons.ImportJournals
                     var abbreviation2 = string.Empty; // this one shouldn't
                     var abbreviation3 = string.Empty; // this one should be any all uppercase acronym after a colon in JournalTitl
 
-                    MatchCollection journalData = Regex.Matches(journalAndAbbrev.ToString(), "(?<=<td>).*?(?=</td>)");
+                    var journalData = Regex.Matches(journalAndAbbrev.ToString(), "(?<=<td>).*?(?=</td>)");
                     if (journalData.Count < 2) continue;
 
                     abbreviation1 = journalData[0].Value;

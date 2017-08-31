@@ -120,13 +120,6 @@
   <data name="AddonCommandbarButton" xml:space="preserve">
     <value>PDFs mit Ordnern als Kategorien importieren...</value>
   </data>
-  <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>Wichtig: Das Add-on nimmt Änderungen an Ihren Daten vor.
-
-Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Datei &gt; Dieses Projekt &gt; Sicherungskopie erstellen.
-
-Möchten Sie fortfahren?</value>
-  </data>
   <data name="MacroResultMessage" xml:space="preserve">
     <value>Der Import war erfolgreich.
 {0} Änderung(en) wurde(n) vorgenommen.</value>

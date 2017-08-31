@@ -117,13 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>Wichtig: Das Add-on nimmt Änderungen an Ihren Daten vor.
-
-Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Datei &gt; Dieses Projekt &gt; Sicherungskopie erstellen.
-
-Möchten Sie fortfahren?</value>
-  </data>
   <data name="NormalizeAuthorNamesCommandText" xml:space="preserve">
     <value>Autorennamen in Großbuchstaben korrigieren</value>
   </data>

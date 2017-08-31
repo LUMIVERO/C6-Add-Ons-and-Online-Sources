@@ -10,13 +10,9 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
     {
         public static void Run(Form form, Project project)
         {
-
-
             var prefixSuffixFirstCapitalLetter = false;
             var normalizeCapitalLastname = true;
             var counter = 0;
-
-            if (MessageBox.Show(form, NormalizeAllCapitalAuthorNamesResources.IsBackupAvailableMessage, "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) != DialogResult.OK) return;
 
             var authors = project.Persons.ToArray();
             if (!authors.Any()) return;

@@ -120,13 +120,6 @@
   <data name="CheckUrlAndSetDateCommandText" xml:space="preserve">
     <value>Links überprüfen und Zugriffsdatum aktualisieren</value>
   </data>
-  <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>Wichtig: Das Add-on nimmt Änderungen an Ihren Daten vor.
-
-Erstellen Sie unbedingt vor der Ausführung eine Sicherungskopie Ihres Projektes: Datei &gt; Dieses Projekt &gt; Sicherungskopie erstellen.
-
-Möchten Sie fortfahren?</value>
-  </data>
   <data name="LinkCheckNotes" xml:space="preserve">
     <value> *** Link {0} geprüft am {1}: {2}; ursprüngliches Zugriffsdatum: {3} ***</value>
   </data>

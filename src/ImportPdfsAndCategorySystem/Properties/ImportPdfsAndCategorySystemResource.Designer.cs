@@ -90,20 +90,6 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Important: This macro will make irreversible changes to your project.
-        ///
-        ///Make sure you have a current backup of your project before you run this macro.
-        ///If you aren&apos;t sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
-        ///
-        ///Do you want to continue? ähnelt.
-        /// </summary>
-        internal static string IsBackupAvailableMessage {
-            get {
-                return ResourceManager.GetString("IsBackupAvailableMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Macro has finished execution.
         ///{0} changes were made. ähnelt.
         /// </summary>

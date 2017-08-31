@@ -124,14 +124,6 @@
   <data name="CheckUrlAndSetDateCommandText" xml:space="preserve">
     <value>[en] Links im Feld Online-Adresse überprüfen</value>
   </data>
-  <data name="IsBackupAvailableMessage" xml:space="preserve">
-    <value>Important: This macro will make irreversible changes to your project.
-
-Make sure you have a current backup of your project before you run this macro.
-If you aren't sure, click Cancel and then, in the main Citavi window, on the File menu, click Create backup.
-
-Do you want to continue?</value>
-  </data>
   <data name="LinkCheckNotes" xml:space="preserve">
     <value> *** Link {0} checked on {1}: {2}; original access date: {3} ***</value>
   </data>
