@@ -26,7 +26,7 @@ namespace SwissAcademic.Addons.MacroManager
 
         public static bool IsHidden(this MacroEditorForm macroEditorForm)
         {
-            return macroEditorForm.WindowState == FormWindowState.Minimized && !macroEditorForm.Visible && macroEditorForm.Opacity == 0.00;
+            return !macroEditorForm.Visible;
         }
 
         #endregion

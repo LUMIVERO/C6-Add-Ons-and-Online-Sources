@@ -9,14 +9,16 @@ namespace SwissAcademic.Addons.MacroManager
 {
     public static class DirectoryConverter
     {
-        public static void Travers(CommandbarMenu commandbarMenu, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, List<ToolBase> tools, bool isFirst)
+        public static void Travers(CommandbarMenu commandbarMenu, int index, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, List<ToolBase> tools, bool isFirst)
         {
             try
             {
                 foreach (var directory in Directory.GetDirectories(path))
                 {
                     folderCounter++;
-                    var menu = commandbarMenu.AddCommandbarMenu(AddonKeys.DirectoryMenu.FormatString(folderCounter), new DirectoryInfo(directory).Name);
+                    var menu = commandbarMenu.InsertCommandbarMenu(index, AddonKeys.DirectoryMenu.FormatString(folderCounter), new DirectoryInfo(directory).Name);
+
+                    index = index + 1;
 
                     if (isFirst)
                     {
@@ -25,7 +27,7 @@ namespace SwissAcademic.Addons.MacroManager
                     }
 
                     tools.Add(menu.Tool);
-                    Travers(menu, ref folderCounter, ref fileCounter, directory, macroCommands, tools, isFirst);
+                    Travers(menu, 0, ref folderCounter, ref fileCounter, directory, macroCommands, tools, isFirst);
                 }
 
                 foreach (var strFile in Directory.GetFiles(path, "*.cs"))
@@ -33,8 +35,8 @@ namespace SwissAcademic.Addons.MacroManager
                     fileCounter++;
 
                     var key = AddonKeys.DirectoryMenu.FormatString(folderCounter) + "." + fileCounter;
-                    var menu = commandbarMenu.AddCommandbarMenu(key, Path.GetFileName(strFile), image: MacroManagerResources.Macro);
-
+                    var menu = commandbarMenu.InsertCommandbarMenu(index, key, Path.GetFileName(strFile), image: MacroManagerResources.Macro);
+                    index = index + 1;
                     if (isFirst)
                     {
                         menu.Tool.InstanceProps.IsFirstInGroup = true;
