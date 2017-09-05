@@ -103,6 +103,7 @@ namespace SwissAcademic.Addons.MacroManager
                             else
                             {
                                 MessageBox.Show(e.Form, MacroManagerResources.PathNotFoundMessage.FormatString(macro.Path), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                UpdateTools(e.Form, true);
                             }
 
                         }
