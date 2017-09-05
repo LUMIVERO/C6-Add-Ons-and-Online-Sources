@@ -49,7 +49,7 @@ namespace SwissAcademic.Addons.MacroManager
             {
                 case (AddonKeys.ShowMacroEditor):
                     {
-                        CurrentEditor(e.Form).Activate();
+                        CurrentEditor(e.Form, false,out bool hidden,out bool isNew).Activate();
                     }
                     break;
                 case (AddonKeys.Refresh):
@@ -64,6 +64,7 @@ namespace SwissAcademic.Addons.MacroManager
                             if (folderBrowseDialog.ShowDialog(e.Form) == DialogResult.OK)
                             {
                                 this.Settings[AddonKeys.MacrosDirectory] = folderBrowseDialog.SelectedPath;
+                                Program.Settings.InitialDirectories.SetInitialDirectoryContext(SwissAcademic.Citavi.Settings.InitialDirectoryContext.Macros, folderBrowseDialog.SelectedPath);
                                 UpdateTools(e.Form);
                             }
                         }
@@ -81,16 +82,23 @@ namespace SwissAcademic.Addons.MacroManager
                             {
                                 var hide = macro.Action == MacroAction.Run;
 
-                                _editor = CurrentEditor(e.Form, hide);
+                                _editor = CurrentEditor(e.Form, hide, out bool hidden,out bool isNew);
 
-                                if (_editor.IsHidden()) hide = false;
+                                if (!isNew && _editor.IsDirty())
+                                {
+                                    if (MessageBox.Show(e.Form, MacroManagerResources.UserWarningSaveMessage, "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                                    {
+                                        _editor.Save();
+                                    }
+                                }
 
                                 _editor.MacroCode = File.ReadAllText(macro.Path);
+                                _editor.SetFilePath(macro.Path);
                                 _editor.Activate();
 
                                 if (macro.Action == MacroAction.Run) _editor.Run();
 
-                                if (hide) _editor.Close();
+                                if (hidden) _editor.Close();
                             }
                             else
                             {
@@ -169,10 +177,16 @@ namespace SwissAcademic.Addons.MacroManager
             base.OnLocalizing(form);
         }
 
-        MacroEditorForm CurrentEditor(Form form, bool hide = false)
+        MacroEditorForm CurrentEditor(Form form, bool hide, out bool hidden,out bool isNew)
         {
-            if (_editor != null) return _editor;
+            if (_editor != null)
+            {
+                hidden = !_editor.Visible;
+                isNew = false;
+                return _editor;
+            }
 
+            isNew = true;
             _editor = new MacroEditorForm { Owner = form };
             _editor.FormClosed += MacroEditorForm_FormClosed;
 
@@ -183,14 +197,15 @@ namespace SwissAcademic.Addons.MacroManager
 #endif
             _editor.Show();
 
+            hidden = hide;
+
             if (hide) _editor.Hide();
 
             return _editor;
         }
 
-        void UpdateTools(Form form, bool firstStart = false)
+        void UpdateTools(Form form, bool supressMessage = false)
         {
-
             foreach (var tool in _tools)
             {
                 tool.ToolbarsManager.Tools.Remove(tool);
@@ -198,10 +213,10 @@ namespace SwissAcademic.Addons.MacroManager
 
             _tools.Clear();
             _macros.Clear();
-            RunTravers(form);
+            RunTravers(form, supressMessage);
         }
 
-        void RunTravers(Form form)
+        void RunTravers(Form form, bool supressMessage = false)
         {
             if (IsValidDirectory(out string message))
             {
@@ -226,7 +241,7 @@ namespace SwissAcademic.Addons.MacroManager
             }
             else
             {
-                MessageBox.Show(form, message, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!supressMessage) MessageBox.Show(form, message, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

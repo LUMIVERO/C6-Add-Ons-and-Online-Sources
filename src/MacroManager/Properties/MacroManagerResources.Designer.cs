@@ -71,7 +71,7 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bitte wählen Sie zunächt unter Konfiguration den Ordner aus in dem die Makros abgespeichert werden. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bitte wählen Sie zunächst unter Konfigurieren den Ordner aus, in dem die Makros abgespeichert werden. ähnelt.
         /// </summary>
         internal static string ConfigurateAddonMessage {
             get {
@@ -80,7 +80,7 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  [en] Konfiguration ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die  [en] Konfigurieren ähnelt.
         /// </summary>
         internal static string ConfigurateCommand {
             get {
@@ -144,7 +144,7 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Die angegebene Pfad &apos;{0}&apos; wurde nicht gefunden. Die Liste wird nun aktualisiert. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Die angegebene Pfad &apos;{0}&apos; wurde nicht gefunden. Die Ansicht wird aktualisiert. ähnelt.
         /// </summary>
         internal static string PathNotFoundMessage {
             get {
@@ -177,6 +177,15 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         internal static string RunCommand {
             get {
                 return ResourceManager.GetString("RunCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Im geöffneten Macro-Editor befinden sich nicht gesicherte Elemente. Möchten Sie diese vor der Ausführung des Befehls speichern? ähnelt.
+        /// </summary>
+        internal static string UserWarningSaveMessage {
+            get {
+                return ResourceManager.GetString("UserWarningSaveMessage", resourceCulture);
             }
         }
     }
