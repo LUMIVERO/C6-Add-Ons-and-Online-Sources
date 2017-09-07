@@ -1,1 +1,30 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"NormalizeAllCapitalAuthorNamesAddon.dll","Icon":"addon.png","Summary":"Korrigiert Autorennamen in Großbuchstaben zu normaler Groß-/Kleinschreibung.","summary_localized":{"de":"Korrigiert Autorennamen in Großbuchstaben zu normaler Groß-/Kleinschreibung."},"Url":"","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"Sie haben nach einem Import aus einer Datenbank etliche Autorennamen, die in Großbuchstaben (z.B. SMITH, JOHN A.; HUBER, Diane Juliane) geschrieben sind und möchten diese in normale Groß-/Kleinschreibung (z.B. Smith, John A.; Huber, Diane Juliane) umwandeln.\r\nDas Add-on prüft alle Autoren in Ihrem Projekt, ob sie vollständig in Großbuchstaben vorliegen und passt die Schreibweise gegebenenfalls an.\r\n\r\nUnter Listen > Personen und Institutionen > Personen wird der Befehl «Autorennamen in Großbuchstaben korrigieren» hinzugefügt.","description_localized":{"de":"Sie haben nach einem Import aus einer Datenbank etliche Autorennamen, die in Großbuchstaben (z.B. SMITH, JOHN A.; HUBER, Diane Juliane) geschrieben sind und möchten diese in normale Groß-/Kleinschreibung (z.B. Smith, John A.; Huber, Diane Juliane) umwandeln.\r\nDas Add-on prüft alle Autoren in Ihrem Projekt, ob sie vollständig in Großbuchstaben vorliegen und passt die Schreibweise gegebenenfalls an.\r\n\r\nUnter Listen > Personen und Institutionen > Personen wird der Befehl «Autorennamen in Großbuchstaben korrigieren» hinzugefügt."},"Id":"1541d624-73e8-4946-8fb7-470615c496a0","Name":"Autorennamen in Großbuchstaben korrigieren","name_localized":{"de":"Autorennamen in Großbuchstaben korrigieren"},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":2,"MajorRevision":0,"MinorRevision":2}}
+﻿{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "NormalizeAllCapitalAuthorNamesAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "Korrigiert Autorennamen in Großbuchstaben zu normaler Groß-/Kleinschreibung.",
+  "summary_localized": { "de": "Korrigiert Autorennamen in Großbuchstaben zu normaler Groß-/Kleinschreibung." },
+  "Url": "",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "Sie haben nach einem Import aus einer Datenbank etliche Autorennamen, die in Großbuchstaben (z.B. SMITH, JOHN A.; HUBER, Diane Juliane) geschrieben sind und möchten diese in normale Groß-/Kleinschreibung (z.B. Smith, John A.; Huber, Diane Juliane) umwandeln.\r\nDas Add-on prüft alle Autoren in Ihrem Projekt, ob sie vollständig in Großbuchstaben vorliegen und passt die Schreibweise gegebenenfalls an.\r\n\r\nUnter Listen > Personen und Institutionen > Personen wird der Befehl «Autorennamen in Großbuchstaben korrigieren» hinzugefügt.",
+  "description_localized": { "de": "Sie haben nach einem Import aus einer Datenbank etliche Autorennamen, die in Großbuchstaben (z.B. SMITH, JOHN A.; HUBER, Diane Juliane) geschrieben sind und möchten diese in normale Groß-/Kleinschreibung (z.B. Smith, John A.; Huber, Diane Juliane) umwandeln.\r\nDas Add-on prüft alle Autoren in Ihrem Projekt, ob sie vollständig in Großbuchstaben vorliegen und passt die Schreibweise gegebenenfalls an.\r\n\r\nUnter Listen > Personen und Institutionen > Personen wird der Befehl «Autorennamen in Großbuchstaben korrigieren» hinzugefügt." },
+  "Id": "1541d624-73e8-4946-8fb7-470615c496a0",
+  "Name": "Autorennamen in Großbuchstaben korrigieren",
+  "name_localized": { "de": "Autorennamen in Großbuchstaben korrigieren" },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 2,
+    "MajorRevision": 0,
+    "MinorRevision": 2
+  }
+}
