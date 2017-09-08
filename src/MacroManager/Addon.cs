@@ -194,7 +194,7 @@ namespace SwissAcademic.Addons.MacroManager
 #if DEBUG
             _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroInternal;
 #else
-            _macroEditor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroExternal;
+            _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroExternal;
 #endif
             _editor.Show();
 

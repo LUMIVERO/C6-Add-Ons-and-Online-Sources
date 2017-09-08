@@ -34,7 +34,7 @@
     <StartProgram>C:\Citavi Source\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

@@ -1,1 +1,30 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"ImportJournalsAddon.dll","Icon":"addon.png","Summary":"Imports a list of journals from a file or from PubMed.","summary_localized":{"de":"Importiert eine Zeitschriftenliste aus einer Datei, von PubMed oder der Universität von British Columbia."},"Url":"","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"Imports a list of journals from a file or from PubMed.","description_localized":{"de":"Unter Listen > Zeitschriften und Zeitungen können Sie verschiedene Abkürzungsformen von Zeitschriften erfassen.\r\nDiese Abkürzungen werden für Zitationsstile benötigt, die die Ausgabe einer Kurzform bevorzugen.\r\nSo erscheint im Literaturverzeichnis z.B. J Am Soc Inf Sci anstelle des vollständigen Namens Journal of the American Society for Information Science.\r\n\r\nMit Hilfe dieses Add-ons können Sie Zeitschriftenlisten von PubMed, der Universität von British Columbia oder Ihnen vorliegende Listen importieren.\r\nUnter Listen > Zeitschriften und Zeitungen wird das Menü «Zeitschriften/Zeitungen» hinzugefügt.\r\n"},"Id":"7c4c5ec3-3f5d-49d8-8a6b-2686404a629f","Name":"Import Journals","name_localized":{"de":"Zeitschriftenliste importieren"},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":6,"MajorRevision":0,"MinorRevision":6}}
+﻿{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "ImportJournalsAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "Imports a list of journals from a file or from PubMed.",
+  "summary_localized": { "de": "Importiert eine Zeitschriftenliste aus einer Datei, von PubMed oder der Universität von British Columbia." },
+  "Url": "",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "Imports a list of journals from a file or from PubMed.",
+  "description_localized": { "de": "Unter Listen > Zeitschriften und Zeitungen können Sie verschiedene Abkürzungsformen von Zeitschriften erfassen.\r\nDiese Abkürzungen werden für Zitationsstile benötigt, die die Ausgabe einer Kurzform bevorzugen.\r\nSo erscheint im Literaturverzeichnis z.B. J Am Soc Inf Sci anstelle des vollständigen Namens Journal of the American Society for Information Science.\r\n\r\nMit Hilfe dieses Add-ons können Sie Zeitschriftenlisten von PubMed, der Universität von British Columbia oder Ihnen vorliegende Listen importieren.\r\nUnter Listen > Zeitschriften und Zeitungen wird das Menü «Zeitschriften/Zeitungen» hinzugefügt.\r\n" },
+  "Id": "7c4c5ec3-3f5d-49d8-8a6b-2686404a629f",
+  "Name": "Import Journals",
+  "name_localized": { "de": "Zeitschriftenliste importieren" },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 6,
+    "MajorRevision": 0,
+    "MinorRevision": 6
+  }
+}
