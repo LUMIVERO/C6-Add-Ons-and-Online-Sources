@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
+            this.languageComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.newButton = new System.Windows.Forms.Button();
             this.idValueLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
-            this.versionValueLabel = new System.Windows.Forms.Label();
-            this.versionLabel = new System.Windows.Forms.Label();
             this.urlTextBox = new System.Windows.Forms.TextBox();
             this.urlLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
@@ -116,11 +116,11 @@
             // 
             // generalTabPage
             // 
+            this.generalTabPage.Controls.Add(this.languageComboBox);
+            this.generalTabPage.Controls.Add(this.label1);
             this.generalTabPage.Controls.Add(this.newButton);
             this.generalTabPage.Controls.Add(this.idValueLabel);
             this.generalTabPage.Controls.Add(this.idLabel);
-            this.generalTabPage.Controls.Add(this.versionValueLabel);
-            this.generalTabPage.Controls.Add(this.versionLabel);
             this.generalTabPage.Controls.Add(this.urlTextBox);
             this.generalTabPage.Controls.Add(this.urlLabel);
             this.generalTabPage.Controls.Add(this.descriptionTextBox);
@@ -138,6 +138,28 @@
             this.generalTabPage.TabIndex = 0;
             this.generalTabPage.Text = "Allgemein";
             this.generalTabPage.UseVisualStyleBackColor = true;
+            // 
+            // languageComboBox
+            // 
+            this.languageComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.languageComboBox.DisplayMember = "EnglishName";
+            this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.languageComboBox.FormattingEnabled = true;
+            this.languageComboBox.Location = new System.Drawing.Point(175, 318);
+            this.languageComboBox.Name = "languageComboBox";
+            this.languageComboBox.Size = new System.Drawing.Size(119, 23);
+            this.languageComboBox.TabIndex = 12;
+            this.languageComboBox.ValueMember = "NativeName";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 321);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Sprache:";
             // 
             // newButton
             // 
@@ -168,25 +190,6 @@
             this.idLabel.Size = new System.Drawing.Size(21, 15);
             this.idLabel.TabIndex = 8;
             this.idLabel.Text = "ID:";
-            // 
-            // versionValueLabel
-            // 
-            this.versionValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.versionValueLabel.AutoSize = true;
-            this.versionValueLabel.Location = new System.Drawing.Point(172, 319);
-            this.versionValueLabel.Name = "versionValueLabel";
-            this.versionValueLabel.Size = new System.Drawing.Size(0, 15);
-            this.versionValueLabel.TabIndex = 7;
-            // 
-            // versionLabel
-            // 
-            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(20, 319);
-            this.versionLabel.Name = "versionLabel";
-            this.versionLabel.Size = new System.Drawing.Size(49, 15);
-            this.versionLabel.TabIndex = 7;
-            this.versionLabel.Text = "Version:";
             // 
             // urlTextBox
             // 
@@ -806,8 +809,6 @@
         private System.Windows.Forms.TextBox name_DE_TextBox;
         private System.Windows.Forms.Label summary_DE_Label;
         private System.Windows.Forms.Label name_DE_Label;
-        private System.Windows.Forms.Label versionValueLabel;
-        private System.Windows.Forms.Label versionLabel;
         private System.Windows.Forms.TabPage esTabPage;
         private System.Windows.Forms.TextBox description_ES_TextBox;
         private System.Windows.Forms.Label description_ES_Label;
@@ -846,6 +847,8 @@
         private System.Windows.Forms.Label idValueLabel;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Button newButton;
+        private System.Windows.Forms.ComboBox languageComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

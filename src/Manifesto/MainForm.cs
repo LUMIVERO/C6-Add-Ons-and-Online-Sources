@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -20,6 +21,25 @@ namespace Manifesto
 {
     public partial class MainForm : Form
     {
+        #region Ereignisse
+
+        protected override void OnLoad(EventArgs e)
+        {
+            languageComboBox.Items.Add(new CultureInfo("zh"));
+            languageComboBox.Items.Add(new CultureInfo("de"));
+            languageComboBox.Items.Add(new CultureInfo("en"));
+            languageComboBox.Items.Add(new CultureInfo("fr"));
+            languageComboBox.Items.Add(new CultureInfo("it"));
+            languageComboBox.Items.Add(new CultureInfo("pl"));
+            languageComboBox.Items.Add(new CultureInfo("pt"));
+            languageComboBox.Items.Add(new CultureInfo("ru"));
+            languageComboBox.Items.Add(new CultureInfo("es"));
+            languageComboBox.Items.Add(new CultureInfo("pl"));
+            base.OnLoad(e);
+        }
+
+        #endregion
+
         #region Felder
 
 
@@ -62,12 +82,18 @@ namespace Manifesto
                 ((AddOnManifest)Manifest).Summary = summaryTextBox.Text;
                 ((AddOnManifest)Manifest).Url = urlTextBox.Text;
             }
+            else
+            {
+
+                ((CitationStyleElementManifest)Manifest).Language = languageComboBox.SelectedItem == null ?
+                                                                    string.Empty :
+                                                                    ((CultureInfo)languageComboBox.SelectedItem).TwoLetterISOLanguageName;
+            }
             foreach (TabPage tabPage in mainTabControl.TabPages)
             {
                 if (tabPage.Tag == null) continue;
                 AcceptLng(tabPage);
             }
-            versionValueLabel.Text = Manifest.Version.ToString(4);
         }
 
         void AcceptLng(TabPage tab)
@@ -118,6 +144,7 @@ namespace Manifesto
                 summaryTextBox.Text = ((AddOnManifest)Manifest).Summary ?? string.Empty;
                 urlTextBox.Text = ((AddOnManifest)Manifest).Url ?? string.Empty;
                 descriptionTextBox.Text = ((AddOnManifest)Manifest).Description ?? string.Empty;
+                languageComboBox.Enabled = false;
             }
             else
             {
@@ -125,9 +152,13 @@ namespace Manifesto
                 descriptionTextBox.Text = ((CitationStyleElementManifest)Manifest).Description ?? string.Empty;
                 summaryTextBox.Text = string.Empty;
                 urlTextBox.Text = string.Empty;
+                languageComboBox.Enabled = true;
+                if (!string.IsNullOrEmpty(((CitationStyleElementManifest)Manifest).Language))
+                {
+                    languageComboBox.SelectedItem = new CultureInfo(((CitationStyleElementManifest)Manifest).Language);
+                }
             }
             nameTextBox.Text = Manifest.Name;
-            versionValueLabel.Text = Manifest.Version.ToString(4);
             idValueLabel.Text = Manifest.Id.ToString();
             foreach (TabPage tabPage in mainTabControl.TabPages)
             {
@@ -292,8 +323,6 @@ namespace Manifesto
 
                 var json = JsonConvert.SerializeObject(Manifest);
                 File.WriteAllText(ManifestPath, json, Encoding.UTF8);
-
-                versionValueLabel.Text = Manifest.Version.ToString(4);
                 MessageBox.Show("Ok");
             }
             catch (Exception ex)
