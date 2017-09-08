@@ -1,0 +1,38 @@
+﻿<BibliographyGroupingSet id="cdf01bd1-d0a4-45b5-b3b1-3bd8c0ce525f" version="1.0.0.2">
+  <Groupings>
+    <BibliographyGrouping>
+      <Caption>Rechtsprechung</Caption>
+      <CaptionType>Manual</CaptionType>
+      <FilterValue>CourtDecision</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>ReferenceTypes</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterValue>ContributionInLegalCommentary</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>ReferenceTypes</GroupingType>
+      <Suppress>True</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterValue>StatuteOrRegulation</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>ReferenceTypes</GroupingType>
+      <Suppress>True</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterValue>BookEdited</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>ReferenceTypes</GroupingType>
+      <Suppress>True</Suppress>
+    </BibliographyGrouping>
+  </Groupings>
+  <Name>Literatur, Rechtsprechung</Name>
+  <UngroupedReferencesSettings>
+    <Position>Top</Position>
+    <Suppress>False</Suppress>
+  </UngroupedReferencesSettings>
+</BibliographyGroupingSet>
