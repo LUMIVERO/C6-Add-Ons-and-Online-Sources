@@ -1,0 +1,44 @@
+﻿<BibliographyGroupingSet id="9ce925d2-f5dd-4a57-ad76-6889bcfab946" version="1.0.0.2">
+  <Groupings>
+    <BibliographyGrouping>
+      <Caption>Unselbständige Literatur</Caption>
+      <CaptionType>Manual</CaptionType>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>Caption</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterValue>Contribution</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>ReferenceTypes</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterValue>JournalArticle</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>ReferenceTypes</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterValue>NewspaperArticle</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>ReferenceTypes</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <Caption>Selbständige Literatur</Caption>
+      <CaptionType>Manual</CaptionType>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>Caption</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+  </Groupings>
+  <Name>Selbständige, unselbständige Literatur</Name>
+  <UngroupedReferencesSettings>
+    <Position>Bottom</Position>
+    <Suppress>False</Suppress>
+  </UngroupedReferencesSettings>
+</BibliographyGroupingSet>

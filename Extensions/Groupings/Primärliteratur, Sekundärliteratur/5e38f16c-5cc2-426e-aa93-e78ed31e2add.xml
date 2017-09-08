@@ -1,0 +1,25 @@
+﻿<BibliographyGroupingSet id="5e38f16c-5cc2-426e-aa93-e78ed31e2add" version="1.0.0.0">
+  <Groupings>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterText>Primärliteratur</FilterText>
+      <FilterValue>d48ce263-f0d1-4821-ad47-8ef633b0d747</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>Groups</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+    <BibliographyGrouping>
+      <CaptionType>Auto</CaptionType>
+      <FilterText>Sekundärliteratur</FilterText>
+      <FilterValue>8f19fef6-8dd4-4ab4-9b7a-7833c8a421eb</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>Groups</GroupingType>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+  </Groupings>
+  <Name>Primärliteratur, Sekundärliteratur</Name>
+  <UngroupedReferencesSettings>
+    <Position>Bottom</Position>
+    <Suppress>False</Suppress>
+  </UngroupedReferencesSettings>
+</BibliographyGroupingSet>
