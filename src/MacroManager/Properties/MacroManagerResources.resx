@@ -128,36 +128,36 @@
     <value>..\Resources\Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EditCommand" xml:space="preserve">
-    <value>[en] Bearbeiten</value>
+    <value>Edit</value>
   </data>
   <data name="MacroCommand" xml:space="preserve">
     <value>Macros</value>
   </data>
   <data name="MacroEditorCommand" xml:space="preserve">
-    <value>[en] Makro-Editor…</value>
+    <value>Macro Editor…</value>
   </data>
   <data name="RefreshCommand" xml:space="preserve">
     <value>Refresh</value>
   </data>
   <data name="RunCommand" xml:space="preserve">
-    <value>[en] Ausführen</value>
+    <value>Run</value>
   </data>
   <data name="ConfigurateCommand" xml:space="preserve">
-    <value> [en] Konfigurieren</value>
+    <value>Configure</value>
   </data>
   <data name="ConfigurateAddonMessage" xml:space="preserve">
-    <value>[en] Bitte wählen Sie zunächst unter Konfigurieren den Ordner aus, in dem die Makros abgespeichert werden.</value>
+    <value>Under Configure, select the folder in which the macros should be saved.</value>
   </data>
   <data name="DirectoryNotFoundMessage" xml:space="preserve">
-    <value>[en] Der Ordner mit den Makros wurde nicht gefunden. Bitte konfigurieren Sie diesen neu.</value>
+    <value>The folder with the macros was not found. Please configure it again.</value>
   </data>
   <data name="FolderBrowseDialogDescription" xml:space="preserve">
-    <value>[en] Bitte wählen Sie den Ordner aus in dem die Makros abgespeichert sind.</value>
+    <value>Select the folder in which the macros should be saved.</value>
   </data>
   <data name="PathNotFoundMessage" xml:space="preserve">
-    <value>[en] Die angegebene Pfad '{0}' wurde nicht gefunden. Die Ansicht wird aktualisiert.</value>
+    <value>The path '{0}' was not found. The display was updated.</value>
   </data>
   <data name="UserWarningSaveMessage" xml:space="preserve">
-    <value>[en] Im geöffneten Macro-Editor befinden sich nicht gesicherte Elemente. Möchten Sie diese vor der Ausführung des Befehls speichern?</value>
+    <value>There are elements in the Macro Editor that have not been saved. Do you want to save them before running the command?</value>
   </data>
 </root>
