@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChooseFieldMessage" xml:space="preserve">
-    <value>[en] In welches Feld möchten Sie die Laufnummern importieren?</value>
+    <value>Which field do you want to import the sequence numbers into?</value>
   </data>
   <data name="CompleteMultipleResultsMessage" xml:space="preserve">
-    <value>[en] Es wurden {0} Laufnummern erfolgreich importiert.</value>
+    <value>{0} sequence numbers were imported successfully.</value>
   </data>
   <data name="CompleteSingleResultMessage" xml:space="preserve">
-    <value>[en] Es wurde eine Laufnummer erfolgreich importiert.</value>
+    <value>One sequence number was imported successfully.</value>
   </data>
   <data name="CompleteZeroResultMessage" xml:space="preserve">
-    <value>[en] Es wurden keine Laufnummern importiert.</value>
+    <value>No sequence numbers were imported.</value>
   </data>
   <data name="FoundReferenceCountNull" xml:space="preserve">
-    <value>[en] Das ausgewählte Projekt ist nicht kompatibel mit diesem Projekt. Wählen Sie als Quelle das Citavi-Projekt, welches Sie in dieses Citavi 6-Projekt konvertiert haben.</value>
+    <value>The selected project is not compatible with this project. Select the Citavi project that was converted to this Citavi 6 project.</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>[en] Information</value>
+    <value>Information</value>
   </data>
   <data name="MenuCaption" xml:space="preserve">
-    <value>[en] Laufnummern importieren…</value>
+    <value>Import sequence numbers…</value>
   </data>
   <data name="OnlyDesktopProjectsSupport" xml:space="preserve">
-    <value>[en] Das Importieren von Laufnummern wird nur bei lokalen Projekten unterstützt.</value>
+    <value>It's only possible to import sequence numbers from local projects.</value>
   </data>
   <data name="OpenFileDialogFilters" xml:space="preserve">
-    <value>[en] Citavi-Projekte|*.ctv5;*.ctv4;*.ctt4;*.ctv3;*.ctt3</value>
+    <value>Citavi projects|*.ctv5;*.ctv4;*.ctt4;*.ctv3;*.ctt3</value>
   </data>
   <data name="OpenFileDialogTitle" xml:space="preserve">
-    <value>[en] Citavi Projekt wählen</value>
+    <value>Select Citavi Project</value>
   </data>
   <data name="OpenProjectConfigurationException" xml:space="preserve">
-    <value>[en] Dies ist kein gültiges Citavi-Projekt.</value>
+    <value>This is not a valid Citavi project.</value>
   </data>
   <data name="OpenProtectedProjectMessage" xml:space="preserve">
-    <value>[en] Geschützte Citavi-Projekte werden nicht unterstützt.</value>
+    <value>Password-protected Citavi projects are not supported.</value>
   </data>
 </root>
