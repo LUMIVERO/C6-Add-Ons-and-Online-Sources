@@ -154,7 +154,7 @@
     <value>Der Ordner '{0}' wurde nicht gefunden. Bitte wählen Sie einen anderen aus!</value>
   </data>
   <data name="DirectoryDialogTitle" xml:space="preserve">
-    <value>Wählen Sie die Umgebungsvariable oder den Pfad aus, unter dem die Makros gespeichert sind.</value>
+    <value>Konfiguration der Umgebungsvariable oder des Pfades</value>
   </data>
   <data name="Btn_Ok" xml:space="preserve">
     <value>Ok</value>
