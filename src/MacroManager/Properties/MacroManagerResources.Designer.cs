@@ -19,7 +19,7 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class MacroManagerResources {
@@ -125,7 +125,7 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Der Ordner &apos;{0}&apos; wurde nicht gefunden. Bitte wählen Sie einen anderen aus! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The folder &apos;{0}&apos; was not found. Please choose another one! ähnelt.
         /// </summary>
         internal static string DirectoryNotResolveMessage {
             get {
