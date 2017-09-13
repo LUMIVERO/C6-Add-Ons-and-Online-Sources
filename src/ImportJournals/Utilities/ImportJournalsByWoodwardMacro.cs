@@ -42,7 +42,7 @@ namespace SwissAcademic.Addons.ImportJournals
                 return;
             }
 
-            int refCounter = 0;
+            var refCounter = 0;
 
             try
             {
@@ -119,11 +119,9 @@ namespace SwissAcademic.Addons.ImportJournals
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
+                journalCollection = null;
                 MessageBox.Show(shell.ActiveForm, ImportJournalsResources.MacroImportingErrorMessage.FormatString(e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-
             }
-
             finally
             {
                 Cursor.Current = Cursors.Default;

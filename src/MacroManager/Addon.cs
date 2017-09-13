@@ -19,7 +19,6 @@ namespace SwissAcademic.Addons.MacroManager
         CommandbarMenu _menu;
         Dictionary<string, MacroCommand> _macros;
         List<ToolBase> _tools;
-        bool _localizeAfterStart;
 
         #endregion
 
@@ -49,7 +48,7 @@ namespace SwissAcademic.Addons.MacroManager
             {
                 case (AddonKeys.ShowMacroEditor):
                     {
-                        CurrentEditor(e.Form, false,out bool hidden,out bool isNew).Activate();
+                        CurrentEditor(e.Form, false, out bool hidden, out bool isNew).Activate();
                     }
                     break;
                 case (AddonKeys.Refresh):
@@ -82,7 +81,7 @@ namespace SwissAcademic.Addons.MacroManager
                             {
                                 var hide = macro.Action == MacroAction.Run;
 
-                                _editor = CurrentEditor(e.Form, hide, out bool hidden,out bool isNew);
+                                _editor = CurrentEditor(e.Form, hide, out bool hidden, out bool isNew);
 
                                 if (!isNew && _editor.IsDirty())
                                 {
@@ -124,8 +123,6 @@ namespace SwissAcademic.Addons.MacroManager
 
         protected override void OnHostingFormLoaded(Form form)
         {
-            _localizeAfterStart = true;
-
             if (form is MainForm mainForm)
             {
                 var oldMacroEditorTool = mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.Tools).GetCommandbarButton("ShowMacroEditorForm");
@@ -170,15 +167,13 @@ namespace SwissAcademic.Addons.MacroManager
 
                 if (button != null) button.Text = MacroManagerResources.RefreshCommand;
 
-                UpdateTools(form, _localizeAfterStart);
+                UpdateTools(form, true);
             }
-
-            _localizeAfterStart = false;
 
             base.OnLocalizing(form);
         }
 
-        MacroEditorForm CurrentEditor(Form form, bool hide, out bool hidden,out bool isNew)
+        MacroEditorForm CurrentEditor(Form form, bool hide, out bool hidden, out bool isNew)
         {
             if (_editor != null)
             {

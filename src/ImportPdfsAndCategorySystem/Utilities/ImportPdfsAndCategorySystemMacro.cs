@@ -14,46 +14,37 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
     {
         public static void Run(MainForm mainForm)
         {
-            int counter = 0;
+            var counter = 0;
 
-            try
+            string sourcePath;
+
+            using (var folderDialog = new FolderBrowserDialog { Description = ImportPdfsAndCategorySystemResource.FolderBrowserDialogDescription })
             {
-                string sourcePath;
+                if (folderDialog.ShowDialog() != DialogResult.OK) return;
 
-                using (var folderDialog = new FolderBrowserDialog { Description = ImportPdfsAndCategorySystemResource.FolderBrowserDialogDescription })
-                {
-                    if (folderDialog.ShowDialog() != DialogResult.OK) return;
-
-                    sourcePath = folderDialog.SelectedPath;
-                }
-
-                var action = AttachmentAction.Copy;
-                var directoryInfo = new DirectoryInfo(sourcePath);
-                var fileInfos = Path2.GetFilesSafe(directoryInfo, "*.pdf", SearchOption.AllDirectories).ToList();
-                var newReferences = new List<Reference>();
-
-                foreach (var filePath in fileInfos.Select(info => info.FullName).ToList())
-                {
-                    var referencesFromFile = new FileImportSupport().ImportFiles(mainForm.Project, mainForm.Project.Engine.TransformerManager, new List<string>() { filePath }, action);
-
-                    if (referencesFromFile != null && referencesFromFile.Any())
-                    {
-                        var referencesFromFileAdded = mainForm.Project.References.AddRange(referencesFromFile);
-
-                        var fileName = Path.GetFileName(filePath);
-                        AddCategories(referencesFromFileAdded, filePath.Substring(sourcePath.Length, filePath.Length - sourcePath.Length - fileName.Length));
-                        counter++;
-                    }
-                }
-
-
+                sourcePath = folderDialog.SelectedPath;
             }
 
-            finally
+            var action = AttachmentAction.Copy;
+            var directoryInfo = new DirectoryInfo(sourcePath);
+            var fileInfos = Path2.GetFilesSafe(directoryInfo, "*.pdf", SearchOption.AllDirectories).ToList();
+            var newReferences = new List<Reference>();
+
+            foreach (var filePath in fileInfos.Select(info => info.FullName).ToList())
             {
-                MessageBox.Show(mainForm, ImportPdfsAndCategorySystemResource.MacroResultMessage.FormatString(counter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var referencesFromFile = new FileImportSupport().ImportFiles(mainForm.Project, mainForm.Project.Engine.TransformerManager, new List<string>() { filePath }, action);
+
+                if (referencesFromFile != null && referencesFromFile.Any())
+                {
+                    var referencesFromFileAdded = mainForm.Project.References.AddRange(referencesFromFile);
+
+                    var fileName = Path.GetFileName(filePath);
+                    AddCategories(referencesFromFileAdded, filePath.Substring(sourcePath.Length, filePath.Length - sourcePath.Length - fileName.Length));
+                    counter++;
+                }
             }
 
+            MessageBox.Show(mainForm, ImportPdfsAndCategorySystemResource.MacroResultMessage.FormatString(counter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static void AddCategories(IEnumerable<Reference> references, string categoryHierarchy)

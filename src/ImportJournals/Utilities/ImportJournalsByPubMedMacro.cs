@@ -128,12 +128,9 @@ namespace SwissAcademic.Addons.ImportJournals
             catch (Exception exception)
             {
                 Cursor.Current = Cursors.Default;
+                journalCollection = null;
                 MessageBox.Show(form, ImportJournalsResources.MacroImportingErrorMessage.FormatString(exception.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
-
-
-
             finally
             {
                 Cursor.Current = Cursors.Default;
