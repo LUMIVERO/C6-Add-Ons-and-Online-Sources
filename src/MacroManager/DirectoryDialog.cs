@@ -70,7 +70,7 @@ namespace SwissAcademic.Addons.MacroManager
 
         bool IsEnvironmentVariable(string directory)
         {
-            return directory.StartsWith("%") && directory.EndsWith("%");
+            return directory.StartsWith("%") && directory.EndsWith("%") && System.IO.Directory.Exists(System.IO.Path2.GetFullPathFromPathWithVariables(directory));
         }
 
         void Localize()
