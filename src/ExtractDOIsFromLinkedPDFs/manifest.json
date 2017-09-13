@@ -1,0 +1,30 @@
+{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "ExtractDOIsFromLinkedPDFsAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "...",
+  "summary_localized": { "de": "..." },
+  "Url": "...",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "...",
+  "description_localized": { "de": "..." },
+  "Id": "24d94a2a-b86c-4ab4-ac68-1dfbf7917a76",
+  "Name": "ExtractDOIsFromLinkedPDFsAddon",
+  "name_localized": { "de": "..." },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 4,
+    "MajorRevision": 0,
+    "MinorRevision": 4
+  }
+}

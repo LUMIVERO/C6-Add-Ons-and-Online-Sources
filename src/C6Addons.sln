@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManifestoForAddOns", "Manifesto\ManifestoForAddOns.csproj", "{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}"
 EndProject
@@ -22,6 +22,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{92E6E362-5BE1-44F8-BABE-B71366259D34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportPdfsAndCategorySystem", "ImportPdfsAndCategorySystem\ImportPdfsAndCategorySystem.csproj", "{A4888F2C-83AB-43A0-9716-09193F684981}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C6ToC5Export", "C6ToC5Export\C6ToC5Export.csproj", "{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractDOIsFromLinkedPDFs", "ExtractDOIsFromLinkedPDFs\ExtractDOIsFromLinkedPDFs.csproj", "{F1FB8384-4F8F-4FB4-ADFF-16993343733F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateBibliographicDataFromPubMedSearch", "UpdateBibliographicDataFromPubMedSearch\UpdateBibliographicDataFromPubMedSearch.csproj", "{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +101,30 @@ Global
 		{A4888F2C-83AB-43A0-9716-09193F684981}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A4888F2C-83AB-43A0-9716-09193F684981}.Release|x86.ActiveCfg = Release|Any CPU
 		{A4888F2C-83AB-43A0-9716-09193F684981}.Release|x86.Build.0 = Release|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Debug|x86.Build.0 = Debug|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Release|x86.ActiveCfg = Release|Any CPU
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}.Release|x86.Build.0 = Release|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Debug|x86.Build.0 = Debug|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Release|x86.ActiveCfg = Release|Any CPU
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F}.Release|x86.Build.0 = Release|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Debug|x86.Build.0 = Debug|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Release|x86.ActiveCfg = Release|Any CPU
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +138,9 @@ Global
 		{1541D624-73E8-4946-8FB7-470615C496A0} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{93D81773-5279-4A8C-8B58-E88D147900E1} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{A4888F2C-83AB-43A0-9716-09193F684981} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{F1FB8384-4F8F-4FB4-ADFF-16993343733F} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}

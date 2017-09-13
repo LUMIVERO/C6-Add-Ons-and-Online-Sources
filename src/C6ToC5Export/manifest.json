@@ -1,0 +1,30 @@
+{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "C6ToC5ExportAddon.dll",
+  //"Icon": "addon.png",
+  "Summary": "...",
+  "summary_localized": { "de": "..." },
+  "Url": "...",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "...",
+  "description_localized": { "de": "..." },
+  "Id": "e0eb4b3a-2af6-4770-b0f1-6d8003fc7e60",
+  "Name": "C6ToC5ExportAddon",
+  "name_localized": { "de": "..." },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 4,
+    "MajorRevision": 0,
+    "MinorRevision": 4
+  }
+}
