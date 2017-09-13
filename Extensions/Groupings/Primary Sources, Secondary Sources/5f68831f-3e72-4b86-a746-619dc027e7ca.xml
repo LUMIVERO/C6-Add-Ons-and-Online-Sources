@@ -1,0 +1,25 @@
+﻿<BibliographyGroupingSet id="5f68831f-3e72-4b86-a746-619dc027e7ca" version="1.0.0.2">
+  <Groupings>
+    <BibliographyGrouping>
+      <Caption>Primary Sources</Caption>
+      <CaptionType>Manual</CaptionType>
+      <FilterValue>"Groups (for references)": "Primary Sources"</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>SavedSearches</GroupingType>
+      <SavedSearch>
+        <MatchCase>false</MatchCase>
+        <MatchWholeWord>false</MatchWholeWord>
+        <MatchEquivalentCharacters>true</MatchEquivalentCharacters>
+        <Name>"Groups (for references)": "Primary Sources"</Name>
+        <Query>"Groups (for references)": "Primary Sources"</Query>
+      </SavedSearch>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+  </Groupings>
+  <Name>Primary Sources, Secondary Sources</Name>
+  <UngroupedReferencesSettings>
+    <Caption>Secondary Sources</Caption>
+    <Position>Bottom</Position>
+    <Suppress>False</Suppress>
+  </UngroupedReferencesSettings>
+</BibliographyGroupingSet>

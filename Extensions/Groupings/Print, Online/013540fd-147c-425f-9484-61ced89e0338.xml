@@ -1,0 +1,25 @@
+﻿<BibliographyGroupingSet id="013540fd-147c-425f-9484-61ced89e0338" version="1.0.0.0">
+  <Groupings>
+    <BibliographyGrouping>
+      <Caption>Online Sources</Caption>
+      <CaptionType>Manual</CaptionType>
+      <FilterValue>Online sources</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>SavedSearches</GroupingType>
+      <SavedSearch>
+        <MatchCase>false</MatchCase>
+        <MatchWholeWord>false</MatchWholeWord>
+        <MatchEquivalentCharacters>true</MatchEquivalentCharacters>
+        <Name>Online sources</Name>
+        <Query>"Online address": *</Query>
+      </SavedSearch>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+  </Groupings>
+  <Name>Print, Online</Name>
+  <UngroupedReferencesSettings>
+    <Caption>Printed Sources</Caption>
+    <Position>Top</Position>
+    <Suppress>False</Suppress>
+  </UngroupedReferencesSettings>
+</BibliographyGroupingSet>
