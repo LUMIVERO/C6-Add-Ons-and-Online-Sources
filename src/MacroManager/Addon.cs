@@ -5,6 +5,7 @@ using SwissAcademic.Controls;
 using SwissAcademic.Resources;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -58,14 +59,28 @@ namespace SwissAcademic.Addons.MacroManager
                     break;
                 case (AddonKeys.ConfigCommand):
                     {
-                        using (var folderBrowseDialog = new FolderBrowserDialog { Description = MacroManagerResources.FolderBrowseDialogDescription })
+
+                        using (var directoryDialog = new DirectoryDialog(this.Settings[AddonKeys.MacrosDirectory]) { Owner = e.Form })
                         {
-                            if (folderBrowseDialog.ShowDialog(e.Form) == DialogResult.OK)
+                            if (directoryDialog.ShowDialog() == DialogResult.OK)
                             {
-                                this.Settings[AddonKeys.MacrosDirectory] = folderBrowseDialog.SelectedPath;
-                                Program.Settings.InitialDirectories.SetInitialDirectoryContext(SwissAcademic.Citavi.Settings.InitialDirectoryContext.Macros, folderBrowseDialog.SelectedPath);
+                                this.Settings[AddonKeys.MacrosDirectory] = directoryDialog.Directory;
+                                Program.Settings.InitialDirectories.SetInitialDirectoryContext(SwissAcademic.Citavi.Settings.InitialDirectoryContext.Macros, Path2.GetFullPathFromPathWithVariables(directoryDialog.Directory));
                                 UpdateTools(e.Form);
                             }
+                        }
+                    }
+                    break;
+                case (AddonKeys.OpenInExplorer):
+                    {
+                        if (IsValidDirectory(out string message))
+                        {
+                            var path = Path2.GetFullPathFromPathWithVariables(Settings[AddonKeys.MacrosDirectory]);
+                            Process.Start("explorer.exe", path);
+                        }
+                        else
+                        {
+                            MessageBox.Show(e.Form, message, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     break;
@@ -218,12 +233,16 @@ namespace SwissAcademic.Addons.MacroManager
             {
                 if (_menu != null)
                 {
-                    var button = _menu.InsertCommandbarButton(1, AddonKeys.ShowMacroEditor, MacroManagerResources.MacroEditorCommand);
+                    var button = _menu.InsertCommandbarButton(1, AddonKeys.OpenInExplorer, MacroManagerResources.OpenInExplorerCommand);
+                    _tools.Add(button.Tool);
+
+                    button = _menu.InsertCommandbarButton(2, AddonKeys.ShowMacroEditor, MacroManagerResources.MacroEditorCommand);
                     button.Shortcut = (Shortcut)(System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F11);
+                    button.HasSeparator = true;
                     _tools.Add(button.Tool);
                 }
 
-                var macrosDirectory = Settings[AddonKeys.MacrosDirectory];
+                var macrosDirectory = Path2.GetFullPathFromPathWithVariables(Settings[AddonKeys.MacrosDirectory]);
 
 
                 int folderCounter = 1;
@@ -231,7 +250,7 @@ namespace SwissAcademic.Addons.MacroManager
 
                 if (Directory.Exists(macrosDirectory))
                 {
-                    DirectoryConverter.Travers(_menu, 2, ref folderCounter, ref fileCounter, macrosDirectory, _macros, _tools, true);
+                    DirectoryConverter.Travers(_menu, 3, ref folderCounter, ref fileCounter, macrosDirectory, _macros, _tools, true);
                 }
 
             }
@@ -251,7 +270,7 @@ namespace SwissAcademic.Addons.MacroManager
                 return false;
             }
 
-            if (!Directory.Exists(this.Settings[AddonKeys.MacrosDirectory]))
+            if (!Directory.Exists(Path2.GetFullPathFromPathWithVariables(Settings[AddonKeys.MacrosDirectory])))
             {
                 message = MacroManagerResources.DirectoryNotFoundMessage;
                 return false;

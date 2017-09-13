@@ -150,4 +150,27 @@
   <data name="UserWarningSaveMessage" xml:space="preserve">
     <value>Im geöffneten Macro-Editor befinden sich nicht gesicherte Elemente. Möchten Sie diese vor der Ausführung des Befehls speichern?</value>
   </data>
+  <data name="DirectoryNotResolveMessage" xml:space="preserve">
+    <value>Der Ordner '{0}' wurde nicht gefunden. Bitte wählen Sie einen anderen aus!</value>
+  </data>
+  <data name="DirectoryDialogTitle" xml:space="preserve">
+    <value>Konfiguration</value>
+  </data>
+  <data name="Btn_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="EnvironmentVariablesNotFound" xml:space="preserve">
+    <value>Es wurden keine Umgebungsvariablen des Benutzers mit gültigen Pfaden gefunden</value>
+  </data>
+  <data name="PathAsVariableMessage" xml:space="preserve">
+    <value>Für den Pfad '{0}' existiert die Umgebungsvariable '%{1}%'!
+
+Möchten Sie anstellen des absoluten Pfades die Umgebungsvariable benutzen?</value>
+  </data>
+  <data name="OpenInExplorerCommand" xml:space="preserve">
+    <value>Ordner im Datei-Explorer öffnen</value>
+  </data>
 </root>

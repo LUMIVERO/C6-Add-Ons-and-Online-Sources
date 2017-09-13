@@ -4,6 +4,8 @@
     {
         public const string ShowMacroEditor = "SwissAcademic.Addons.MacroManager.ShowMacroEditor";
 
+        public const string OpenInExplorer = "SwissAcademic.Addons.MacroManager.OpenInExplorer";
+
         public const string Refresh = "SwissAcademic.Addons.MacroManager.Refresh";
 
         public const string DirectoryMenu = "SwissAcademic.Addons.MacroManager.Menu.{0}";

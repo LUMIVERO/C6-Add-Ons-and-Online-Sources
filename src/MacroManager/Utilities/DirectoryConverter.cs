@@ -15,8 +15,12 @@ namespace SwissAcademic.Addons.MacroManager
             {
                 foreach (var directory in Directory.GetDirectories(path))
                 {
+                    var directoryInfo = new DirectoryInfo(directory);
+
+                    if (directoryInfo.GetFiles("*.cs", SearchOption.AllDirectories).Length == 0) continue;
+
                     folderCounter++;
-                    var menu = commandbarMenu.InsertCommandbarMenu(index, AddonKeys.DirectoryMenu.FormatString(folderCounter), new DirectoryInfo(directory).Name);
+                    var menu = commandbarMenu.InsertCommandbarMenu(index, AddonKeys.DirectoryMenu.FormatString(folderCounter), directoryInfo.Name);
 
                     index = index + 1;
 
