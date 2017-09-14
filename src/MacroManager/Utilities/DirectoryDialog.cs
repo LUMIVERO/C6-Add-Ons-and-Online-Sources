@@ -32,24 +32,12 @@ namespace SwissAcademic.Addons.MacroManager
 
         void InitializeDirectory(string directory)
         {
-            if (string.IsNullOrEmpty(directory))
-            {
-                txtPath.Text = string.Empty;
-                lblEnvironmentFullPath.Text = string.Empty;
-            }
-            else
-            {
-                txtPath.Text = directory;
+            if (!string.IsNullOrEmpty(directory)) return;
 
-                if (IsEnvironmentVariable(directory))
-                {
-                    lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(directory);
-                }
-                else
-                {
-                    lblEnvironmentFullPath.Text = string.Empty;
-                }
-            }
+            txtPath.Text = directory;
+            lblEnvironmentFullPath.Text = IsEnvironmentVariable(directory)
+                                                ? System.IO.Path2.GetFullPathFromPathWithVariables(directory)
+                                                : string.Empty;
         }
 
         bool ExistDirectory(string directory)
@@ -82,7 +70,11 @@ namespace SwissAcademic.Addons.MacroManager
 
         IEnumerable<DictionaryEntry> GetPossibleUserEnvironmentVariables()
         {
-            return System.Environment.GetEnvironmentVariables(EnvironmentVariableTarget.User).Cast<DictionaryEntry>().Where(d => System.IO.Directory.Exists(d.Value.ToString())).OrderBy(d => d.Key.ToString()).ToList();
+            return System.Environment.GetEnvironmentVariables(EnvironmentVariableTarget.User)
+                                     .Cast<DictionaryEntry>()
+                                     .Where(d => System.IO.Directory.Exists(d.Value.ToString()))
+                                     .OrderBy(d => d.Key.ToString())
+                                     .ToList();
         }
 
         string SearchUserEnvironmentVariableForPath(string path)

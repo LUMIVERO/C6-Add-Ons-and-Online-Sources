@@ -108,10 +108,10 @@
   <ItemGroup>
     <Compile Include="Addon.cs" />
     <Compile Include="AddonKeys.cs" />
-    <Compile Include="DirectoryDialog.cs">
+    <Compile Include="Utilities\DirectoryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DirectoryDialog.Designer.cs">
+    <Compile Include="Utilities\DirectoryDialog.Designer.cs">
       <DependentUpon>DirectoryDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Extensions.cs" />
@@ -126,7 +126,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="DirectoryDialog.resx">
+    <EmbeddedResource Include="Utilities\DirectoryDialog.resx">
       <DependentUpon>DirectoryDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\MacroManagerResources.de.resx" />
