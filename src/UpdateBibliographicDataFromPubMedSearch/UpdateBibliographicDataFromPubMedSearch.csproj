@@ -65,13 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="AddonKeys.cs" />
-    <Compile Include="Utilities\Macro.cs" />
-    <Compile Include="Utilities\MacroSettings.cs" />
-    <Compile Include="Utilities\OverrideFieldsDialog.cs">
+    <Compile Include="Core\AddonKeys.cs" />
+    <Compile Include="Core\Macro.cs" />
+    <Compile Include="Core\MacroSettings.cs" />
+    <Compile Include="Dialogs\OverrideFieldsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilities\OverrideFieldsDialog.Designer.cs">
+    <Compile Include="Dialogs\OverrideFieldsDialog.Designer.cs">
       <DependentUpon>OverrideFieldsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,7 +87,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Utilities\OverrideFieldsDialog.resx">
+    <EmbeddedResource Include="Dialogs\OverrideFieldsDialog.resx">
       <DependentUpon>OverrideFieldsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\UpdateBibliographicDataFromPubMedSearchResources.de.resx" />

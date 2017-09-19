@@ -65,8 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="AddonKeys.cs" />
-    <None Include="ImportC6XmlinC5Macro.cs">
+    <Compile Include="Core\AddonKeys.cs" />
+    <None Include="Core\ImportC6XmlinC5Macro.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
