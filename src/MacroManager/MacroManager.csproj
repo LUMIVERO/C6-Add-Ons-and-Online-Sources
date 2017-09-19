@@ -107,17 +107,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="AddonKeys.cs" />
-    <Compile Include="Utilities\DirectoryDialog.cs">
+    <Compile Include="Core\AddonKeys.cs" />
+    <Compile Include="Dialogs\DirectoryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilities\DirectoryDialog.Designer.cs">
+    <Compile Include="Dialogs\DirectoryDialog.Designer.cs">
       <DependentUpon>DirectoryDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\Extensions.cs" />
-    <Compile Include="Utilities\DirectoryConverter.cs" />
-    <Compile Include="Utilities\MacroCommand.cs" />
-    <Compile Include="Utilities\MacroAction.cs" />
+    <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Core\DirectoryConverter.cs" />
+    <Compile Include="Core\MacroCommand.cs" />
+    <Compile Include="Core\MacroAction.cs" />
     <Compile Include="Properties\MacroManagerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,7 +126,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="Utilities\DirectoryDialog.resx">
+    <EmbeddedResource Include="Dialogs\DirectoryDialog.resx">
       <DependentUpon>DirectoryDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\MacroManagerResources.de.resx" />

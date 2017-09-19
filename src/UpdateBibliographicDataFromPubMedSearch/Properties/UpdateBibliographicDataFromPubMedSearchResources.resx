@@ -118,11 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CommandText" xml:space="preserve">
-    <value>[en] Bibliografische Daten anhand der DOI aktualisieren</value>
-  </data>
-  <data name="MacroFinallyMessage" xml:space="preserve">
-    <value>Macro has finished execution.
-{0} references were updated.</value>
+    <value>[en] Bibliografische Daten anhand der Pubmed-ID aktualisieren</value>
   </data>
   <data name="OverrideAbstract" xml:space="preserve">
     <value>[en] Abstrakt überschreiben</value>

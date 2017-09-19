@@ -2,6 +2,7 @@
 using SwissAcademic.Controls;
 using System.Windows.Forms;
 using SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties;
+using System;
 
 namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 {
@@ -24,7 +25,14 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                 {
                     case (AddonKeys.DoiButtonCommand):
                         {
-                            Macro.Run(mainForm, mainForm.Project);
+                            try
+                            {
+                                Macro.Run(mainForm, mainForm.Project);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(mainForm, ex.ToString(), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         break;
                     default:

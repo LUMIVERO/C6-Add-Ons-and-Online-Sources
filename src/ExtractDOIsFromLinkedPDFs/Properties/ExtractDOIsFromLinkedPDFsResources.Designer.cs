@@ -71,12 +71,20 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Macro has finished execution.
-        ///{0} changes were made. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] PDF-Attachments werden ermittelt ähnelt.
         /// </summary>
-        internal static string MacroFinallyMessage {
+        internal static string GenericDialogFetchAttributsTitle {
             get {
-                return ResourceManager.GetString("MacroFinallyMessage", resourceCulture);
+                return ResourceManager.GetString("GenericDialogFetchAttributsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Dieses Cloud-Projekt enthält Attachments, die auf Ihrem Computer nicht lokal verfügbar sind. Sie müssen zunächst alle Attachments herunterladen, um die DOIs extrahieren zu können. Rufen Sie dazu folgende Funktion auf: Datei &gt; Dieses Projekt &gt; Eigenschaften &gt; Anhänge &gt; Alle Attachments lokal vorhalten. ähnelt.
+        /// </summary>
+        internal static string UserMessageUnavailableAttachements {
+            get {
+                return ResourceManager.GetString("UserMessageUnavailableAttachements", resourceCulture);
             }
         }
     }
