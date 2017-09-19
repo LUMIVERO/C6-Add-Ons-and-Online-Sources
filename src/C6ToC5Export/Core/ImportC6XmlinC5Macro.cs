@@ -16,61 +16,49 @@ using SwissAcademic.Citavi.Persistence;
 
 public static class CitaviMacro
 {
-	public static void Main()
-	{
-		ProjectShell activeProjectShell = Program.ActiveProjectShell;
-		if (activeProjectShell == null) return; //no open project shell
-		
-		Project activeProject = Program.ActiveProjectShell.Project;
-		if (activeProject == null) return;
-		
-		Form primaryMainForm = activeProjectShell.PrimaryMainForm;
-		if (primaryMainForm == null) return;
-		
-		string xmlFile = string.Empty;
-		string ctv5File = string.Empty;
-		string initialDirectory = Program.Engine.DesktopEngineConfiguration.GetFolderPath(CitaviFolder.Projects, activeProject);
+    public static void Main()
+    {
+        ProjectShell activeProjectShell = Program.ActiveProjectShell;
+        if (activeProjectShell == null) return; //no open project shell
 
-		//(RE)IMPORT
-		using (OpenFileDialog openFileDialog = new OpenFileDialog())
-		{
-			openFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
-			openFileDialog.Title = "Select an XML file with Citavi project data for import";	
-				
-			if (openFileDialog.ShowDialog() != DialogResult.OK) return;
-			xmlFile = openFileDialog.FileName;
-			if (string.IsNullOrEmpty(xmlFile)) return;
-			if (!File.Exists(xmlFile)) return;
-		}
+        Project activeProject = Program.ActiveProjectShell.Project;
+        if (activeProject == null) return;
 
-		bool goOn = true;
-		while (goOn)
-		{
-			using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-			{
-				saveFileDialog.Filter =  "Citavi 5 files (*.ctv5)|*.ctv5";
-				saveFileDialog.InitialDirectory = initialDirectory;
-				saveFileDialog.Title = "Enter a C5 file name to create a new C5 project with the imported data";
+        Form primaryMainForm = activeProjectShell.PrimaryMainForm;
+        if (primaryMainForm == null) return;
 
-				if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
-				ctv5File = saveFileDialog.FileName;
-			}
-				
-			if (string.IsNullOrEmpty(ctv5File)) return;
-				
-			if (File.Exists(ctv5File))
-			{
-				if (MessageBox.Show(string.Format("Do you want to overwrite the file {0}?", ctv5File), "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) goOn = false;			
-			}
-			else
-			{
-				goOn = false;
-			}
-		}
-		var config = new DesktopProjectConfiguration(Program.Engine,ctv5File);
-		var project = Program.Engine.Projects.Open(config);
-		XmlToProject.Load(xmlFile, project);
-		
-		MessageBox.Show("Finished");
-	}
+        string xmlFile = string.Empty;
+        string ctv5File = string.Empty;
+        string initialDirectory = Program.Engine.DesktopEngineConfiguration.GetFolderPath(CitaviFolder.Projects, activeProject);
+
+        //(RE)IMPORT
+        using (OpenFileDialog openFileDialog = new OpenFileDialog())
+        {
+            openFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog.Title = "Select an XML file with Citavi project data for import";
+
+            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
+            xmlFile = openFileDialog.FileName;
+            if (string.IsNullOrEmpty(xmlFile)) return;
+            if (!File.Exists(xmlFile)) return;
+        }
+
+
+        using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+        {
+            saveFileDialog.Filter = "Citavi 5 files (*.ctv5)|*.ctv5";
+            saveFileDialog.InitialDirectory = initialDirectory;
+            saveFileDialog.Title = "Enter a C5 file name to create a new C5 project with the imported data";
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+            ctv5File = saveFileDialog.FileName;
+        }
+
+        if (string.IsNullOrEmpty(ctv5File)) return;
+
+        Project project = Program.Engine.Projects.Add(ProjectType.DesktopSQLite, ctv5File);
+        XmlToProject.Load(xmlFile, project);
+
+        MessageBox.Show("Import finished");
+    }
 }

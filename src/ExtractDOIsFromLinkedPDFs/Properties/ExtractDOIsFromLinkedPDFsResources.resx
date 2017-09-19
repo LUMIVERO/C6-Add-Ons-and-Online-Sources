@@ -120,8 +120,10 @@
   <data name="CommandButtonText" xml:space="preserve">
     <value>[en] DOIs in PDFs ermitteln</value>
   </data>
-  <data name="MacroFinallyMessage" xml:space="preserve">
-    <value>Macro has finished execution.
-{0} changes were made.</value>
+  <data name="UserMessageUnavailableAttachements" xml:space="preserve">
+    <value>[en] Dieses Cloud-Projekt enthält Attachments, die auf Ihrem Computer nicht lokal verfügbar sind. Sie müssen zunächst alle Attachments herunterladen, um die DOIs extrahieren zu können. Rufen Sie dazu folgende Funktion auf: Datei &gt; Dieses Projekt &gt; Eigenschaften &gt; Anhänge &gt; Alle Attachments lokal vorhalten.</value>
+  </data>
+  <data name="GenericDialogFetchAttributsTitle" xml:space="preserve">
+    <value>[en] PDF-Attachments werden ermittelt</value>
   </data>
 </root>

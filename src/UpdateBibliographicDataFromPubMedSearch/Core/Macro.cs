@@ -1,66 +1,63 @@
-﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.DataExchange;
 using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 {
     internal static class Macro
     {
-        public async static void Run(MainForm mainForm, MacroSettings fields)
+        public async static void Run(MainForm mainForm, MacroSettings settings)
         {
-            var counter = 0;
-
+            var referencesWithDoi = mainForm
+                                        .GetFilteredReferences()
+                                        .Where(reference => !string.IsNullOrEmpty(reference.PubMedId) || !string.IsNullOrEmpty(reference.Doi))
+                                        .ToList();
             try
             {
+                await GenericProgressDialog.RunTask(mainForm, RunAsync, Tuple.Create(mainForm.Project, referencesWithDoi, settings));
+            }
+            catch (OperationCanceledException x)
+            {
+                // What exactly does Task.WhenAll do when a cancellation is requested? We don't know and are too lazy to find out ;-)
+                // To be on the safe side, we catch a possible exception and return;
+                return;
+            }
+        }
 
-                var references = mainForm.GetFilteredReferences();
-                var referencesWithDoi = references.Where(reference => !string.IsNullOrEmpty(reference.PubMedId) || !string.IsNullOrEmpty(reference.Doi)).ToList();
-                var project = mainForm.Project;
-                var identifierSupport = new ReferenceIdentifierSupport();
-                var currentRef = 0;
-                var overallRefs = referencesWithDoi.Count();
+        static async Task RunAsync(Tuple<Project, List<Reference>, MacroSettings> tuple, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        {
+            var identifierSupport = new ReferenceIdentifierSupport();
+            var references = tuple.Item2;
+            var project = tuple.Item1;
+            var settings = tuple.Item3;
 
-                foreach (Reference reference in referencesWithDoi)
-                {
-                    currentRef++;
+            foreach (var reference in references)
+            {
+                var lookedUpReference = await identifierSupport.FindReferenceAsync(project, new ReferenceIdentifier() { Type = ReferenceIdentifierType.PubMedId, Value = reference.PubMedId }, CancellationToken.None);
+                if (lookedUpReference == null) continue;
 
-                    Reference lookedUpReference = await identifierSupport.FindReferenceAsync(project, new ReferenceIdentifier() { Type = ReferenceIdentifierType.PubMedId, Value = reference.PubMedId }, CancellationToken.None);
-                    if (lookedUpReference == null) continue;
-
-                    var omitData = new List<ReferencePropertyId>
+                var omitData = new List<ReferencePropertyId>
                     {
                         ReferencePropertyId.CoverPath,
                         ReferencePropertyId.Locations
                     };
 
-                    if (!fields.OverwriteAbstract) omitData.Add(ReferencePropertyId.Abstract);
-                    if (!fields.OverwriteTableOfContents) omitData.Add(ReferencePropertyId.TableOfContents);
-                    if (!fields.OverwriteKeywords) omitData.Add(ReferencePropertyId.Keywords);
+                if (!settings.OverwriteAbstract) omitData.Add(ReferencePropertyId.Abstract);
+                if (!settings.OverwriteTableOfContents) omitData.Add(ReferencePropertyId.TableOfContents);
+                if (!settings.OverwriteKeywords) omitData.Add(ReferencePropertyId.Keywords);
 
-                    reference.MergeReference(lookedUpReference, true, omitData);
+                reference.MergeReference(lookedUpReference, true, omitData);
 
-                    counter++;
-
-                    if (!string.IsNullOrEmpty(reference.Notes) && fields.ClearNotes) reference.Notes = string.Empty;
-                    if (project.Engine.Settings.BibTeXCitationKey.IsTeXEnabled) reference.BibTeXKey = project.BibTeXKeyAssistant.GenerateKey(reference);
-                    if (project.Engine.Settings.BibTeXCitationKey.IsCitationKeyEnabled) reference.CitationKey = project.CitationKeyAssistant.GenerateKey(reference);
-                }
+                if (!string.IsNullOrEmpty(reference.Notes) && settings.ClearNotes) reference.Notes = string.Empty;
+                if (project.Engine.Settings.BibTeXCitationKey.IsTeXEnabled) reference.BibTeXKey = project.BibTeXKeyAssistant.GenerateKey(reference);
+                if (project.Engine.Settings.BibTeXCitationKey.IsCitationKeyEnabled) reference.CitationKey = project.CitationKeyAssistant.GenerateKey(reference);
             }
-
-            finally
-            {
-                MessageBox.Show(mainForm, UpdateBibliographicDataFromPubMedSearchResources.MacroFinallyMessage.FormatString(counter.ToString()), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
         }
     }
 }

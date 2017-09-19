@@ -1,82 +1,130 @@
 ﻿using SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.DataExchange;
+using SwissAcademic.Citavi.Shell;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 {
     internal static class Macro
     {
-        public static void Run(Form form, Project project)
+        public static async Task Run(Form form, Project project)
         {
-            int counter = 0;
+            if (project.ProjectType == ProjectType.DesktopCloud)
+            {
+                var cts = new CancellationTokenSource();
+
+                try
+                {
+                    await GenericProgressDialog.RunTask(form, FetchAllAttributes, project, ExtractDOIsFromLinkedPDFsResources.GenericDialogFetchAttributsTitle, null, cts);
+                }
+                catch (OperationCanceledException x)
+                {
+                    // What exactly does Task.WhenAll do when a cancellation is requested? We don't know and are too lazy to find out ;-)
+                    // To be on the safe side, we catch a possible exception and return;
+                    return;
+                }
+
+                // But probably, we will land and return here...
+                if (cts.IsCancellationRequested) return;
+
+
+                var hasUnavailableAttachments = (from location in project.AllLocations
+                                                 where
+                                                     location.LocationType == LocationType.ElectronicAddress &&
+                                                     string.IsNullOrEmpty(location.Reference.Doi) &&
+                                                     location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
+                                                     location.Address.Properties.ContentType.Equals("application/pdf", StringComparison.OrdinalIgnoreCase) &&
+                                                     location.Address.CachingStatus != CachingStatus.Available
+                                                 select location).Any();
+
+                if (hasUnavailableAttachments)
+                {
+                    MessageBox.Show(form, ExtractDOIsFromLinkedPDFsResources.UserMessageUnavailableAttachements, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+
+            var fileLocations = (from location in project.AllLocations
+                                 where
+                                     location.LocationType == LocationType.ElectronicAddress &&
+                                     string.IsNullOrEmpty(location.Reference.Doi) &&
+                                     ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
+                                     location.Address.CachingStatus == CachingStatus.Available) ||
+                                     (
+                                         location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
+                                         location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
+                                         location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
+                                     ))
+                                 let path = location.Address.Resolve().GetLocalPathSafe()
+                                 where
+                                    File.Exists(path) &&
+                                    Path.GetExtension(path).Equals(".pdf", StringComparison.OrdinalIgnoreCase)
+                                 select (Location: location, Path: path)).ToList();
 
             try
             {
-                var citaviFilesPath = project.Engine.DesktopEngineConfiguration.GetFolderPath(CitaviFolder.Attachments, project);
+                await GenericProgressDialog.RunTask(form, FindDois, fileLocations);
+            }
+            catch (OperationCanceledException)
+            {
+                // Do nothing when cancelled
+            }
+        }
 
-                var fileLocations = project.AllLocations.Where(location =>
-                    location.LocationType == LocationType.ElectronicAddress &&
-                    (
-                        location.AddressUri.AddressInfo == ElectronicAddressInfo.Attachment ||
-                        location.AddressUri.AddressInfo == ElectronicAddressInfo.AbsoluteFileUri ||
-                        location.AddressUri.AddressInfo == ElectronicAddressInfo.RelativeFileUri
-                    )
-                ).ToList();
+        static Task FetchAllAttributes(Project project, CancellationToken cancellationToken)
+        {
+            return Task.WhenAll(from location in project.AllLocations
+                                where
+                                    location.LocationType == LocationType.ElectronicAddress &&
+                                    string.IsNullOrEmpty(location.Reference.Doi) &&
+                                    location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
+                                    location.Address.CachingStatus != CachingStatus.Available
+                                select location.Address.FetchAttributesAsync(cancellationToken));
+        }
 
 
-                var supporter = new ReferenceIdentifierSupport();
+        static Task FindDois(List<(Location Location, string Path)> fileLocations, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        {
+            var supporter = new ReferenceIdentifierSupport();
+            var counter = 0;
 
-
-                foreach (Location location in fileLocations)
+            return Task.Run(() =>
+            {
+                foreach (var item in fileLocations)
                 {
-                    if (location.Reference == null) continue;
-                    if (!string.IsNullOrEmpty(location.Reference.Doi)) continue;
+                    cancellationToken.ThrowIfCancellationRequested();
 
-                    var path = string.Empty;
-                    switch (location.AddressUri.AddressInfo)
+                    counter++;
+                    var percentage = counter * 100 / fileLocations.Count;
+
+                    if (!string.IsNullOrEmpty(item.Location.Reference.Doi))
                     {
-                        case ElectronicAddressInfo.Attachment:
-                            path = Path.Combine(citaviFilesPath, location.Address);
-                            break;
-
-                        case ElectronicAddressInfo.RelativeFileUri:
-                            path = location.AddressUri.AbsoluteUri.LocalPath;
-                            break;
-
-                        case ElectronicAddressInfo.AbsoluteFileUri:
-                            path = location.Address;
-                            break;
-
-                        default:
-                            continue;
+                        // Another location of the same reference has already added the DOI
+                        progress.ReportSafe(item.Location.ToString(), percentage);
+                        continue;
                     }
 
-                    if (string.IsNullOrEmpty(path)) continue;
-                    if (!File.Exists(path)) continue;
-                    if (!Path.GetExtension(path).Equals(".pdf", StringComparison.OrdinalIgnoreCase)) continue;
+                    var matches = supporter.FindIdentifierInFile(item.Path, ReferenceIdentifierType.Doi, false);
+                    if (matches.Count == 0)
+                    {
+                        progress.ReportSafe(item.Location.ToString(), percentage);
+                        continue;
+                    }
 
-                    var matches = supporter.FindIdentifierInFile(path, ReferenceIdentifierType.Doi, false);
-                    if (matches.Count == 0) continue;
                     var match = matches.ElementAt(0);
 
-                    if (string.IsNullOrEmpty(location.Reference.Doi))
-                    {
-                        location.Reference.Doi = match.ToString();
-                        counter++;
-                    }
+                    item.Location.Reference.Doi = match.ToString();
+                    progress.ReportSafe(item.Location.ToString(), percentage);
                 }
-
-
-            }
-
-            finally
-            {
-                MessageBox.Show(form, ExtractDOIsFromLinkedPDFsResources.MacroFinallyMessage.FormatString(counter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            });
         }
     }
 }

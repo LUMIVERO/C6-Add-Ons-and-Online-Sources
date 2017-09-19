@@ -80,21 +80,11 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Propertie
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bibliografische Daten anhand der DOI aktualisieren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bibliografische Daten anhand der Pubmed-ID aktualisieren ähnelt.
         /// </summary>
         internal static string CommandText {
             get {
                 return ResourceManager.GetString("CommandText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Macro has finished execution.
-        ///{0} references were updated. ähnelt.
-        /// </summary>
-        internal static string MacroFinallyMessage {
-            get {
-                return ResourceManager.GetString("MacroFinallyMessage", resourceCulture);
             }
         }
         
