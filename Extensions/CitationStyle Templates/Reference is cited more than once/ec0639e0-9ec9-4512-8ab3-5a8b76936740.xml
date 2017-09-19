@@ -1,0 +1,36 @@
+﻿<CustomTemplateCondition id="ec0639e0-9ec9-4512-8ab3-5a8b76936740" version="1.0.0.2">
+  <Name>Reference is cited more than one times</Name>
+  <Notes />
+  <Macro><![CDATA[// #C5_43246
+//Version 1.0
+//Reference is cited more than one times
+
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using SwissAcademic.Citavi;
+using SwissAcademic.Citavi.Metadata;
+using SwissAcademic.Collections;
+
+namespace SwissAcademic.Citavi.Citations
+{
+	public class CustomTemplateCondition
+		:
+		ITemplateConditionMacro
+	{
+		public bool IsTemplateForReference(ConditionalTemplate template, Citation citation)
+		{
+			if (citation == null) return false;
+			if (citation.Reference == null) return false;
+			
+			FootnoteCitation footnoteCitation = citation as FootnoteCitation;
+			if (footnoteCitation == null) return false;
+			
+			if (footnoteCitation.IsUniqueFootnote) return false;
+			if (footnoteCitation.IsRepeatingFootnote) return false;
+			
+			return true;
+		}
+	}
+}]]></Macro>
+</CustomTemplateCondition>
