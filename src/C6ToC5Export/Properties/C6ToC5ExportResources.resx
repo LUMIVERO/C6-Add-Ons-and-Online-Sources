@@ -124,10 +124,10 @@
     <value>XML files (*.xml)|*.xml|All files (*.*)|*.*</value>
   </data>
   <data name="ExportFinallyMessage" xml:space="preserve">
-    <value>[en] Der Export wurde erfolgreich abgeschlossen!</value>
+    <value>[en] Der Export wurde erfolgreich abgeschlossen.</value>
   </data>
   <data name="ExportExceptionMessage" xml:space="preserve">
-    <value>[en] Der Export ist fehlgeschlagen!
+    <value>[en] Der Export ist fehlgeschlagen.
 
 Fehlermeldung
 

@@ -121,13 +121,13 @@
     <value>Exportieren nach Citavi 5</value>
   </data>
   <data name="ProjectFilters" xml:space="preserve">
-    <value>[de] XML files (*.xml)|*.xml|All files (*.*)|*.*</value>
+    <value>XML Dateien (*.xml)|*.xml|Alle Dateien (*.*)|*.*</value>
   </data>
   <data name="ExportFinallyMessage" xml:space="preserve">
-    <value>Der Export wurde erfolgreich abgeschlossen!</value>
+    <value>Der Export wurde erfolgreich abgeschlossen.</value>
   </data>
   <data name="ExportExceptionMessage" xml:space="preserve">
-    <value>Der Export ist fehlgeschlagen!
+    <value>Der Export ist fehlgeschlagen.
 
 Fehlermeldung
 
