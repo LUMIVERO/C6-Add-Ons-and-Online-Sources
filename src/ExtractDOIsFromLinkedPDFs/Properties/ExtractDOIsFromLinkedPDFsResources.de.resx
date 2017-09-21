@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CommandButtonText" xml:space="preserve">
-    <value>DOI's in PDFs ermitteln</value>
+    <value>DOIs in PDFs ermitteln</value>
   </data>
   <data name="UserMessageUnavailableAttachements" xml:space="preserve">
     <value>Dieses Cloud-Projekt enthält Attachments, die auf Ihrem Computer nicht lokal verfügbar sind. Sie müssen zunächst alle Attachments herunterladen, um die DOIs extrahieren zu können. Rufen Sie dazu folgende Funktion auf: Datei &gt; Dieses Projekt &gt; Eigenschaften &gt; Anhänge &gt; Alle Attachments lokal vorhalten.</value>
