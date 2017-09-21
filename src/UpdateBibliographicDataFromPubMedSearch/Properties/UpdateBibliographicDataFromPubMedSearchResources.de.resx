@@ -121,7 +121,7 @@
     <value>Bibliografische Daten anhand der Pubmed-ID aktualisieren</value>
   </data>
   <data name="OverrideAbstract" xml:space="preserve">
-    <value>Abstrakt überschreiben</value>
+    <value>Abstract überschreiben</value>
   </data>
   <data name="ClearNotes" xml:space="preserve">
     <value>Notizen löschen</value>

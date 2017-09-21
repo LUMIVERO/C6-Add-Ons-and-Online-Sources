@@ -121,7 +121,7 @@
     <value>[en] Bibliografische Daten anhand der Pubmed-ID aktualisieren</value>
   </data>
   <data name="OverrideAbstract" xml:space="preserve">
-    <value>[en] Abstrakt überschreiben</value>
+    <value>[en] Abstract überschreiben</value>
   </data>
   <data name="OverrideToc" xml:space="preserve">
     <value>[en] Inhaltsverzeichnis überschreiben</value>
