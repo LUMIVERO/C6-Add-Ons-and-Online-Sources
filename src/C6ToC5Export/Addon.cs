@@ -64,7 +64,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                                     .GetCommandbarMenu("ThisProject")
-                                    .InsertCommandbarButton(3, AddonKeys.ExportButtonCommand, C6ToC5ExportResources.ExportCitaviButtonText);
+                                    .InsertCommandbarButton(3, AddonKeys.ExportButtonCommand, C6ToC5ExportResources.ExportCitaviButtonText, image: C6ToC5ExportResources.addon);
             }
 
             base.OnHostingFormLoaded(form);

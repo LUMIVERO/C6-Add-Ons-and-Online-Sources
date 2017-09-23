@@ -56,8 +56,12 @@ public static class CitaviMacro
 
         if (string.IsNullOrEmpty(ctv5File)) return;
 
-        Project project = Program.Engine.Projects.Add(ProjectType.DesktopSQLite, ctv5File);
-        XmlToProject.Load(xmlFile, project);
+        using (Project project = Program.Engine.Projects.Add(ProjectType.DesktopSQLite, ctv5File))
+        {
+            XmlToProject.Load(xmlFile, project);
+            project.Save();
+            project.Close();
+        }
 
         MessageBox.Show("Import finished");
     }

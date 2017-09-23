@@ -25,7 +25,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                     .AddCommandbarButton(AddonKeys.CommandbarButton, ImportSequenceNumberResources.MenuCaption);
+                                     .AddCommandbarButton(AddonKeys.CommandbarButton, ImportSequenceNumberResources.MenuCaption,image: ImportSequenceNumberResources.addon);
                 if (button != null) button.HasSeparator = true;
             }
 

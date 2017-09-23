@@ -65,7 +65,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
                     var button = mainForm.GetMainCommandbarManager().
                         GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).
                         GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References).
-                        AddCommandbarButton(AddonKeys.CommandbarButton, DerivePageCountFromPageRangeResources.DerivePageCountFromPageRange);
+                        AddCommandbarButton(AddonKeys.CommandbarButton, DerivePageCountFromPageRangeResources.DerivePageCountFromPageRange,image: DerivePageCountFromPageRangeResources.addon);
                     button.HasSeparator = true;
                 }
 

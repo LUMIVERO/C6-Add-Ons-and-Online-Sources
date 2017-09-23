@@ -49,7 +49,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(4, AddonKeys.UpdateBibliograficCommand, UpdateBibliographicDataFromPubMedSearchResources.CommandText);
+                        .InsertCommandbarButton(4, AddonKeys.UpdateBibliograficCommand, UpdateBibliographicDataFromPubMedSearchResources.CommandText, image: UpdateBibliographicDataFromPubMedSearchResources.addon);
             }
 
             base.OnHostingFormLoaded(form);

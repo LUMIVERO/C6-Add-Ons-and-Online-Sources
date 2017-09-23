@@ -1,1 +1,30 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"MacroManagerAddon.dll","Icon":"addon.png","Summary":"Displays the most recently used macros in a list. ","summary_localized":{"de":"Zeigt die zuletzt verwendeten Makros in einer Liste an."},"Url":"https://www.citavi.com/sub/manual6/de/index.html?add_on_display_macros.html","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"You can find a number of macros in the Citavi Support portal. These macros can help you complete specialized tasks more efficiently. Save the macros on your computer. Then, open them with Citavi's macro editor (Alt+F11). After the macro has been run successfully, it will appear in the list of macros and can be used again in the future more quickly. ","description_localized":{"de":"Auf den Webseiten des Citavi Supports finden Sie mehrere Makros. Diese Makros helfen, spezielle Aufgaben schneller zu erledigen. Speichern Sie die Makros in einem beliebigen Ordner auf Ihrem Computer. \r\nWählen Sie unter \"Konfigurieren\" den Pfad [...] oder die Umgebungsvariable [%] aus, unter der Ihre Makros gespeichert sind.\r\nFügen Sie gegebenenfalls in den Windows-Systemeigenschaften eine neue Benutzervariable für Ihr Konto hinzu.\r\nAnschließend stehen die gespeicherten Makros in der Liste der verwendeten Makros zur schnellen Auswahl zur Verfügung.\r\nÖffnen oder erstellen Sie neue Makros mit Citavis Makroeditor (ALT+F11), werden diese nach dem Speichern im angegebenen Ordner ebenfalls gelistet. Klicken Sie dazu auf \"Aktualisieren\"."},"Id":"00bd021e-1234-1234-8014-7095d94f639b","Name":"Display macros ","name_localized":{"de":"Makros anzeigen"},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":9,"MajorRevision":0,"MinorRevision":9}}
+﻿{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "MacroManagerAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "Displays the most recently used macros in a list. ",
+  "summary_localized": { "de": "Zeigt die zuletzt verwendeten Makros in einer Liste an." },
+  "Url": "https://www.citavi.com/sub/manual6/de/index.html?add_on_display_macros.html",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "You can find a number of macros in the Citavi Support portal. These macros can help you complete specialized tasks more efficiently. Save the macros on your computer. Then, open them with Citavi's macro editor (Alt+F11). After the macro has been run successfully, it will appear in the list of macros and can be used again in the future more quickly. ",
+  "description_localized": { "de": "Auf den Webseiten des Citavi Supports finden Sie mehrere Makros. Diese Makros helfen, spezielle Aufgaben schneller zu erledigen. Speichern Sie die Makros in einem beliebigen Ordner auf Ihrem Computer. \r\nWählen Sie unter \"Konfigurieren\" den Pfad [...] oder die Umgebungsvariable [%] aus, unter der Ihre Makros gespeichert sind.\r\nFügen Sie gegebenenfalls in den Windows-Systemeigenschaften eine neue Benutzervariable für Ihr Konto hinzu.\r\nAnschließend stehen die gespeicherten Makros in der Liste der verwendeten Makros zur schnellen Auswahl zur Verfügung.\r\nÖffnen oder erstellen Sie neue Makros mit Citavis Makroeditor (ALT+F11), werden diese nach dem Speichern im angegebenen Ordner ebenfalls gelistet. Klicken Sie dazu auf \"Aktualisieren\"." },
+  "Id": "00bd021e-1234-1234-8014-7095d94f639b",
+  "Name": "Display macros ",
+  "name_localized": { "de": "Makros anzeigen" },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 9,
+    "MajorRevision": 0,
+    "MinorRevision": 9
+  }
+}

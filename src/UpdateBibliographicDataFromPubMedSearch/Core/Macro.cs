@@ -54,7 +54,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 
                 reference.MergeReference(lookedUpReference, true, omitData);
 
-                if (!string.IsNullOrEmpty(reference.Notes) && settings.ClearNotes) reference.Notes = string.Empty;
+                if (settings.ClearNotes) reference.Notes = string.Empty;
                 if (project.Engine.Settings.BibTeXCitationKey.IsTeXEnabled) reference.BibTeXKey = project.BibTeXKeyAssistant.GenerateKey(reference);
                 if (project.Engine.Settings.BibTeXCitationKey.IsCitationKeyEnabled) reference.CitationKey = project.CitationKeyAssistant.GenerateKey(reference);
             }
