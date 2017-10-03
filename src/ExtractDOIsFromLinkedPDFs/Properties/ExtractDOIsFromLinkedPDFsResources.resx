@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CommandButtonText" xml:space="preserve">
-    <value>[en] DOIs in PDFs ermitteln</value>
+    <value>Extract DOIs in PDFs</value>
   </data>
   <data name="UserMessageUnavailableAttachements" xml:space="preserve">
-    <value>[en] Dieses Cloud-Projekt enthält Attachments, die auf Ihrem Computer nicht lokal verfügbar sind. Sie müssen zunächst alle Attachments herunterladen, um die DOIs extrahieren zu können. Rufen Sie dazu folgende Funktion auf: Datei &gt; Dieses Projekt &gt; Eigenschaften &gt; Anhänge &gt; Alle Attachments lokal vorhalten.</value>
+    <value>This cloud project contains attachments that are not locally available on your computer. You first need to download all attachments to extract the DOIs. To do so, click File &gt; This project &gt; Properties &gt; Attachments &gt; Save all attachments locally.</value>
   </data>
   <data name="GenericDialogFetchAttributsTitle" xml:space="preserve">
-    <value>[en] PDF-Attachments werden ermittelt</value>
+    <value>Fetching PDF attachments</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="addon" type="System.Resources.ResXFileRef, System.Windows.Forms">

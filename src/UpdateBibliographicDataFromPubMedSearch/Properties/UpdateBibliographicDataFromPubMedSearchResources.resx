@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CommandText" xml:space="preserve">
-    <value>[en] Bibliografische Daten anhand der Pubmed-ID aktualisieren</value>
+    <value>Update bibliographic information using PMID</value>
   </data>
   <data name="OverrideAbstract" xml:space="preserve">
-    <value>[en] Abstract überschreiben</value>
+    <value>Overwrite abstract</value>
   </data>
   <data name="OverrideToc" xml:space="preserve">
-    <value>[en] Inhaltsverzeichnis überschreiben</value>
+    <value>Overwrite table of contents</value>
   </data>
   <data name="OverrideKeywords" xml:space="preserve">
-    <value>[en] Schlagwörter überschreiben</value>
+    <value>Overwrite keywords</value>
   </data>
   <data name="ClearNotes" xml:space="preserve">
-    <value>[en] Notizen löschen</value>
+    <value>Delete notes</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>

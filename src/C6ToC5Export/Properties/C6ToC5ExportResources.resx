@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ExportCitaviButtonText" xml:space="preserve">
-    <value>[en] Exportieren nach Citavi 5</value>
+    <value>Export to Citavi 5</value>
   </data>
   <data name="ProjectFilters" xml:space="preserve">
     <value>XML files (*.xml)|*.xml|All files (*.*)|*.*</value>
   </data>
   <data name="ExportFinallyMessage" xml:space="preserve">
-    <value>[en] Der Export wurde erfolgreich abgeschlossen.</value>
+    <value>The export was successful.</value>
   </data>
   <data name="ExportExceptionMessage" xml:space="preserve">
-    <value>[en] Der Export ist fehlgeschlagen.
+    <value>The export was not completed.
 
-Fehlermeldung
+Error
 
 {0}
 
-Soll die komplette Fehlermeldung in die Zwischenablage kopiert werden?</value>
+Do you want to copy the error message to the Clipboard?</value>
   </data>
   <data name="ExportTitle" xml:space="preserve">
-    <value>[en] Exportieren...</value>
+    <value>Export...</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="addon" type="System.Resources.ResXFileRef, System.Windows.Forms">
