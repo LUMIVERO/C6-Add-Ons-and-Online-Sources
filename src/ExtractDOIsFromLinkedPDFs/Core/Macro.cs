@@ -68,7 +68,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                                     File.Exists(path) &&
                                     Path.GetExtension(path).Equals(".pdf", StringComparison.OrdinalIgnoreCase)
                                  select (Location: location, Path: path)).ToList();
-
+            var isCanceled = false;
             try
             {
                 await GenericProgressDialog.RunTask(form, FindDois, fileLocations);
@@ -76,7 +76,10 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
             catch (OperationCanceledException)
             {
                 // Do nothing when cancelled
+                isCanceled = true;
             }
+
+            if (!isCanceled) MessageBox.Show(form, ExtractDOIsFromLinkedPDFsResources.ProcessFinishMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static Task FetchAllAttributes(Project project, CancellationToken cancellationToken)
