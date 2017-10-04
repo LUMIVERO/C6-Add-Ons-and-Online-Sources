@@ -67,7 +67,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                                  where
                                     File.Exists(path) &&
                                     Path.GetExtension(path).Equals(".pdf", StringComparison.OrdinalIgnoreCase)
-                                 select (Location: location, Path: path)).ToList();
+                                 select new LocationContainer { Location = location, Path = path }).ToList();
             var isCanceled = false;
             try
             {
@@ -94,7 +94,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
         }
 
 
-        static Task FindDois(List<(Location Location, string Path)> fileLocations, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        static Task FindDois(List<LocationContainer> fileLocations, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
         {
             var supporter = new ReferenceIdentifierSupport();
             var counter = 0;
