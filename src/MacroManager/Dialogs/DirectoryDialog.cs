@@ -32,7 +32,7 @@ namespace SwissAcademic.Addons.MacroManager
 
         void InitializeDirectory(string directory)
         {
-            if (!string.IsNullOrEmpty(directory)) return;
+            if (string.IsNullOrEmpty(directory)) return;
 
             txtPath.Text = directory;
             lblEnvironmentFullPath.Text = IsEnvironmentVariable(directory)
