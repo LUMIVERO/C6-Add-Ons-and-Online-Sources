@@ -72,7 +72,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Extract DOIs in PDFs.
+        ///   Looks up a localized string similar to Add DOIs from PDFs.
         /// </summary>
         internal static string CommandButtonText {
             get {
@@ -86,6 +86,15 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
         internal static string GenericDialogFetchAttributsTitle {
             get {
                 return ResourceManager.GetString("GenericDialogFetchAttributsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished adding DOIs.
+        /// </summary>
+        internal static string ProcessFinishMessage {
+            get {
+                return ResourceManager.GetString("ProcessFinishMessage", resourceCulture);
             }
         }
         

@@ -16,13 +16,13 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
         {
             var referencesWithDoi = mainForm
                                         .GetFilteredReferences()
-                                        .Where(reference => !string.IsNullOrEmpty(reference.PubMedId) || !string.IsNullOrEmpty(reference.Doi))
+                                        .Where(reference => !string.IsNullOrEmpty(reference.PubMedId))
                                         .ToList();
             try
             {
                 await GenericProgressDialog.RunTask(mainForm, RunAsync, Tuple.Create(mainForm.Project, referencesWithDoi, settings));
             }
-            catch (OperationCanceledException x)
+            catch (OperationCanceledException)
             {
                 // What exactly does Task.WhenAll do when a cancellation is requested? We don't know and are too lazy to find out ;-)
                 // To be on the safe side, we catch a possible exception and return;
@@ -40,8 +40,11 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
             foreach (var reference in references)
             {
                 var lookedUpReference = await identifierSupport.FindReferenceAsync(project, new ReferenceIdentifier() { Type = ReferenceIdentifierType.PubMedId, Value = reference.PubMedId }, CancellationToken.None);
-                if (lookedUpReference == null) continue;
-
+                if (lookedUpReference == null)
+                {
+                    progress.ReportSafe(100 / references.Count * references.IndexOf(reference));
+                    continue;
+                }
                 var omitData = new List<ReferencePropertyId>
                     {
                         ReferencePropertyId.CoverPath,
@@ -57,6 +60,8 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                 if (settings.ClearNotes) reference.Notes = string.Empty;
                 if (project.Engine.Settings.BibTeXCitationKey.IsTeXEnabled) reference.BibTeXKey = project.BibTeXKeyAssistant.GenerateKey(reference);
                 if (project.Engine.Settings.BibTeXCitationKey.IsCitationKeyEnabled) reference.CitationKey = project.CitationKeyAssistant.GenerateKey(reference);
+
+                progress.ReportSafe(100 / references.Count * references.IndexOf(reference));
             }
         }
     }

@@ -60,7 +60,7 @@ namespace SwissAcademic.Addons.MacroManager
                 case (AddonKeys.ConfigCommand):
                     {
 
-                        using (var directoryDialog = new DirectoryDialog(this.Settings[AddonKeys.MacrosDirectory]) { Owner = e.Form })
+                        using (var directoryDialog = new DirectoryDialog(this.Settings.TryGetStringValue(AddonKeys.MacrosDirectory)) { Owner = e.Form })
                         {
                             if (directoryDialog.ShowDialog() == DialogResult.OK)
                             {
