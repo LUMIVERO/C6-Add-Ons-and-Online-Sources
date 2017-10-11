@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("SwissAcademic.Addons.ImportSequenceNumber")]
+[assembly: AssemblyTitle("ImportSequenceNumberAddon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SwissAcademic.Addons.ImportSequenceNumber")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("Swiss Academic Software")]
+[assembly: AssemblyProduct("ImportSequenceNumberAddon")]
+[assembly: AssemblyCopyright("Copyright ©  Swiss Academic Software 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

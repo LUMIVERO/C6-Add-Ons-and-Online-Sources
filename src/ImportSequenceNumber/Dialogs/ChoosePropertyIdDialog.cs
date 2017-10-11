@@ -1,4 +1,4 @@
-﻿using ImportSequenceNumberAddon.Properties;
+﻿using SwissAcademic.Addons.ImportSequenceNumber.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Resources;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ImportSequenceNumberAddon
+namespace SwissAcademic.Addons.ImportSequenceNumber
 {
     public partial class ChoosePropertyIdDialog : Form
     {
@@ -30,10 +30,7 @@ namespace ImportSequenceNumberAddon
 
         #region Properties
 
-        public ReferencePropertyId SelectedPropertyId
-        {
-            get { return ConvertIndexToPropertyId(cboTargets.SelectedIndex); }
-        }
+        public ReferencePropertyId SelectedPropertyId => ConvertIndexToPropertyId(cboTargets.SelectedIndex);
 
         #endregion
 
@@ -70,7 +67,7 @@ namespace ImportSequenceNumberAddon
         {
             btnOk.Text = ControlTexts.okButton;
             btnCancel.Text = ControlTexts.CancelButton;
-            lblDescription.Text = AddonStrings.ChooseFieldMessage;
+            lblDescription.Text = ImportSequenceNumberResources.ChooseFieldMessage;
 
             cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField1].LabelText);
             cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField2].LabelText);
@@ -88,15 +85,9 @@ namespace ImportSequenceNumberAddon
 
         #region Eventhandler
 
-        void btnOk_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-        }
+        void BtnOk_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
 
-        void btnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
+        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         #endregion
     }

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1541D624-73E8-4946-8FB7-470615C496A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwissAcademic.Addons.NormalizeAllCapitalAuthorNames</RootNamespace>
+    <AssemblyName>NormalizeAllCapitalAuthorNamesAddon</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Citavi Source\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Citavi Source\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Citavi">
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic">
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi">
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Controls">
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon.cs" />
+    <Compile Include="Core\AddonKeys.cs" />
+    <Compile Include="Core\NormalizeAllCapitalAuthorNamesMacro.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\NormalizeAllCapitalAuthorNamesResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NormalizeAllCapitalAuthorNamesResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="addon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\NormalizeAllCapitalAuthorNamesResources.de.resx" />
+    <EmbeddedResource Include="Properties\NormalizeAllCapitalAuthorNamesResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NormalizeAllCapitalAuthorNamesResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
