@@ -144,6 +144,6 @@
   <data name="ProcessFinishWithChangesMessage" xml:space="preserve">
     <value>Der Vorgang wurde erfolgreich abgeschlossen. Es wurde(n) {0} Titel aktualisiert. 
 
-Möchten Sie diese Titel als Auswahl übernehmen?</value>
+Möchten Sie diese(n) Titel als Auswahl übernehmen?</value>
   </data>
 </root>

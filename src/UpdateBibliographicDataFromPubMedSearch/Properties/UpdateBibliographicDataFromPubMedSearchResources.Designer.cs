@@ -137,7 +137,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Propertie
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [en] Der Vorgang wurde erfolgreich abgeschlossen. Es wurde(n) {0} Titel aktualisiert. 
         ///
-        ///Möchten Sie diese Titel als Auswahl übernehmen? ähnelt.
+        ///Möchten Sie diese(n) Titel als Auswahl übernehmen? ähnelt.
         /// </summary>
         internal static string ProcessFinishWithChangesMessage {
             get {
