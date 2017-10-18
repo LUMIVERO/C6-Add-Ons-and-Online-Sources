@@ -1,0 +1,30 @@
+{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "SendReferenceByEmailAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "...",
+  "summary_localized": { "de": "..." },
+  "Url": "...",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "...",
+  "description_localized": { "de": "..." },
+  "Id": "21932e58-6b15-42b7-935b-3c4b902a8433",
+  "Name": "SendReferenceByEmailAddon",
+  "name_localized": { "de": "..." },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 4,
+    "MajorRevision": 0,
+    "MinorRevision": 4
+  }
+}

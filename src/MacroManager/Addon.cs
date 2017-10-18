@@ -19,7 +19,7 @@ namespace SwissAcademic.Addons.MacroManager
         MacroEditorForm _editor;
         CommandbarMenu _menu;
         Dictionary<string, MacroCommand> _macros;
-        List<ToolBase> _tools;
+        Dictionary<ToolBase,string> _tools;
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace SwissAcademic.Addons.MacroManager
         public Addon() : base()
         {
             _macros = new Dictionary<string, MacroCommand>();
-            _tools = new List<ToolBase>();
+            _tools = new Dictionary<ToolBase, string>();
         }
 
         #endregion
@@ -182,7 +182,14 @@ namespace SwissAcademic.Addons.MacroManager
 
                 if (button != null) button.Text = MacroManagerResources.RefreshCommand;
 
-                UpdateTools(form, true);
+                foreach (var toolPair in _tools)
+                {
+                    var tool = toolPair.Key;
+                    var resourceId = toolPair.Value;
+
+                    if (string.IsNullOrEmpty(resourceId)) continue;
+                    tool.InstanceProps.Caption = MacroManagerResources.ResourceManager.GetString(resourceId, MacroManagerResources.Culture);
+                }
             }
 
             base.OnLocalizing(form);
@@ -198,7 +205,7 @@ namespace SwissAcademic.Addons.MacroManager
             }
 
             isNew = true;
-            _editor = new MacroEditorForm { Owner = form };
+            _editor = new MacroEditorForm();
             _editor.FormClosed += MacroEditorForm_FormClosed;
 
 #if DEBUG
@@ -219,7 +226,7 @@ namespace SwissAcademic.Addons.MacroManager
         {
             foreach (var tool in _tools)
             {
-                tool.ToolbarsManager.Tools.Remove(tool);
+                tool.Key.ToolbarsManager.Tools.Remove(tool.Key);
             }
 
             _tools.Clear();
@@ -234,12 +241,12 @@ namespace SwissAcademic.Addons.MacroManager
                 if (_menu != null)
                 {
                     var button = _menu.InsertCommandbarButton(1, AddonKeys.OpenInExplorer, MacroManagerResources.OpenInExplorerCommand);
-                    _tools.Add(button.Tool);
+                    _tools.Add(button.Tool, "OpenInExplorerCommand");
 
                     button = _menu.InsertCommandbarButton(2, AddonKeys.ShowMacroEditor, MacroManagerResources.MacroEditorCommand);
                     button.Shortcut = (Shortcut)(System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F11);
                     button.HasSeparator = true;
-                    _tools.Add(button.Tool);
+                    _tools.Add(button.Tool, "MacroEditorCommand");
                 }
 
                 var macrosDirectory = Path2.GetFullPathFromPathWithVariables(Settings[AddonKeys.MacrosDirectory]);

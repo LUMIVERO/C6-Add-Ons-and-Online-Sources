@@ -9,7 +9,7 @@ namespace SwissAcademic.Addons.MacroManager
 {
     public static class DirectoryConverter
     {
-        public static void Travers(CommandbarMenu commandbarMenu, int index, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, List<ToolBase> tools, bool isFirst)
+        public static void Travers(CommandbarMenu commandbarMenu, int index, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, Dictionary<ToolBase,string> tools, bool isFirst)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add(menu.Tool);
+                    tools.Add(menu.Tool,null);
                     Travers(menu, 0, ref folderCounter, ref fileCounter, directory, macroCommands, tools, isFirst);
                 }
 
@@ -47,15 +47,15 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add(menu.Tool);
+                    tools.Add(menu.Tool,null);
                     key = AddonKeys.DirectoryCommand + "." + fileCounter + ".1";
                     var button = menu.AddCommandbarButton(key, MacroManagerResources.EditCommand);
                     macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
-                    tools.Add(button.Tool);
+                    tools.Add(button.Tool, "EditCommand");
                     key = AddonKeys.DirectoryCommand + "." + fileCounter + ".2";
                     button = menu.AddCommandbarButton(AddonKeys.DirectoryCommand + "." + fileCounter + ".2", MacroManagerResources.RunCommand);
                     macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
-                    tools.Add(button.Tool);
+                    tools.Add(button.Tool, "RunCommand");
                 }
             }
             catch (Exception)
