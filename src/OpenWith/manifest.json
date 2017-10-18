@@ -1,0 +1,30 @@
+﻿{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "OpenWithAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "",
+  "summary_localized": { "de": "" },
+  "Url": "",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "",
+  "description_localized": { "de": "" },
+  "Id": "c74ea685-cc83-412d-90e0-a75e10a89326",
+  "Name": "Open with ",
+  "name_localized": { "de": "" },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 12,
+    "MajorRevision": 0,
+    "MinorRevision": 12
+  }
+}
