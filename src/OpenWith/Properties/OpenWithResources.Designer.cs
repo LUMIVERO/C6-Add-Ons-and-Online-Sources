@@ -19,7 +19,7 @@ namespace SwissAcademic.Addons.OpenWith.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class OpenWithResources {
@@ -134,7 +134,7 @@ namespace SwissAcademic.Addons.OpenWith.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Configurate application ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Configure application ähnelt.
         /// </summary>
         internal static string ApplicationDialog_Text {
             get {
@@ -163,7 +163,7 @@ namespace SwissAcademic.Addons.OpenWith.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Configurate... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Configure... ähnelt.
         /// </summary>
         internal static string ConfigurationCaption {
             get {
@@ -172,7 +172,7 @@ namespace SwissAcademic.Addons.OpenWith.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Cofiguration ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Configuration ähnelt.
         /// </summary>
         internal static string ConfigurationDialog_Text {
             get {
@@ -181,7 +181,7 @@ namespace SwissAcademic.Addons.OpenWith.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Configurate data types ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Configure data types ähnelt.
         /// </summary>
         internal static string DataTypesDialog_Text {
             get {

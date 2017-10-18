@@ -166,7 +166,7 @@
     <value>Bitte benutzen Sie den Platzhalter '%1' bei Verwendung der Argumente!</value>
   </data>
   <data name="ApplicationDialog_Tooltip_Arguments" xml:space="preserve">
-    <value>Benutze den Platzhalter %1 bei der Verwendung der Argumente!</value>
+    <value>Benutzen Sie den Platzhalter %1 bei der Verwendung der Argumente!</value>
   </data>
   <data name="ApplicationDialog_Tooltip_Filter" xml:space="preserve">
     <value>Beispiel

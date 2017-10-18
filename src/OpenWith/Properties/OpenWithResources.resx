@@ -121,10 +121,10 @@
     <value>Open with...</value>
   </data>
   <data name="ConfigurationCaption" xml:space="preserve">
-    <value>Configurate...</value>
+    <value>Configure...</value>
   </data>
   <data name="ConfigurationDialog_Text" xml:space="preserve">
-    <value>Cofiguration</value>
+    <value>Configuration</value>
   </data>
   <data name="Dialog_Ok" xml:space="preserve">
     <value>Ok</value>
@@ -142,7 +142,7 @@
     <value>Remove</value>
   </data>
   <data name="ApplicationDialog_Text" xml:space="preserve">
-    <value>Configurate application</value>
+    <value>Configure application</value>
   </data>
   <data name="ApplicationDialog_LB_Name" xml:space="preserve">
     <value>Name</value>
@@ -174,7 +174,7 @@
  .jpg;.tmd;</value>
   </data>
   <data name="DataTypesDialog_Text" xml:space="preserve">
-    <value>Configurate data types</value>
+    <value>Configure data types</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="addon" type="System.Resources.ResXFileRef, System.Windows.Forms">
