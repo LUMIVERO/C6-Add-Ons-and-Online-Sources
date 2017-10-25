@@ -62,11 +62,70 @@ namespace SwissAcademic.Addons.SendReferenceByEmail.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addon {
+            get {
+                object obj = ResourceManager.GetObject("addon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Send reference by email ähnelt.
         /// </summary>
         internal static string ButtonCaption {
             get {
                 return ResourceManager.GetString("ButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en]Die Verbindung zu Outlook ist fehlgeschlagen.
+        ///
+        ///Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt wird. ähnelt.
+        /// </summary>
+        internal static string OutlookRightsMessage {
+            get {
+                return ResourceManager.GetString("OutlookRightsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die References from Citavi project &quot;{0}&quot;:
+        ///{1}
+        ///
+        ///Hint:
+        ///The RIS file attached contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program. ähnelt.
+        /// </summary>
+        internal static string SendReferenceByEMailBodyText {
+            get {
+                return ResourceManager.GetString("SendReferenceByEMailBodyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die References from Citavi project &quot;{0}&quot;:
+        ///{1}
+        ///
+        ///Attachments:
+        ///{2}
+        ///
+        ///Hint:
+        ///The RIS file attached contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program. ähnelt.
+        /// </summary>
+        internal static string SendReferenceByEMailBodyText_WithAttachments {
+            get {
+                return ResourceManager.GetString("SendReferenceByEMailBodyText_WithAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [No short title!] ähnelt.
+        /// </summary>
+        internal static string ShortTitleMissing {
+            get {
+                return ResourceManager.GetString("ShortTitleMissing", resourceCulture);
             }
         }
     }

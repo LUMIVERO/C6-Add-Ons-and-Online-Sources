@@ -143,9 +143,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\addon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="addon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

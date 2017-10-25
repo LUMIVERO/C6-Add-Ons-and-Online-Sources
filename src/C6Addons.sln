@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWith", "OpenWith\OpenWi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendReferenceByEmail", "SendReferenceByEmail\SendReferenceByEmail.csproj", "{87D58E63-DF39-41A5-913D-554ED57B211D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookOrderByEmail", "BookOrderByEmail\BookOrderByEmail.csproj", "{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,14 @@ Global
 		{87D58E63-DF39-41A5-913D-554ED57B211D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87D58E63-DF39-41A5-913D-554ED57B211D}.Release|x86.ActiveCfg = Release|Any CPU
 		{87D58E63-DF39-41A5-913D-554ED57B211D}.Release|x86.Build.0 = Release|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Debug|x86.Build.0 = Debug|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Release|x86.ActiveCfg = Release|Any CPU
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,6 +173,7 @@ Global
 		{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{C74EA685-CC83-412D-90E0-A75E10A89326} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{87D58E63-DF39-41A5-913D-554ED57B211D} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}

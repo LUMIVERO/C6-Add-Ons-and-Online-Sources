@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using InteropOutlook = Microsoft.Office.Interop.Outlook;
 
-namespace SwissAcademic.Addons.SendReferenceByEmail
+namespace SwissAcademic.Addons.BookOrderByEmail
 {
     public static class Outlook
     {
@@ -17,6 +17,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
             var oMail = oApp.CreateItem(InteropOutlook.OlItemType.olMailItem) as InteropOutlook.MailItem;
             oMail.Subject = mail.Subject;
             oMail.Body = mail.Body;
+            mail.To.ForEach(adress => oMail.Recipients.Add(adress));
             mail.Attachments.ForEach(a => oMail.Attachments.Add(a, InteropOutlook.OlAttachmentType.olByValue, Type.Missing, Type.Missing));
             oMail.Display(true);
         }
@@ -43,6 +44,12 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
             // Return the Outlook Application object.
             return application;
         }
+
+        #endregion
+
+        #region Properties
+
+        public static bool IsInstalled => Type.GetTypeFromProgID("Outlook.Application") != null;
 
         #endregion
     }

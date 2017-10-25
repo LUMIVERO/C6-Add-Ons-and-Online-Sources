@@ -120,4 +120,29 @@
   <data name="ButtonCaption" xml:space="preserve">
     <value>Titel per E-mail senden</value>
   </data>
+  <data name="OutlookRightsMessage" xml:space="preserve">
+    <value>Die Verbindung zu Outlook ist fehlgeschlagen.
+
+Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt wird.</value>
+  </data>
+  <data name="SendReferenceByEMailBodyText" xml:space="preserve">
+    <value>Titel aus Citavi-Projekt "{0}":
+{1}
+
+Hinweise:
+Um einen Titel in Ihr Citavi-Projekt zu importieren, führen Sie einen Doppelklick auf die beigefügte RIS-Datei aus.</value>
+  </data>
+  <data name="SendReferenceByEMailBodyText_WithAttachments" xml:space="preserve">
+    <value>Titel aus Citavi-Projekt "{0}":
+{1}
+
+Attachments:
+{2}
+
+Hinweise:
+Die beigefügte RIS-Datei enthält die bibliographischen Angaben zum obigen Titel. Sie können diese Datei in Citavi, s. www.citavi.com/ris, oder eine andere Literaturverwaltung importieren.</value>
+  </data>
+  <data name="ShortTitleMissing" xml:space="preserve">
+    <value>[Kurztitel fehlt!]</value>
+  </data>
 </root>

@@ -1,0 +1,30 @@
+{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "BookOrderByEmailAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "...",
+  "summary_localized": { "de": "..." },
+  "Url": "...",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "...",
+  "description_localized": { "de": "..." },
+  "Id": "3b04829e-9b3e-4114-ac09-e79a4ac6e0f2",
+  "Name": "BookOrderByEmailAddon",
+  "name_localized": { "de": "..." },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 4,
+    "MajorRevision": 0,
+    "MinorRevision": 4
+  }
+}

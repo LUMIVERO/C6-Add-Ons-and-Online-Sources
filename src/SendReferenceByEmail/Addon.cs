@@ -9,6 +9,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
     public class Addon : CitaviAddOn
     {
         #region Properties
+
         public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
 
         #endregion
@@ -19,7 +20,14 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
         {
             if (e.Form is MainForm mainForm && e.Key.Equals(AddonKeys.CommandbarButton, StringComparison.OrdinalIgnoreCase))
             {
-                Outlook.CreateEmail();
+                try
+                {
+                    mainForm.ActiveReference.SendByEMailAsync();
+                }
+                catch (System.Runtime.InteropServices.COMException)
+                {
+                    MessageBox.Show(mainForm, SendReferenceByEmailResources.OutlookRightsMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 e.Handled = true;
             }
             base.OnBeforePerformingCommand(e);
@@ -32,7 +40,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .AddCommandbarButton(AddonKeys.CommandbarButton, SendReferenceByEmailResources.ButtonCaption);
+                        .AddCommandbarButton(AddonKeys.CommandbarButton, SendReferenceByEmailResources.ButtonCaption, image: SendReferenceByEmailResources.addon);
             }
             base.OnHostingFormLoaded(form);
         }

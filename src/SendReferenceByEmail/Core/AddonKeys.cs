@@ -2,6 +2,6 @@
 {
     public static class AddonKeys
     {
-        public static string CommandbarButton => "SwissAcademic.Addons.SendReferenceByEmail.CommandbarButton";
+        public const string CommandbarButton = "SwissAcademic.Addons.SendReferenceByEmail.CommandbarButton";
     }
 }
