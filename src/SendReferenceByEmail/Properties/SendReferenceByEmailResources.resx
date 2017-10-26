@@ -127,7 +127,7 @@
   <data name="OutlookRightsMessage" xml:space="preserve">
     <value>[en]Die Verbindung zu Outlook ist fehlgeschlagen.
 
-Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt wird.</value>
+Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt werden.</value>
   </data>
   <data name="SendReferenceByEMailBodyText" xml:space="preserve">
     <value>References from Citavi project "{0}":
