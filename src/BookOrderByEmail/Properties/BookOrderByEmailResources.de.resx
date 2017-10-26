@@ -139,10 +139,10 @@
     <value>Abbrechen</value>
   </data>
   <data name="ConfigDialog_lbl_Receiver" xml:space="preserve">
-    <value>Empfänger für Bestellung</value>
+    <value>Empfänger der Bestellung (Outlook)</value>
   </data>
   <data name="ConfigDialog_lbl_Body" xml:space="preserve">
-    <value>Text für Bestellung</value>
+    <value>Text der Bestellung</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Bestellung</value>
@@ -167,6 +167,6 @@ http://www.citavi.com</value>
   <data name="OutlookRightsMessage" xml:space="preserve">
     <value>Die Verbindung zu Outlook ist fehlgeschlagen.
 
-Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt wird.</value>
+Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt werden.</value>
   </data>
 </root>
