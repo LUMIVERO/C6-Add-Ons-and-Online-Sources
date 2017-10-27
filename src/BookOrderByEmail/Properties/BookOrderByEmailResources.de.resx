@@ -117,20 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CommandButtonText" xml:space="preserve">
-    <value>Add DOIs from PDFs</value>
+  <data name="ConfigureOrders" xml:space="preserve">
+    <value>Bestellungen einrichten…</value>
   </data>
-  <data name="UserMessageUnavailableAttachements" xml:space="preserve">
-    <value>This cloud project contains attachments that are not locally available on your computer. You first need to download all attachments to extract the DOIs. To do so, click File &gt; This project &gt; Properties &gt; Attachments &gt; Save all attachments locally.</value>
+  <data name="OrderByClipboard" xml:space="preserve">
+    <value>Buchbestellung per E-Mail (Zwischenablage)…</value>
   </data>
-  <data name="GenericDialogFetchAttributsTitle" xml:space="preserve">
-    <value>Fetching PDF attachments</value>
+  <data name="OrderByEMail" xml:space="preserve">
+    <value>Buchbestellung per E-Mail (Outlook)…</value>
   </data>
-  <data name="ProcessFinishMessage" xml:space="preserve">
-    <value>Finished adding DOIs</value>
+  <data name="TasksOrder" xml:space="preserve">
+    <value>Bestellen</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="addon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\addon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ConfigDialog_Text" xml:space="preserve">
+    <value>Bestellungen einrichten</value>
+  </data>
+  <data name="ConfigDialog_Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="ConfigDialog_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="ConfigDialog_lbl_Receiver" xml:space="preserve">
+    <value>Empfänger der Bestellung (Outlook)</value>
+  </data>
+  <data name="ConfigDialog_lbl_Body" xml:space="preserve">
+    <value>Text der Bestellung</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Bestellung</value>
+  </data>
+  <data name="OrderByEMailBodyText" xml:space="preserve">
+    <value>{2}
+
+
+----------------------------------------------------
+
+{0}
+ISBN: {1}
+
+----------------------------------------------------
+Diese E-Mail wurde automatisch erstellt mit:
+Citavi – Literaturverwaltung und Wissensorganisation
+http://www.citavi.com</value>
+  </data>
+  <data name="OrderByEMailBodyTextISBNMissing" xml:space="preserve">
+    <value>&lt;nicht angegeben&gt;</value>
+  </data>
+  <data name="OutlookRightsMessage" xml:space="preserve">
+    <value>Die Verbindung zu Outlook ist fehlgeschlagen.
+
+Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt werden.</value>
   </data>
 </root>

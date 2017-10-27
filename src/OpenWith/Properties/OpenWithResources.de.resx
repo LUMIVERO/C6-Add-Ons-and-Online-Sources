@@ -117,20 +117,63 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CommandButtonText" xml:space="preserve">
-    <value>Add DOIs from PDFs</value>
+  <data name="MenuCaption" xml:space="preserve">
+    <value>Öffnen mit...</value>
   </data>
-  <data name="UserMessageUnavailableAttachements" xml:space="preserve">
-    <value>This cloud project contains attachments that are not locally available on your computer. You first need to download all attachments to extract the DOIs. To do so, click File &gt; This project &gt; Properties &gt; Attachments &gt; Save all attachments locally.</value>
+  <data name="ConfigurationCaption" xml:space="preserve">
+    <value>Konfigurieren...</value>
   </data>
-  <data name="GenericDialogFetchAttributsTitle" xml:space="preserve">
-    <value>Fetching PDF attachments</value>
+  <data name="ConfigurationDialog_Text" xml:space="preserve">
+    <value>Konfiguration</value>
   </data>
-  <data name="ProcessFinishMessage" xml:space="preserve">
-    <value>Finished adding DOIs</value>
+  <data name="Dialog_Ok" xml:space="preserve">
+    <value>Ok</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="addon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\addon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Dialog_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Dialog_Add" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="Dialog_Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Dialog_Remove" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="ApplicationDialog_Text" xml:space="preserve">
+    <value>Anwendung konfigurieren</value>
+  </data>
+  <data name="ApplicationDialog_LB_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ApplicationDialog_LB_Path" xml:space="preserve">
+    <value>Pfad</value>
+  </data>
+  <data name="ApplicationDialog_LB_Argument" xml:space="preserve">
+    <value>Argumente</value>
+  </data>
+  <data name="ApplicationDialog_LB_Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ApplicationDialog_Message_AddName" xml:space="preserve">
+    <value>Bitte geben Sie den Namen der Anwendung an!</value>
+  </data>
+  <data name="ApplicationDialog_Message_AddPath" xml:space="preserve">
+    <value>Bitte wählen Sie einen gültigen Pfad zur Anwendung aus!</value>
+  </data>
+  <data name="ApplicationDialog_Message_ValidArgument" xml:space="preserve">
+    <value>Bitte benutzen Sie den Platzhalter '%1' bei Verwendung der Argumente!</value>
+  </data>
+  <data name="ApplicationDialog_Tooltip_Arguments" xml:space="preserve">
+    <value>Benutzen Sie den Platzhalter %1 bei der Verwendung der Argumente!</value>
+  </data>
+  <data name="ApplicationDialog_Tooltip_Filter" xml:space="preserve">
+    <value>Beispiel
+ .pdf
+ .jpg;.tmd;</value>
+  </data>
+  <data name="DataTypesDialog_Text" xml:space="preserve">
+    <value>Datentypen konfigurieren</value>
   </data>
 </root>

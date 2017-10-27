@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.C6ToC5Export.Properties {
+namespace SwissAcademic.Addons.SendReferenceByEmail.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace SwissAcademic.Addons.C6ToC5Export.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class C6ToC5ExportResources {
+    internal class SendReferenceByEmailResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal C6ToC5ExportResources() {
+        internal SendReferenceByEmailResources() {
         }
         
         /// <summary>
@@ -39,7 +39,8 @@ namespace SwissAcademic.Addons.C6ToC5Export.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.C6ToC5Export.Properties.C6ToC5ExportResources", typeof(C6ToC5ExportResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.SendReferenceByEmail.Properties.SendReferenceByEmailResource" +
+                            "s", typeof(SendReferenceByEmailResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -71,53 +72,60 @@ namespace SwissAcademic.Addons.C6ToC5Export.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Export to Citavi 5 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Send reference by email ähnelt.
         /// </summary>
-        internal static string ExportCitaviButtonText {
+        internal static string ButtonCaption {
             get {
-                return ResourceManager.GetString("ExportCitaviButtonText", resourceCulture);
+                return ResourceManager.GetString("ButtonCaption", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The export was not completed.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en]Die Verbindung zu Outlook ist fehlgeschlagen.
         ///
-        ///Error
+        ///Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt wird. ähnelt.
+        /// </summary>
+        internal static string OutlookRightsMessage {
+            get {
+                return ResourceManager.GetString("OutlookRightsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die References from Citavi project &quot;{0}&quot;:
+        ///{1}
         ///
-        ///{0}
+        ///Hint:
+        ///The RIS file attached contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program. ähnelt.
+        /// </summary>
+        internal static string SendReferenceByEMailBodyText {
+            get {
+                return ResourceManager.GetString("SendReferenceByEMailBodyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die References from Citavi project &quot;{0}&quot;:
+        ///{1}
         ///
-        ///Do you want to copy the error message to the Clipboard? ähnelt.
+        ///Attachments:
+        ///{2}
+        ///
+        ///Hint:
+        ///The RIS file attached contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program. ähnelt.
         /// </summary>
-        internal static string ExportExceptionMessage {
+        internal static string SendReferenceByEMailBodyText_WithAttachments {
             get {
-                return ResourceManager.GetString("ExportExceptionMessage", resourceCulture);
+                return ResourceManager.GetString("SendReferenceByEMailBodyText_WithAttachments", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The export was successful. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [No short title!] ähnelt.
         /// </summary>
-        internal static string ExportFinallyMessage {
+        internal static string ShortTitleMissing {
             get {
-                return ResourceManager.GetString("ExportFinallyMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Export... ähnelt.
-        /// </summary>
-        internal static string ExportTitle {
-            get {
-                return ResourceManager.GetString("ExportTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die XML files (*.xml)|*.xml|All files (*.*)|*.* ähnelt.
-        /// </summary>
-        internal static string ProjectFilters {
-            get {
-                return ResourceManager.GetString("ProjectFilters", resourceCulture);
+                return ResourceManager.GetString("ShortTitleMissing", resourceCulture);
             }
         }
     }
