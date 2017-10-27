@@ -127,7 +127,7 @@
     <value>Configuration</value>
   </data>
   <data name="Dialog_Ok" xml:space="preserve">
-    <value>Ok</value>
+    <value>OK</value>
   </data>
   <data name="Dialog_Cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -139,7 +139,7 @@
     <value>Edit</value>
   </data>
   <data name="Dialog_Remove" xml:space="preserve">
-    <value>Remove</value>
+    <value>Delete</value>
   </data>
   <data name="ApplicationDialog_Text" xml:space="preserve">
     <value>Configure application</value>
@@ -157,24 +157,24 @@
     <value>Filter</value>
   </data>
   <data name="ApplicationDialog_Message_AddName" xml:space="preserve">
-    <value>Please insert a name for the application!</value>
+    <value>Insert a name for the application.</value>
   </data>
   <data name="ApplicationDialog_Message_AddPath" xml:space="preserve">
-    <value>Please choose a valid path to the application!</value>
+    <value>You must choose a valid path to the application.</value>
   </data>
   <data name="ApplicationDialog_Message_ValidArgument" xml:space="preserve">
-    <value>Please use the placeholder' %1' when using the arguments!</value>
+    <value>You must use the placeholder '%1' when using arguments.</value>
   </data>
   <data name="ApplicationDialog_Tooltip_Arguments" xml:space="preserve">
-    <value>Use the placeholder %1 when using the arguments!</value>
+    <value>You must use the placeholder %1 when using arguments.</value>
   </data>
   <data name="ApplicationDialog_Tooltip_Filter" xml:space="preserve">
-    <value>Examples
+    <value>Examples:
  .pdf
  .jpg;.tmd;</value>
   </data>
   <data name="DataTypesDialog_Text" xml:space="preserve">
-    <value>Configure data types</value>
+    <value>Configure file types</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="addon" type="System.Resources.ResXFileRef, System.Windows.Forms">

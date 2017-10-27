@@ -125,26 +125,30 @@
     <value>Send reference by email</value>
   </data>
   <data name="OutlookRightsMessage" xml:space="preserve">
-    <value>[en]Die Verbindung zu Outlook ist fehlgeschlagen.
+    <value>Could not connect to Outlook.
 
-Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt werden.</value>
+Please check if Citavi and Outlook are being run on the same computer.</value>
   </data>
   <data name="SendReferenceByEMailBodyText" xml:space="preserve">
-    <value>References from Citavi project "{0}":
+    <value>Hello, 
+
+I thought you might like this reference from the Citavi project "{0}":
 {1}
 
 Hint:
-The RIS file attached contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program.</value>
+The attached RIS file contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program.</value>
   </data>
   <data name="SendReferenceByEMailBodyText_WithAttachments" xml:space="preserve">
-    <value>References from Citavi project "{0}":
+    <value>Hello, 
+
+I thought you might like this reference from the Citavi project "{0}":
 {1}
 
 Attachments:
 {2}
 
 Hint:
-The RIS file attached contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program.</value>
+The attached RIS file contains the bibliographic information for the reference above. You can import this file into Citavi (see www.citavi.com/ris) or another reference management program.</value>
   </data>
   <data name="ShortTitleMissing" xml:space="preserve">
     <value>[No short title!]</value>
