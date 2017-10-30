@@ -125,10 +125,10 @@
     <value>Configure ordering…</value>
   </data>
   <data name="OrderByClipboard" xml:space="preserve">
-    <value>Book order by email (Clipboard)…</value>
+    <value>Order by email (clipboard)…</value>
   </data>
   <data name="OrderByEMail" xml:space="preserve">
-    <value>Book order by email (Outlook)…</value>
+    <value>Order by email (Outlook)…</value>
   </data>
   <data name="TasksOrder" xml:space="preserve">
     <value>Order</value>
@@ -137,16 +137,16 @@
     <value>Configure ordering</value>
   </data>
   <data name="ConfigDialog_Ok" xml:space="preserve">
-    <value>OK</value>
+    <value>Ok</value>
   </data>
   <data name="ConfigDialog_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
   <data name="ConfigDialog_lbl_Receiver" xml:space="preserve">
-    <value>Recipient</value>
+    <value>[en] Empfänger für Bestellung</value>
   </data>
   <data name="ConfigDialog_lbl_Body" xml:space="preserve">
-    <value>Order text</value>
+    <value>[en] Text für Bestellung</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Order</value>
@@ -169,8 +169,8 @@ http://www.citavi.com</value>
     <value>&lt;not given&gt;</value>
   </data>
   <data name="OutlookRightsMessage" xml:space="preserve">
-    <value>Could not connect to Outlook.
+    <value>[en]Die Verbindung zu Outlook ist fehlgeschlagen.
 
-Please check if Citavi and Outlook are being run with the same rights level.</value>
+Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt werden.</value>
   </data>
 </root>

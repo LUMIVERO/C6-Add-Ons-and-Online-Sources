@@ -121,10 +121,10 @@
     <value>Bestellungen einrichten…</value>
   </data>
   <data name="OrderByClipboard" xml:space="preserve">
-    <value>Buchbestellung per E-Mail (Zwischenablage)…</value>
+    <value>Bestellung per E-Mail (Zwischenablage)…</value>
   </data>
   <data name="OrderByEMail" xml:space="preserve">
-    <value>Buchbestellung per E-Mail (Outlook)…</value>
+    <value>Bestellung per E-Mail (Outlook)…</value>
   </data>
   <data name="TasksOrder" xml:space="preserve">
     <value>Bestellen</value>
