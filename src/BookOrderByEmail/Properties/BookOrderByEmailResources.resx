@@ -125,7 +125,7 @@
     <value>Configure ordering…</value>
   </data>
   <data name="OrderByClipboard" xml:space="preserve">
-    <value>Order by email (clipboard)…</value>
+    <value>Order by email (Clipboard)…</value>
   </data>
   <data name="OrderByEMail" xml:space="preserve">
     <value>Order by email (Outlook)…</value>
@@ -143,10 +143,10 @@
     <value>Cancel</value>
   </data>
   <data name="ConfigDialog_lbl_Receiver" xml:space="preserve">
-    <value>[en] Empfänger für Bestellung</value>
+    <value>Recipient (Outlook)</value>
   </data>
   <data name="ConfigDialog_lbl_Body" xml:space="preserve">
-    <value>[en] Text für Bestellung</value>
+    <value>Order text</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Order</value>
@@ -166,11 +166,11 @@ Citavi – Reference Management and Knowledge Organization
 http://www.citavi.com</value>
   </data>
   <data name="OrderByEMailBodyTextISBNMissing" xml:space="preserve">
-    <value>&lt;not given&gt;</value>
+    <value>&lt;missing&gt;</value>
   </data>
   <data name="OutlookRightsMessage" xml:space="preserve">
-    <value>[en]Die Verbindung zu Outlook ist fehlgeschlagen.
+    <value>Could not connect to Outlook.
 
-Bitte prüfen Sie ob Citavi und Outlook mit den gleichen Rechten ausgeführt werden.</value>
+Please check if Citavi and Outlook are being run with the same rights.</value>
   </data>
 </root>

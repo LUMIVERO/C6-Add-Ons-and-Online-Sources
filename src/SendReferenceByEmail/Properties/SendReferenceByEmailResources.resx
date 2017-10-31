@@ -127,7 +127,7 @@
   <data name="OutlookRightsMessage" xml:space="preserve">
     <value>Could not connect to Outlook.
 
-Please check if Citavi and Outlook are being run on the same computer.</value>
+Please check if Citavi and Outlook are being run with the same rights.</value>
   </data>
   <data name="SendReferenceByEMailBodyText" xml:space="preserve">
     <value>Hello, 
