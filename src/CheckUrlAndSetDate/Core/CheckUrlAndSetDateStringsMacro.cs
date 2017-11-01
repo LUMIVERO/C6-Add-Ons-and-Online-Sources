@@ -6,32 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.CheckUrlAndSetDate
 {
     internal static class CheckUrlAndSetDateStringsMacro
     {
-        public static void Run(MainForm mainForm)
+        public async static void Run(MainForm mainForm)
         {
-
-            var timeOut = 3000;
-            string setToDate = null;
-            var setDateAlways = false;
-
-            var dateTimeFormat = Program.Engine.Settings.General.DateTimeFormat;
-            var newAccessDate = setToDate ?? DateTime.Today.ToString(dateTimeFormat);
-
-            var references = mainForm.GetFilteredReferences();
-            var referencesWithUrl = references.Where(reference => !String.IsNullOrEmpty(reference.OnlineAddress)).ToList();
-            var referencesWithInvalidUrls = new List<Reference>();
-
-
-            var activeProject = mainForm.Project;
-
-            var loopCounter = 0;
-            var changeCounter = 0;
-            var invalidCounter = 0;
+            var referencesWithUrl = mainForm.GetFilteredReferences()
+                                            .Where(reference => !String.IsNullOrEmpty(reference.OnlineAddress))
+                                            .ToList();
 
             if (referencesWithUrl.Count == 0)
             {
@@ -39,39 +26,23 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                 return;
             }
 
-            foreach (var reference in referencesWithUrl)
+            var isCanceled = false;
+            CheckUrlAndSetDateStringsMacroResult result = null;
+
+            try
             {
-
-                var location = (from l in reference.Locations
-                                where l.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
-                                select l).FirstOrDefault();
-
-                if (location?.Address.LinkedResourceType != LinkedResourceType.RemoteUri) continue;
-
-                var url = location.Address.Resolve().ToString();
-
-                loopCounter++;
-
-                var oldAccessDate = reference.AccessDate;
-
-                if (RemoteFileExists(url, timeOut, out string urlResult))
-                {
-                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
-                    reference.AccessDate = newAccessDate;
-                    changeCounter++;
-                }
-                else
-                {
-                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
-                    if (setDateAlways) reference.AccessDate = newAccessDate;
-                    invalidCounter++;
-                    referencesWithInvalidUrls.Add(reference);
-                }
+                result = await GenericProgressDialog.RunTask(mainForm, CheckReferences, referencesWithUrl);
+            }
+            catch (OperationCanceledException)
+            {
+                isCanceled = true;
             }
 
-            if (MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessage, referencesWithUrl.Count.ToString(), changeCounter.ToString(), invalidCounter.ToString()), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && referencesWithInvalidUrls.Count > 0)
+            if (isCanceled) return;
+
+            if (MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
             {
-                var filter = new ReferenceFilter(referencesWithInvalidUrls, CheckUrlAndSetDateResources.ReferenceInvalidFilterName, false);
+                var filter = new ReferenceFilter(result.InvalidReferences, CheckUrlAndSetDateResources.ReferenceInvalidFilterName, false);
                 mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
             }
 
@@ -114,5 +85,54 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                 return false;
             }
         }
+
+
+        static Task<CheckUrlAndSetDateStringsMacroResult> CheckReferences(List<Reference> references, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        {
+            return Task.Run(() =>
+            {
+                var result = new CheckUrlAndSetDateStringsMacroResult();
+                var timeOut = 3000;
+                var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat);
+
+                foreach (var reference in references)
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+
+                    var location = (from l in reference.Locations
+                                    where l.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
+                                    select l).FirstOrDefault();
+
+                    if (location?.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
+                    {
+                        progress.ReportSafe(reference.ToString(), (100 / references.Count * references.IndexOf(reference)));
+                        continue;
+                    }
+
+                    var url = location.Address.Resolve().ToString();
+
+                    result.LoopedCount++;
+
+                    var oldAccessDate = reference.AccessDate;
+
+                    if (RemoteFileExists(url, timeOut, out string urlResult))
+                    {
+                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
+                        reference.AccessDate = newAccessDate;
+                        result.ChangedCount++;
+                    }
+                    else
+                    {
+                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
+                        reference.AccessDate = newAccessDate;
+                        result.InvalidCount++;
+                        result.InvalidReferences.Add(reference);
+                    }
+                    progress.ReportSafe(reference.ToString(), (100 / references.Count * references.IndexOf(reference)));
+                }
+                return result;
+            });
+        }
+
     }
 }
