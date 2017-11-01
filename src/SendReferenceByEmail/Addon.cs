@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
     {
         #region Constants
 
-        const string Key_CommandbarButton = "SwissAcademic.Addons.SendReferenceByEmail.CommandbarButton";
+        const string Key_Button_SendReferenceByEmail = "SwissAcademic.Addons.SendReferenceByEmail.CommandbarButton";
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(Key_CommandbarButton, StringComparison.OrdinalIgnoreCase))
+            if (e.Form is MainForm mainForm && e.Key.Equals(Key_Button_SendReferenceByEmail, StringComparison.OrdinalIgnoreCase))
             {
                 try
                 {
@@ -46,7 +46,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .AddCommandbarButton(Key_CommandbarButton, SendReferenceByEmailResources.ButtonCaption, image: SendReferenceByEmailResources.addon);
+                        .AddCommandbarButton(Key_Button_SendReferenceByEmail, SendReferenceByEmailResources.ButtonCaption, image: SendReferenceByEmailResources.addon);
             }
             base.OnHostingFormLoaded(form);
         }
@@ -58,7 +58,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(Key_CommandbarButton);
+                                     .GetCommandbarButton(Key_Button_SendReferenceByEmail);
                 if (button != null) button.Text = SendReferenceByEmailResources.ButtonCaption;
             }
             base.OnLocalizing(form);

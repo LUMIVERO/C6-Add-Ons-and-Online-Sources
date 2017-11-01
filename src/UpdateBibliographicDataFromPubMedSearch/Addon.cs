@@ -9,7 +9,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
     {
         #region Constants
 
-        const string Key_UpdateBibliografic = "SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.UpdateBibliograficCommand";
+        const string Key_Button_UpdateBibliographicDataFromPubMedSearch = "SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.UpdateBibliograficCommand";
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 
                 switch (e.Key)
                 {
-                    case (Key_UpdateBibliografic):
+                    case (Key_Button_UpdateBibliographicDataFromPubMedSearch):
                         {
                             using (var dialog = new OverrideFieldsDialog { Owner = e.Form })
                             {
@@ -55,7 +55,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(4, Key_UpdateBibliografic, UpdateBibliographicDataFromPubMedSearchResources.CommandText, image: UpdateBibliographicDataFromPubMedSearchResources.addon);
+                        .InsertCommandbarButton(4, Key_Button_UpdateBibliographicDataFromPubMedSearch, UpdateBibliographicDataFromPubMedSearchResources.CommandText, image: UpdateBibliographicDataFromPubMedSearchResources.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -68,7 +68,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(Key_UpdateBibliografic);
+                                     .GetCommandbarButton(Key_Button_UpdateBibliographicDataFromPubMedSearch);
                 if (button != null) button.Text = UpdateBibliographicDataFromPubMedSearchResources.CommandText;
             }
 

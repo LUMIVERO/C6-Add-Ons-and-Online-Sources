@@ -11,7 +11,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
     {
         #region Constants
 
-        const string Key_ExportButtonCommand = "SwissAcademic.Addons.C6ToC5Export.ExportButtonCommand";
+        const string Key_Button_Export = "SwissAcademic.Addons.C6ToC5Export.ExportButtonCommand";
 
         #endregion
 
@@ -31,7 +31,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
             {
                 switch (e.Key)
                 {
-                    case (Key_ExportButtonCommand):
+                    case (Key_Button_Export):
                         {
                             using (var saveFileDialog = new SaveFileDialog { Filter = C6ToC5ExportResources.ProjectFilters, CheckPathExists = true, Title = C6ToC5ExportResources.ExportTitle })
                             {
@@ -70,7 +70,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                         .GetCommandbarMenu("ThisProject")
-                        .InsertCommandbarButton(3, Key_ExportButtonCommand, C6ToC5ExportResources.ExportCitaviButtonText, image: C6ToC5ExportResources.addon);
+                        .InsertCommandbarButton(3, Key_Button_Export, C6ToC5ExportResources.ExportCitaviButtonText, image: C6ToC5ExportResources.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -84,7 +84,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                                      .GetCommandbarMenu("ThisProject")
-                                     .GetCommandbarButton(Key_ExportButtonCommand);
+                                     .GetCommandbarButton(Key_Button_Export);
 
                 if (button != null) button.Text = C6ToC5ExportResources.ExportCitaviButtonText;
             }

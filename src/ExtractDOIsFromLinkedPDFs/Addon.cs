@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
     {
         #region Constants
 
-        const string Key_DoiButtonCommand = "SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.DoiButtonCommand";
+        const string Key_Button_ExtractDOIsFromLinkedPDFs = "SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.DoiButtonCommand";
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
                 switch (e.Key)
                 {
-                    case (Key_DoiButtonCommand):
+                    case (Key_Button_ExtractDOIsFromLinkedPDFs):
                         {
                             try
                             {
@@ -57,7 +57,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(4, Key_DoiButtonCommand, ExtractDOIsFromLinkedPDFsResources.CommandButtonText);
+                        .InsertCommandbarButton(4, Key_Button_ExtractDOIsFromLinkedPDFs, ExtractDOIsFromLinkedPDFsResources.CommandButtonText);
             }
 
             base.OnHostingFormLoaded(form);
@@ -70,7 +70,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(Key_DoiButtonCommand);
+                                     .GetCommandbarButton(Key_Button_ExtractDOIsFromLinkedPDFs);
                 if (button != null) button.Text = ExtractDOIsFromLinkedPDFsResources.CommandButtonText;
             }
 

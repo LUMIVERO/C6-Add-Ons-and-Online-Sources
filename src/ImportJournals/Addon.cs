@@ -9,10 +9,10 @@ namespace SwissAcademic.Addons.ImportJournals
     {
         #region Constants
 
-        const string Key_CommandbarMenu = "SwissAcademic.Addons.ImportJournals.CommandbarMenu";
-        const string Key_CommandbarButtonByFile = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByFile";
-        const string Key_CommandbarButtonByPubmed = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByPubmed";
-        const string Key_CommandbarButtonByWoodward = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByWoodward";
+        const string Key_Menu_ImportJournals = "SwissAcademic.Addons.ImportJournals.CommandbarMenu";
+        const string Key_Button_ImportByFile = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByFile";
+        const string Key_Button_ImportByPubmed = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByPubmed";
+        const string Key_Button_ImportByWoodward = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByWoodward";
 
         #endregion
 
@@ -40,19 +40,19 @@ namespace SwissAcademic.Addons.ImportJournals
                 e.Handled = true;
                 switch (e.Key)
                 {
-                    case (Key_CommandbarButtonByFile):
+                    case (Key_Button_ImportByFile):
                         {
                             ImportJournalsByFileMacro.Run(mainForm);
                         }
                         break;
 
-                    case (Key_CommandbarButtonByPubmed):
+                    case (Key_Button_ImportByPubmed):
                         {
                             ImportJournalsByPubMedMacro.Run(mainForm);
                         }
                         break;
 
-                    case (Key_CommandbarButtonByWoodward):
+                    case (Key_Button_ImportByWoodward):
                         {
                             ImportJournalsByWoodwardMacro.Run(mainForm);
                         }
@@ -72,10 +72,10 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 _importJournalsMenu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu)
                                                     .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
-                                                    .InsertCommandbarMenu(3, Key_CommandbarMenu, ImportJournalsResources.ImportJournalsMenu, image: ImportJournalsResources.addon);
-                _importJournalsByFileButton = _importJournalsMenu?.AddCommandbarButton(Key_CommandbarButtonByFile, ImportJournalsResources.ImportJournalsByFileCommandText);
-                _importJournalsByPubMedButton = _importJournalsMenu?.AddCommandbarButton(Key_CommandbarButtonByPubmed, ImportJournalsResources.ImportJournalsByPubMedCommandText);
-                _importJournalsByWoodwardButton = _importJournalsMenu?.AddCommandbarButton(Key_CommandbarButtonByWoodward, ImportJournalsResources.ImportJournalsByWoodwardLibraryCommandText);
+                                                    .InsertCommandbarMenu(3, Key_Menu_ImportJournals, ImportJournalsResources.ImportJournalsMenu, image: ImportJournalsResources.addon);
+                _importJournalsByFileButton = _importJournalsMenu?.AddCommandbarButton(Key_Button_ImportByFile, ImportJournalsResources.ImportJournalsByFileCommandText);
+                _importJournalsByPubMedButton = _importJournalsMenu?.AddCommandbarButton(Key_Button_ImportByPubmed, ImportJournalsResources.ImportJournalsByPubMedCommandText);
+                _importJournalsByWoodwardButton = _importJournalsMenu?.AddCommandbarButton(Key_Button_ImportByWoodward, ImportJournalsResources.ImportJournalsByWoodwardLibraryCommandText);
             }
 
             base.OnHostingFormLoaded(form);

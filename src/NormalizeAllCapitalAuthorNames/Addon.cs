@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
     {
         #region Constants
 
-        const string KeyCommandbarButton = "SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.CommandbarButton";
+        const string Key_Button_NormalizeAllCapitalAuthorNames = "SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.CommandbarButton";
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(KeyCommandbarButton, StringComparison.OrdinalIgnoreCase))
+            if (e.Form is MainForm mainForm && e.Key.Equals(Key_Button_NormalizeAllCapitalAuthorNames, StringComparison.OrdinalIgnoreCase))
             {
                 Macro.Run(mainForm);
                 e.Handled = true;
@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
             {
                 personListFrom.GetCommandbar(PersonListCommandbarId.Menu)
                               .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                              .InsertCommandbarButton(2, KeyCommandbarButton, NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText, image: NormalizeAllCapitalAuthorNamesResources.addon);
+                              .InsertCommandbarButton(2, Key_Button_NormalizeAllCapitalAuthorNames, NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText, image: NormalizeAllCapitalAuthorNamesResources.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -51,7 +51,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
             {
                 var button = personListFrom.GetCommandbar(PersonListCommandbarId.Menu)
                                            .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                                           .GetCommandbarButton(KeyCommandbarButton);
+                                           .GetCommandbarButton(Key_Button_NormalizeAllCapitalAuthorNames);
 
                 if (button != null) button.Text = NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText;
             }

@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
     {
         #region Constants
 
-        const string Key_CommandbarButton = "SwissAcademic.Addons.CheckUrlAndSetDate.CommandbarButton";
+        const string Key_Button_CheckUrl = "SwissAcademic.Addons.CheckUrlAndSetDate.CommandbarButton";
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_CommandbarButton, StringComparison.OrdinalIgnoreCase) && (e.Form is MainForm mainForm))
+            if (e.Key.Equals(Key_Button_CheckUrl, StringComparison.OrdinalIgnoreCase) && (e.Form is MainForm mainForm))
             {
                 Macro.Run(mainForm);
                 e.Handled = true;
@@ -40,7 +40,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(7, Key_CommandbarButton, CheckUrlAndSetDateResources.CheckUrlAndSetDateCommandText, image: CheckUrlAndSetDateResources.addon);
+                        .InsertCommandbarButton(7, Key_Button_CheckUrl, CheckUrlAndSetDateResources.CheckUrlAndSetDateCommandText, image: CheckUrlAndSetDateResources.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -53,7 +53,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                 var button = mainForm.GetMainCommandbarManager()
                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .GetCommandbarButton(Key_CommandbarButton);
+                    .GetCommandbarButton(Key_Button_CheckUrl);
 
                 if (button != null) button.Text = CheckUrlAndSetDateResources.CheckUrlAndSetDateCommandText;
             }

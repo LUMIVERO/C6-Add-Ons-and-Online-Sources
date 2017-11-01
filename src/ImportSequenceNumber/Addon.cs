@@ -12,7 +12,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
     {
         #region Constants
 
-        const string Key_CommandbarButton = "SwissAcademic.Addons.ImportSequenceNumber.CommandbarButton";
+        const string Key_Button_ImportSequenceNumber = "SwissAcademic.Addons.ImportSequenceNumber.CommandbarButton";
 
         #endregion
 
@@ -31,7 +31,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                     .AddCommandbarButton(Key_CommandbarButton, ImportSequenceNumberResources.MenuCaption, image: ImportSequenceNumberResources.addon);
+                                     .AddCommandbarButton(Key_Button_ImportSequenceNumber, ImportSequenceNumberResources.MenuCaption, image: ImportSequenceNumberResources.addon);
                 if (button != null) button.HasSeparator = true;
             }
 
@@ -40,7 +40,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
 
         async protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(Key_CommandbarButton, StringComparison.OrdinalIgnoreCase))
+            if (e.Form is MainForm mainForm && e.Key.Equals(Key_Button_ImportSequenceNumber, StringComparison.OrdinalIgnoreCase))
             {
                 if (mainForm.Project.ProjectType == ProjectType.DesktopSQLite)
                 {
@@ -119,7 +119,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                     .GetCommandbarButton(Key_CommandbarButton);
+                                     .GetCommandbarButton(Key_Button_ImportSequenceNumber);
                 if (button != null) button.Text = ImportSequenceNumberResources.MenuCaption;
             }
 

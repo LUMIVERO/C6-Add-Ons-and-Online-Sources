@@ -12,7 +12,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
     {
         #region Constants
 
-        const string Key_CommandbarButton = "SwissAcademic.Addons.DerivePageCountFromPageRange.CommandbarButton";
+        const string Key_Button_DerivePageCountFromPageRange = "SwissAcademic.Addons.DerivePageCountFromPageRange.CommandbarButton";
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
 
         protected override void OnBeforePerformingCommand(Controls.BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_CommandbarButton, StringComparison.OrdinalIgnoreCase) && e.Form is MainForm mainForm)
+            if (e.Key.Equals(Key_Button_DerivePageCountFromPageRange, StringComparison.OrdinalIgnoreCase) && e.Form is MainForm mainForm)
             {
                 try
                 {
@@ -81,7 +81,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
                     var button = mainForm.GetMainCommandbarManager()
                                          .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                          .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                         .AddCommandbarButton(Key_CommandbarButton, DerivePageCountFromPageRangeResources.DerivePageCountFromPageRange, image: DerivePageCountFromPageRangeResources.addon);
+                                         .AddCommandbarButton(Key_Button_DerivePageCountFromPageRange, DerivePageCountFromPageRangeResources.DerivePageCountFromPageRange, image: DerivePageCountFromPageRangeResources.addon);
                     if (button != null) button.HasSeparator = true;
 
 
@@ -104,7 +104,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(Key_CommandbarButton);
+                                     .GetCommandbarButton(Key_Button_DerivePageCountFromPageRange);
 
                 if (button != null) button.Text = DerivePageCountFromPageRangeResources.DerivePageCountFromPageRange;
             }

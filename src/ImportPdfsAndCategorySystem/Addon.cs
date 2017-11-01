@@ -9,8 +9,8 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
     {
         #region Constants
 
-        const string Key_CommandbarButtonFile = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonFile";
-        const string Key_CommandbarButtonReferences = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonReferences";
+        const string Key_Button_File = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonFile";
+        const string Key_Button_References = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonReferences";
 
         #endregion
 
@@ -29,12 +29,12 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
                 e.Handled = true;
                 switch (e.Key)
                 {
-                    case (Key_CommandbarButtonFile):
+                    case (Key_Button_File):
                         {
                             Macro.Run(mainForm);
                         }
                         break;
-                    case (Key_CommandbarButtonReferences):
+                    case (Key_Button_References):
                         {
                             Macro.Run(mainForm);
                         }
@@ -55,12 +55,12 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                        .InsertCommandbarButton(6, Key_CommandbarButtonFile, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
+                        .InsertCommandbarButton(6, Key_Button_File, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
 
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(3, Key_CommandbarButtonReferences, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
+                        .InsertCommandbarButton(3, Key_Button_References, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -73,14 +73,14 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                                     .GetCommandbarButton(Key_CommandbarButtonFile);
+                                     .GetCommandbarButton(Key_Button_File);
 
                 if (button != null) button.Text = ImportPdfsAndCategorySystemResource.AddonCommandbarButton;
 
                 button = mainForm.GetMainCommandbarManager()
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                                 .GetCommandbarButton(Key_CommandbarButtonReferences);
+                                 .GetCommandbarButton(Key_Button_References);
 
                 if (button != null) button.Text = ImportPdfsAndCategorySystemResource.AddonCommandbarButton;
             }
