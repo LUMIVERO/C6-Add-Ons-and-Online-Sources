@@ -161,7 +161,7 @@
     <value>There are elements in the Macro Editor that have not been saved. Do you want to save them before running the command?</value>
   </data>
   <data name="DirectoryNotResolveMessage" xml:space="preserve">
-    <value>The folder '{0}' was not found. Please choose another one!</value>
+    <value>The folder '{0}' was not found. Please choose another one.</value>
   </data>
   <data name="DirectoryDialogTitle" xml:space="preserve">
     <value>Configuration of the environment variable or path</value>
