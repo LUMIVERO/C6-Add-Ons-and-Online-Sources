@@ -74,9 +74,9 @@
             // 
             this.txtPath.Location = new System.Drawing.Point(15, 25);
             this.txtPath.Name = "txtPath";
-            this.txtPath.ReadOnly = true;
             this.txtPath.Size = new System.Drawing.Size(271, 20);
             this.txtPath.TabIndex = 4;
+            this.txtPath.TextChanged += new System.EventHandler(this.TxtPath_TextChanged);
             // 
             // btnEnvironmentVariables
             // 

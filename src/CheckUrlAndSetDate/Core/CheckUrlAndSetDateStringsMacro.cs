@@ -124,7 +124,6 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                     else
                     {
                         reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
-                        reference.AccessDate = newAccessDate;
                         result.InvalidCount++;
                         result.InvalidReferences.Add(reference);
                     }

@@ -118,6 +118,7 @@
     <Compile Include="Core\DirectoryConverter.cs" />
     <Compile Include="Core\MacroCommand.cs" />
     <Compile Include="Core\MacroAction.cs" />
+    <Compile Include="EnvironmentVariable.cs" />
     <Compile Include="Properties\MacroManagerResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +151,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Macro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maschine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

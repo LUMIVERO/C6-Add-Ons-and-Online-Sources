@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -35,9 +36,7 @@ namespace SwissAcademic.Addons.MacroManager
             if (string.IsNullOrEmpty(directory)) return;
 
             txtPath.Text = directory;
-            lblEnvironmentFullPath.Text = IsEnvironmentVariable(directory)
-                                                ? System.IO.Path2.GetFullPathFromPathWithVariables(directory)
-                                                : string.Empty;
+            lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(directory);
         }
 
         bool ExistDirectory(string directory)
@@ -56,11 +55,6 @@ namespace SwissAcademic.Addons.MacroManager
             return false;
         }
 
-        bool IsEnvironmentVariable(string directory)
-        {
-            return directory.StartsWith("%") && directory.EndsWith("%") && System.IO.Directory.Exists(System.IO.Path2.GetFullPathFromPathWithVariables(directory));
-        }
-
         void Localize()
         {
             this.Text = MacroManagerResources.DirectoryDialogTitle;
@@ -68,21 +62,44 @@ namespace SwissAcademic.Addons.MacroManager
             btnOk.Text = MacroManagerResources.Btn_Ok;
         }
 
-        IEnumerable<DictionaryEntry> GetPossibleUserEnvironmentVariables()
+        IEnumerable<EnvironmentVariable> GetPossibleUserEnvironmentVariables()
         {
-            return System.Environment.GetEnvironmentVariables(EnvironmentVariableTarget.User)
-                                     .Cast<DictionaryEntry>()
-                                     .Where(d => System.IO.Directory.Exists(d.Value.ToString()))
-                                     .OrderBy(d => d.Key.ToString())
-                                     .ToList();
+            var variables = new List<EnvironmentVariable>();
+
+            foreach (var entry in System.Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Machine).Cast<DictionaryEntry>())
+            {
+                var name = entry.Key.ToString();
+                var value = entry.Value.ToString();
+
+                if (!System.IO.Directory.Exists(value)) continue;
+
+                variables.Add(new EnvironmentVariable(name, value, EnvironmentVariableTarget.Machine));
+            }
+
+            foreach (var entry in System.Environment.GetEnvironmentVariables(EnvironmentVariableTarget.User).Cast<DictionaryEntry>())
+            {
+                var name = entry.Key.ToString();
+                var value = entry.Value.ToString();
+
+                if (!System.IO.Directory.Exists(value)) continue;
+
+                variables.Add(new EnvironmentVariable(name, value, EnvironmentVariableTarget.User));
+            }
+
+            return variables;
         }
 
-        string SearchUserEnvironmentVariableForPath(string path)
+
+
+        string GetPathWithVariablesFromFullPath(string path)
         {
-            return (from e in (from entry in GetPossibleUserEnvironmentVariables()
-                               select new { key = entry.Key.ToString(), value = entry.Value.ToString() })
-                    where !string.IsNullOrEmpty(e.key) && !string.IsNullOrEmpty(e.value) && e.value.TrimEnd('\\').Equals(path.TrimEnd('\\'), StringComparison.OrdinalIgnoreCase)
-                    select e.key).FirstOrDefault();
+            if (string.IsNullOrEmpty(path)) return path;
+
+            var entry = GetPossibleUserEnvironmentVariables().FirstOrDefault(v => path.StartsWith(v.Path.Trim('\\'), StringComparison.OrdinalIgnoreCase));
+
+            if (entry.Equals(default(DictionaryEntry))) return path;
+
+            return path.Replace(entry.Path.Trim('\\'), entry.Name);
         }
 
         #endregion
@@ -105,19 +122,22 @@ namespace SwissAcademic.Addons.MacroManager
         {
             using (var folderBrowseDialog = new FolderBrowserDialog { Description = MacroManagerResources.FolderBrowseDialogDescription })
             {
+                var root = System.IO.Path2.GetFullPathFromPathWithVariables(txtPath.Text);
+                if (System.IO.Directory.Exists(root)) folderBrowseDialog.SelectedPath = root;
+
                 if (folderBrowseDialog.ShowDialog(this) != DialogResult.OK) return;
 
-                var entry = SearchUserEnvironmentVariableForPath(folderBrowseDialog.SelectedPath);
+                var entry = GetPathWithVariablesFromFullPath(folderBrowseDialog.SelectedPath);
 
-                if (!string.IsNullOrEmpty(entry) && MessageBox.Show(this, MacroManagerResources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (!string.IsNullOrEmpty(entry) && !folderBrowseDialog.SelectedPath.Equals(entry, StringComparison.OrdinalIgnoreCase) && MessageBox.Show(this, MacroManagerResources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    txtPath.Text = $"%{entry}%";
-                    lblEnvironmentFullPath.Text = folderBrowseDialog.SelectedPath;
+                    txtPath.Text = entry;
+                    lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(entry);
                 }
                 else
                 {
                     txtPath.Text = folderBrowseDialog.SelectedPath;
-                    lblEnvironmentFullPath.Text = string.Empty;
+                    lblEnvironmentFullPath.Text = folderBrowseDialog.SelectedPath;
                 }
             }
         }
@@ -126,9 +146,17 @@ namespace SwissAcademic.Addons.MacroManager
         {
             ccEnvironment.Items.Clear();
 
-            foreach (var key in GetPossibleUserEnvironmentVariables().Select(d => $"%{d.Key.ToString()}%"))
+            foreach (var entry in GetPossibleUserEnvironmentVariables())
             {
-                ccEnvironment.Items.Add(key, null, ToolStripItem_ItemClick);
+                switch (entry.Type)
+                {
+                    case EnvironmentVariableTarget.User:
+                        ccEnvironment.Items.Add(entry.Name, MacroManagerResources.user, ToolStripItem_ItemClick);
+                        break;
+                    case EnvironmentVariableTarget.Machine:
+                        ccEnvironment.Items.Add(entry.Name, MacroManagerResources.maschine, ToolStripItem_ItemClick);
+                        break;
+                }
             }
 
             if (ccEnvironment.Items.Count == 0)
@@ -147,6 +175,11 @@ namespace SwissAcademic.Addons.MacroManager
                 txtPath.Text = item.Text;
                 lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(item.Text);
             }
+        }
+
+        void TxtPath_TextChanged(object sender, EventArgs e)
+        {
+            lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(txtPath.Text);
         }
 
         #endregion
