@@ -1,0 +1,369 @@
+﻿<CustomReferenceComparer id="8c14e0c1-d345-460b-b390-d29d6535db1d" version="1.0.0.0">
+  <Name>Single Author, Two Authors, Several Authors;  chronologically from oldest to most recent</Name>
+  <Notes><![CDATA[Papers by a single author are listed chronologically from oldest to most recent. Then papers by that author and a second, alphabetically according to the second author. Papers by three or more authors are listed chronologically.]]></Notes>
+  <Macro><![CDATA[using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.ComponentModel;
+using SwissAcademic.Citavi;
+using SwissAcademic.Citavi.Citations;
+using SwissAcademic.Citavi.Metadata;
+using SwissAcademic.Collections;
+using System.Globalization;
+using System.Text.RegularExpressions;
+
+namespace SwissAcademic.Citavi.Comparers
+{
+	public class CustomCitationComparer
+		:
+		ICustomCitationComparerMacro
+	{
+		CultureInfo _cultureForSorting = new CultureInfo("de");
+		string[] _particlesToIgnore;
+		Regex _wordsRegex = new Regex(@"[^\p{L}]*\p{Z}[^\p{L}]*");
+		Regex _particlesRegEx;
+		
+		public int Compare(Citation x, Citation y)
+		{
+			/*
+				This is an example of a custom sort macro that sorts all references of type 'internet document' on top of the bibliography.
+				The internet documents themselves are sorted according to a different logic than the rest of the cited documents.
+				Return values:
+				0:					x is considered the same as y sorting-wise, so we cannot tell a difference based on the algorithm below
+				> 0 (positive):		x should go after y, x is greater than y
+				< 0 (negative):		x should go before y, x is less than
+			*/
+
+			
+			if (x == null || y == null) return 0;
+
+			Reference xReference = x.Reference;
+			Reference yReference = y.Reference;
+			if (xReference == null || yReference == null) return 0;
+
+			ReferenceType xReferenceType = xReference.ReferenceType;
+			ReferenceType yReferenceType = yReference.ReferenceType;
+
+			var xAuthors = xReference.AuthorsOrEditorsOrOrganizations;
+			var yAuthors = yReference.AuthorsOrEditorsOrOrganizations;
+
+			int xAuthorsCount = 0;
+			int yAuthorsCount = 0;
+			if (xAuthors != null) xAuthorsCount = xAuthors.Count;
+			if (yAuthors != null) yAuthorsCount = yAuthors.Count;
+
+			string xTitleForSorting = GetTitleForSorting(xReference);
+			string yTitleForSorting = GetTitleForSorting(yReference);
+
+			string xVolume = xReference.Volume;
+			string yVolume = yReference.Volume;
+
+			string xSeriesTitleForSorting = GetSeriesTitleForSorting(xReference);
+			string ySeriesTitleForSorting = GetSeriesTitleForSorting(yReference);
+
+			Person xFirstAuthor = xAuthors != null && xAuthorsCount > 0 ? xAuthors[0] : null;
+			Person yFirstAuthor = yAuthors != null && yAuthorsCount > 0 ? yAuthors[0] : null;
+
+			bool xFirstAuthorIsOrganization = xFirstAuthor == null ? false : ((Person)xFirstAuthor).IsOrganization;
+			bool yFirstAuthorIsOrganization = yFirstAuthor == null ? false : ((Person)yFirstAuthor).IsOrganization;
+
+
+			StringComparer defaultStringComparer = StringComparer.Create(_cultureForSorting, true);
+
+			/*
+				Die Werke werden in alphabetischer Reihenfolge nach den Familiennamen der Erstautoren bzw. -autorinnen gereiht.
+				Ist bei einer Quelle kein Autor bzw. keine Autorin vorhanden, rückt der Titel an die Stelle des Autorennamens und das Werk
+				wird nach dem ersten Wort des Titels (wobei bestimmte und unbestimmte Artikel unberücksichtigt bleiben) alphabetisch gereiht.
+			*/
+			#region FirstSortExpression: LastName / Title
+
+			string xFirstSortExpression = string.Empty;
+			if (xAuthorsCount > 0 && xFirstAuthor != null)
+			{
+				if (xFirstAuthorIsOrganization && string.IsNullOrEmpty(xFirstAuthor.LastNameForSorting)) xFirstSortExpression = GetTextForSorting(xFirstAuthor.LastName);
+				else xFirstSortExpression = xFirstAuthor.GetLastNameForSortingResolved();
+			}
+			else
+			{
+				xFirstSortExpression = xTitleForSorting;
+			}
+
+			string yFirstSortExpression = string.Empty;
+			if (yAuthorsCount > 0 && yFirstAuthor != null)
+			{
+				if (yFirstAuthorIsOrganization && string.IsNullOrEmpty(yFirstAuthor.LastNameForSorting)) yFirstSortExpression = GetTextForSorting(yFirstAuthor.LastName);
+				else yFirstSortExpression = yFirstAuthor.GetLastNameForSortingResolved();
+			}
+			else
+			{
+				yFirstSortExpression = yTitleForSorting;
+			}
+
+			int firstCompareResult = defaultStringComparer.Compare(xFirstSortExpression, yFirstSortExpression);
+			if (firstCompareResult != 0) return firstCompareResult;
+
+			if (_cultureForSorting == CultureInfo.GetCultureInfo("de-DE"))
+			{
+				int firstLengthCompareResult = xFirstSortExpression.Length.CompareTo(yFirstSortExpression.Length);
+				if (firstLengthCompareResult != 0) return firstLengthCompareResult;
+			}
+
+			#endregion FirstSortExpression LastName / Title
+
+			/*
+				Werke unterschiedlicher Autoren bzw. Autorinnen mit gleichen Familiennamen werden alphabetisch nach den Anfangsbuchstaben des Vornamens (Initialen) gereiht.
+			*/
+			#region SecondSortExpression: FirstName MiddleName / Title
+
+			string xSecondSortExpression = string.Empty;
+			if (xAuthorsCount > 0 && xFirstAuthor != null)
+			{
+				List<string> nameParts = new List<string>();
+				if (!string.IsNullOrEmpty(xFirstAuthor.FirstName)) nameParts.Add(xFirstAuthor.FirstName);
+				if (!string.IsNullOrEmpty(xFirstAuthor.MiddleName)) nameParts.Add(xFirstAuthor.MiddleName);
+				if (!string.IsNullOrEmpty(xFirstAuthor.Prefix)) nameParts.Add(xFirstAuthor.Prefix);
+				if (!string.IsNullOrEmpty(xFirstAuthor.Suffix)) nameParts.Add(xFirstAuthor.Suffix);
+
+				xSecondSortExpression = string.Join(" ", nameParts);
+			}
+			else
+			{
+				xSecondSortExpression = xReference.Subtitle;
+			}
+
+
+			string ySecondSortExpression = string.Empty;
+			if (yAuthorsCount > 0 && yFirstAuthor != null)
+			{
+				List<string> nameParts = new List<string>();
+				if (!string.IsNullOrEmpty(yFirstAuthor.FirstName)) nameParts.Add(yFirstAuthor.FirstName);
+				if (!string.IsNullOrEmpty(yFirstAuthor.MiddleName)) nameParts.Add(yFirstAuthor.MiddleName);
+				if (!string.IsNullOrEmpty(yFirstAuthor.Prefix)) nameParts.Add(yFirstAuthor.Prefix);
+				if (!string.IsNullOrEmpty(yFirstAuthor.Suffix)) nameParts.Add(yFirstAuthor.Suffix);
+
+				ySecondSortExpression = string.Join(" ", nameParts);
+			}
+			else
+			{
+				ySecondSortExpression = yReference.Subtitle;
+			}
+
+			int secondCompareResult = defaultStringComparer.Compare(xSecondSortExpression, ySecondSortExpression);
+			if (secondCompareResult != 0) return secondCompareResult;
+
+			if (_cultureForSorting == CultureInfo.GetCultureInfo("de-DE"))
+			{
+				int secondLengthCompareResult = xSecondSortExpression.Length.CompareTo(ySecondSortExpression.Length);
+				if (secondLengthCompareResult != 0) return secondLengthCompareResult;
+			}
+
+			#endregion SecondSortExpression: FirstName MiddleName / Subtitle
+
+			#region 1 Author first
+			
+			if (xAuthors.Count == 1 && yAuthors.Count > 1)
+			{
+				return -1; //x before y
+			}
+			else if (xAuthors.Count > 1 && yAuthors.Count == 1)
+			{
+				return 1; //y before x
+			}
+			
+			#endregion
+			
+			#region 2 Authors before 2+n Authors
+			
+			/*
+				Zwei Autoren gehen VOR 3 und mehr Autoren
+			*/
+			if (xAuthors.Count == 2 && yAuthors.Count > 2)
+			{
+				return -1; //x before y
+			}
+			else if (xAuthors.Count > 2 && yAuthors.Count == 2)
+			{
+				return 1; //y before x
+			}
+			
+			#endregion
+
+			/*
+				Innerhalb der Gruppe chronologisch absteigend (neueste zuerst)
+			*/
+			#region Year
+
+			var yearCompareResult = YearComparer.Compare(x, y);
+			if (yearCompareResult != 0) return yearCompareResult;
+
+			#endregion Year
+
+			#region Volume
+
+			if
+			(
+				xReferenceType == yReferenceType &&
+				xReference.HasCoreField(ReferenceTypeCoreFieldId.Volume) &&
+				yReference.HasCoreField(ReferenceTypeCoreFieldId.Volume)
+			)
+			{
+				NumberStringComparer volumeComparer = new NumberStringComparer()
+				{
+					CompareMode = NumberStringCompareMode.ByTextAndNumbersSegmentwise,
+					UseAbsoluteNumbersOnly = true
+				};
+
+				int volumeCompareResult = volumeComparer.Compare(xVolume, yVolume);
+				if (volumeCompareResult != 0) return volumeCompareResult;
+			}
+
+			#endregion Volume
+			
+			#region Title
+
+			int titleStringCompareResult = defaultStringComparer.Compare(xTitleForSorting, yTitleForSorting);
+			if (titleStringCompareResult != 0) return titleStringCompareResult;
+
+			if (_cultureForSorting == CultureInfo.GetCultureInfo("de-DE"))
+			{
+				int titleStringLengthCompareResult = xTitleForSorting.Length.CompareTo(yTitleForSorting.Length);
+				if (titleStringLengthCompareResult != 0) return titleStringLengthCompareResult;
+			}
+
+			#endregion Title
+
+			return 0;
+		}
+		
+		private int CompareAuthors(Person xAuthor, Person yAuthor)
+		{
+			if (xAuthor == null || yAuthor == null) return 0;
+
+			StringComparer defaultStringComparer = StringComparer.Create(_cultureForSorting, true);
+
+			var xLastNameForSortingResolved = xAuthor.GetLastNameForSortingResolved();
+			var yLastNameForSortingResolved = yAuthor.GetLastNameForSortingResolved();
+
+			//var lastNameCompareResult = xLastNameForSortingResolved.CompareTo(yLastNameForSortingResolved);
+			var lastNameCompareResult = defaultStringComparer.Compare(xLastNameForSortingResolved, yLastNameForSortingResolved);
+			if (lastNameCompareResult != 0) return lastNameCompareResult;
+
+			if (_cultureForSorting == CultureInfo.GetCultureInfo("de-DE"))
+			{
+				var lengthCompareResult = xLastNameForSortingResolved.CompareTo(yLastNameForSortingResolved);
+				if (lengthCompareResult != 0) return lengthCompareResult;
+			}
+
+			var xFirstAndMiddleName = ConcatNonEmptyStrings(" ", new string[] { xAuthor.FirstName, xAuthor.MiddleName, xAuthor.Prefix, xAuthor.Suffix });
+			var yFirstAndMiddleName = ConcatNonEmptyStrings(" ", new string[] { xAuthor.FirstName, xAuthor.MiddleName, xAuthor.Prefix, xAuthor.Suffix });
+
+			var firstAndMiddleNameCompareResult = defaultStringComparer.Compare(xFirstAndMiddleName, yFirstAndMiddleName);
+			if (firstAndMiddleNameCompareResult != 0) return firstAndMiddleNameCompareResult;
+
+			if (_cultureForSorting == CultureInfo.GetCultureInfo("de-DE"))
+			{
+				var lengthCompareResult = xFirstAndMiddleName.Length.CompareTo(yFirstAndMiddleName.Length);
+				if (lengthCompareResult != 0) return lengthCompareResult;
+			}
+
+			return 0;
+
+
+		}
+		
+		private CitationComparer YearComparer
+		{
+			get
+			{
+				var yearSortDescriptors = new List<PropertySortDescriptor<Reference>>();
+				yearSortDescriptors.Add(new PropertySortDescriptor<Reference>(ReferencePropertyDescriptor.YearResolved, ListSortDirection.Descending));
+
+				var yearComparer = new CitationComparer(yearSortDescriptors);
+				return yearComparer;
+			}
+		}
+		
+		#region ConcatNonEmptyStrings
+
+		private string ConcatNonEmptyStrings(string separator, IEnumerable<string> strings)
+		{
+			if (strings == null) return string.Empty;
+			if (strings.Count() == 0) return string.Empty;
+
+			string fullString = string.Empty;
+			for (int i = 0; i < strings.Count(); i++)
+			{
+				string stringToAdd = strings.ElementAt(i).Trim();
+
+				if (string.IsNullOrEmpty(stringToAdd)) continue;
+				if (string.IsNullOrEmpty(fullString))
+				{
+					fullString = stringToAdd;
+				}
+				else
+				{
+					fullString = string.Join(separator, new string[] { fullString, stringToAdd });
+				}
+			}
+
+			return fullString;
+		}
+
+		#endregion ConcatNonEmptyStrings
+		
+		#region GetTitleForSorting
+
+		private string GetTitleForSorting(Reference reference)
+		{
+			if (reference == null) return string.Empty;
+
+			//change CustomField1 zu some other CustomFieldN where the sorting title can be found or
+			//place two slashes in front of the following line to NOT make use of a special sorting title field at all
+			//if (!string.IsNullOrEmpty(reference.CustomField1)) return reference.CustomField1;
+
+			//still here? Then the sort title is derived from the title
+
+			string sortTitle = ConcatNonEmptyStrings(" ", new string[] { reference.Title, reference.Subtitle, reference.TitleSupplement });
+			return GetTextForSorting(sortTitle);
+		}
+
+		private string GetSeriesTitleForSorting(Reference reference)
+		{
+			if (reference == null) return string.Empty;
+
+			if (!reference.HasCoreField(ReferenceTypeCoreFieldId.SeriesTitle)) return string.Empty;
+			if (reference.SeriesTitle == null) return string.Empty;
+
+			string sortSeriesTitle = reference.SeriesTitle.FullName;
+			if (string.IsNullOrEmpty(sortSeriesTitle)) return string.Empty;
+
+			return GetTextForSorting(sortSeriesTitle);
+		}
+
+		private string GetTextForSorting(string text)
+		{
+			if (_particlesToIgnore == null || !_particlesToIgnore.Any()) return text;
+			if (_particlesRegEx == null) return text;			
+
+			var words = _wordsRegex.Split(text);
+			int firstNonParticleToIgnoreIndex = -1;
+
+			foreach (string word in words)
+			{
+			
+				if (string.IsNullOrEmpty(word)) break;
+
+				firstNonParticleToIgnoreIndex++;
+				if (!_particlesRegEx.IsMatch(word)) break;
+			}
+
+			if (firstNonParticleToIgnoreIndex == -1) return text; 		//either text is empty or consists of particles to ignore ONLY
+			if (firstNonParticleToIgnoreIndex == 0) return text;		//text starts with a relevant word
+
+			return string.Join(" ", words, firstNonParticleToIgnoreIndex, words.Length - firstNonParticleToIgnoreIndex);
+		}
+
+		#endregion GetTitleSorting
+	}
+}]]></Macro>
+</CustomReferenceComparer>
