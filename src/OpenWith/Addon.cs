@@ -10,6 +10,15 @@ namespace SwissAcademic.Addons.OpenWith
 {
     public class Addon : CitaviAddOn
     {
+        #region Constants
+
+        const string Key_MenuCommand = "SwissAcademic.Addons.OpenWith.MenuCommand";
+        const string Key_ConfigurationCommand = "SwissAcademic.Addons.OpenWith.ConfigurationCommand";
+        const string Key_OpenWithCommand = "SwissAcademic.Addons.OpenWith.OpenWithCommand.{0}";
+        internal const string Key_Settings = "SwissAcademic.Addons.OpenWith.Settings.{0}";
+
+        #endregion
+
         #region Fields
 
         PopupMenuTool _menu;
@@ -91,7 +100,7 @@ namespace SwissAcademic.Addons.OpenWith
                 e.Handled = true;
                 switch (e.Key)
                 {
-                    case (AddonKeys.ConfigurationCommand):
+                    case (Key_ConfigurationCommand):
                         {
                             using (var dialog = new ConfigurationDialog(Addon.Configuration.Clone() as Configuration))
                             {
@@ -107,7 +116,7 @@ namespace SwissAcademic.Addons.OpenWith
 
                     default:
                         {
-                            var application = Addon.Configuration.Applications.FirstOrDefault(a => e.Key.Equals(AddonKeys.OpenWithCommand.FormatString(a.Id), StringComparison.OrdinalIgnoreCase));
+                            var application = Addon.Configuration.Applications.FirstOrDefault(a => e.Key.Equals(Key_OpenWithCommand.FormatString(a.Id), StringComparison.OrdinalIgnoreCase));
                             if (application != null)
                             {
                                 Program.ClosePreview(mainForm.PreviewControl.ActiveUri);
@@ -139,14 +148,14 @@ namespace SwissAcademic.Addons.OpenWith
                             .Tools.Cast<ToolBase>()
                             .FirstOrDefault(tool => tool.Key.Equals("ReferenceEditorUriLocationsContextMenu")) is PopupMenuTool popupMenu)
                 {
-                    popupMenu.ToolbarsManager.Tools.Add(new PopupMenuTool(AddonKeys.MenuCommand));
-                    _menu = popupMenu.ToolbarsManager.Tools[AddonKeys.MenuCommand] as PopupMenuTool;
+                    popupMenu.ToolbarsManager.Tools.Add(new PopupMenuTool(Key_MenuCommand));
+                    _menu = popupMenu.ToolbarsManager.Tools[Key_MenuCommand] as PopupMenuTool;
                     popupMenu.Tools.Insert(4, _menu);
                     _menu.SharedProps.Caption = Properties.OpenWithResources.MenuCaption;
                     _menu.SharedProps.AppearancesSmall.Appearance.Image = Properties.OpenWithResources.addon;
 
-                    _menu.ToolbarsManager.Tools.Add(new ButtonTool(AddonKeys.ConfigurationCommand));
-                    _configurationButton = _menu.ToolbarsManager.Tools[AddonKeys.ConfigurationCommand] as ButtonTool;
+                    _menu.ToolbarsManager.Tools.Add(new ButtonTool(Key_ConfigurationCommand));
+                    _configurationButton = _menu.ToolbarsManager.Tools[Key_ConfigurationCommand] as ButtonTool;
                     _menu.Tools.Insert(0, _configurationButton);
                     _configurationButton.SharedProps.Caption = Properties.OpenWithResources.ConfigurationCaption;
                     Refresh();
@@ -180,7 +189,7 @@ namespace SwissAcademic.Addons.OpenWith
 
             foreach (var application in Addon.Configuration.Applications)
             {
-                var key = AddonKeys.OpenWithCommand.FormatString(application.Id);
+                var key = Key_OpenWithCommand.FormatString(application.Id);
                 _menu.ToolbarsManager.Tools.Add(new ButtonTool(key));
                 var button = _menu.ToolbarsManager.Tools[key] as ButtonTool;
                 _menu.Tools.Insert(counter, button);

@@ -36,22 +36,22 @@ namespace SwissAcademic.Addons.MacroManager
             if (string.IsNullOrEmpty(directory)) return;
 
             txtPath.Text = directory;
-            lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(directory);
+            lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(directory);
         }
 
         bool ExistDirectory(string directory)
         {
             if (string.IsNullOrEmpty(directory))
             {
-                MessageBox.Show(this, MacroManagerResources.FolderBrowseDialogDescription, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, MacroManagerResources.FolderBrowseDialogDescription, Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
 
-            var path = System.IO.Path2.GetFullPathFromPathWithVariables(directory);
+            var path = Path2.GetFullPathFromPathWithVariables(directory);
 
             if (System.IO.Directory.Exists(path)) return true;
 
-            MessageBox.Show(this, MacroManagerResources.DirectoryNotResolveMessage.FormatString(path), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, MacroManagerResources.DirectoryNotResolveMessage.FormatString(path), Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -129,7 +129,7 @@ namespace SwissAcademic.Addons.MacroManager
 
                 var entry = GetPathWithVariablesFromFullPath(folderBrowseDialog.SelectedPath);
 
-                if (!string.IsNullOrEmpty(entry) && !folderBrowseDialog.SelectedPath.Equals(entry, StringComparison.OrdinalIgnoreCase) && MessageBox.Show(this, MacroManagerResources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (!string.IsNullOrEmpty(entry) && !folderBrowseDialog.SelectedPath.Equals(entry, StringComparison.OrdinalIgnoreCase) && MessageBox.Show(this, MacroManagerResources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), Owner.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     txtPath.Text = entry;
                     lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(entry);
@@ -161,7 +161,7 @@ namespace SwissAcademic.Addons.MacroManager
 
             if (ccEnvironment.Items.Count == 0)
             {
-                MessageBox.Show(this, MacroManagerResources.EnvironmentVariablesNotFound, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, MacroManagerResources.EnvironmentVariablesNotFound, Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

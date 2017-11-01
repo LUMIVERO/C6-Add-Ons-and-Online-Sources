@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SwissAcademic.Addons.MacroManager
 {
     internal class EnvironmentVariable
     {
+        #region Constructors
+
         public EnvironmentVariable(string name, string path, EnvironmentVariableTarget type)
         {
             Name = $"%{name}%";
@@ -15,9 +13,16 @@ namespace SwissAcademic.Addons.MacroManager
             Type = type;
         }
 
+        #endregion
+
+        #region Properties
+
         public string Name { get; }
 
         public string Path { get; }
+
         public EnvironmentVariableTarget Type { get; }
+
+        #endregion
     }
 }

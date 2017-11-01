@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.CheckUrlAndSetDate
 {
-    internal static class CheckUrlAndSetDateStringsMacro
+    internal static class Macro
     {
         public async static void Run(MainForm mainForm)
         {
@@ -22,12 +22,12 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
             if (referencesWithUrl.Count == 0)
             {
-                MessageBox.Show(mainForm, CheckUrlAndSetDateResources.NoReferencesFoundedMessage, "Citavi", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                MessageBox.Show(mainForm, CheckUrlAndSetDateResources.NoReferencesFoundedMessage, mainForm.ProductName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 return;
             }
 
             var isCanceled = false;
-            CheckUrlAndSetDateStringsMacroResult result = null;
+            MacroResult result = null;
 
             try
             {
@@ -40,7 +40,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
             if (isCanceled) return;
 
-            if (MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
+            if (MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
             {
                 var filter = new ReferenceFilter(result.InvalidReferences, CheckUrlAndSetDateResources.ReferenceInvalidFilterName, false);
                 mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
@@ -86,26 +86,27 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
             }
         }
 
-
-        static Task<CheckUrlAndSetDateStringsMacroResult> CheckReferences(List<Reference> references, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        static Task<MacroResult> CheckReferences(List<Reference> references, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
         {
             return Task.Run(() =>
             {
-                var result = new CheckUrlAndSetDateStringsMacroResult();
+                var result = new MacroResult();
                 var timeOut = 3000;
                 var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat);
 
-                foreach (var reference in references)
+                for (int i = 0; i < references.Count; i++)
                 {
+                    var reference = references[i];
+
                     cancellationToken.ThrowIfCancellationRequested();
 
-                    var location = (from l in reference.Locations
-                                    where l.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
-                                    select l).FirstOrDefault();
+                    var location = (from currentLocation in reference.Locations
+                                    where currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
+                                    select currentLocation).FirstOrDefault();
 
-                    if (location?.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
+                    if (location == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
                     {
-                        progress.ReportSafe(reference.ToString(), (100 / references.Count * references.IndexOf(reference)));
+                        progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
                         continue;
                     }
 
@@ -127,11 +128,10 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                         result.InvalidCount++;
                         result.InvalidReferences.Add(reference);
                     }
-                    progress.ReportSafe(reference.ToString(), (100 / references.Count * references.IndexOf(reference)));
+                    progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
                 }
                 return result;
             });
         }
-
     }
 }

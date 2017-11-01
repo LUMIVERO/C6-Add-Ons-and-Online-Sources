@@ -2,11 +2,11 @@
 
 namespace SwissAcademic.Addons.BookOrderByEmail
 {
-    public class Mail
+    internal class MailTemplate
     {
         #region Constructors
 
-        public Mail()
+        public MailTemplate()
         {
             Attachments = new List<string>();
             To = new List<string>();

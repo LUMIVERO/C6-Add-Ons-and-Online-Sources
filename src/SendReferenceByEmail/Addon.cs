@@ -8,6 +8,12 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
 {
     public class Addon : CitaviAddOn
     {
+        #region Constants
+
+        const string Key_CommandbarButton = "SwissAcademic.Addons.SendReferenceByEmail.CommandbarButton";
+
+        #endregion
+
         #region Properties
 
         public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
@@ -18,7 +24,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(AddonKeys.CommandbarButton, StringComparison.OrdinalIgnoreCase))
+            if (e.Form is MainForm mainForm && e.Key.Equals(Key_CommandbarButton, StringComparison.OrdinalIgnoreCase))
             {
                 try
                 {
@@ -26,7 +32,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                 }
                 catch (System.Runtime.InteropServices.COMException)
                 {
-                    MessageBox.Show(mainForm, SendReferenceByEmailResources.OutlookRightsMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(mainForm, SendReferenceByEmailResources.OutlookRightsMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 e.Handled = true;
             }
@@ -40,7 +46,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .AddCommandbarButton(AddonKeys.CommandbarButton, SendReferenceByEmailResources.ButtonCaption, image: SendReferenceByEmailResources.addon);
+                        .AddCommandbarButton(Key_CommandbarButton, SendReferenceByEmailResources.ButtonCaption, image: SendReferenceByEmailResources.addon);
             }
             base.OnHostingFormLoaded(form);
         }
@@ -52,7 +58,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(AddonKeys.CommandbarButton);
+                                     .GetCommandbarButton(Key_CommandbarButton);
                 if (button != null) button.Text = SendReferenceByEmailResources.ButtonCaption;
             }
             base.OnLocalizing(form);

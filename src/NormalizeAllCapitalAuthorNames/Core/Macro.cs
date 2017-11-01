@@ -1,18 +1,19 @@
 ﻿using SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.Properties;
-using SwissAcademic.Citavi;
+using SwissAcademic.Citavi.Shell;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 {
-    internal static class NormalizeAllCapitalAuthorNamesMacro
+    internal static class Macro
     {
-        public static void Run(Form form, Project project)
+        public static void Run(MainForm mainForm)
         {
             var prefixSuffixFirstCapitalLetter = false;
             var normalizeCapitalLastname = true;
             var counter = 0;
+            var project = mainForm.Project;
 
             var authors = project.Persons.ToArray();
             if (!authors.Any()) return;
@@ -58,7 +59,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
                 }
             }
 
-            MessageBox.Show(form, NormalizeAllCapitalAuthorNamesResources.ResultMessage.FormatString(counter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mainForm, NormalizeAllCapitalAuthorNamesResources.ResultMessage.FormatString(counter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

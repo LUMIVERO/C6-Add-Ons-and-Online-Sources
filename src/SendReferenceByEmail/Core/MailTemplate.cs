@@ -2,14 +2,11 @@
 
 namespace SwissAcademic.Addons.SendReferenceByEmail
 {
-    public class Mail
+    public class MailTemplate
     {
         #region Constructors
 
-        public Mail()
-        {
-            Attachments = new List<string>();
-        }
+        public MailTemplate() => Attachments = new List<string>();
 
         #endregion
 

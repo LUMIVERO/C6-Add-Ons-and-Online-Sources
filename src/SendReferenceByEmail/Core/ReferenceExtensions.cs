@@ -16,13 +16,13 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
     {
         public static async Task SendByEMailAsync(this Reference reference)
         {
-            var mail = new Mail();
+            var mailTemplate = new MailTemplate();
             var attachmentFileNames = new StringBuilder();
 
             foreach (var location in reference.Locations.GetAvailable())
             {
                 var fileInfo = new FileInfo(location.Address.Resolve().GetLocalPathSafe());
-                mail.Attachments.Add(fileInfo.FullName);
+                mailTemplate.Attachments.Add(fileInfo.FullName);
                 attachmentFileNames.AppendLine(fileInfo.Name);
             }
 
@@ -30,7 +30,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                              ? SendReferenceByEmailResources.ShortTitleMissing
                              : reference.ShortTitle).UnciodeToLatin();
 
-            mail.Subject = "Citavi: " + shortTitle;
+            mailTemplate.Subject = "Citavi: " + shortTitle;
 
             var stringBuilder = new StringBuilder();
             foreach (var c in shortTitle)
@@ -51,20 +51,19 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
             var success = false;
             using (var fs = File.OpenWrite(risTempFileName))
             {
-
                 success = await exporter.RunAsync(risExportDataExchangeProptery, fs, CancellationToken.None, null);
             }
             if (!success) return;
 
-            mail.Attachments.Add(risTempFileName);
+            mailTemplate.Attachments.Add(risTempFileName);
             attachmentFileNames.AppendLine(Path.GetFileName(risTempFileName));
 
-            mail.Body = mail.Attachments.Count > 0
+            mailTemplate.Body = mailTemplate.Attachments.Count > 0
                         ? string.Format(SendReferenceByEmailResources.SendReferenceByEMailBodyText_WithAttachments, reference.Project.Name, reference.ToString(TextFormat.Text), attachmentFileNames.ToString())
                         : string.Format(SendReferenceByEmailResources.SendReferenceByEMailBodyText, reference.Project.Name, reference.ToString(TextFormat.Text));
 
 
-            Outlook.Send(mail);
+            Outlook.Send(mailTemplate);
         }
 
         static IEnumerable<Location> GetAvailable(this ReferenceLocationCollection locations)

@@ -24,24 +24,21 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 
         #region Properties
 
-        public MacroSettings Settings
+        public MacroSettings Settings => new MacroSettings
         {
-            get { return new MacroSettings { ClearNotes = chbRemoveNotes.Checked, OverwriteAbstract = chbOverrideAbstract.Checked, OverwriteKeywords = chbOverrideKeywords.Checked, OverwriteTableOfContents = chbOverrideTOC.Checked }; }
-        }
+            ClearNotes = chbRemoveNotes.Checked,
+            OverwriteAbstract = chbOverrideAbstract.Checked,
+            OverwriteKeywords = chbOverrideKeywords.Checked,
+            OverwriteTableOfContents = chbOverrideTOC.Checked
+        };
 
         #endregion
 
         #region Eventhandlers
 
-        void BtnOk_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-        }
+        void BtnOk_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
 
-        void BtnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
+        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         #endregion
     }

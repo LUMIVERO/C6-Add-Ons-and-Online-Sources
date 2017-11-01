@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
 {
-    internal static class ImportPdfsAndCategorySystemMacro
+    internal static class Macro
     {
         public static void Run(MainForm mainForm)
         {
@@ -44,7 +44,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
                 }
             }
 
-            MessageBox.Show(mainForm, ImportPdfsAndCategorySystemResource.MacroResultMessage.FormatString(counter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mainForm, ImportPdfsAndCategorySystemResource.MacroResultMessage.FormatString(counter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static void AddCategories(IEnumerable<Reference> references, string categoryHierarchy)

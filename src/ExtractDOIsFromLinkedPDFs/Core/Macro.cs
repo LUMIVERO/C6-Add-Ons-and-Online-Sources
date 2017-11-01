@@ -14,7 +14,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 {
     internal static class Macro
     {
-        public static async Task Run(Form form, Project project)
+        public static async Task Run(MainForm mainForm, Project project)
         {
             if (project.ProjectType == ProjectType.DesktopCloud)
             {
@@ -22,7 +22,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
                 try
                 {
-                    await GenericProgressDialog.RunTask(form, FetchAllAttributes, project, ExtractDOIsFromLinkedPDFsResources.GenericDialogFetchAttributsTitle, null, cts);
+                    await GenericProgressDialog.RunTask(mainForm, FetchAllAttributes, project, ExtractDOIsFromLinkedPDFsResources.GenericDialogFetchAttributsTitle, null, cts);
                 }
                 catch (OperationCanceledException x)
                 {
@@ -33,7 +33,6 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
                 // But probably, we will land and return here...
                 if (cts.IsCancellationRequested) return;
-
 
                 var hasUnavailableAttachments = (from location in project.AllLocations
                                                  where
@@ -46,40 +45,39 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
                 if (hasUnavailableAttachments)
                 {
-                    MessageBox.Show(form, ExtractDOIsFromLinkedPDFsResources.UserMessageUnavailableAttachements, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mainForm, ExtractDOIsFromLinkedPDFsResources.UserMessageUnavailableAttachements, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }
 
 
-            var fileLocations = (from location in project.AllLocations
-                                 where
-                                     location.LocationType == LocationType.ElectronicAddress &&
-                                     string.IsNullOrEmpty(location.Reference.Doi) &&
-                                     ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
-                                     location.Address.CachingStatus == CachingStatus.Available) ||
-                                     (
-                                         location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
-                                         location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
-                                         location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
-                                     ))
-                                 let path = location.Address.Resolve().GetLocalPathSafe()
-                                 where
-                                    File.Exists(path) &&
-                                    Path.GetExtension(path).Equals(".pdf", StringComparison.OrdinalIgnoreCase)
-                                 select new LocationContainer { Location = location, Path = path }).ToList();
+            var containers = (from location in project.AllLocations
+                              where
+                                  location.LocationType == LocationType.ElectronicAddress &&
+                                  string.IsNullOrEmpty(location.Reference.Doi) &&
+                                  ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
+                                  location.Address.CachingStatus == CachingStatus.Available) ||
+                                  (
+                                      location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
+                                      location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
+                                      location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
+                                  ))
+                              let path = location.Address.Resolve().GetLocalPathSafe()
+                              where
+                                 File.Exists(path) &&
+                                 Path.GetExtension(path).Equals(".pdf", StringComparison.OrdinalIgnoreCase)
+                              select new LocationContainer { Location = location, Path = path }).ToList();
             var isCanceled = false;
             try
             {
-                await GenericProgressDialog.RunTask(form, FindDois, fileLocations);
+                await GenericProgressDialog.RunTask(mainForm, FindDois, containers);
             }
             catch (OperationCanceledException)
             {
-                // Do nothing when cancelled
                 isCanceled = true;
             }
 
-            if (!isCanceled) MessageBox.Show(form, ExtractDOIsFromLinkedPDFsResources.ProcessFinishMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (!isCanceled) MessageBox.Show(mainForm, ExtractDOIsFromLinkedPDFsResources.ProcessFinishMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static Task FetchAllAttributes(Project project, CancellationToken cancellationToken)
@@ -93,39 +91,38 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                                 select location.Address.FetchAttributesAsync(cancellationToken));
         }
 
-
-        static Task FindDois(List<LocationContainer> fileLocations, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        static Task FindDois(List<LocationContainer> containers, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
         {
             var supporter = new ReferenceIdentifierSupport();
             var counter = 0;
 
             return Task.Run(() =>
             {
-                foreach (var item in fileLocations)
+                foreach (var container in containers)
                 {
                     cancellationToken.ThrowIfCancellationRequested();
 
                     counter++;
-                    var percentage = counter * 100 / fileLocations.Count;
+                    var percentage = counter * 100 / containers.Count;
 
-                    if (!string.IsNullOrEmpty(item.Location.Reference.Doi))
+                    if (!string.IsNullOrEmpty(container.Location.Reference.Doi))
                     {
                         // Another location of the same reference has already added the DOI
-                        progress.ReportSafe(item.Location.ToString(), percentage);
+                        progress.ReportSafe(container.Location.ToString(), percentage);
                         continue;
                     }
 
-                    var matches = supporter.FindIdentifierInFile(item.Path, ReferenceIdentifierType.Doi, false);
+                    var matches = supporter.FindIdentifierInFile(container.Path, ReferenceIdentifierType.Doi, false);
                     if (matches.Count == 0)
                     {
-                        progress.ReportSafe(item.Location.ToString(), percentage);
+                        progress.ReportSafe(container.Location.ToString(), percentage);
                         continue;
                     }
 
                     var match = matches.ElementAt(0);
 
-                    item.Location.Reference.Doi = match.ToString();
-                    progress.ReportSafe(item.Location.ToString(), percentage);
+                    container.Location.Reference.Doi = match.ToString();
+                    progress.ReportSafe(container.Location.ToString(), percentage);
                 }
             });
         }

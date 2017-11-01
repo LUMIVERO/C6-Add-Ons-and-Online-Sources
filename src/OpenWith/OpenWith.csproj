@@ -93,7 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="Core\AddonKeys.cs" />
     <Compile Include="Dialogs\DataTypesDialog.cs">
       <SubType>Form</SubType>
     </Compile>

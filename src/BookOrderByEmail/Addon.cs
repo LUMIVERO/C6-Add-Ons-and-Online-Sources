@@ -7,6 +7,15 @@ namespace SwissAcademic.Addons.BookOrderByEmail
 {
     public class Addon : CitaviAddOn
     {
+        #region Constants
+
+        const string Key_OrderPerEmail = "SwissAcademic.Addons.BookOrderByEmail.OrderPerEmail";
+        const string Key_OrderPerClipboard = "SwissAcademic.Addons.BookOrderByEmail.OrderPerClipboard";
+        const string Key_ConfigOrders = "SwissAcademic.Addons.BookOrderByEmail.ConfigOrders";
+        const string Key_Menu = "SwissAcademic.Addons.BookOrderByEmail.Menu";
+
+        #endregion
+
         #region Fields
 
         Configuration _configuration;
@@ -28,7 +37,7 @@ namespace SwissAcademic.Addons.BookOrderByEmail
             {
                 switch (e.Key)
                 {
-                    case (AddonKeys.OrderPerEmail):
+                    case (Key_OrderPerEmail):
                         {
                             try
                             {
@@ -36,16 +45,16 @@ namespace SwissAcademic.Addons.BookOrderByEmail
                             }
                             catch (System.Runtime.InteropServices.COMException)
                             {
-                                MessageBox.Show(mainForm, BookOrderByEmailResources.OutlookRightsMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(mainForm, BookOrderByEmailResources.OutlookRightsMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         break;
-                    case (AddonKeys.OrderPerClipboard):
+                    case (Key_OrderPerClipboard):
                         {
                             mainForm.ActiveReference.OrderByClipboard(_configuration);
                         }
                         break;
-                    case (AddonKeys.ConfigOrders):
+                    case (Key_ConfigOrders):
                         {
                             Configurate(mainForm);
                         }
@@ -66,13 +75,13 @@ namespace SwissAcademic.Addons.BookOrderByEmail
             {
                 var menu = mainForm.GetReferenceEditorTasksCommandbarManager()
                                    .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
-                                   .InsertCommandbarMenu(2,AddonKeys.Menu, BookOrderByEmailResources.TasksOrder, CommandbarItemStyle.ImageAndText, image: BookOrderByEmailResources.addon);
+                                   .InsertCommandbarMenu(2, Key_Menu, BookOrderByEmailResources.TasksOrder, CommandbarItemStyle.ImageAndText, image: BookOrderByEmailResources.addon);
                 if (menu != null)
                 {
                     menu.HasSeparator = true;
-                    if (Outlook.IsInstalled) menu.AddCommandbarButton(AddonKeys.OrderPerEmail, BookOrderByEmailResources.OrderByEMail);
-                    menu.AddCommandbarButton(AddonKeys.OrderPerClipboard, BookOrderByEmailResources.OrderByClipboard);
-                    var button = menu.AddCommandbarButton(AddonKeys.ConfigOrders, BookOrderByEmailResources.ConfigureOrders);
+                    if (Outlook.IsInstalled) menu.AddCommandbarButton(Key_OrderPerEmail, BookOrderByEmailResources.OrderByEMail);
+                    menu.AddCommandbarButton(Key_OrderPerClipboard, BookOrderByEmailResources.OrderByClipboard);
+                    var button = menu.AddCommandbarButton(Key_ConfigOrders, BookOrderByEmailResources.ConfigureOrders);
                     button.HasSeparator = true;
                 }
             }
@@ -87,17 +96,17 @@ namespace SwissAcademic.Addons.BookOrderByEmail
             {
                 var menu = mainForm.GetReferenceEditorTasksCommandbarManager()
                                    .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
-                                   .GetCommandbarMenu(AddonKeys.Menu);
+                                   .GetCommandbarMenu(Key_Menu);
                 if (menu != null)
                 {
                     menu.Text = BookOrderByEmailResources.TasksOrder;
-                    var button = menu.GetCommandbarButton(AddonKeys.OrderPerEmail);
+                    var button = menu.GetCommandbarButton(Key_OrderPerEmail);
                     if (button != null) button.Text = BookOrderByEmailResources.OrderByEMail;
 
-                    button = menu.GetCommandbarButton(AddonKeys.OrderPerClipboard);
+                    button = menu.GetCommandbarButton(Key_OrderPerClipboard);
                     if (button != null) button.Text = BookOrderByEmailResources.OrderByClipboard;
 
-                    button = menu.GetCommandbarButton(AddonKeys.ConfigOrders);
+                    button = menu.GetCommandbarButton(Key_ConfigOrders);
                     if (button != null) button.Text = BookOrderByEmailResources.ConfigureOrders;
 
                 }

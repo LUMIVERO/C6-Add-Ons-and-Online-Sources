@@ -1,14 +1,19 @@
 ﻿using SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using SwissAcademic.Drawing;
-using System;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
 {
     public class Addon : CitaviAddOn
     {
+        #region Constants
+
+        const string Key_CommandbarButtonFile = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonFile";
+        const string Key_CommandbarButtonReferences = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonReferences";
+
+        #endregion
+
         #region Properties
 
         public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
@@ -19,17 +24,25 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            var mainForm = e.Form as MainForm;
-
-            if (mainForm != null && e.Key.Equals(AddonKeys.CommandbarButtonFile, StringComparison.OrdinalIgnoreCase))
+            if (e.Form is MainForm mainForm)
             {
-                ImportPdfsAndCategorySystemMacro.Run(mainForm);
                 e.Handled = true;
-            }
-            else if (mainForm != null && e.Key.Equals(AddonKeys.CommandbarButtonReferences, StringComparison.OrdinalIgnoreCase))
-            {
-                ImportPdfsAndCategorySystemMacro.Run(mainForm);
-                e.Handled = true;
+                switch (e.Key)
+                {
+                    case (Key_CommandbarButtonFile):
+                        {
+                            Macro.Run(mainForm);
+                        }
+                        break;
+                    case (Key_CommandbarButtonReferences):
+                        {
+                            Macro.Run(mainForm);
+                        }
+                        break;
+                    default:
+                        e.Handled = false;
+                        break;
+                }
             }
 
             base.OnBeforePerformingCommand(e);
@@ -40,14 +53,14 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
             if (form is MainForm mainForm)
             {
                 mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                    .InsertCommandbarButton(6, AddonKeys.CommandbarButtonFile, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
+                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                        .InsertCommandbarButton(6, Key_CommandbarButtonFile, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
 
                 mainForm.GetMainCommandbarManager()
-                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                  .InsertCommandbarButton(3, AddonKeys.CommandbarButtonReferences, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
+                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                        .InsertCommandbarButton(3, Key_CommandbarButtonReferences, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -58,16 +71,16 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
             if (form is MainForm mainForm)
             {
                 var button = mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                    .GetCommandbarButton(AddonKeys.CommandbarButtonFile);
+                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                                     .GetCommandbarButton(Key_CommandbarButtonFile);
 
                 if (button != null) button.Text = ImportPdfsAndCategorySystemResource.AddonCommandbarButton;
 
                 button = mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                    .GetCommandbarButton(AddonKeys.CommandbarButtonReferences);
+                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                                 .GetCommandbarButton(Key_CommandbarButtonReferences);
 
                 if (button != null) button.Text = ImportPdfsAndCategorySystemResource.AddonCommandbarButton;
             }

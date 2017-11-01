@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Addons.BookOrderByEmail.Properties;
 using SwissAcademic.Citavi;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.BookOrderByEmail
@@ -10,35 +10,39 @@ namespace SwissAcademic.Addons.BookOrderByEmail
     {
         public static void OrderByEMail(this Reference reference, Configuration configuration)
         {
-            var mail = CreateMail(reference, configuration);
-            Outlook.Send(mail);
+            var mailTemplate = reference.CreateMailTemplate(configuration);
+            Outlook.Send(mailTemplate);
         }
 
         public static void OrderByClipboard(this Reference reference, Configuration configuration)
         {
-            var mail = CreateMail(reference, configuration);
-            Clipboard.SetText(mail.Body);
+            var mailTemplate = reference.CreateMailTemplate(configuration);
+            Clipboard.SetText(mailTemplate.Body);
         }
 
-        static Mail CreateMail(Reference reference, Configuration configuration)
+        static MailTemplate CreateMailTemplate(this Reference reference, Configuration configuration)
         {
-            var mail = new Mail();
+            var mail = new MailTemplate
+            {
+                Subject = BookOrderByEmailResources.Order
+
+            };
 
             if (!string.IsNullOrEmpty(configuration.Receiver))
             {
-                var adresses = configuration.Receiver.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+                var adresses = configuration.Receiver
+                                            .Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries)
+                                            .Select(v => v.Trim())
+                                            .ToList();
 
-                adresses.ForEach(adress => mail.To.Add(adress.Trim()));
+                mail.To.AddRange(adresses);
             }
 
-            mail.Subject = BookOrderByEmailResources.Order;
-            var isbn = reference.Isbn;
-            if (string.IsNullOrEmpty(isbn))
-            {
-                isbn = BookOrderByEmailResources.OrderByEMailBodyTextISBNMissing;
-            }
+            var isbn = string.IsNullOrEmpty(reference.Isbn)
+                       ? BookOrderByEmailResources.OrderByEMailBodyTextISBNMissing
+                       : reference.Isbn.ToString();
 
-            mail.Body = string.Format(BookOrderByEmailResources.OrderByEMailBodyText, new string[] { reference.ToString(TextFormat.Text), isbn, configuration.Body });
+            mail.Body = string.Format(BookOrderByEmailResources.OrderByEMailBodyText, reference.ToString(TextFormat.Text), isbn, configuration.Body);
             return mail;
         }
     }

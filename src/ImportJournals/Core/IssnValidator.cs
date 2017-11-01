@@ -5,7 +5,7 @@ namespace SwissAcademic.Addons.ImportJournals
 {
     internal static class IssnValidator
     {
-        internal static bool IsValid(string issn)
+        public static bool IsValid(string issn)
         {
             //example of a valid ISSN
             //string issn = "0317-8471";

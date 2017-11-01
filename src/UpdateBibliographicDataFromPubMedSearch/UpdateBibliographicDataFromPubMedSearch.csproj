@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="Core\AddonKeys.cs" />
     <Compile Include="Core\Macro.cs" />
     <Compile Include="Core\MacroSettings.cs" />
     <Compile Include="Dialogs\OverrideFieldsDialog.cs">

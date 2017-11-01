@@ -39,13 +39,7 @@ namespace SwissAcademic.Addons.OpenWith
 
         #region Properties
 
-        public Application Application
-        {
-            get
-            {
-                return _application;
-            }
-        }
+        public Application Application => _application;
 
         #endregion
 
@@ -109,10 +103,7 @@ namespace SwissAcademic.Addons.OpenWith
             DialogResult = DialogResult.OK;
         }
 
-        void BtnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
+        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         void BtnAddPath_Click(object sender, EventArgs e)
         {

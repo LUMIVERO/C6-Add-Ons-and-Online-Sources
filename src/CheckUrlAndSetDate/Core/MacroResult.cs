@@ -3,9 +3,11 @@ using System.Collections.Generic;
 
 namespace SwissAcademic.Addons.CheckUrlAndSetDate
 {
-    internal class CheckUrlAndSetDateStringsMacroResult
+    internal class MacroResult
     {
-        public CheckUrlAndSetDateStringsMacroResult()
+        #region Constructors
+
+        public MacroResult()
         {
             LoopedCount = 0;
             InvalidCount = 0;
@@ -13,12 +15,18 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
             InvalidReferences = new List<Reference>();
         }
 
+        #endregion
+
+        #region Properties
+
         public int LoopedCount { get; set; }
 
         public int InvalidCount { get; set; }
 
         public int ChangedCount { get; set; }
 
-        public List<Reference> InvalidReferences { get;  }
+        public List<Reference> InvalidReferences { get; }
+
+        #endregion
     }
 }

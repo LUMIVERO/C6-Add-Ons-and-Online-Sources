@@ -35,9 +35,9 @@ namespace SwissAcademic.Addons.OpenWith
 
         public static Configuration Load(this Dictionary<string, string> settings)
         {
-            if (!settings.ContainsKey(AddonKeys.Settings.FormatString(Device.Name))) return Configuration.Empty;
+            if (!settings.ContainsKey(Addon.Key_Settings.FormatString(Device.Name))) return Configuration.Empty;
 
-            var json = settings[AddonKeys.Settings.FormatString(Device.Name)];
+            var json = settings[Addon.Key_Settings.FormatString(Device.Name)];
 
             return JsonConvert.DeserializeObject<Configuration>(json);
         }
@@ -45,7 +45,7 @@ namespace SwissAcademic.Addons.OpenWith
         public static void Save(this Dictionary<string, string> settings, Configuration configuration)
         {
             var json = JsonConvert.SerializeObject(configuration);
-            settings[AddonKeys.Settings.FormatString(Device.Name)] = json;
+            settings[Addon.Key_Settings.FormatString(Device.Name)] = json;
         }
 
         public static IEnumerable<T> Clone<T>(this IEnumerable<T> list) where T : ICloneable

@@ -34,15 +34,9 @@ namespace SwissAcademic.Addons.OpenWith
 
         #region Eventhandlers
 
-        void BtnOk_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-        }
+        void BtnOk_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
 
-        void BtnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
+        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         void BtnAdd_Click(object sender, EventArgs e)
         {

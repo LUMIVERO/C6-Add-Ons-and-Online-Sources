@@ -1,19 +1,12 @@
 ﻿using SwissAcademic.Citavi.Shell;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using SwissAcademic.Controls;
 using SwissAcademic.Citavi.Shell.Controls.Editors;
+using System;
+using System.Linq;
 
 namespace SwissAcademic.Addons.MacroManager
 {
-    internal static class Extensions
+    internal static class MacroEditorFormExtensions
     {
-        #region MacroEditorForm
-
         public static void Run(this MacroEditorForm macroEditorForm)
         {
             var method = macroEditorForm.GetType()
@@ -26,7 +19,7 @@ namespace SwissAcademic.Addons.MacroManager
             }
         }
 
-        public static void SetFilePath(this MacroEditorForm macroEditorForm,string filePath)
+        public static void SetFilePath(this MacroEditorForm macroEditorForm, string filePath)
         {
             var field = macroEditorForm.GetType()
                                             .GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
@@ -59,7 +52,5 @@ namespace SwissAcademic.Addons.MacroManager
                 method.Invoke(macroEditorForm, new object[] { "Save", null, null, null });
             }
         }
-
-        #endregion
     }
 }
