@@ -97,7 +97,7 @@ namespace SwissAcademic.Addons.MacroManager
 
             var entry = GetPossibleUserEnvironmentVariables().FirstOrDefault(v => path.StartsWith(v.Path.Trim('\\'), StringComparison.OrdinalIgnoreCase));
 
-            if (entry.Equals(default(DictionaryEntry))) return path;
+            if (entry == null) return path;
 
             return path.Replace(entry.Path.Trim('\\'), entry.Name);
         }
