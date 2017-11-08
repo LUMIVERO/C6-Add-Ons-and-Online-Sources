@@ -13,10 +13,10 @@ namespace SwissAcademic.Addons.ImportJournals
 {
     static class ImportJournalsByPubMedMacro
     {
-        public static void Run(MainForm mainForm)
+        public static void Run(PeriodicalList periodicalList)
         {
-            var project = mainForm.Project;
-            var journalUrl = @"ftp://ftp.ncbi.nih.gov/pubmed/J_Entrez.txt"; // URL for journal list text file
+            var project = periodicalList.Project;
+            var journalUrl = @"http://ftp.ncbi.nih.gov/pubmed/J_Entrez.txt"; // URL for journal list text file
             var journalCollection = new List<Periodical>();
 
             string completeList;
@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.ImportJournals
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(mainForm, ImportJournalsResources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, ImportJournalsResources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -131,7 +131,7 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 Cursor.Current = Cursors.Default;
                 journalCollection = null;
-                MessageBox.Show(mainForm, ImportJournalsResources.MacroImportingErrorMessage.FormatString(exception.Message), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, ImportJournalsResources.MacroImportingErrorMessage.FormatString(exception.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -139,7 +139,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(mainForm, ImportJournalsResources.PubMedMacroResultMessage.FormatString(journalCollection.Count.ToString()), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(periodicalList, ImportJournalsResources.PubMedMacroResultMessage.FormatString(journalCollection.Count.ToString()), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 

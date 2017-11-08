@@ -35,26 +35,26 @@ namespace SwissAcademic.Addons.ImportJournals
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm)
+            if (e.Form is PeriodicalList periodicalList)
             {
                 e.Handled = true;
                 switch (e.Key)
                 {
                     case (Key_Button_ImportByFile):
                         {
-                            ImportJournalsByFileMacro.Run(mainForm);
+                            ImportJournalsByFileMacro.Run(periodicalList);
                         }
                         break;
 
                     case (Key_Button_ImportByPubmed):
                         {
-                            ImportJournalsByPubMedMacro.Run(mainForm);
+                            ImportJournalsByPubMedMacro.Run(periodicalList);
                         }
                         break;
 
                     case (Key_Button_ImportByWoodward):
                         {
-                            ImportJournalsByWoodwardMacro.Run(mainForm);
+                            ImportJournalsByWoodwardMacro.Run(periodicalList);
                         }
                         break;
                     default:
