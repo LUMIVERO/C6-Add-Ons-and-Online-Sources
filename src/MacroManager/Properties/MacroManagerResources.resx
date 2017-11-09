@@ -176,12 +176,11 @@
     <value>No environment variables for the user were found with a valid path</value>
   </data>
   <data name="PathAsVariableMessage" xml:space="preserve">
-    <value>[en]
-Für den Pfad '{0}' besteht die Möglichkeit der Verwendung von Umgebungsvariablen. 
+    <value>It's possible to use environment variables for the path '{0}'. 
 
 '{1}'
 
-Möchten Sie anstelle des absoluten Pfades die Umgebungsvariable nutzen?</value>
+Do you want to use an environment variable instead of the absolute path?</value>
   </data>
   <data name="OpenInExplorerCommand" xml:space="preserve">
     <value>Open folder in Windows Explorer</value>
