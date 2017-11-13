@@ -24,7 +24,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(Key_Button_NormalizeAllCapitalAuthorNames, StringComparison.OrdinalIgnoreCase))
+            if (e.Form is PersonList mainForm && e.Key.Equals(Key_Button_NormalizeAllCapitalAuthorNames, StringComparison.OrdinalIgnoreCase))
             {
                 Macro.Run(mainForm);
                 e.Handled = true;

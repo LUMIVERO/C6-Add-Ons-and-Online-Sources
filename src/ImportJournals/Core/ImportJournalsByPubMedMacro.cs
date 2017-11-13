@@ -25,7 +25,7 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 Cursor.Current = Cursors.WaitCursor;
 
-                using (var webClient = new WebClient())
+                using (var webClient = new WebClient2() { Timeout = 60000 })
                 {
                     using (var stream = webClient.OpenRead(journalUrl))
                     {
@@ -145,6 +145,19 @@ namespace SwissAcademic.Addons.ImportJournals
 
             }
 
+        }
+
+        private class WebClient2 : System.Net.WebClient
+        {
+            public int Timeout { get; set; }
+
+            protected override WebRequest GetWebRequest(Uri uri)
+            {
+                WebRequest lWebRequest = base.GetWebRequest(uri);
+                lWebRequest.Timeout = Timeout;
+                ((HttpWebRequest)lWebRequest).ReadWriteTimeout = Timeout;
+                return lWebRequest;
+            }
         }
     }
 }

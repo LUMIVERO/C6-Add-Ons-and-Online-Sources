@@ -8,12 +8,12 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 {
     internal static class Macro
     {
-        public static void Run(MainForm mainForm)
+        public static void Run(PersonList personList)
         {
             var prefixSuffixFirstCapitalLetter = false;
             var normalizeCapitalLastname = true;
             var counter = 0;
-            var project = mainForm.Project;
+            var project = personList.Project;
 
             var authors = project.Persons.ToArray();
             if (!authors.Any()) return;
@@ -59,7 +59,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
                 }
             }
 
-            MessageBox.Show(mainForm, NormalizeAllCapitalAuthorNamesResources.ResultMessage.FormatString(counter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(personList, NormalizeAllCapitalAuthorNamesResources.ResultMessage.FormatString(counter), personList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
