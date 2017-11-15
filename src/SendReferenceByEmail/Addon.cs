@@ -28,11 +28,11 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
             {
                 try
                 {
-                    mainForm.ActiveReference.SendByEMailAsync();
+                    mainForm.ActiveReference.SendByEMailAsync(mainForm);
                 }
-                catch (System.Runtime.InteropServices.COMException)
+                catch (Exception ee)
                 {
-                    MessageBox.Show(mainForm, SendReferenceByEmailResources.OutlookRightsMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(mainForm, ee.ToString(), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 e.Handled = true;
             }

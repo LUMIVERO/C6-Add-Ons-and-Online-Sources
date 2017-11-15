@@ -9,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.SendReferenceByEmail
 {
     static class CitaviExtensions
     {
-        public static async Task SendByEMailAsync(this Reference reference)
+        public static async Task SendByEMailAsync(this Reference reference, MainForm mainForm)
         {
             var mailTemplate = new MailTemplate();
             var attachmentFileNames = new StringBuilder();
@@ -62,8 +63,14 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                         ? string.Format(SendReferenceByEmailResources.SendReferenceByEMailBodyText_WithAttachments, reference.Project.Name, reference.ToString(TextFormat.Text), attachmentFileNames.ToString())
                         : string.Format(SendReferenceByEmailResources.SendReferenceByEMailBodyText, reference.Project.Name, reference.ToString(TextFormat.Text));
 
-
-            Outlook.Send(mailTemplate);
+            try
+            {
+                Outlook.Send(mailTemplate);
+            }
+            catch (System.Runtime.InteropServices.COMException)
+            {
+                MessageBox.Show(mainForm, SendReferenceByEmailResources.OutlookRightsMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         static IEnumerable<Location> GetAvailable(this ReferenceLocationCollection locations)
