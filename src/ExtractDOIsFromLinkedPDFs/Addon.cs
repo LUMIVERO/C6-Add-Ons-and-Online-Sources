@@ -8,6 +8,12 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 {
     public class Addon : CitaviAddOn
     {
+        #region Constants
+
+        const string Key_Button_ExtractDOIsFromLinkedPDFs = "SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.DoiButtonCommand";
+
+        #endregion
+
         #region Properties
         public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
 
@@ -23,7 +29,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
                 switch (e.Key)
                 {
-                    case (AddonKeys.DoiButtonCommand):
+                    case (Key_Button_ExtractDOIsFromLinkedPDFs):
                         {
                             try
                             {
@@ -31,7 +37,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(mainForm, ex.ToString(), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(mainForm, ex.ToString(), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         break;
@@ -51,7 +57,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                 mainForm.GetMainCommandbarManager()
                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(4, AddonKeys.DoiButtonCommand, ExtractDOIsFromLinkedPDFsResources.CommandButtonText);
+                        .InsertCommandbarButton(4, Key_Button_ExtractDOIsFromLinkedPDFs, ExtractDOIsFromLinkedPDFsResources.CommandButtonText);
             }
 
             base.OnHostingFormLoaded(form);
@@ -64,7 +70,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(AddonKeys.DoiButtonCommand);
+                                     .GetCommandbarButton(Key_Button_ExtractDOIsFromLinkedPDFs);
                 if (button != null) button.Text = ExtractDOIsFromLinkedPDFsResources.CommandButtonText;
             }
 

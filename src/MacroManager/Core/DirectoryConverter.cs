@@ -7,9 +7,9 @@ using System.IO;
 
 namespace SwissAcademic.Addons.MacroManager
 {
-    public static class DirectoryConverter
+    internal static class DirectoryConverter
     {
-        public static void Travers(CommandbarMenu commandbarMenu, int index, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, List<ToolBase> tools, bool isFirst)
+        public static void Travers(CommandbarMenu commandbarMenu, int index, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, Dictionary<ToolBase, string> tools, bool isFirst)
         {
             try
             {
@@ -20,7 +20,7 @@ namespace SwissAcademic.Addons.MacroManager
                     if (directoryInfo.GetFiles("*.cs", SearchOption.AllDirectories).Length == 0) continue;
 
                     folderCounter++;
-                    var menu = commandbarMenu.InsertCommandbarMenu(index, AddonKeys.DirectoryMenu.FormatString(folderCounter), directoryInfo.Name);
+                    var menu = commandbarMenu.InsertCommandbarMenu(index, Addon.Key_Menu_Directory.FormatString(folderCounter), directoryInfo.Name);
 
                     index = index + 1;
 
@@ -30,7 +30,7 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add(menu.Tool);
+                    tools.Add(menu.Tool, null);
                     Travers(menu, 0, ref folderCounter, ref fileCounter, directory, macroCommands, tools, isFirst);
                 }
 
@@ -38,7 +38,7 @@ namespace SwissAcademic.Addons.MacroManager
                 {
                     fileCounter++;
 
-                    var key = AddonKeys.DirectoryMenu.FormatString(folderCounter) + "." + fileCounter;
+                    var key = Addon.Key_Menu_Directory.FormatString(folderCounter) + "." + fileCounter;
                     var menu = commandbarMenu.InsertCommandbarMenu(index, key, Path.GetFileName(strFile), image: MacroManagerResources.Macro);
                     index = index + 1;
                     if (isFirst)
@@ -47,15 +47,15 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add(menu.Tool);
-                    key = AddonKeys.DirectoryCommand + "." + fileCounter + ".1";
+                    tools.Add(menu.Tool, null);
+                    key = Addon.Key_Button_Directory + "." + fileCounter + ".1";
                     var button = menu.AddCommandbarButton(key, MacroManagerResources.EditCommand);
                     macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
-                    tools.Add(button.Tool);
-                    key = AddonKeys.DirectoryCommand + "." + fileCounter + ".2";
-                    button = menu.AddCommandbarButton(AddonKeys.DirectoryCommand + "." + fileCounter + ".2", MacroManagerResources.RunCommand);
+                    tools.Add(button.Tool, "EditCommand");
+                    key = Addon.Key_Button_Directory + "." + fileCounter + ".2";
+                    button = menu.AddCommandbarButton(Addon.Key_Button_Directory + "." + fileCounter + ".2", MacroManagerResources.RunCommand);
                     macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
-                    tools.Add(button.Tool);
+                    tools.Add(button.Tool, "RunCommand");
                 }
             }
             catch (Exception)

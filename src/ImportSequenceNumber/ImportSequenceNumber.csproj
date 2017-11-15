@@ -74,7 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\AddonKeys.cs" />
     <Compile Include="Dialogs\ChoosePropertyIdDialog.cs">
       <SubType>Form</SubType>
     </Compile>

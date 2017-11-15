@@ -161,7 +161,7 @@
     <value>There are elements in the Macro Editor that have not been saved. Do you want to save them before running the command?</value>
   </data>
   <data name="DirectoryNotResolveMessage" xml:space="preserve">
-    <value>The folder '{0}' was not found. Please choose another one!</value>
+    <value>The folder '{0}' was not found. Please choose another one.</value>
   </data>
   <data name="DirectoryDialogTitle" xml:space="preserve">
     <value>Configuration of the environment variable or path</value>
@@ -176,11 +176,19 @@
     <value>No environment variables for the user were found with a valid path</value>
   </data>
   <data name="PathAsVariableMessage" xml:space="preserve">
-    <value>The path '{0}' has the environment variable '%{1}%'! 
+    <value>It's possible to use environment variables for the path '{0}'. 
 
-Do you want to use the environment variable instead of the absolute path?</value>
+'{1}'
+
+Do you want to use an environment variable instead of the absolute path?</value>
   </data>
   <data name="OpenInExplorerCommand" xml:space="preserve">
     <value>Open folder in Windows Explorer</value>
+  </data>
+  <data name="maschine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maschine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

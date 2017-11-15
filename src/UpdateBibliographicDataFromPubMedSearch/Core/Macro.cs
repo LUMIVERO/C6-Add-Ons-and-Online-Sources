@@ -25,7 +25,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 
                 if (mergedReferences.Count() != 0)
                 {
-                    if (MessageBox.Show(mainForm, UpdateBibliographicDataFromPubMedSearchResources.ProcessFinishWithChangesMessage.FormatString(mergedReferences.Count()), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show(mainForm, UpdateBibliographicDataFromPubMedSearchResources.ProcessFinishWithChangesMessage.FormatString(mergedReferences.Count()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         var filter = new ReferenceFilter(mergedReferences, "References with locations from file", false);
                         mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
@@ -33,7 +33,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                 }
                 else
                 {
-                    MessageBox.Show(mainForm, UpdateBibliographicDataFromPubMedSearchResources.ProcessFinishWithoutChangesMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mainForm, UpdateBibliographicDataFromPubMedSearchResources.ProcessFinishWithoutChangesMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (OperationCanceledException)

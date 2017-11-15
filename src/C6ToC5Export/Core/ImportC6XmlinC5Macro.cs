@@ -14,7 +14,7 @@ using SwissAcademic.Citavi.Persistence;
 // Implementation of macro editor is preliminary and experimental.
 // The Citavi object model is subject to change in future version.
 
-public static class CitaviMacro
+public static class ImportC6XmlinC5Macro
 {
     public static void Main()
     {

@@ -1,5 +1,6 @@
 ﻿using SwissAcademic.Addons.ImportJournals.Properties;
 using SwissAcademic.Citavi;
+using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,8 +12,9 @@ namespace SwissAcademic.Addons.ImportJournals
 {
     static class ImportJournalsByFileMacro
     {
-        public static void Run(Form form, Project project)
+        public static void Run(PeriodicalList periodicalList)
         {
+            var project = periodicalList.Project;
             string fileName = null;
 
             var journalCollection = new List<Periodical>();
@@ -25,7 +27,7 @@ namespace SwissAcademic.Addons.ImportJournals
                     Title = ImportJournalsResources.FileMacroOpenFileDialogSubject
                 })
                 {
-                    if (openFileDialog.ShowDialog(form) != DialogResult.OK) return;
+                    if (openFileDialog.ShowDialog(periodicalList) != DialogResult.OK) return;
 
                     fileName = openFileDialog.FileName;
                 }
@@ -44,7 +46,7 @@ namespace SwissAcademic.Addons.ImportJournals
                 if (testRegex.IsMatch(journalList))
                 {
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show(form, ImportJournalsResources.FileMacroNotSupportedCharactersMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(periodicalList, ImportJournalsResources.FileMacroNotSupportedCharactersMessage, periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -85,7 +87,7 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 Cursor.Current = Cursors.Default;
                 journalCollection = null;
-                MessageBox.Show(form, exception.ToString(), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, exception.ToString(), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             finally
@@ -94,7 +96,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(form, ImportJournalsResources.FileMacroResultMessage.FormatString(journalCollection.Count), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(periodicalList, ImportJournalsResources.FileMacroResultMessage.FormatString(journalCollection.Count), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 

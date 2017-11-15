@@ -9,6 +9,12 @@ namespace SwissAcademic.Addons.C6ToC5Export
 {
     public class Addon : CitaviAddOn
     {
+        #region Constants
+
+        const string Key_Button_Export = "SwissAcademic.Addons.C6ToC5Export.ExportButtonCommand";
+
+        #endregion
+
         #region Properties
 
         public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
@@ -25,7 +31,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
             {
                 switch (e.Key)
                 {
-                    case (AddonKeys.ExportButtonCommand):
+                    case (Key_Button_Export):
                         {
                             using (var saveFileDialog = new SaveFileDialog { Filter = C6ToC5ExportResources.ProjectFilters, CheckPathExists = true, Title = C6ToC5ExportResources.ExportTitle })
                             {
@@ -34,11 +40,11 @@ namespace SwissAcademic.Addons.C6ToC5Export
                                     try
                                     {
                                         mainForm.Project.SaveAsXml(saveFileDialog.FileName, ProjectXmlExportCompatibility.Citavi5);
-                                        MessageBox.Show(e.Form, C6ToC5ExportResources.ExportFinallyMessage, "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show(e.Form, C6ToC5ExportResources.ExportFinallyMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                     catch (Exception ex)
                                     {
-                                        if (MessageBox.Show(e.Form, C6ToC5ExportResources.ExportExceptionMessage.FormatString(ex.Message), "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                                        if (MessageBox.Show(e.Form, C6ToC5ExportResources.ExportExceptionMessage.FormatString(ex.Message), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                                         {
                                             Clipboard.SetText(e.ToString());
                                         }
@@ -60,11 +66,11 @@ namespace SwissAcademic.Addons.C6ToC5Export
         {
             if (form is MainForm mainForm)
             {
-                var button = mainForm.GetMainCommandbarManager()
-                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                                    .GetCommandbarMenu("ThisProject")
-                                    .InsertCommandbarButton(3, AddonKeys.ExportButtonCommand, C6ToC5ExportResources.ExportCitaviButtonText, image: C6ToC5ExportResources.addon);
+                mainForm.GetMainCommandbarManager()
+                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                        .GetCommandbarMenu("ThisProject")
+                        .InsertCommandbarButton(3, Key_Button_Export, C6ToC5ExportResources.ExportCitaviButtonText, image: C6ToC5ExportResources.addon);
             }
 
             base.OnHostingFormLoaded(form);
@@ -78,7 +84,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                                      .GetCommandbarMenu("ThisProject")
-                                     .GetCommandbarButton(AddonKeys.ExportButtonCommand);
+                                     .GetCommandbarButton(Key_Button_Export);
 
                 if (button != null) button.Text = C6ToC5ExportResources.ExportCitaviButtonText;
             }

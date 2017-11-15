@@ -125,7 +125,7 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The folder &apos;{0}&apos; was not found. Please choose another one!.
+        ///   Looks up a localized string similar to The folder &apos;{0}&apos; was not found. Please choose another one..
         /// </summary>
         internal static string DirectoryNotResolveMessage {
             get {
@@ -189,6 +189,16 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maschine {
+            get {
+                object obj = ResourceManager.GetObject("maschine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open folder in Windows Explorer.
         /// </summary>
         internal static string OpenInExplorerCommand {
@@ -198,9 +208,11 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The path &apos;{0}&apos; has the environment variable &apos;%{1}%&apos;! 
+        ///   Looks up a localized string similar to It&apos;s possible to use environment variables for the path &apos;{0}&apos;. 
         ///
-        ///Do you want to use the environment variable instead of the absolute path?.
+        ///&apos;{1}&apos;
+        ///
+        ///Do you want to use an environment variable instead of the absolute path?.
         /// </summary>
         internal static string PathAsVariableMessage {
             get {
@@ -242,6 +254,16 @@ namespace SwissAcademic.Addons.MacroManager.Properties {
         internal static string RunCommand {
             get {
                 return ResourceManager.GetString("RunCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

@@ -151,7 +151,7 @@
     <value>Im geöffneten Makro-Editor befinden sich nicht gesicherte Elemente. Möchten Sie diese vor der Ausführung des Befehls speichern?</value>
   </data>
   <data name="DirectoryNotResolveMessage" xml:space="preserve">
-    <value>Der Ordner '{0}' wurde nicht gefunden. Bitte wählen Sie einen anderen aus!</value>
+    <value>Der Ordner '{0}' wurde nicht gefunden. Bitte wählen Sie einen anderen aus.</value>
   </data>
   <data name="DirectoryDialogTitle" xml:space="preserve">
     <value>Konfiguration der Umgebungsvariable oder des Pfades</value>
@@ -166,7 +166,9 @@
     <value>Es wurden keine Umgebungsvariablen des Benutzers mit gültigen Pfaden gefunden.</value>
   </data>
   <data name="PathAsVariableMessage" xml:space="preserve">
-    <value>Für den Pfad '{0}' existiert die Umgebungsvariable '%{1}%'!
+    <value>Für den Pfad '{0}' besteht die Möglichkeit der Verwendung von Umgebungsvariablen. 
+
+'{1}'
 
 Möchten Sie anstelle des absoluten Pfades die Umgebungsvariable nutzen?</value>
   </data>

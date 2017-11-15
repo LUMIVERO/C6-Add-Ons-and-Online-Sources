@@ -1,5 +1,6 @@
 ﻿using SwissAcademic.Addons.ImportJournals.Properties;
 using SwissAcademic.Citavi;
+using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,9 +13,10 @@ namespace SwissAcademic.Addons.ImportJournals
 {
     static class ImportJournalsByPubMedMacro
     {
-        public static void Run(Form form, Project activeProject)
+        public static void Run(PeriodicalList periodicalList)
         {
-            var journalUrl = @"ftp://ftp.ncbi.nih.gov/pubmed/J_Entrez.txt"; // URL for journal list text file
+            var project = periodicalList.Project;
+            var journalUrl = @"http://ftp.ncbi.nih.gov/pubmed/J_Entrez.txt"; // URL for journal list text file
             var journalCollection = new List<Periodical>();
 
             string completeList;
@@ -23,7 +25,7 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 Cursor.Current = Cursors.WaitCursor;
 
-                using (var webClient = new WebClient())
+                using (var webClient = new WebClient2() { Timeout = 60000 })
                 {
                     using (var stream = webClient.OpenRead(journalUrl))
                     {
@@ -37,7 +39,7 @@ namespace SwissAcademic.Addons.ImportJournals
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(form, ImportJournalsResources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, ImportJournalsResources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -104,7 +106,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                     abbreviation3 = Regex.Match(journalTitle, @"(?:: )[A-Z]{2,6}$").ToString();
 
-                    var journal = new Periodical(activeProject, journalTitle);
+                    var journal = new Periodical(project, journalTitle);
                     if (!string.IsNullOrEmpty(abbreviation1)) journal.StandardAbbreviation = abbreviation1;
                     if (!string.IsNullOrEmpty(abbreviation2)) journal.UserAbbreviation1 = abbreviation2;
                     if (!string.IsNullOrEmpty(abbreviation3)) journal.UserAbbreviation2 = abbreviation3;
@@ -122,14 +124,14 @@ namespace SwissAcademic.Addons.ImportJournals
                     journalCollection.Add(journal);
 
                 }
-                activeProject.Periodicals.AddRange(journalCollection);
+                project.Periodicals.AddRange(journalCollection);
 
             }
             catch (Exception exception)
             {
                 Cursor.Current = Cursors.Default;
                 journalCollection = null;
-                MessageBox.Show(form, ImportJournalsResources.MacroImportingErrorMessage.FormatString(exception.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, ImportJournalsResources.MacroImportingErrorMessage.FormatString(exception.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -137,12 +139,25 @@ namespace SwissAcademic.Addons.ImportJournals
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(form, ImportJournalsResources.PubMedMacroResultMessage.FormatString(journalCollection.Count.ToString()), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(periodicalList, ImportJournalsResources.PubMedMacroResultMessage.FormatString(journalCollection.Count.ToString()), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 
             }
 
+        }
+
+        private class WebClient2 : System.Net.WebClient
+        {
+            public int Timeout { get; set; }
+
+            protected override WebRequest GetWebRequest(Uri uri)
+            {
+                WebRequest lWebRequest = base.GetWebRequest(uri);
+                lWebRequest.Timeout = Timeout;
+                ((HttpWebRequest)lWebRequest).ReadWriteTimeout = Timeout;
+                return lWebRequest;
+            }
         }
     }
 }

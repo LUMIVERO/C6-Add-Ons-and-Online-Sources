@@ -21,24 +21,6 @@ namespace Manifesto
 {
     public partial class MainForm : Form
     {
-        #region Ereignisse
-
-        protected override void OnLoad(EventArgs e)
-        {
-            languageComboBox.Items.Add(new CultureInfo("zh"));
-            languageComboBox.Items.Add(new CultureInfo("de"));
-            languageComboBox.Items.Add(new CultureInfo("en"));
-            languageComboBox.Items.Add(new CultureInfo("fr"));
-            languageComboBox.Items.Add(new CultureInfo("it"));
-            languageComboBox.Items.Add(new CultureInfo("pl"));
-            languageComboBox.Items.Add(new CultureInfo("pt"));
-            languageComboBox.Items.Add(new CultureInfo("ru"));
-            languageComboBox.Items.Add(new CultureInfo("es"));
-            languageComboBox.Items.Add(new CultureInfo("pl"));
-            base.OnLoad(e);
-        }
-
-        #endregion
 
         #region Felder
 
@@ -54,6 +36,17 @@ namespace Manifesto
 
             if (args.Length != 0)
             {
+                languageComboBox.Items.Add(new CultureInfo("zh"));
+                languageComboBox.Items.Add(new CultureInfo("de"));
+                languageComboBox.Items.Add(new CultureInfo("en"));
+                languageComboBox.Items.Add(new CultureInfo("fr"));
+                languageComboBox.Items.Add(new CultureInfo("it"));
+                languageComboBox.Items.Add(new CultureInfo("pl"));
+                languageComboBox.Items.Add(new CultureInfo("pt"));
+                languageComboBox.Items.Add(new CultureInfo("ru"));
+                languageComboBox.Items.Add(new CultureInfo("es"));
+                languageComboBox.Items.Add(new CultureInfo("pl"));
+
                 LoadJsonObject(args.FirstOrDefault(str => !string.IsNullOrEmpty(str) && File.Exists(str) && Path.GetExtension(str).Equals(".json", StringComparison.OrdinalIgnoreCase)));
             }
         }

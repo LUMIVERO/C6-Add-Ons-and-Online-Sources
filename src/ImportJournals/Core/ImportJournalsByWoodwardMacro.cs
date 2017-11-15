@@ -13,10 +13,10 @@ namespace SwissAcademic.Addons.ImportJournals
 {
     static class ImportJournalsByWoodwardMacro
     {
-        public static void Main(ProjectShell shell, Project project)
+        public static void Run(PeriodicalList periodicalList)
         {
-            string journalUrl = @"http://journal-abbreviations.library.ubc.ca/dump.php";
-
+            var journalUrl = @"http://journal-abbreviations.library.ubc.ca/dump.php";
+            var project = periodicalList.Project;
             var journalCollection = new List<Periodical>();
             string completeList;
 
@@ -38,7 +38,7 @@ namespace SwissAcademic.Addons.ImportJournals
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(shell.ActiveForm, ImportJournalsResources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, ImportJournalsResources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -90,7 +90,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                 }
 
-                DialogResult updateReferences = MessageBox.Show(shell.ActiveForm, ImportJournalsResources.WoodwardMacroUpdateMessage, "Citavi", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                DialogResult updateReferences = MessageBox.Show(periodicalList, ImportJournalsResources.WoodwardMacroUpdateMessage, periodicalList.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                  MessageBoxDefaultButton.Button2);
 
                 if (updateReferences == DialogResult.Yes)
@@ -120,7 +120,7 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 Cursor.Current = Cursors.Default;
                 journalCollection = null;
-                MessageBox.Show(shell.ActiveForm, ImportJournalsResources.MacroImportingErrorMessage.FormatString(e.Message), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, ImportJournalsResources.MacroImportingErrorMessage.FormatString(e.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -128,7 +128,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(shell.ActiveForm, ImportJournalsResources.WoodwardMacroResultMessage.FormatString(journalCollection.Count, refCounter), "Citavi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(periodicalList, ImportJournalsResources.WoodwardMacroResultMessage.FormatString(journalCollection.Count, refCounter), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 
