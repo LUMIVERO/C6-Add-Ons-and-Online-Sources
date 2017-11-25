@@ -66,6 +66,8 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                         ReferencePropertyId.Locations
                     };
 
+                if (reference.Periodical != null) omitData.Add(ReferencePropertyId.Periodical);
+
                 if (!settings.OverwriteAbstract) omitData.Add(ReferencePropertyId.Abstract);
                 if (!settings.OverwriteTableOfContents) omitData.Add(ReferencePropertyId.TableOfContents);
                 if (!settings.OverwriteKeywords) omitData.Add(ReferencePropertyId.Keywords);
