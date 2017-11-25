@@ -59,5 +59,204 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addon {
+            get {
+                object obj = ResourceManager.GetObject("addon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Titel-Auswertungen ähnelt.
+        /// </summary>
+        internal static string Addon_Command {
+            get {
+                return ResourceManager.GetString("Addon_Command", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Kategorien mit Anzahl der zugeordneten Titel ähnelt.
+        /// </summary>
+        internal static string CategoryEvaluator_Caption {
+            get {
+                return ResourceManager.GetString("CategoryEvaluator_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurden keine Kategorien zur Auswertung gefunden! ähnelt.
+        /// </summary>
+        internal static string CategoryEvaluator_NoCategories {
+            get {
+                return ResourceManager.GetString("CategoryEvaluator_NoCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Anzahl ähnelt.
+        /// </summary>
+        internal static string Evaluator_Count {
+            get {
+                return ResourceManager.GetString("Evaluator_Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Name ähnelt.
+        /// </summary>
+        internal static string Evaluator_Name {
+            get {
+                return ResourceManager.GetString("Evaluator_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Auswahl ähnelt.
+        /// </summary>
+        internal static string Form_Choice {
+            get {
+                return ResourceManager.GetString("Form_Choice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] In die Zwischenablage kopieren ähnelt.
+        /// </summary>
+        internal static string Form_Clipboard {
+            get {
+                return ResourceManager.GetString("Form_Clipboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Schließen ähnelt.
+        /// </summary>
+        internal static string Form_Close {
+            get {
+                return ResourceManager.GetString("Form_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Einstellungen ähnelt.
+        /// </summary>
+        internal static string Form_Options {
+            get {
+                return ResourceManager.GetString("Form_Options", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Ausgabe ähnelt.
+        /// </summary>
+        internal static string Form_Result {
+            get {
+                return ResourceManager.GetString("Form_Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Kopfzeile anzeigen ähnelt.
+        /// </summary>
+        internal static string Form_ShowHeader {
+            get {
+                return ResourceManager.GetString("Form_ShowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Auswertungen ähnelt.
+        /// </summary>
+        internal static string Form_Text {
+            get {
+                return ResourceManager.GetString("Form_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Schlagwörter mit Anzahl der zugeordneten Titel ähnelt.
+        /// </summary>
+        internal static string KeywordsEvaluator_Caption {
+            get {
+                return ResourceManager.GetString("KeywordsEvaluator_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurden keine Schlagwörter zur Auswertung gefunden! ähnelt.
+        /// </summary>
+        internal static string KeywordsEvaluator_NoKeywords {
+            get {
+                return ResourceManager.GetString("KeywordsEvaluator_NoKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Personen mit Anzahl der zugeordneten Titel ähnelt.
+        /// </summary>
+        internal static string PersonEvaluator_Caption {
+            get {
+                return ResourceManager.GetString("PersonEvaluator_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurden keine Personen zur Auswertung gefunden! ähnelt.
+        /// </summary>
+        internal static string PersonEvaluator_NoPersons {
+            get {
+                return ResourceManager.GetString("PersonEvaluator_NoPersons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Titel mit Anzahl der wechselseitigen Verweise ähnelt.
+        /// </summary>
+        internal static string TwoLinksEvaluator_Caption {
+            get {
+                return ResourceManager.GetString("TwoLinksEvaluator_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Von ähnelt.
+        /// </summary>
+        internal static string TwoLinksEvaluator_From {
+            get {
+                return ResourceManager.GetString("TwoLinksEvaluator_From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Es wurden keine Titel ausgewählt zur Auswertung! ähnelt.
+        /// </summary>
+        internal static string TwoLinksEvaluator_NoReferences {
+            get {
+                return ResourceManager.GetString("TwoLinksEvaluator_NoReferences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Kurztitel ähnelt.
+        /// </summary>
+        internal static string TwoLinksEvaluator_ShortTitle {
+            get {
+                return ResourceManager.GetString("TwoLinksEvaluator_ShortTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Nach ähnelt.
+        /// </summary>
+        internal static string TwoLinksEvaluator_To {
+            get {
+                return ResourceManager.GetString("TwoLinksEvaluator_To", resourceCulture);
+            }
+        }
     }
 }

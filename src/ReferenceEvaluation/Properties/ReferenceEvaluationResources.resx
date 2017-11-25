@@ -117,4 +117,71 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="addon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\addon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Addon_Command" xml:space="preserve">
+    <value>[en] Titel-Auswertungen</value>
+  </data>
+  <data name="CategoryEvaluator_Caption" xml:space="preserve">
+    <value>[en] Kategorien mit Anzahl der zugeordneten Titel</value>
+  </data>
+  <data name="PersonEvaluator_Caption" xml:space="preserve">
+    <value>[en] Personen mit Anzahl der zugeordneten Titel</value>
+  </data>
+  <data name="KeywordsEvaluator_Caption" xml:space="preserve">
+    <value>[en] Schlagwörter mit Anzahl der zugeordneten Titel</value>
+  </data>
+  <data name="TwoLinksEvaluator_Caption" xml:space="preserve">
+    <value>[en] Titel mit Anzahl der wechselseitigen Verweise</value>
+  </data>
+  <data name="Form_Close" xml:space="preserve">
+    <value>[en] Schließen</value>
+  </data>
+  <data name="Form_Result" xml:space="preserve">
+    <value>[en] Ausgabe</value>
+  </data>
+  <data name="Form_Clipboard" xml:space="preserve">
+    <value>[en] In die Zwischenablage kopieren</value>
+  </data>
+  <data name="Form_Text" xml:space="preserve">
+    <value>[en] Auswertungen</value>
+  </data>
+  <data name="Form_Choice" xml:space="preserve">
+    <value>[en] Auswahl</value>
+  </data>
+  <data name="TwoLinksEvaluator_ShortTitle" xml:space="preserve">
+    <value>[en] Kurztitel</value>
+  </data>
+  <data name="Evaluator_Name" xml:space="preserve">
+    <value>[en] Name</value>
+  </data>
+  <data name="CategoryEvaluator_NoCategories" xml:space="preserve">
+    <value>[en] Es wurden keine Kategorien zur Auswertung gefunden!</value>
+  </data>
+  <data name="PersonEvaluator_NoPersons" xml:space="preserve">
+    <value>[en] Es wurden keine Personen zur Auswertung gefunden!</value>
+  </data>
+  <data name="KeywordsEvaluator_NoKeywords" xml:space="preserve">
+    <value>[en] Es wurden keine Schlagwörter zur Auswertung gefunden!</value>
+  </data>
+  <data name="TwoLinksEvaluator_NoReferences" xml:space="preserve">
+    <value>[en] Es wurden keine Titel ausgewählt zur Auswertung!</value>
+  </data>
+  <data name="TwoLinksEvaluator_From" xml:space="preserve">
+    <value>[en] Von</value>
+  </data>
+  <data name="TwoLinksEvaluator_To" xml:space="preserve">
+    <value>[en] Nach</value>
+  </data>
+  <data name="Form_ShowHeader" xml:space="preserve">
+    <value>[en] Kopfzeile anzeigen</value>
+  </data>
+  <data name="Form_Options" xml:space="preserve">
+    <value>[en] Einstellungen</value>
+  </data>
+  <data name="Evaluator_Count" xml:space="preserve">
+    <value>[en] Anzahl</value>
+  </data>
 </root>
