@@ -152,7 +152,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Task.
+        ///   Looks up a localized string similar to Result.
         /// </summary>
         internal static string Form_Result {
             get {
@@ -215,7 +215,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of links to other references per reference.
+        ///   Looks up a localized string similar to Number of links to other references for each reference.
         /// </summary>
         internal static string TwoLinksEvaluator_Caption {
             get {

@@ -134,13 +134,13 @@
     <value>Number of references by keyword</value>
   </data>
   <data name="TwoLinksEvaluator_Caption" xml:space="preserve">
-    <value>Number of links to other references per reference</value>
+    <value>Number of links to other references for each reference</value>
   </data>
   <data name="Form_Close" xml:space="preserve">
     <value>Close</value>
   </data>
   <data name="Form_Result" xml:space="preserve">
-    <value>Task</value>
+    <value>Result</value>
   </data>
   <data name="Form_Clipboard" xml:space="preserve">
     <value>Copy to Clipboard</value>
