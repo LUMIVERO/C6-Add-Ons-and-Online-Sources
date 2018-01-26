@@ -158,4 +158,7 @@ Do you want to open the target directory in Explorer?</value>
   <data name="SettingsViewDialog_Export_CompleteTitle" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="SettingsViewDialog_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
 </root>

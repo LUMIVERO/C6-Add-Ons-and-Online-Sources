@@ -67,11 +67,13 @@
             this.chValues});
             this.lvAddonsSettings.GridLines = true;
             this.lvAddonsSettings.Location = new System.Drawing.Point(12, 12);
+            this.lvAddonsSettings.MultiSelect = false;
             this.lvAddonsSettings.Name = "lvAddonsSettings";
             this.lvAddonsSettings.Size = new System.Drawing.Size(639, 375);
             this.lvAddonsSettings.TabIndex = 2;
             this.lvAddonsSettings.UseCompatibleStateImageBehavior = false;
             this.lvAddonsSettings.View = System.Windows.Forms.View.Details;
+            this.lvAddonsSettings.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LvAddonsSettings_MouseDown);
             // 
             // chKeys
             // 

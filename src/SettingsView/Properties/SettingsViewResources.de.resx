@@ -154,4 +154,7 @@ Möchten Sie das Zielverzeichnis im Explorer öffnen?</value>
   <data name="SettingsViewDialog_Export_CompleteTitle" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="SettingsViewDialog_Remove" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
 </root>

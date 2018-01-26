@@ -156,6 +156,15 @@ namespace SwissAcademic.Addons.SettingsView.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove ähnelt.
+        /// </summary>
+        internal static string SettingsViewDialog_Remove {
+            get {
+                return ResourceManager.GetString("SettingsViewDialog_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Addon settings ähnelt.
         /// </summary>
         internal static string SettingsViewDialog_Title {

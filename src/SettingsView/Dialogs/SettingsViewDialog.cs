@@ -25,6 +25,7 @@ namespace SwissAcademic.Addons.SettingsView
             Icon = (Icon)owner.Icon.Clone();
             Localize();
             InitializeListView();
+            RefreshButtons();
         }
 
         #endregion
@@ -48,14 +49,14 @@ namespace SwissAcademic.Addons.SettingsView
                 var index = lvAddonsSettings.Groups.Add(new ListViewGroup(addon.Name, HorizontalAlignment.Left));
                 foreach (var setting in addon.Settings)
                 {
-                    var item = new ListViewItem(new[] { setting.Key, setting.Value });
+                    var item = new ListViewItem(new[] { setting.Key, setting.Value }) { Tag = new SettingEntry(addon, setting.Key) };
                     lvAddonsSettings.Items.Add(item);
                     item.Group = lvAddonsSettings.Groups[index];
                 }
             }
-
-            btnExport.Enabled = lvAddonsSettings.Items.Count != 0;
         }
+
+        void RefreshButtons() => btnExport.Enabled = lvAddonsSettings.Items.Count != 0;
 
         void WriteSettingsInFile(string filePath)
         {
@@ -94,7 +95,7 @@ namespace SwissAcademic.Addons.SettingsView
                 try
                 {
                     WriteSettingsInFile(saveFileDialog.FileName);
-                    if (MessageBox.Show(this, SettingsViewResources.SettingsViewDialog_Export_CompleteMessage, SettingsViewResources.SettingsViewDialog_Export_CompleteTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    if (MessageBox.Show(this, SettingsViewResources.SettingsViewDialog_Export_CompleteMessage, SettingsViewResources.SettingsViewDialog_Export_CompleteTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                     {
                         Process.Start("explorer.exe", Path.GetDirectoryName(saveFileDialog.FileName));
                     }
@@ -106,6 +107,61 @@ namespace SwissAcademic.Addons.SettingsView
             }
         }
 
+        void MiRemove_Click(object sender, EventArgs e)
+        {
+            if (lvAddonsSettings.SelectedItems.Count == 1)
+            {
+                var selectedListViewItem = lvAddonsSettings.SelectedItems.Cast<ListViewItem>().First();
+
+                if (selectedListViewItem.Tag is SettingEntry entry)
+                {
+                    entry.Addon.Settings.Remove(entry.Key);
+                }
+
+                lvAddonsSettings.Items.Remove(selectedListViewItem);
+                lvAddonsSettings.Refresh();
+            }
+
+            if (sender is MenuItem m)
+            {
+                m.Visible = false;
+            }
+
+            lvAddonsSettings.ContextMenu.Dispose();
+            lvAddonsSettings.ContextMenu = null;
+
+            RefreshButtons();
+        }
+
+        private void LvAddonsSettings_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && lvAddonsSettings.Items.Count != 0 && lvAddonsSettings.Items.Cast<ListViewItem>().Any(item => item.Bounds.Contains(new Point(e.X, e.Y))))
+            {
+                var m = new MenuItem(SettingsViewResources.SettingsViewDialog_Remove, MiRemove_Click);
+                var mi = new MenuItem[] { m };
+                lvAddonsSettings.ContextMenu = new ContextMenu(mi);
+                lvAddonsSettings.ContextMenu.Show(lvAddonsSettings, new Point(e.X, e.Y));
+            }
+            else
+            {
+                lvAddonsSettings.ContextMenu = null;
+            }
+        }
         #endregion
     }
 }
+
+internal class SettingEntry
+{
+
+    public SettingEntry(CitaviAddOn addon, string key)
+    {
+        Addon = addon;
+        Key = key;
+    }
+
+    public CitaviAddOn Addon { get; private set; }
+    public string Key { get; private set; }
+
+}
+
