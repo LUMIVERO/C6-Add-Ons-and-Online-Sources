@@ -24,7 +24,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                 {
                     await GenericProgressDialog.RunTask(mainForm, FetchAllAttributes, project, ExtractDOIsFromLinkedPDFsResources.GenericDialogFetchAttributsTitle, null, cts);
                 }
-                catch (OperationCanceledException x)
+                catch (OperationCanceledException)
                 {
                     // What exactly does Task.WhenAll do when a cancellation is requested? We don't know and are too lazy to find out ;-)
                     // To be on the safe side, we catch a possible exception and return;
