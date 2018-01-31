@@ -127,7 +127,7 @@
     <value>Konfiguration</value>
   </data>
   <data name="Dialog_Ok" xml:space="preserve">
-    <value>Ok</value>
+    <value>OK</value>
   </data>
   <data name="Dialog_Cancel" xml:space="preserve">
     <value>Abbrechen</value>

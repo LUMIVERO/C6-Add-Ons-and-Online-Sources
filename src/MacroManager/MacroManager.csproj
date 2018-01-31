@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
+    <Compile Include="Core\MacroContainer.cs" />
     <Compile Include="Dialogs\DirectoryDialog.cs">
       <SubType>Form</SubType>
     </Compile>
