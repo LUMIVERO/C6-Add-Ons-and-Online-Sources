@@ -1,15 +1,13 @@
-﻿using Infragistics.Win.UltraWinToolbars;
-using SwissAcademic.Addons.MacroManager.Properties;
+﻿using SwissAcademic.Addons.MacroManager.Properties;
 using SwissAcademic.Controls;
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace SwissAcademic.Addons.MacroManager
 {
     internal static class DirectoryConverter
     {
-        public static void Travers(CommandbarMenu commandbarMenu, int index, ref int folderCounter, ref int fileCounter, string path, Dictionary<string, MacroCommand> macroCommands, Dictionary<ToolBase, string> tools, bool isFirst)
+        public static void Travers(CommandbarMenu commandbarMenu, int index, ref int folderCounter, ref int fileCounter, string path, MacroContainer container, bool isFirst)
         {
             try
             {
@@ -30,8 +28,8 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add(menu.Tool, null);
-                    Travers(menu, 0, ref folderCounter, ref fileCounter, directory, macroCommands, tools, isFirst);
+                    container.Tools.Add(menu.Tool, null);
+                    Travers(menu, 0, ref folderCounter, ref fileCounter, directory, container, isFirst);
                 }
 
                 foreach (var strFile in Directory.GetFiles(path, "*.cs"))
@@ -47,15 +45,15 @@ namespace SwissAcademic.Addons.MacroManager
                         isFirst = false;
                     }
 
-                    tools.Add(menu.Tool, null);
+                    container.Tools.Add(menu.Tool, null);
                     key = Addon.Key_Button_Directory + "." + fileCounter + ".1";
                     var button = menu.AddCommandbarButton(key, MacroManagerResources.EditCommand);
-                    macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
-                    tools.Add(button.Tool, "EditCommand");
+                    container.Macros.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
+                    container.Tools.Add(button.Tool, "EditCommand");
                     key = Addon.Key_Button_Directory + "." + fileCounter + ".2";
                     button = menu.AddCommandbarButton(Addon.Key_Button_Directory + "." + fileCounter + ".2", MacroManagerResources.RunCommand);
-                    macroCommands.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
-                    tools.Add(button.Tool, "RunCommand");
+                    container.Macros.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
+                    container.Tools.Add(button.Tool, "RunCommand");
                 }
             }
             catch (Exception)

@@ -1,5 +1,4 @@
-﻿using Infragistics.Win.UltraWinToolbars;
-using SwissAcademic.Addons.MacroManager.Properties;
+﻿using SwissAcademic.Addons.MacroManager.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using SwissAcademic.Resources;
@@ -7,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.MacroManager
@@ -29,9 +29,7 @@ namespace SwissAcademic.Addons.MacroManager
         #region Fields
 
         MacroEditorForm _editor;
-        CommandbarMenu _menu;
-        Dictionary<string, MacroCommand> _macros;
-        Dictionary<ToolBase, string> _tools;
+        List<MacroContainer> _containers;
 
         #endregion
 
@@ -39,8 +37,7 @@ namespace SwissAcademic.Addons.MacroManager
 
         public Addon() : base()
         {
-            _macros = new Dictionary<string, MacroCommand>();
-            _tools = new Dictionary<ToolBase, string>();
+            _containers = new List<MacroContainer>();
         }
 
         #endregion
@@ -57,6 +54,8 @@ namespace SwissAcademic.Addons.MacroManager
         {
             e.Handled = true;
 
+            var container = _containers.FirstOrDefault(c => c.Form.Equals(e.Form));
+
             switch (e.Key)
             {
                 case (Key_Button_ShowMacroEditor):
@@ -66,7 +65,7 @@ namespace SwissAcademic.Addons.MacroManager
                     break;
                 case (Key_Button_Refresh):
                     {
-                        UpdateTools(e.Form);
+                        UpdateTools(container);
                     }
                     break;
                 case (Key_Button_Config):
@@ -77,8 +76,8 @@ namespace SwissAcademic.Addons.MacroManager
                             if (directoryDialog.ShowDialog() == DialogResult.OK)
                             {
                                 Settings[Key_MacrosDirectory] = directoryDialog.Directory;
-                                Program.Settings.InitialDirectories.SetInitialDirectoryContext(SwissAcademic.Citavi.Settings.InitialDirectoryContext.Macros, Path2.GetFullPathFromPathWithVariables(directoryDialog.Directory));
-                                UpdateTools(e.Form);
+                                Program.Settings.InitialDirectories.SetInitialDirectoryContext(Citavi.Settings.InitialDirectoryContext.Macros, Path2.GetFullPathFromPathWithVariables(directoryDialog.Directory));
+                                UpdateTools(container);
                             }
                         }
                     }
@@ -100,9 +99,9 @@ namespace SwissAcademic.Addons.MacroManager
 
                     if (e.Key.StartsWith(Key_Button_Directory, StringComparison.OrdinalIgnoreCase))
                     {
-                        if (_macros.ContainsKey(e.Key))
+                        if (container.Macros.ContainsKey(e.Key))
                         {
-                            var macro = _macros[e.Key];
+                            var macro = container.Macros[e.Key];
 
                             if (File.Exists(macro.Path))
                             {
@@ -129,7 +128,7 @@ namespace SwissAcademic.Addons.MacroManager
                             else
                             {
                                 MessageBox.Show(e.Form, MacroManagerResources.PathNotFoundMessage.FormatString(macro.Path), e.Form.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                UpdateTools(e.Form, true);
+                                UpdateTools(container, true);
                             }
 
                         }
@@ -152,6 +151,10 @@ namespace SwissAcademic.Addons.MacroManager
         {
             if (form is MainForm mainForm)
             {
+                var container = new MacroContainer(form);
+                form.FormClosed += Form_FormClosed;
+                _containers.Add(container);
+
                 var oldMacroEditorTool = mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.Tools).GetCommandbarButton("ShowMacroEditorForm");
 
                 if (oldMacroEditorTool != null)
@@ -159,24 +162,25 @@ namespace SwissAcademic.Addons.MacroManager
                     oldMacroEditorTool.Tool.ToolbarsManager.Tools.Remove(oldMacroEditorTool.Tool);
                 }
 
-                _menu = mainForm.GetMainCommandbarManager()
+                var menu = mainForm.GetMainCommandbarManager()
                                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                .InsertCommandbarMenu(17, Key_Menu_MacroManager, MacroManagerResources.MacroCommand);
-                if (_menu != null)
+
+                if (menu != null)
                 {
-                    _menu.AddCommandbarButton(Key_Button_Config, MacroManagerResources.ConfigurateCommand);
+                    menu.AddCommandbarButton(Key_Button_Config, MacroManagerResources.ConfigurateCommand);
 
-                    UpdateTools(form, true);
+                    UpdateTools(container, true);
 
-                    if (_menu != null)
+                    if (menu != null)
                     {
 
-                        var button = _menu.InsertCommandbarButton(2, Key_Button_ShowMacroEditor, MacroManagerResources.MacroEditorCommand);
+                        var button = menu.InsertCommandbarButton(2, Key_Button_ShowMacroEditor, MacroManagerResources.MacroEditorCommand);
                         button.Shortcut = (Shortcut)(Keys.Alt | Keys.F11);
                         button.HasSeparator = true;
 
 
-                        button = _menu.AddCommandbarButton(Key_Button_Refresh, MacroManagerResources.RefreshCommand, image: MacroManagerResources.Refresh);
+                        button = menu.AddCommandbarButton(Key_Button_Refresh, MacroManagerResources.RefreshCommand, image: MacroManagerResources.Refresh);
                         button.Tool.InstanceProps.IsFirstInGroup = true;
                     }
                 }
@@ -187,29 +191,36 @@ namespace SwissAcademic.Addons.MacroManager
 
         protected override void OnLocalizing(Form form)
         {
-            if (_menu != null)
-            {
-                _menu.Text = MacroManagerResources.MacroCommand;
+            var menu = GetMacroMenu(form);
 
-                var button = _menu.GetCommandbarButton(Key_Button_Config);
+            if (menu != null)
+            {
+                menu.Text = MacroManagerResources.MacroCommand;
+
+                var button = menu.GetCommandbarButton(Key_Button_Config);
 
                 if (button != null) button.Text = MacroManagerResources.ConfigurateCommand;
 
-                button = _menu.GetCommandbarButton(Key_Button_ShowMacroEditor);
+                button = menu.GetCommandbarButton(Key_Button_ShowMacroEditor);
 
                 if (button != null) button.Text = MacroManagerResources.MacroEditorCommand;
 
-                button = _menu.GetCommandbarButton(Key_Button_Refresh);
+                button = menu.GetCommandbarButton(Key_Button_Refresh);
 
                 if (button != null) button.Text = MacroManagerResources.RefreshCommand;
 
-                foreach (var toolPair in _tools)
-                {
-                    var tool = toolPair.Key;
-                    var resourceId = toolPair.Value;
+                var container = _containers.FirstOrDefault(c => c.Form.Equals(form));
 
-                    if (string.IsNullOrEmpty(resourceId)) continue;
-                    tool.InstanceProps.Caption = MacroManagerResources.ResourceManager.GetString(resourceId, MacroManagerResources.Culture);
+                if (container != null)
+                {
+                    foreach (var toolPair in container.Tools)
+                    {
+                        var tool = toolPair.Key;
+                        var resourceId = toolPair.Value;
+
+                        if (string.IsNullOrEmpty(resourceId)) continue;
+                        tool.InstanceProps.Caption = MacroManagerResources.ResourceManager.GetString(resourceId, MacroManagerResources.Culture);
+                    }
                 }
             }
 
@@ -243,26 +254,29 @@ namespace SwissAcademic.Addons.MacroManager
             return _editor;
         }
 
-        void UpdateTools(Form form, bool supressMessage = false)
+        void UpdateTools(MacroContainer container, bool supressMessage = false)
         {
-            foreach (var tool in _tools)
+            foreach (var tool in container.Tools)
             {
                 tool.Key.ToolbarsManager.Tools.Remove(tool.Key);
             }
 
-            _tools.Clear();
-            _macros.Clear();
-            RunTravers(form, supressMessage);
+            container.Tools.Clear();
+            container.Macros.Clear();
+            RunTravers(container, supressMessage);
+
         }
 
-        void RunTravers(Form form, bool supressMessage = false)
+        void RunTravers(MacroContainer container, bool supressMessage = false)
         {
             if (IsValidDirectory(out string message))
             {
-                if (_menu != null)
+                var menu = GetMacroMenu(container.Form);
+
+                if (menu != null)
                 {
-                    var button = _menu.InsertCommandbarButton(1, Key_Button_OpenInExplorer, MacroManagerResources.OpenInExplorerCommand);
-                    _tools.Add(button.Tool, "OpenInExplorerCommand");
+                    var button = menu.InsertCommandbarButton(1, Key_Button_OpenInExplorer, MacroManagerResources.OpenInExplorerCommand);
+                    container.Tools.Add(button.Tool, "OpenInExplorerCommand");
                 }
 
                 var macrosDirectory = Path2.GetFullPathFromPathWithVariables(Settings[Key_MacrosDirectory]);
@@ -273,13 +287,14 @@ namespace SwissAcademic.Addons.MacroManager
 
                 if (Directory.Exists(macrosDirectory))
                 {
-                    DirectoryConverter.Travers(_menu, 3, ref folderCounter, ref fileCounter, macrosDirectory, _macros, _tools, true);
+                    DirectoryConverter.Travers(menu, 3, ref folderCounter, ref fileCounter, macrosDirectory, container, true);
                 }
+
 
             }
             else
             {
-                if (!supressMessage) MessageBox.Show(form, message, form.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!supressMessage) MessageBox.Show(container.Form, message, container.Form.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -302,6 +317,18 @@ namespace SwissAcademic.Addons.MacroManager
             return true;
         }
 
+        CommandbarMenu GetMacroMenu(Form form)
+        {
+            if (form is MainForm mainForm)
+            {
+                return mainForm.GetMainCommandbarManager()
+                            .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                            .GetCommandbarMenu(Key_Menu_MacroManager);
+            }
+
+            return null;
+        }
+
         #endregion
 
         #region Eventhandler
@@ -310,6 +337,17 @@ namespace SwissAcademic.Addons.MacroManager
         {
             _editor.FormClosed -= MacroEditorForm_FormClosed;
             _editor = null;
+        }
+
+        void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (sender is Form form)
+            {
+                var container = _containers.FirstOrDefault(c => c.Form.Equals(form));
+                if (container != null) _containers.Remove(container);
+
+                form.FormClosed -= Form_FormClosed;
+            }
         }
 
         #endregion

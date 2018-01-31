@@ -56,11 +56,10 @@ namespace SwissAcademic.Addons.SettingsView
         {
             if (form is MainForm mainForm)
             {
-
-                CommandbarButton button = mainForm.GetMainCommandbarManager()
-                                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.Tools)
-                                                  .GetCommandbarButton(Key_Button_ShowSettingsViewDialog);
+                var button = mainForm.GetMainCommandbarManager()
+                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.Tools)
+                                     .GetCommandbarButton(Key_Button_ShowSettingsViewDialog);
 
                 if (button != null) button.Text = SettingsViewResources.ShowSettingsView;
             }
