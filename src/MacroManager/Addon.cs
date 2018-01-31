@@ -170,7 +170,13 @@ namespace SwissAcademic.Addons.MacroManager
 
                     if (_menu != null)
                     {
-                        var button = _menu.AddCommandbarButton(Key_Button_Refresh, MacroManagerResources.RefreshCommand, image: MacroManagerResources.Refresh);
+
+                        var button = _menu.InsertCommandbarButton(2, Key_Button_ShowMacroEditor, MacroManagerResources.MacroEditorCommand);
+                        button.Shortcut = (Shortcut)(Keys.Alt | Keys.F11);
+                        button.HasSeparator = true;
+
+
+                        button = _menu.AddCommandbarButton(Key_Button_Refresh, MacroManagerResources.RefreshCommand, image: MacroManagerResources.Refresh);
                         button.Tool.InstanceProps.IsFirstInGroup = true;
                     }
                 }
@@ -185,10 +191,13 @@ namespace SwissAcademic.Addons.MacroManager
             {
                 _menu.Text = MacroManagerResources.MacroCommand;
 
-
                 var button = _menu.GetCommandbarButton(Key_Button_Config);
 
                 if (button != null) button.Text = MacroManagerResources.ConfigurateCommand;
+
+                button = _menu.GetCommandbarButton(Key_Button_ShowMacroEditor);
+
+                if (button != null) button.Text = MacroManagerResources.MacroEditorCommand;
 
                 button = _menu.GetCommandbarButton(Key_Button_Refresh);
 
@@ -254,11 +263,6 @@ namespace SwissAcademic.Addons.MacroManager
                 {
                     var button = _menu.InsertCommandbarButton(1, Key_Button_OpenInExplorer, MacroManagerResources.OpenInExplorerCommand);
                     _tools.Add(button.Tool, "OpenInExplorerCommand");
-
-                    button = _menu.InsertCommandbarButton(2, Key_Button_ShowMacroEditor, MacroManagerResources.MacroEditorCommand);
-                    button.Shortcut = (Shortcut)(Keys.Alt | Keys.F11);
-                    button.HasSeparator = true;
-                    _tools.Add(button.Tool, "MacroEditorCommand");
                 }
 
                 var macrosDirectory = Path2.GetFullPathFromPathWithVariables(Settings[Key_MacrosDirectory]);
