@@ -51,13 +51,17 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
             var project = tuple.Item1;
             var settings = tuple.Item3;
             var mergedReferences = new List<Reference>();
+            var counter = 1;
 
             foreach (var reference in references)
             {
-                var lookedUpReference = await identifierSupport.FindReferenceAsync(project, new ReferenceIdentifier() { Type = ReferenceIdentifierType.PubMedId, Value = reference.PubMedId }, CancellationToken.None);
+                cancellationToken.ThrowIfCancellationRequested();
+
+                var lookedUpReference = await identifierSupport.FindReferenceAsync(project, new ReferenceIdentifier() { Type = ReferenceIdentifierType.PubMedId, Value = reference.PubMedId }, cancellationToken);
                 if (lookedUpReference == null)
                 {
-                    progress.ReportSafe(100 / references.Count * references.IndexOf(reference));
+                    progress.ReportSafe(100 / references.Count * counter);
+                    counter++;
                     continue;
                 }
                 var omitData = new List<ReferencePropertyId>
@@ -79,7 +83,8 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                 if (project.Engine.Settings.BibTeXCitationKey.IsCitationKeyEnabled) reference.CitationKey = project.CitationKeyAssistant.GenerateKey(reference);
 
                 mergedReferences.Add(reference);
-                progress.ReportSafe(100 / references.Count * references.IndexOf(reference));
+                progress.ReportSafe(100 / references.Count * counter);
+                counter++;
             }
 
             return mergedReferences;
