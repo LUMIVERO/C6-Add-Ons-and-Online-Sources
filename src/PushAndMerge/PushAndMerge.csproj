@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF13E339-46A2-44BB-816D-98A961E0D2CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PushAndMerge</RootNamespace>
+    <AssemblyName>PushAndMerge</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\AddOns</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\AddOns</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Citavi">
+      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic">
+      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi">
+      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Citavi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Controls">
+      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System " />
+    <Reference Include="System.Core " />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon.cs" />
+    <Compile Include="Core\PushAndMergeOptions.cs" />
+    <Compile Include="Dialogs\PushAndMergeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PushAndMergeDialog.Designer.cs">
+      <DependentUpon>PushAndMergeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\PushAndMergeDialog.resx">
+      <DependentUpon>PushAndMergeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
