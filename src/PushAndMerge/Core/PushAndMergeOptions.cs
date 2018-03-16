@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PushAndMerge
+namespace SwissAcademic.Addons.PushAndMerge
 {
     public class PushAndMergeOptions
     {
@@ -118,18 +118,19 @@ namespace PushAndMerge
         #endregion
 
         #region IncludeTasks
-
         public bool IncludeTasks { get; set; }
-
-
-        #region ReferenceSelection
-        public ReferenceSelection ReferenceSelection { get; set; }
         #endregion
 
+        #region ReferenceSelection
+        public ReferenceSelection ReferenceSelection { get; set; } = ReferenceSelection.Selected;
         #endregion
 
         #region IgnoreKnowledgeItemOnMatch
         public bool IgnoreKnowledgeItemOnMatch { get; set; }
+        #endregion
+
+        #region MergeProjectOptions
+        public MergeProjectOptions MergeProjectOptions { get; set; }
         #endregion
 
         #region MergeKnowldgeItemKeywords
@@ -152,12 +153,12 @@ namespace PushAndMerge
         public MergeReferenceOptions MergeReferenceOptionTableOfContents { get; set; }
         #endregion
 
-        #region MergeReferenceOptionRating
-        public MergeReferenceOptions MergeReferenceOptionRating { get; set; }
+        #region MergeReferenceOptionEvaluation 
+        public MergeReferenceOptions MergeReferenceOptionEvaluation { get; set; }
         #endregion
 
-        #region MergeReferenceOptionNote
-        public MergeReferenceOptions MergeReferenceOptionNote { get; set; }
+        #region MergeReferenceOptionNotes
+        public MergeReferenceOptions MergeReferenceOptionNotes { get; set; }
         #endregion
 
         #endregion
@@ -167,7 +168,7 @@ namespace PushAndMerge
     public enum MergeProjectOptions
     {
         EqualIdentifiers = 1,
-        EqualImportantFields = 1 << 1,
+        EqualEssentialFields = 1 << 1,
         EqualStaticId = 1 << 2
     }
     public enum MergeReferenceOptions

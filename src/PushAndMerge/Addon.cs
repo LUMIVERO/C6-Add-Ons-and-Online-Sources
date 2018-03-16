@@ -8,16 +8,24 @@ using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using SwissAcademic.Drawing;
 using System.Windows.Forms;
+using SwissAcademic.Addons.PushAndMerge.Properties;
 
-namespace PushAndMerge
+namespace SwissAcademic.Addons.PushAndMerge
 {
     public class Addon : CitaviAddOn
     {
+        #region Constants
+        const string CommandOpenPushAndMergeDialogKey = "SwissAcademic.Addons.PushAndMerge.OpenPushAndMergeDialogKey";
+        #endregion
+
         #region Properties
+
+        #region HostingForm
         public override AddOnHostingForm HostingForm
         {
             get { return AddOnHostingForm.MainForm; }
         }
+        #endregion
 
         #endregion
 
@@ -31,6 +39,22 @@ namespace PushAndMerge
         protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
         {
             base.OnBeforePerformingCommand(e);
+
+            var mainForm = e.Form as MainForm;
+
+            switch(e.Key)
+            {
+                case CommandOpenPushAndMergeDialogKey:
+                    {
+                        if (mainForm == null) return;
+
+                        using (var dialog = new PushAndMergeDialog(e.Form, mainForm.Project))
+                        {
+                            dialog.ShowDialog();
+                        }
+                    }
+                    break;
+            }
         }
 
         protected override void OnChangingColorScheme(System.Windows.Forms.Form form, ColorScheme colorScheme)
@@ -40,6 +64,14 @@ namespace PushAndMerge
 
         protected override void OnHostingFormLoaded(System.Windows.Forms.Form form)
         {
+            if (form is MainForm mainForm)
+            {
+                mainForm.GetMainCommandbarManager()
+                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                        .InsertCommandbarButton(4, CommandOpenPushAndMergeDialogKey, PushAndMergeResources.PushAndMergeCommandButtonText);
+            }
+
             base.OnHostingFormLoaded(form);
         }
 

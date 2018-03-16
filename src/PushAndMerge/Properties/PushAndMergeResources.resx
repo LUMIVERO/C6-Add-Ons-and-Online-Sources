@@ -117,41 +117,91 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="customTextsCheckboxTreeView.ExpansionIndicatorImageCollapsed" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAJ9JREFUOE+l
-        kr0NxCAMRrPIjXWL3ARMQM8AUNwc7ECNLhJ/FT3Sd6GwRBQXIRRPiGfrk2XYACzByhlYOQMrW2svay1q
-        rR+uPsLKI+CttYYxBiklyfUQrKSAEAKUUvDef/tUXO9FdCjgOPsEkFLCOffjQk4XYgzo7PsOIQRKKZed
-        nC7EGJBzfj5BjHFtByuvsPYPZmDlDKy8Ay2VLd4H2x8uAgil/7IoSgAAAABJRU5ErkJggg==
-</value>
+  <data name="allOtherTitlesSubtitleLabel" xml:space="preserve">
+    <value>[EN]2. Alle anderen Titel</value>
   </data>
-  <data name="customTextsCheckboxTreeView.ExpansionIndicatorImageCollapsedHotTracked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAQhJREFUOE9j
-        +P//P0UYU4AIgKIemYOMzz//w45NHB1jFQTh8ju//u99+uv4qee/mbDJwzBWQRDWOfHjv/XpH/83Pvr9
-        +Piz3yLY1IAwVkEQVj/+/f+MOz+n6534/n/BvV//jz/9bY1NHYYADIMM2P3kl/7cez/zVI9+/z8F6KUT
-        T367oqtD4SBjkAE7H/9SA7Hn3P25UeYIkP/w9yp0dSgcZAw1wGc61BuL7v76f/QxCS7QABow+fbPVOOT
-        3/+vAIbBwYe/+7CpwxCAYb2TP/7bnfnxf+39X//3P/ythE0NCGMVBGFgOni85f6v4/sf4I5CEMYqSArG
-        KkgKxhQgEsDVI2smHf9nAADG/8WOL/6RDwAAAABJRU5ErkJggg==
-</value>
+  <data name="BackButton" xml:space="preserve">
+    <value>Back</value>
   </data>
-  <data name="customTextsCheckboxTreeView.ExpansionIndicatorImageExpanded" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAANZJREFUOE+l
-        kDsOgkAURdkInZioK6C1tZ4EFoRQuRBbjWI0rshvkK9Mnm+Ap8igYqY4yfDuvadAA4C/Se+c0VsKu6As
-        SLI/BXHGTeQ5qr/fim1EKWf+dg+u54F4041yaVAnxOJqs4PBcASG0QfxTXfqSCMiSDhb+uXYsizooQBv
-        c8qoJw0FQYzj9Wts23YpiCsB5tSVxteYm4vGmASYzarOZ8El4sx1vWJQx3GmIDLqUF8SnEOuI2Nk0kDc
-        9Krz/R/84qQqON4UBQdVgSDP8+J/tIbdAe0BkODtVaxUrY0AAAAASUVORK5CYII=
-</value>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="customTextsCheckboxTreeView.ExpansionIndicatorImageExpandedHotTracked" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAMtJREFUOE+l
-        kE0OgjAQRtkYJXoEFx7Gi3gT41Zl4TG4g8qPeAQT0aiEcgZCZzG2jk1qrYaGJu8Lnc73FniI2Anr0AXr
-        0AUKccyHtlD8EWQVBJsrx9mpEdfvd4ofgpjxcH1pcJLVOD7UeKzAN3coLIK9KC9zKs9v8BKkDHrmHoUh
-        iBmEK628uJMgLlsI0hKmwZl/lJUgKaGv9hQUuqCAUP4wWdCRs6SAgdpTUGgCSfSA0a6A4faN+PYjS1lC
-        YQhcoOgq6IJ16IJ12B70nip6379FCxfLAAAAAElFTkSuQmCC
-</value>
+  <data name="copyOtherTitlesCheckboxText" xml:space="preserve">
+    <value>[EN]In das Zielprojekt kopieren</value>
+  </data>
+  <data name="FinishButton" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="ignoreOtherTitlesCheckboxText" xml:space="preserve">
+    <value>Ignore</value>
+  </data>
+  <data name="mergeEssentialFieldsCheckboxText" xml:space="preserve">
+    <value>[EN]Titel mit einer 100%-Übereinstimmung in wesentlichen Feldern</value>
+  </data>
+  <data name="mergeSameIdCheckboxText" xml:space="preserve">
+    <value>[EN]Titel mit gleicher ID (ISBN, DOI, PubMedID, PMC, arXiv)</value>
+  </data>
+  <data name="mergeStaticIdCheckboxText" xml:space="preserve">
+    <value>[EN]Titel mit gleicher StaticID</value>
+  </data>
+  <data name="NextButton" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="PushAndMergeCommandButtonText" xml:space="preserve">
+    <value>[EN]Wissenselemente in ein Citavi-Projekt kopiren</value>
+  </data>
+  <data name="ReferenceSelectionAll_Smart" xml:space="preserve">
+    <value>{0:The reference|All {0} references} in this project</value>
+  </data>
+  <data name="ReferenceSelectionFiltered_Smart" xml:space="preserve">
+    <value>The {0:reference|{0} references} in the current selection</value>
+  </data>
+  <data name="ReferenceSelectionSelected_Smart" xml:space="preserve">
+    <value>{0:The selected reference|The {0} selected references}</value>
+  </data>
+  <data name="TitleSelectionMergeSubtitleLabel" xml:space="preserve">
+    <value>[EN]1. Titel, deren Daten im Zielprojekt zusammengeführt werden</value>
+  </data>
+  <data name="TitleSelectionTabSettingsLabel" xml:space="preserve">
+    <value>[EN]Einschränkungen / Einstellungen</value>
+  </data>
+  <data name="TitleSelectionTabTitle" xml:space="preserve">
+    <value>[EN]Titel auswählen</value>
+  </data>
+  <data name="CustomFields" xml:space="preserve">
+    <value>Custom fields</value>
+  </data>
+  <data name="KnowledgeItemsLabel" xml:space="preserve">
+    <value>Knowledgeitems</value>
+  </data>
+  <data name="ProjectNameLabel" xml:space="preserve">
+    <value>Projectname</value>
+  </data>
+  <data name="MergeReferenceOptionComplete" xml:space="preserve">
+    <value>Complete all</value>
+  </data>
+  <data name="MergeReferenceOptionCompleteIfEmpty" xml:space="preserve">
+    <value>Complete if empty</value>
+  </data>
+  <data name="MergeReferenceOptionIgnore" xml:space="preserve">
+    <value>Ignore</value>
+  </data>
+  <data name="MergeReferenceOptionOverride" xml:space="preserve">
+    <value>Override</value>
+  </data>
+  <data name="NewProjectButtonText" xml:space="preserve">
+    <value>New project ...</value>
+  </data>
+  <data name="OpenProjectButtonText" xml:space="preserve">
+    <value>Open project ...</value>
+  </data>
+  <data name="CloneKnowledgeItemOnMatchText" xml:space="preserve">
+    <value>[EN]Kopieren, bei bei gleichem Ersteller und Erstellungsdatum duplizieren</value>
+  </data>
+  <data name="IgnoreKnowledgeItemOnMatchText" xml:space="preserve">
+    <value>[EN]Kopieren, bei gleichem Ersteller und Erstellungsdatum ignorieren</value>
+  </data>
+  <data name="CantMoveItemsInTheSameProject" xml:space="preserve">
+    <value>Items cannot be copied within the same project.</value>
   </data>
 </root>
