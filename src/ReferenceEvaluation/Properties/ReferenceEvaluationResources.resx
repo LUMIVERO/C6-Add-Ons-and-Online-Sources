@@ -184,4 +184,10 @@
   <data name="Evaluator_Count" xml:space="preserve">
     <value>Count</value>
   </data>
+  <data name="PersonAndSexEvaluator_Caption" xml:space="preserve">
+    <value>[de] Personen mit Geschlecht und Anzahl der zugeordneten Titel</value>
+  </data>
+  <data name="Evaluator_Sex" xml:space="preserve">
+    <value>[de] Geschlecht</value>
+  </data>
 </root>
