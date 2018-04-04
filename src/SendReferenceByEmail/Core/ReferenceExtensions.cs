@@ -22,7 +22,18 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
 
             foreach (var location in reference.Locations.GetAvailable())
             {
-                var fileInfo = new FileInfo(location.Address.Resolve().GetLocalPathSafe());
+                var path = location.Address.Resolve().GetLocalPathSafe();
+
+                if (location.IsRemote())
+                {
+                    var tempPath = Path.Combine(Path.GetTempPath(), location.FullName);
+                    if (File.Exists(tempPath)) File.Delete(tempPath);
+                    File.Copy(path, tempPath);
+                    path = tempPath;
+                }
+
+                var fileInfo = new FileInfo(path);
+
                 mailTemplate.Attachments.Add(fileInfo.FullName);
                 attachmentFileNames.AppendLine(fileInfo.Name);
             }
@@ -87,6 +98,11 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                        )) &&
                        File.Exists(location.Address.Resolve().GetLocalPathSafe())
                     select location).ToList();
+        }
+
+        static bool IsRemote(this Location location)
+        {
+            return location.LocationType == LocationType.ElectronicAddress && location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote;
         }
 
     }
