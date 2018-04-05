@@ -185,9 +185,9 @@
     <value>Count</value>
   </data>
   <data name="PersonAndSexEvaluator_Caption" xml:space="preserve">
-    <value>[de] Personen mit Geschlecht und Anzahl der zugeordneten Titel</value>
+    <value>Number of references by author and gender</value>
   </data>
   <data name="Evaluator_Sex" xml:space="preserve">
-    <value>[de] Geschlecht</value>
+    <value>Gender</value>
   </data>
 </root>
