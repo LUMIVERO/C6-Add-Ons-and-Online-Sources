@@ -67,7 +67,6 @@
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
       <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Citavi.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
       <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Controls.dll</HintPath>

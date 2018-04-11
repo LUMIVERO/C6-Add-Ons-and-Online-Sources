@@ -11,7 +11,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 {
     public static class PushAndMergeHandler
     {
-        public static void Execute(
+        public static async Task ExecuteAsync(
             Form dialogOwner,
             Project sourceProject,
             Project targetProject, 
@@ -100,12 +100,12 @@ namespace SwissAcademic.Addons.PushAndMerge
             {
                 var reference = r.Clone as Reference;
 
-                if (references == null) continue; 
+                if (reference == null) continue; 
 
                 if(r.CloneResult == CloneResult.ReferenceIdentifierMatch)
                 {
                     MergeReferenceData((Reference)r.Source, reference, options);
-                    MergeKnowledgeItems((Reference)r.Source, reference, options);
+                    await MergeKnowledgeItemsAsync((Reference)r.Source, reference, options);
                     continue;    
                 }
                 
@@ -118,7 +118,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                         if(matchedReference != null)
                         {
                             MergeReferenceData(reference, matchedReference, options);
-                            MergeKnowledgeItems(reference, matchedReference, options);
+                            await MergeKnowledgeItemsAsync(reference, matchedReference, options);
                             continue;
                         }
                     }
@@ -137,7 +137,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                     if(matchedReference != null)
                     {
                         MergeReferenceData(reference, matchedReference, options);
-                        MergeKnowledgeItems(reference, matchedReference, options);
+                        await MergeKnowledgeItemsAsync(reference, matchedReference, options);
                         continue;
                     }
                 }
@@ -156,7 +156,7 @@ namespace SwissAcademic.Addons.PushAndMerge
             target.Evaluation.Text = HandleReferenceMergeOptions(source.Evaluation.Text, target.Evaluation.Text, options.MergeReferenceOptionEvaluation);
             target.Notes = HandleReferenceMergeOptions(source.Notes, target.Notes, options.MergeReferenceOptionNotes);
         }
-        static void MergeKnowledgeItems(Reference source, Reference target, PushAndMergeOptions options)
+        static async Task MergeKnowledgeItemsAsync(Reference source, Reference target, PushAndMergeOptions options)
         {
             var cloneOptions = new CitaviEntityCloneOptions
             {
@@ -166,25 +166,48 @@ namespace SwissAcademic.Addons.PushAndMerge
                 CreateNewId = true,
                 MatchById = false
             };
-
-            List<KnowledgeItem> quotationsToAdd = new List<KnowledgeItem>();
+            
 
             foreach (var quotation in source.Quotations)
             {
                 var matchedKnowledgeItem = target.Quotations.FirstOrDefault(i => i.CreatedBy == quotation.CreatedBy && i.CreatedOn.Date == quotation.CreatedOn.Date);
 
-                if(matchedKnowledgeItem != null)
+                Location l = null;
+                KnowledgeItem newQuotation = null;
+
+                if (matchedKnowledgeItem != null)
                 {
                     if (options.IgnoreKnowledgeItemOnMatch) continue;
 
-                    quotationsToAdd.Add(quotation.Clone(cloneOptions));
+                    newQuotation = quotation.Clone(cloneOptions);
                 }
                 else
                 {
-                    quotationsToAdd.Add(quotation.Clone(cloneOptions));
+                    newQuotation = quotation.Clone(cloneOptions);
+                }
+
+                newQuotation = target.Quotations.Add(newQuotation);
+
+                var quotationAnnotations = quotation.EntityLinks.Where(i => i.Target is Annotation).Select(i => i.Target as Annotation);
+
+                if (quotationAnnotations.Any())
+                {
+                    if (!target.Locations.Any())
+                    {
+                        l = quotationAnnotations.First().Location.Clone(newQuotation.Reference);
+                        l.Annotations.Clear();
+
+                        l = target.Locations.Add(l);
+                    }
+                    else
+                    {
+                        l = await quotationAnnotations.First().Location.TryFindEqualFileLocation(newQuotation.Reference.Locations);
+                    }
+
+                    ConnectAnnotations(newQuotation, l, quotationAnnotations);
                 }
             }
-            target.Quotations.AddRange(quotationsToAdd);
+       
         }
         static string HandleReferenceMergeOptions(string source, string target, MergeReferenceOptions options)
         {
@@ -199,6 +222,17 @@ namespace SwissAcademic.Addons.PushAndMerge
                 case MergeReferenceOptions.Override:
                     return source;
                 default: throw new InvalidOperationException();
+            }
+        }
+        static void ConnectAnnotations(KnowledgeItem quotation, Location location, IEnumerable<Annotation> annotations)
+        {
+            ClonePool.Reset();
+            foreach (var annotation in annotations)
+            {
+                var newAnnotation = annotation.Clone(location);
+                newAnnotation = location.Annotations.Add(newAnnotation);
+
+                location.Project.EntityLinks.Add(quotation, newAnnotation, EntityLink.PdfKnowledgeItemIndication);
             }
         }
     }
