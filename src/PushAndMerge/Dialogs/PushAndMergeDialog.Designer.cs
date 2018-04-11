@@ -142,6 +142,7 @@
             this.copyOtherTitlesRadioButton.TabStop = true;
             this.copyOtherTitlesRadioButton.Text = "In das Zielprojekt kopieren";
             this.copyOtherTitlesRadioButton.UseVisualStyleBackColor = true;
+            this.copyOtherTitlesRadioButton.MouseEnter += new System.EventHandler(this.ChangeHelpContext);
             // 
             // ignoreOtherTitlesRadioButton
             // 
@@ -153,6 +154,7 @@
             this.ignoreOtherTitlesRadioButton.TabStop = true;
             this.ignoreOtherTitlesRadioButton.Text = "Ignorieren";
             this.ignoreOtherTitlesRadioButton.UseVisualStyleBackColor = true;
+            this.ignoreOtherTitlesRadioButton.MouseEnter += new System.EventHandler(this.ChangeHelpContext);
             // 
             // allOtherTitlesSubtitleLabel
             // 
@@ -162,6 +164,7 @@
             this.allOtherTitlesSubtitleLabel.Style = SwissAcademic.Controls.LabelStyle.SubtitleBlack;
             this.allOtherTitlesSubtitleLabel.TabIndex = 7;
             this.allOtherTitlesSubtitleLabel.Text = "2. Alle anderen Titel";
+            this.allOtherTitlesSubtitleLabel.MouseEnter += new System.EventHandler(this.ChangeHelpContext);
             // 
             // mergeStaticIdCheckbox
             // 
@@ -172,6 +175,7 @@
             this.mergeStaticIdCheckbox.TabIndex = 6;
             this.mergeStaticIdCheckbox.Text = "Titel mit gleicher StaticID";
             this.mergeStaticIdCheckbox.UseVisualStyleBackColor = true;
+            this.mergeStaticIdCheckbox.MouseEnter += new System.EventHandler(this.ChangeHelpContext);
             // 
             // mergeEssentialFieldsCheckBox
             // 
@@ -182,6 +186,7 @@
             this.mergeEssentialFieldsCheckBox.TabIndex = 5;
             this.mergeEssentialFieldsCheckBox.Text = "Titel mit einer 100%-Übereinstimmung in wesentlichen Feldern";
             this.mergeEssentialFieldsCheckBox.UseVisualStyleBackColor = true;
+            this.mergeEssentialFieldsCheckBox.MouseEnter += new System.EventHandler(this.ChangeHelpContext);
             // 
             // mergeSameIdsCheckbox
             // 
@@ -192,6 +197,7 @@
             this.mergeSameIdsCheckbox.TabIndex = 4;
             this.mergeSameIdsCheckbox.Text = "Titel mit gleicher ID (ISBN, DOI, PubMedID, PMC, arXiv)  ";
             this.mergeSameIdsCheckbox.UseVisualStyleBackColor = true;
+            this.mergeSameIdsCheckbox.MouseEnter += new System.EventHandler(this.ChangeHelpContext);
             // 
             // selectTitlesMergeSubtitleLabel
             // 

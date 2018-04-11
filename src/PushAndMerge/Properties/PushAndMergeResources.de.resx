@@ -207,4 +207,66 @@
   <data name="CantMoveItemsInTheSameProject" xml:space="preserve">
     <value>Daten können nicht innerhalb des gleichen Projektes kopiert werden</value>
   </data>
+  <data name="HelpText_MergeTitlesWithEqualEssentialFields" xml:space="preserve">
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit einer 100%-\'dcbereinstimmung in wesentlichen Feldern\par
+Die Bedingung tritt ein, wenn die Inhalte in allen folgenden Feldern bei dem Titel im Ausgangsprojekt und dem Titel im Zielprojekt identisch sind:\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-358\li721\sl240\slmult1 Dokumententyp\par
+{\pntext\f1\'B7\tab}Autor\par
+{\pntext\f1\'B7\tab}Titel\par
+{\pntext\f1\'B7\tab}Untertitel\par
+{\pntext\f1\'B7\tab}Jahr\par
+{\pntext\f1\'B7\tab}Auflage\par
+}</value>
+  </data>
+  <data name="HelpText_MergeTitlesWithEqualStaticId" xml:space="preserve">
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit gleicher StaticID\par
+Wenn ein Titel von einem Quell- in ein Zielprojekt kopiert wird, erh\'e4lt er eine neue interne ID.\par
+Die ehemalige ID im Quellprojekt wird zudem im internen Feld \i StaticID\i0  festgehalten. Auf diese Weise kann Citavi feststellen, welcher Titel in Quell- und Zielprojekt zusammengeh\'f6ren.\par
+}</value>
+  </data>
+  <data name="HelpText_MergeTitlesWithSameId" xml:space="preserve">
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit gleicher ID\par
+Es werden lediglich die ID der Titel miteinander verglichen. Die Bedingung tritt bei Titeln mit mehreren IDs ein, wenn mindestens eine ID die gleiche ist.\par
+}</value>
+  </data>
+  <data name="HelpText_AllOtherTitles" xml:space="preserve">
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs22\lang7 Alle anderen Titel\b0\par
+Alle anderen Titel umfassen solche Titel, f\'fcr die im Zielprojekt\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-358\li721\sl276\slmult1 kein Titel mit gleicher ID\par
+{\pntext\f1\'B7\tab}kein Titel mit 100% \'dcbereinstimmung\par
+{\pntext\f1\'B7\tab}kein Titel mit gleicher StaticID\par
+
+\pard\sl276\slmult1\par
+
+\pard\sa200\sl276\slmult1 vorhanden ist.\par
+Titel, die unter Punkt 1 \i nicht\i0  zum Zusammenf\'fchren ausgew\'e4hlt sind, fallen ebenfalls unter \i andere Titel\i0 .  \par
+}</value>
+  </data>
+  <data name="HelpText_SelectDataToCopy" xml:space="preserve">
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\sl276\slmult1\f0\fs22\lang7 Daten f\'fcr zu kopierende Titel\par
+\par
+Ihre Auswahl enth\'e4lt Titel, die in das Zielprojekt kopiert werden sollen.\par
+\par
+Diese Daten werden in jedem Falle mit den Titeln kopiert:\par
+\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl276\slmult1 Wissenselemente\par
+{\pntext\f1\'B7\tab}Standorte, insb. PDF-Anh\'e4nge\par
+
+\pard\sl276\slmult1\par
+Welche weiteren Daten dieser Titel m\'f6chten Sie mitkopieren?  \par
+}</value>
+  </data>
 </root>
