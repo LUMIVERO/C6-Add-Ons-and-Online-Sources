@@ -165,6 +165,13 @@ namespace SwissAcademic.Addons.PushAndMerge
         }
         #endregion
 
+        #region CancelButtonClick
+        void CancelButtonClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion
+
         #endregion
 
         #region Events
@@ -187,9 +194,5 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #endregion
 
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -110,7 +110,7 @@
             // ultraTabPageControl1
             // 
             this.ultraTabPageControl1.Controls.Add(this.selectTitleContentPanel);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(0, 0);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(596, 338);
             // 
@@ -578,7 +578,7 @@
             this.ultraTabPageControl4.Controls.Add(this.projectTextEditor);
             this.ultraTabPageControl4.Controls.Add(this.projectNameLabel);
             this.ultraTabPageControl4.Controls.Add(this.destinationProjectTitleLabel);
-            this.ultraTabPageControl4.Location = new System.Drawing.Point(0, 0);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
             this.ultraTabPageControl4.Size = new System.Drawing.Size(596, 338);
             // 
@@ -723,10 +723,10 @@
             this.cancelButton.Size = new System.Drawing.Size(96, 23);
             this.cancelButton.TabIndex = 0;
             this.cancelButton.Text = "Abbrechen";
+            this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
             // 
             // PushAndMergeDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.ClientSize = new System.Drawing.Size(856, 425);
             this.Controls.Add(this.paddingPannel);
             this.Controls.Add(this.navigationPanel);

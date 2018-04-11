@@ -70,9 +70,11 @@ namespace SwissAcademic.Addons.PushAndMerge
         }
         #endregion
 
-        #region InitTitleSelection
+        #region InitSelectProject
         void InitSelectProject(Project sourceProject)
         {
+            projectTextEditor.SelectedItem = null;
+
             backButton.Visible = true;
 
             _targetProjectEditorComboBoxHelpers = new ComboBoxHelperCollection();
