@@ -184,4 +184,10 @@
   <data name="Evaluator_Count" xml:space="preserve">
     <value>Count</value>
   </data>
+  <data name="PersonAndSexEvaluator_Caption" xml:space="preserve">
+    <value>Number of references by author and gender</value>
+  </data>
+  <data name="Evaluator_Sex" xml:space="preserve">
+    <value>Gender</value>
+  </data>
 </root>

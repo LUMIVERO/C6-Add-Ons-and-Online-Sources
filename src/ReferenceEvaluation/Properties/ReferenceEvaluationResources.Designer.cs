@@ -116,6 +116,15 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        internal static string Evaluator_Sex {
+            get {
+                return ResourceManager.GetString("Evaluator_Sex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selection.
         /// </summary>
         internal static string Form_Choice {
@@ -193,6 +202,15 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
         internal static string KeywordsEvaluator_NoKeywords {
             get {
                 return ResourceManager.GetString("KeywordsEvaluator_NoKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of references by author and gender.
+        /// </summary>
+        internal static string PersonAndSexEvaluator_Caption {
+            get {
+                return ResourceManager.GetString("PersonAndSexEvaluator_Caption", resourceCulture);
             }
         }
         
