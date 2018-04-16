@@ -332,7 +332,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Wissenselemente in ein Citavi-Projekt kopiren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Wissenselemente in ein Citavi-Projekt kopieren ähnelt.
         /// </summary>
         internal static string PushAndMergeCommandButtonText {
             get {

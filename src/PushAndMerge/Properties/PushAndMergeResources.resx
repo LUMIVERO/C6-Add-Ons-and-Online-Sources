@@ -148,7 +148,7 @@
     <value>Next</value>
   </data>
   <data name="PushAndMergeCommandButtonText" xml:space="preserve">
-    <value>[EN]Wissenselemente in ein Citavi-Projekt kopiren</value>
+    <value>[EN]Wissenselemente in ein Citavi-Projekt kopieren</value>
   </data>
   <data name="ReferenceSelectionAll_Smart" xml:space="preserve">
     <value>{0:The reference|All {0} references} in this project</value>
