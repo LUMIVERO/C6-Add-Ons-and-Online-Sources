@@ -64,9 +64,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KnowledgeItemTextFormFormAddon.cs" />
-    <Compile Include="KnowledgeItemFileFormAddon.cs" />
+    <Compile Include="HideHelpBoxAddon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
