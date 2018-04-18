@@ -46,6 +46,8 @@ namespace SwissAcademic.Addons.PushAndMerge
             {
                 case CommandOpenPushAndMergeDialogKey:
                     {
+                        e.Handled = true;
+
                         if (mainForm == null) return;
 
                         using (var dialog = new PushAndMergeDialog(e.Form, mainForm.Project))

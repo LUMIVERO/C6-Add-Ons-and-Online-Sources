@@ -133,6 +133,79 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+        ///\pard\sa200\sl276\slmult1\b\f0\fs22\lang7 Alle anderen Titel\b0\par
+        ///Alle anderen Titel umfassen solche Titel, f\&apos;fcr die im Zielprojekt\par
+        ///
+        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\li720\sa200\sl276\slmult1 kein Titel mit gleicher ID\par
+        ///{\pntext\f1\&apos;B7\tab}kein Titel mit 100% \&apos;dcbereinstimmung\pa [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string HelpText_AllOtherTitles {
+            get {
+                return ResourceManager.GetString("HelpText_AllOtherTitles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+        ///\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit einer 100%-\&apos;dcbereinstimmung in wesentlichen Feldern\par
+        ///Die Bedingung tritt ein, wenn die Inhalte in allen folgenden Feldern bei dem Titel im Ausgangsprojekt und dem Titel im Zielprojekt identisch sind:\par
+        ///
+        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-358\ [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string HelpText_MergeTitlesWithEqualEssentialFields {
+            get {
+                return ResourceManager.GetString("HelpText_MergeTitlesWithEqualEssentialFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+        ///\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit gleicher StaticID\par
+        ///Wenn ein Titel von einem Quell- in ein Zielprojekt kopiert wird, erh\&apos;e4lt er eine neue interne ID.\par
+        ///Die ehemalige ID im Quellprojekt wird zudem im internen Feld \i StaticID\i0  festgehalten. Auf diese Weise kann Citavi feststellen, welcher Titel in Quell- und Zielprojekt zusammengeh\&apos;f6ren [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string HelpText_MergeTitlesWithEqualStaticId {
+            get {
+                return ResourceManager.GetString("HelpText_MergeTitlesWithEqualStaticId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+        ///\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit gleicher ID\par
+        ///Es werden lediglich die ID der Titel miteinander verglichen. Die Bedingung tritt bei Titeln mit mehreren IDs ein, wenn mindestens eine ID die gleiche ist.\par
+        ///} ähnelt.
+        /// </summary>
+        internal static string HelpText_MergeTitlesWithSameId {
+            get {
+                return ResourceManager.GetString("HelpText_MergeTitlesWithSameId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+        ///\pard\sl276\slmult1\f0\fs22\lang7 Daten f\&apos;fcr zu kopierende Titel\par
+        ///\par
+        ///Ihre Auswahl enth\&apos;e4lt Titel, die in das Zielprojekt kopiert werden sollen.\par
+        ///\par
+        ///Diese Daten werden in jedem Falle mit den Titeln kopiert:\par
+        ///\par
+        ///
+        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\li720\sl276\slmult1 Wissen [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string HelpText_SelectDataToCopy {
+            get {
+                return ResourceManager.GetString("HelpText_SelectDataToCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Kopieren, bei gleichem Ersteller und Erstellungsdatum ignorieren ähnelt.
         /// </summary>
         internal static string IgnoreKnowledgeItemOnMatchText {
@@ -259,7 +332,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Wissenselemente in ein Citavi-Projekt kopiren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Wissenselemente in ein Citavi-Projekt kopieren ähnelt.
         /// </summary>
         internal static string PushAndMergeCommandButtonText {
             get {

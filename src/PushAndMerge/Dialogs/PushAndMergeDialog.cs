@@ -56,7 +56,7 @@ namespace SwissAcademic.Addons.PushAndMerge
             ignoreOtherTitlesRadioButton.Checked = true;
             mergeSameIdsCheckbox.Checked = true;
             mergeStaticIdCheckbox.Checked = true;
-
+            
             SetCurrentTab(TabKeys.TitleSelection);
 
         }
@@ -64,6 +64,44 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #region Methods
 
+        #region ChangeHelpContext
+        void ChangeHelpContext(object sender)
+        {
+            switch (CurrentTabKey)
+            {
+                case TabKeys.TitleSelection:
+                    if (sender == mergeSameIdsCheckbox)
+                    {
+                        helpBox.SetHelpText(PushAndMergeResources.HelpText_MergeTitlesWithSameId);
+                    }
+                    else if (sender == mergeEssentialFieldsCheckBox)
+                    {
+                        helpBox.SetHelpText(PushAndMergeResources.HelpText_MergeTitlesWithEqualEssentialFields);
+                    }
+                    else if (sender == mergeStaticIdCheckbox)
+                    {
+                        helpBox.SetHelpText(PushAndMergeResources.HelpText_MergeTitlesWithEqualStaticId);
+                    }
+                    else if (sender == allOtherTitlesSubtitleLabel || sender == ignoreOtherTitlesRadioButton || sender == copyOtherTitlesRadioButton)
+                    {
+                        helpBox.SetHelpText(PushAndMergeResources.HelpText_AllOtherTitles);
+                    }
+                    else
+                    {
+                        helpBox.TextEditor.Clear();
+                    }
+                    break;
+                case TabKeys.MergeTitleData:
+                    helpBox.SetHelpText(PushAndMergeResources.HelpText_SelectDataToCopy);
+                    break;
+                default:
+                    helpBox.TextEditor.Clear();
+                    break;
+            }
+        }
+        #endregion
+
+        #region Localize
         public override void Localize()
         {
             cancelButton.Text = PushAndMergeResources.CancelButton;
@@ -71,6 +109,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             base.Localize();
         }
+        #endregion
 
         #region SetCurrentTab
 
@@ -110,6 +149,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #region NextButtonClick
         async void NextButtonClick(object sender, EventArgs e)
         {
+
             switch(CurrentTabKey)
             {
                 case TabKeys.TitleSelection:
@@ -122,14 +162,17 @@ namespace SwissAcademic.Addons.PushAndMerge
                     {
                         CurrentTabKey = TabKeys.SelectTitleData;
                     }
+                    ChangeHelpContext(null);
                     break;
                 case TabKeys.SelectTitleData:
                     SetSelectTitleData();
                     CurrentTabKey = TabKeys.MergeTitleData;
+                    ChangeHelpContext(null);
                     break;
                 case TabKeys.MergeTitleData:
                     SetMergeTitleData();
                     CurrentTabKey = TabKeys.SelectTargetProject;
+                    ChangeHelpContext(null);
                     break;
                 case TabKeys.SelectTargetProject:
                     await FinishAsync();
@@ -162,7 +205,19 @@ namespace SwissAcademic.Addons.PushAndMerge
                     CurrentTabKey = TabKeys.MergeTitleData;
                     break;
             }
+            ChangeHelpContext(CurrentTabKey);
         }
+        #endregion
+
+        #region CancelButtonClick
+        void CancelButtonClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion
+
+        #region ChangeHelpContext
+        void ChangeHelpContext(object sender, EventArgs e) => ChangeHelpContext(sender);
         #endregion
 
         #endregion
@@ -186,6 +241,6 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #endregion
-
+        
     }
 }

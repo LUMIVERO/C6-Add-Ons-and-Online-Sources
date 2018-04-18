@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="SwissAcademic.Resources">
       <HintPath>D:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Resources.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System " />
     <Reference Include="System.Core " />

@@ -50,9 +50,9 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             if (targetProjectShell == null) return;
 
-            await GenericProgressDialog.RunAction(targetProjectShell.PrimaryMainForm, () =>
+            await GenericProgressDialog.RunTask(targetProjectShell.PrimaryMainForm, () =>
             {
-                PushAndMergeHandler.Execute(DialogOwner, _sourceProject, targetProjectShell.Project, _pushAndMergeOptions, null);
+                return PushAndMergeHandler.ExecuteAsync(DialogOwner, _sourceProject, targetProjectShell.Project, _pushAndMergeOptions, null);
             });
         }
 
@@ -70,9 +70,11 @@ namespace SwissAcademic.Addons.PushAndMerge
         }
         #endregion
 
-        #region InitTitleSelection
+        #region InitSelectProject
         void InitSelectProject(Project sourceProject)
         {
+            projectTextEditor.SelectedItem = null;
+
             backButton.Visible = true;
 
             _targetProjectEditorComboBoxHelpers = new ComboBoxHelperCollection();
