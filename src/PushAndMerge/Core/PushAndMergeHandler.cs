@@ -170,7 +170,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             foreach (var quotation in source.Quotations)
             {
-                var matchedKnowledgeItem = target.Quotations.FirstOrDefault(i => i.CreatedBy == quotation.CreatedBy && i.CreatedOn.Date == quotation.CreatedOn.Date);
+                var matchedKnowledgeItem = target.Quotations.FirstOrDefault(i => i.CreatedBy == quotation.CreatedBy && i.CreatedOn == quotation.CreatedOn);
 
                 Location l = null;
                 KnowledgeItem newQuotation = null;
