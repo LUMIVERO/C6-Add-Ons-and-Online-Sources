@@ -192,7 +192,11 @@ namespace SwissAcademic.Addons.PushAndMerge
 
                 if (quotationAnnotations.Any())
                 {
-                    if (!target.Locations.Any())
+                    if (!target.Locations.Any(
+                        i => i.Address?.LinkedResourceType == LinkedResourceType.AbsoluteFileUri || 
+                        i.Address?.LinkedResourceType == LinkedResourceType.RelativeFileUri || 
+                        i.Address?.LinkedResourceType == LinkedResourceType.AttachmentFile || 
+                        i.Address?.LinkedResourceType == LinkedResourceType.AttachmentRemote))
                     {
                         l = quotationAnnotations.First().Location.Clone(newQuotation.Reference);
                         l.Annotations.Clear();
