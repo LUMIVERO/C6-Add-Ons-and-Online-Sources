@@ -12,7 +12,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #region Properties
 
         #region CopyAllNonMatchedReferences
-        public bool CopyAllNonMatchedReferences { get; set; }
+        public bool CopyAllNonMatchedReferences { get; set; } = false;
         #endregion
 
         #region IncludeAbstract
@@ -126,11 +126,11 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region IgnoreKnowledgeItemOnMatch
-        public bool IgnoreKnowledgeItemOnMatch { get; set; }
+        public bool IgnoreKnowledgeItemOnMatch { get; set; } = true;
         #endregion
 
         #region MergeProjectOptions
-        public MergeProjectOptions MergeProjectOptions { get; set; }
+        public MergeProjectOptions MergeProjectOptions { get; set; } = MergeProjectOptions.EqualIdentifiers | MergeProjectOptions.EqualEssentialFields | MergeProjectOptions.EqualStaticId;
         #endregion
 
         #region MergeKnowldgeItemKeywords
@@ -146,19 +146,19 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region MergeReferenceOptionAbstract
-        public MergeReferenceOptions MergeReferenceOptionAbstract { get; set; }
+        public MergeReferenceOptions MergeReferenceOptionAbstract { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
         #endregion
 
         #region MergeReferenceOptionTableOfContents
-        public MergeReferenceOptions MergeReferenceOptionTableOfContents { get; set; }
+        public MergeReferenceOptions MergeReferenceOptionTableOfContents { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
         #endregion
 
         #region MergeReferenceOptionEvaluation 
-        public MergeReferenceOptions MergeReferenceOptionEvaluation { get; set; }
+        public MergeReferenceOptions MergeReferenceOptionEvaluation { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
         #endregion
 
         #region MergeReferenceOptionNotes
-        public MergeReferenceOptions MergeReferenceOptionNotes { get; set; }
+        public MergeReferenceOptions MergeReferenceOptionNotes { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
         #endregion
 
         #endregion
