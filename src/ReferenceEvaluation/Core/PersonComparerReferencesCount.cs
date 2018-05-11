@@ -13,4 +13,27 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
             return x.FullName.CompareTo(y.FullName);
         }
     }
+
+
+    internal class EvaluationEntityComparerByProjectCount<T> : IComparer<EvaluationEntity<T>> where T : CitaviEntity
+    {
+        public int Compare(EvaluationEntity<T> x, EvaluationEntity<T> y)
+        {
+            var countCompareResult = x.CountByProject.CompareTo(y.CountByProject) * (-1);
+            if (countCompareResult != 0) return countCompareResult;
+
+            return x.Entity.FullName.CompareTo(y.Entity.FullName);
+        }
+    }
+
+    internal class EvaluationEntityComparerBySelectionCount<T> : IComparer<EvaluationEntity<T>> where T : CitaviEntity
+    {
+        public int Compare(EvaluationEntity<T> x, EvaluationEntity<T> y)
+        {
+            var countCompareResult = x.CountBySelection.CompareTo(y.CountBySelection) * (-1);
+            if (countCompareResult != 0) return countCompareResult;
+
+            return x.Entity.FullName.CompareTo(y.Entity.FullName);
+        }
+    }
 }

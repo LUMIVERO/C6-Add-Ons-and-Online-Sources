@@ -186,4 +186,10 @@
   <data name="Evaluator_Sex" xml:space="preserve">
     <value>Geschlecht</value>
   </data>
+  <data name="Evaluation_CountByProject" xml:space="preserve">
+    <value>Anzahl nach Projekt</value>
+  </data>
+  <data name="Evaluation_CountBySelection" xml:space="preserve">
+    <value>Anzahl nach Auswahl</value>
+  </data>
 </root>

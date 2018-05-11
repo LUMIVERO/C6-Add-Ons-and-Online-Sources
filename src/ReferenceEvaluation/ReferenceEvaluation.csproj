@@ -30,7 +30,7 @@
     <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -67,6 +67,7 @@
     <Compile Include="Addon.cs" />
     <Compile Include="Core\CategoryEvaluator.cs" />
     <Compile Include="Core\BaseEvaluator.cs" />
+    <Compile Include="Core\EvaluationEntity.cs" />
     <Compile Include="Core\PersonEvaluator.cs" />
     <Compile Include="Core\KeywordsEvaluator.cs" />
     <Compile Include="Core\EntityLinkStatistic.cs" />
