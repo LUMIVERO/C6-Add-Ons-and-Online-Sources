@@ -50,10 +50,12 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             if (targetProjectShell == null) return;
 
-            await GenericProgressDialog.RunTask(targetProjectShell.PrimaryMainForm, () =>
+            await GenericProgressDialog.RunTask(this, () =>
             {
                 return PushAndMergeHandler.ExecuteAsync(DialogOwner, _sourceProject, targetProjectShell.Project, _pushAndMergeOptions, null);
             });
+
+            Close();
         }
 
         #endregion

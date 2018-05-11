@@ -169,7 +169,7 @@
             // mergeStaticIdCheckbox
             // 
             this.mergeStaticIdCheckbox.AutoSize = true;
-            this.mergeStaticIdCheckbox.Location = new System.Drawing.Point(71, 216);
+            this.mergeStaticIdCheckbox.Location = new System.Drawing.Point(72, 216);
             this.mergeStaticIdCheckbox.Name = "mergeStaticIdCheckbox";
             this.mergeStaticIdCheckbox.Size = new System.Drawing.Size(158, 19);
             this.mergeStaticIdCheckbox.TabIndex = 6;
@@ -210,7 +210,7 @@
             // 
             // selectTitlesSettingsTitleLabel
             // 
-            this.selectTitlesSettingsTitleLabel.Location = new System.Drawing.Point(25, 116);
+            this.selectTitlesSettingsTitleLabel.Location = new System.Drawing.Point(33, 116);
             this.selectTitlesSettingsTitleLabel.Name = "selectTitlesSettingsTitleLabel";
             this.selectTitlesSettingsTitleLabel.Size = new System.Drawing.Size(236, 21);
             this.selectTitlesSettingsTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
@@ -609,7 +609,7 @@
             this.projectTextEditor.ReadOnly = true;
             this.projectTextEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
             this.projectTextEditor.ShowLeftIcon = true;
-            this.projectTextEditor.Size = new System.Drawing.Size(400, 21);
+            this.projectTextEditor.Size = new System.Drawing.Size(401, 21);
             this.projectTextEditor.TabIndex = 11;
             this.projectTextEditor.AfterDropDownClosed += new System.EventHandler(this.ProjectTextEditorAfterDropDownClosed);
             this.projectTextEditor.DrawItem += new SwissAcademic.Controls.TextEditorDrawItemEventHandler(this.ProjectTextEditorDrawItem);
@@ -706,7 +706,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(304, 13);
+            this.backButton.Location = new System.Drawing.Point(283, 14);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(96, 23);
             this.backButton.TabIndex = 2;
@@ -715,7 +715,7 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(406, 13);
+            this.nextButton.Location = new System.Drawing.Point(385, 14);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(96, 23);
             this.nextButton.TabIndex = 1;
@@ -724,7 +724,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(508, 13);
+            this.cancelButton.Location = new System.Drawing.Point(487, 14);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(96, 23);
             this.cancelButton.TabIndex = 0;

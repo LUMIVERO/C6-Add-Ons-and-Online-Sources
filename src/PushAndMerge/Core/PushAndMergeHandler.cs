@@ -155,19 +155,21 @@ namespace SwissAcademic.Addons.PushAndMerge
             target.Abstract.Text = HandleReferenceMergeOptions(source.Abstract.Text, target.Abstract.Text, options.MergeReferenceOptionAbstract);
             target.Evaluation.Text = HandleReferenceMergeOptions(source.Evaluation.Text, target.Evaluation.Text, options.MergeReferenceOptionEvaluation);
             target.Notes = HandleReferenceMergeOptions(source.Notes, target.Notes, options.MergeReferenceOptionNotes);
+            target.TableOfContents.Text = HandleReferenceMergeOptions(source.TableOfContents.Text, target.TableOfContents.Text, options.MergeReferenceOptionTableOfContents);
         }
         static async Task MergeKnowledgeItemsAsync(Reference source, Reference target, PushAndMergeOptions options)
         {
+            ClonePool.Reset();
             var cloneOptions = new CitaviEntityCloneOptions
             {
-                CloneKnowledgeItemCategories = options.IncludeCategories,
-                CloneKnowledgeItemKeywords = options.IncludeKeywords,
-                CloneKnowledgeItemGroups = options.IncludeGroups,
+                CloneKnowledgeItemCategories = options.MergeKnowledgeItemCategories,
+                CloneKnowledgeItemKeywords = options.MergeKnowledgeItemKeywords,
+                CloneKnowledgeItemGroups = options.MergeKnowldgeItemGroups,
+                UpdateCreationAndModificationInfo = false,
                 CreateNewId = true,
                 MatchById = false
             };
             
-
             foreach (var quotation in source.Quotations)
             {
                 var matchedKnowledgeItem = target.Quotations.FirstOrDefault(i => i.CreatedBy == quotation.CreatedBy && i.CreatedOn == quotation.CreatedOn);
@@ -179,12 +181,13 @@ namespace SwissAcademic.Addons.PushAndMerge
                 {
                     if (options.IgnoreKnowledgeItemOnMatch) continue;
 
-                    newQuotation = quotation.Clone(cloneOptions);
+                    newQuotation = quotation.Clone(target, cloneOptions);
                 }
                 else
                 {
-                    newQuotation = quotation.Clone(cloneOptions);
+                    newQuotation = quotation.Clone(target, cloneOptions);
                 }
+
 
                 newQuotation = target.Quotations.Add(newQuotation);
 
@@ -192,7 +195,11 @@ namespace SwissAcademic.Addons.PushAndMerge
 
                 if (quotationAnnotations.Any())
                 {
-                    if (!target.Locations.Any())
+                    if (!target.Locations.Any(
+                        i => i.Address?.LinkedResourceType == LinkedResourceType.AbsoluteFileUri || 
+                        i.Address?.LinkedResourceType == LinkedResourceType.RelativeFileUri || 
+                        i.Address?.LinkedResourceType == LinkedResourceType.AttachmentFile || 
+                        i.Address?.LinkedResourceType == LinkedResourceType.AttachmentRemote))
                     {
                         l = quotationAnnotations.First().Location.Clone(newQuotation.Reference);
                         l.Annotations.Clear();
