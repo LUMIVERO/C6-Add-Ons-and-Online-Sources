@@ -163,7 +163,7 @@
     <value>1. References that should be merged in the target project</value>
   </data>
   <data name="TitleSelectionTabSettingsLabel" xml:space="preserve">
-    <value>Restrictions / Settings</value>
+    <value>Settings and restrictions</value>
   </data>
   <data name="TitleSelectionTabTitle" xml:space="preserve">
     <value>Select reference</value>
@@ -178,16 +178,16 @@
     <value>Project name</value>
   </data>
   <data name="MergeReferenceOptionComplete" xml:space="preserve">
-    <value>Complete all</value>
+    <value>Add</value>
   </data>
   <data name="MergeReferenceOptionCompleteIfEmpty" xml:space="preserve">
-    <value>Complete if empty</value>
+    <value>Add if empty</value>
   </data>
   <data name="MergeReferenceOptionIgnore" xml:space="preserve">
     <value>Ignore</value>
   </data>
   <data name="MergeReferenceOptionOverride" xml:space="preserve">
-    <value>Override</value>
+    <value>Replace</value>
   </data>
   <data name="NewProjectButtonText" xml:space="preserve">
     <value>New project ...</value>
