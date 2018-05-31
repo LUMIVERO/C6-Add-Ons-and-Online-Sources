@@ -267,10 +267,10 @@ Which additional data would you like to copy for these references? \par
 }</value>
   </data>
   <data name="SelectProjectTabTitle" xml:space="preserve">
-    <value>[EN]Zielprojekt auswählen</value>
+    <value>Select target project</value>
   </data>
   <data name="MergeTitlesTabTitle" xml:space="preserve">
-    <value>[EN]Titel, die im Zielprojekt zusammengeführt werden:
-Welche Daten möchten Sie zusammenführen?</value>
+    <value>References to be merged in the target project:
+which data should be merged?</value>
   </data>
 </root>
