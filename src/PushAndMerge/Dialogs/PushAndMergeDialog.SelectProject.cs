@@ -65,6 +65,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         {
             nextButton.Text = PushAndMergeResources.FinishButton;
             projectNameLabel.Text = PushAndMergeResources.ProjectNameLabel;
+            destinationProjectTitleLabel.Text = PushAndMergeResources.SelectProjectTabTitle;
 
             openProjectButton.Text = PushAndMergeResources.OpenProjectButtonText;
 

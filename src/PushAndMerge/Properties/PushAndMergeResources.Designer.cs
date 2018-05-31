@@ -61,7 +61,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]2. Alle anderen Titel ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 2. All other references ähnelt.
         /// </summary>
         internal static string allOtherTitlesSubtitleLabel {
             get {
@@ -97,7 +97,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Kopieren, bei bei gleichem Ersteller und Erstellungsdatum duplizieren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copy, duplicate if same creator and creation date. ähnelt.
         /// </summary>
         internal static string CloneKnowledgeItemOnMatchText {
             get {
@@ -106,7 +106,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]In das Zielprojekt kopieren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copy to target project ähnelt.
         /// </summary>
         internal static string copyOtherTitlesCheckboxText {
             get {
@@ -133,13 +133,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
-        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
-        ///\pard\sa200\sl276\slmult1\b\f0\fs22\lang7 Alle anderen Titel\b0\par
-        ///Alle anderen Titel umfassen solche Titel, f\&apos;fcr die im Zielprojekt\par
-        ///
-        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\li720\sa200\sl276\slmult1 kein Titel mit gleicher ID\par
-        ///{\pntext\f1\&apos;B7\tab}kein Titel mit 100% \&apos;dcbereinstimmung\pa [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \b\fs22\lang7 All other references\b0\parAll other references are references that meet the following criteria:\par\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\li720\sa200\sl276\slmult1 no reference with the same ID in the target project\par{\pntext\f1\&apos;B7\tab}no reference with  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string HelpText_AllOtherTitles {
             get {
@@ -148,12 +142,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
-        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
-        ///\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit einer 100%-\&apos;dcbereinstimmung in wesentlichen Feldern\par
-        ///Die Bedingung tritt ein, wenn die Inhalte in allen folgenden Feldern bei dem Titel im Ausgangsprojekt und dem Titel im Zielprojekt identisch sind:\par
-        ///
-        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-358\ [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \fs22\lang7 References with a 100% match in main fields\parThe rule will apply if the contents of the following fields are identical for the reference in the source project and the target project:\par\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-358\li721\sa200\sl240\slmult1 Referen [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string HelpText_MergeTitlesWithEqualEssentialFields {
             get {
@@ -162,11 +151,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
-        ///\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit gleicher StaticID\par
-        ///Wenn ein Titel von einem Quell- in ein Zielprojekt kopiert wird, erh\&apos;e4lt er eine neue interne ID.\par
-        ///Die ehemalige ID im Quellprojekt wird zudem im internen Feld \i StaticID\i0  festgehalten. Auf diese Weise kann Citavi feststellen, welcher Titel in Quell- und Zielprojekt zusammengeh\&apos;f6ren [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \fs22\lang7 References with the same StaticID\parWhenever a reference is copied from a source project to a target project, it will be given a new internal ID.\line\line The original ID from the source project is recorded in the internal \i StaticID\i0 field. This lets Citavi see which references in the source and target projects belong  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string HelpText_MergeTitlesWithEqualStaticId {
             get {
@@ -175,11 +160,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
-        ///\pard\sa200\sl276\slmult1\f0\fs22\lang7 Titel mit gleicher ID\par
-        ///Es werden lediglich die ID der Titel miteinander verglichen. Die Bedingung tritt bei Titeln mit mehreren IDs ein, wenn mindestens eine ID die gleiche ist.\par
-        ///} ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \fs22\lang7 References with the same ID\parOnly the references&apos; IDs will be compared. The rule will apply to a reference with multiple IDs if at least one ID is the same.\par} ähnelt.
         /// </summary>
         internal static string HelpText_MergeTitlesWithSameId {
             get {
@@ -188,16 +169,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
-        ///{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
-        ///\pard\sl276\slmult1\f0\fs22\lang7 Daten f\&apos;fcr zu kopierende Titel\par
-        ///\par
-        ///Ihre Auswahl enth\&apos;e4lt Titel, die in das Zielprojekt kopiert werden sollen.\par
-        ///\par
-        ///Diese Daten werden in jedem Falle mit den Titeln kopiert:\par
-        ///\par
-        ///
-        ///\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\li720\sl276\slmult1 Wissen [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sl276\slmult1\f0\fs24 \fs22\lang7 Data to include along with copied references\par\parYour selection includes references to be copied to the target project.\par\parThe following information will be copied to the target project along with the references:\par\par\pard{\pntext\f1\&apos;B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\&apos;B7}}\fi-360\ [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string HelpText_SelectDataToCopy {
             get {
@@ -206,7 +178,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Kopieren, bei gleichem Ersteller und Erstellungsdatum ignorieren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copy, ignore if same creator and creation date. ähnelt.
         /// </summary>
         internal static string IgnoreKnowledgeItemOnMatchText {
             get {
@@ -233,7 +205,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Titel mit einer 100%-Übereinstimmung in wesentlichen Feldern ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die References with a 100% match in main fields ähnelt.
         /// </summary>
         internal static string mergeEssentialFieldsCheckboxText {
             get {
@@ -278,7 +250,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Titel mit gleicher ID (ISBN, DOI, PubMedID, PMC, arXiv) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die References with the same ID (ISBN, DOI, PubMedID, PMC, arXiv) ähnelt.
         /// </summary>
         internal static string mergeSameIdCheckboxText {
             get {
@@ -287,11 +259,21 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Titel mit gleicher StaticID ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die References with the same StaticID ähnelt.
         /// </summary>
         internal static string mergeStaticIdCheckboxText {
             get {
                 return ResourceManager.GetString("mergeStaticIdCheckboxText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Titel, die im Zielprojekt zusammengeführt werden:
+        ///Welche Daten möchten Sie zusammenführen? ähnelt.
+        /// </summary>
+        internal static string MergeTitlesTabTitle {
+            get {
+                return ResourceManager.GetString("MergeTitlesTabTitle", resourceCulture);
             }
         }
         
@@ -332,7 +314,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Wissenselemente in ein Citavi-Projekt kopieren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copy knowledge items to a Citavi project ähnelt.
         /// </summary>
         internal static string PushAndMergeCommandButtonText {
             get {
@@ -368,7 +350,16 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]1. Titel, deren Daten im Zielprojekt zusammengeführt werden ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Zielprojekt auswählen ähnelt.
+        /// </summary>
+        internal static string SelectProjectTabTitle {
+            get {
+                return ResourceManager.GetString("SelectProjectTabTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1. References that should be merged in the target project ähnelt.
         /// </summary>
         internal static string TitleSelectionMergeSubtitleLabel {
             get {
@@ -377,7 +368,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Einschränkungen / Einstellungen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Restrictions / Settings ähnelt.
         /// </summary>
         internal static string TitleSelectionTabSettingsLabel {
             get {
@@ -386,7 +377,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Titel auswählen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select reference ähnelt.
         /// </summary>
         internal static string TitleSelectionTabTitle {
             get {

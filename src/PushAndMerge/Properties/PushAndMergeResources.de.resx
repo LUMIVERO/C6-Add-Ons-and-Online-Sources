@@ -269,4 +269,11 @@ Diese Daten werden in jedem Falle mit den Titeln kopiert:\par
 Welche weiteren Daten dieser Titel m\'f6chten Sie mitkopieren?  \par
 }</value>
   </data>
+  <data name="SelectProjectTabTitle" xml:space="preserve">
+    <value>Zielprojekt auswählen</value>
+  </data>
+  <data name="MergeTitlesTabTitle" xml:space="preserve">
+    <value>Titel, die im Zielprojekt zusammengeführt werden:
+Welche Daten möchten Sie zusammenführen?</value>
+  </data>
 </root>

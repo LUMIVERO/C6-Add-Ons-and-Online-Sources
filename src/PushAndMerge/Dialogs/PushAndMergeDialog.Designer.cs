@@ -81,7 +81,7 @@
             this.includeKeywordsCheckbox = new SwissAcademic.Controls.CheckBox();
             this.mergeKnowledgeItemsTextEditor = new SwissAcademic.Controls.TextEditor();
             this.knowledgeItemsLabel = new SwissAcademic.Controls.Label();
-            this.label2 = new SwissAcademic.Controls.Label();
+            this.mergeTitlesTabTitleLabel = new SwissAcademic.Controls.Label();
             this.ultraTabPageControl4 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.openProjectButton = new SwissAcademic.Controls.Button();
             this.projectTextEditor = new SwissAcademic.Controls.TextEditor();
@@ -110,7 +110,7 @@
             // ultraTabPageControl1
             // 
             this.ultraTabPageControl1.Controls.Add(this.selectTitleContentPanel);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(0, 0);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(596, 338);
             // 
@@ -413,8 +413,8 @@
             this.ultraTabPageControl3.Controls.Add(this.includeKeywordsCheckbox);
             this.ultraTabPageControl3.Controls.Add(this.mergeKnowledgeItemsTextEditor);
             this.ultraTabPageControl3.Controls.Add(this.knowledgeItemsLabel);
-            this.ultraTabPageControl3.Controls.Add(this.label2);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl3.Controls.Add(this.mergeTitlesTabTitleLabel);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(0, 0);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
             this.ultraTabPageControl3.Size = new System.Drawing.Size(596, 338);
             // 
@@ -568,14 +568,14 @@
             this.knowledgeItemsLabel.Text = "Wissenselemente";
             this.knowledgeItemsLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label2
+            // mergeTitlesTabTitleLabel
             // 
-            this.label2.Location = new System.Drawing.Point(33, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(357, 42);
-            this.label2.Style = SwissAcademic.Controls.LabelStyle.Title;
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Titel, die im Zielprojekt zusammengeführt werden:\r\nWelche Daten möchten Sie zusam" +
+            this.mergeTitlesTabTitleLabel.Location = new System.Drawing.Point(33, 30);
+            this.mergeTitlesTabTitleLabel.Name = "mergeTitlesTabTitleLabel";
+            this.mergeTitlesTabTitleLabel.Size = new System.Drawing.Size(357, 42);
+            this.mergeTitlesTabTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
+            this.mergeTitlesTabTitleLabel.TabIndex = 2;
+            this.mergeTitlesTabTitleLabel.Text = "Titel, die im Zielprojekt zusammengeführt werden:\r\nWelche Daten möchten Sie zusam" +
     "menführen?";
             // 
             // ultraTabPageControl4
@@ -801,7 +801,7 @@
         private SwissAcademic.Controls.CheckBox includeKeywordsCheckbox;
         private SwissAcademic.Controls.TextEditor mergeKnowledgeItemsTextEditor;
         private SwissAcademic.Controls.Label knowledgeItemsLabel;
-        private SwissAcademic.Controls.Label label2;
+        private SwissAcademic.Controls.Label mergeTitlesTabTitleLabel;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl4;
         private SwissAcademic.Controls.Button openProjectButton;
         private SwissAcademic.Controls.TextEditor projectTextEditor;

@@ -223,4 +223,11 @@
   <data name="HelpText_SelectDataToCopy" xml:space="preserve">
     <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sl276\slmult1\f0\fs24 \fs22\lang7 Data to include along with copied references\par\parYour selection includes references to be copied to the target project.\par\parThe following information will be copied to the target project along with the references:\par\par\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl276\slmult1 Knowledge items\par{\pntext\f1\'B7\tab}Locations (including PDF attachments)\par\pard\sl276\slmult1\parWhich additional data would you like to copy for these references? \par }</value>
   </data>
+  <data name="SelectProjectTabTitle" xml:space="preserve">
+    <value>[EN]Zielprojekt auswählen</value>
+  </data>
+  <data name="MergeTitlesTabTitle" xml:space="preserve">
+    <value>[EN]Titel, die im Zielprojekt zusammengeführt werden:
+Welche Daten möchten Sie zusammenführen?</value>
+  </data>
 </root>

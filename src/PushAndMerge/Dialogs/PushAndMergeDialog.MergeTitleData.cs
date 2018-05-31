@@ -20,7 +20,8 @@ namespace SwissAcademic.Addons.PushAndMerge
         void LocalizeMergeTitleData()
         {
             nextButton.Text = PushAndMergeResources.NextButton;
-            
+
+            mergeTitlesTabTitleLabel.Text = PushAndMergeResources.MergeTitlesTabTitle;
             knowledgeItemsLabel.Text = PushAndMergeResources.KnowledgeItemsLabel;
             includeKeywordsCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Keywords.ToString());
             includeGroupsCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Groups.ToString());
