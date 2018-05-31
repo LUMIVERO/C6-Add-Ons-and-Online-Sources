@@ -172,10 +172,10 @@
     <value>Custom fields</value>
   </data>
   <data name="KnowledgeItemsLabel" xml:space="preserve">
-    <value>Knowledgeitems</value>
+    <value>Knowledge items</value>
   </data>
   <data name="ProjectNameLabel" xml:space="preserve">
-    <value>Projectname</value>
+    <value>Project name</value>
   </data>
   <data name="MergeReferenceOptionComplete" xml:space="preserve">
     <value>Complete all</value>
@@ -205,23 +205,66 @@
     <value>Items cannot be copied within the same project.</value>
   </data>
   <data name="HelpText_MergeTitlesWithEqualEssentialFields" xml:space="preserve">
-    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \fs22\lang7 References with a 100% match in main fields\parThe rule will apply if the contents of the following fields are identical for the reference in the source project and the target project:\par\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-358\li721\sa200\sl240\slmult1 Reference type\par{\pntext\f1\'B7\tab}Author\par{\pntext\f1\'B7\tab}Title\par{\pntext\f1\'B7\tab}Subtitle\par{\pntext\f1\'B7\tab}Year\par{\pntext\f1\'B7\tab}Edition\par}</value>
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24  \fs22\lang7 References with a 100% match in main fields\par
+The rule will apply if the contents of the following fields are identical for the reference in the source project and the target project:\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-358\li721\sa200\sl240\slmult1 Reference type\par
+{\pntext\f1\'B7\tab}Author\par
+{\pntext\f1\'B7\tab}Title\par
+{\pntext\f1\'B7\tab}Subtitle\par
+{\pntext\f1\'B7\tab}Year\par
+{\pntext\f1\'B7\tab}Edition\par
+}</value>
     <comment>EN fehlt</comment>
   </data>
   <data name="HelpText_MergeTitlesWithEqualStaticId" xml:space="preserve">
-    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \fs22\lang7 References with the same StaticID\parWhenever a reference is copied from a source project to a target project, it will be given a new internal ID.\line\line The original ID from the source project is recorded in the internal \i StaticID\i0 field. This lets Citavi see which references in the source and target projects belong together.\par }</value>
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24  \fs22\lang7 References with the same StaticID\par
+Whenever a reference is copied from a source project to a target project, it will be given a new internal ID.\line\line The original ID from the source project is recorded in the internal \i StaticID\i0  field. This lets Citavi see which references in the source and target projects belong together.\par
+}</value>
     <comment>EN fehlt</comment>
   </data>
   <data name="HelpText_MergeTitlesWithSameId" xml:space="preserve">
-    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \fs22\lang7 References with the same ID\parOnly the references' IDs will be compared. The rule will apply to a reference with multiple IDs if at least one ID is the same.\par}</value>
+    {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24  \fs22\lang7 References with the same ID\par
+Only the reference's IDs will be compared. The rule will apply to a reference with multiple IDs if at least one ID is the same.\par
+}</value>
     <comment>EN fehlt</comment>
   </data>
   <data name="HelpText_AllOtherTitles" xml:space="preserve">
-    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sa200\sl276\slmult1\f0\fs24 \b\fs22\lang7 All other references\b0\parAll other references are references that meet the following criteria:\par\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 no reference with the same ID in the target project\par{\pntext\f1\'B7\tab}no reference with a 100% match in main fields in the target project\par{\pntext\f1\'B7\tab}no reference with the same StaticID in the target project\par\pard\sa200\sl276\slmult1 References that were \i not \i0 selected for merging under step 1 are also considered \i other references\i0 . \par}</value>
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs24  \b\fs22\lang7 All other references\b0\par
+All other references are the references that meet the following criteria:\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 no reference with the same ID in the target project\par
+{\pntext\f1\'B7\tab}no reference with a 100% match in main fields in the target project\par
+{\pntext\f1\'B7\tab}no reference with the same StaticID in the target project\par
+
+\pard\sa200\sl276\slmult1 References that were \i not \i0 selected for merging under step 1 are also considered \i other references\i0 . \par
+}</value>
     <comment>EN fehlt</comment>
   </data>
   <data name="HelpText_SelectDataToCopy" xml:space="preserve">
-    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}{\*\generator Riched20 10.0.17134}\viewkind4\uc1 \pard\sl276\slmult1\f0\fs24 \fs22\lang7 Data to include along with copied references\par\parYour selection includes references to be copied to the target project.\par\parThe following information will be copied to the target project along with the references:\par\par\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl276\slmult1 Knowledge items\par{\pntext\f1\'B7\tab}Locations (including PDF attachments)\par\pard\sl276\slmult1\parWhich additional data would you like to copy for these references? \par }</value>
+    <value>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+\pard\sl276\slmult1\f0\fs24  \fs22\lang7 Data to include along with copied references\par
+\par
+Your selection includes references to be copied to the target project.\par
+\par
+The following information will be copied to the target project along with the references:\par
+\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl276\slmult1 Knowledge items\par
+{\pntext\f1\'B7\tab}Locations (including PDF attachments)\par
+
+\pard\sl276\slmult1\par
+Which additional data would you like to copy for these references? \par
+}</value>
   </data>
   <data name="SelectProjectTabTitle" xml:space="preserve">
     <value>[EN]Zielprojekt auswählen</value>
