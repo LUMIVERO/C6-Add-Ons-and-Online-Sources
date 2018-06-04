@@ -55,7 +55,6 @@ namespace SwissAcademic.Addons.PushAndMerge
                 return PushAndMergeHandler.ExecuteAsync(DialogOwner, _sourceProject, targetProjectShell.Project, _pushAndMergeOptions, null);
             });
 
-            targetProjectShell.PrimaryMainForm.BringToFrontEx();
             Close();
         }
 
