@@ -55,6 +55,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                 return PushAndMergeHandler.ExecuteAsync(DialogOwner, _sourceProject, targetProjectShell.Project, _pushAndMergeOptions, null);
             });
 
+            targetProjectShell.PrimaryMainForm.BringToFrontEx();
             Close();
         }
 
@@ -82,9 +83,9 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             _targetProjectEditorComboBoxHelpers = new ComboBoxHelperCollection();
 
-            foreach (var knownProject in Program.Engine.Settings.General.KnownProjects)
+            foreach (var project in Program.Engine.Projects)
             {
-                if (!knownProject.Exists() || knownProject.ConnectionString.Equals(sourceProject.DesktopProjectConfiguration.ConnectionIdentifier, StringComparison.OrdinalIgnoreCase)) continue;
+                var knownProject = new KnownProject(project);
                 _targetProjectEditorComboBoxHelpers.Add(knownProject, knownProject.Name);
             }
 
@@ -101,7 +102,7 @@ namespace SwissAcademic.Addons.PushAndMerge
             ProjectType projectType;
             var selectedItem = projectTextEditor.SelectedItem as KnownProject;
 
-            if (selectedItem == null)
+            if (selectedItem == null)   
             {
                 var parameters = projectTextEditor.SelectedItem as ProjectCreationParametersExtended;
 

@@ -273,4 +273,10 @@ Which additional data would you like to copy for these references? \par
     <value>References to be merged in the target project:
 which data should be merged?</value>
   </data>
+  <data name="MergeReferenceOptionsReplace" xml:space="preserve">
+    <value>[EN]Alle ersetzen</value>
+  </data>
+  <data name="MergeReferenceOptionsCompleteIfNotEqual" xml:space="preserve">
+    <value>[EN]Nur nicht-identische ergänzen</value>
+  </data>
 </root>

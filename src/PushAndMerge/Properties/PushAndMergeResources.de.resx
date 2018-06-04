@@ -276,4 +276,10 @@ Welche weiteren Daten dieser Titel m\'f6chten Sie mitkopieren?  \par
     <value>Titel, die im Zielprojekt zusammengeführt werden:
 Welche Daten möchten Sie zusammenführen?</value>
   </data>
+  <data name="MergeReferenceOptionsReplace" xml:space="preserve">
+    <value>Alle ersetzen</value>
+  </data>
+  <data name="MergeReferenceOptionsCompleteIfNotEqual" xml:space="preserve">
+    <value>Nur nicht-identische ergänzen</value>
+  </data>
 </root>

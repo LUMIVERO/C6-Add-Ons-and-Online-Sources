@@ -10,7 +10,8 @@ namespace SwissAcademic.Addons.PushAndMerge
     {
         #region Fields
 
-        ComboBoxHelperCollection _mergeOptionsCollection = new ComboBoxHelperCollection();
+        ComboBoxHelperCollection _mergeReferenceContentOptionsCollection = new ComboBoxHelperCollection();
+        ComboBoxHelperCollection _mergeReferenceOptionsCollection = new ComboBoxHelperCollection();
 
         #endregion
 
@@ -43,23 +44,32 @@ namespace SwissAcademic.Addons.PushAndMerge
             includeGroupsCheckbox.Checked = _pushAndMergeOptions.MergeKnowldgeItemGroups;
             includeCategoriesCheckbox.Checked = _pushAndMergeOptions.MergeKnowledgeItemCategories;
 
-            if(!_mergeOptionsCollection.Any())
+            if(!_mergeReferenceContentOptionsCollection.Any())
             {
-                _mergeOptionsCollection.Add(MergeReferenceOptions.Complete, PushAndMergeResources.MergeReferenceOptionComplete);
-                _mergeOptionsCollection.Add(MergeReferenceOptions.CompleteIfEmpty, PushAndMergeResources.MergeReferenceOptionCompleteIfEmpty);
-                _mergeOptionsCollection.Add(MergeReferenceOptions.Ignore, PushAndMergeResources.MergeReferenceOptionIgnore);
-                _mergeOptionsCollection.Add(MergeReferenceOptions.Override, PushAndMergeResources.MergeReferenceOptionOverride);
+                _mergeReferenceContentOptionsCollection.Add(MergeReferenceContentOptions.Complete, PushAndMergeResources.MergeReferenceOptionComplete);
+                _mergeReferenceContentOptionsCollection.Add(MergeReferenceContentOptions.CompleteIfEmpty, PushAndMergeResources.MergeReferenceOptionCompleteIfEmpty);
+                _mergeReferenceContentOptionsCollection.Add(MergeReferenceContentOptions.Ignore, PushAndMergeResources.MergeReferenceOptionIgnore);
+                _mergeReferenceContentOptionsCollection.Add(MergeReferenceContentOptions.Override, PushAndMergeResources.MergeReferenceOptionOverride);
+                _mergeReferenceContentOptionsCollection.Add(MergeReferenceContentOptions.CompleIfNotEqual, PushAndMergeResources.MergeReferenceOptionsCompleteIfNotEqual);
 
-                abstractMergeOptionsTextEditor.ListItems = _mergeOptionsCollection;
-                evalutationMergeOptionsTextEditor.ListItems = _mergeOptionsCollection;
-                tableOfContentsMergeOptionsTextEditor.ListItems = _mergeOptionsCollection;
-                notesMergeOptionsTextEditor.ListItems = _mergeOptionsCollection;
+                abstractMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
+                evalutationMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
+                tableOfContentsMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
+                notesMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
 
                 var comboxHelperCollection = new ComboBoxHelperCollection();
                 comboxHelperCollection.Add(true, PushAndMergeResources.IgnoreKnowledgeItemOnMatchText);
                 comboxHelperCollection.Add(false, PushAndMergeResources.CloneKnowledgeItemOnMatchText);
 
                 mergeKnowledgeItemsTextEditor.ListItems = comboxHelperCollection;
+
+                _mergeReferenceOptionsCollection.Add(MergeReferenceOptions.Ignore, PushAndMergeResources.MergeReferenceOptionIgnore);
+                _mergeReferenceOptionsCollection.Add(MergeReferenceOptions.Merge, PushAndMergeResources.MergeReferenceOptionComplete);
+                _mergeReferenceOptionsCollection.Add(MergeReferenceOptions.Replace, PushAndMergeResources.MergeReferenceOptionsReplace);
+
+                keywordMergeOptionsEditor.ListItems = _mergeReferenceOptionsCollection;
+                categoryMergeOptionsEditor.ListItems = _mergeReferenceOptionsCollection;
+                groupsMergeOptionsEditor.ListItems = _mergeReferenceOptionsCollection;
             }
 
             abstractMergeOptionsTextEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionAbstract;
@@ -68,6 +78,10 @@ namespace SwissAcademic.Addons.PushAndMerge
             notesMergeOptionsTextEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionNotes;
 
             mergeKnowledgeItemsTextEditor.SelectedItem = _pushAndMergeOptions.IgnoreKnowledgeItemOnMatch;
+
+            keywordMergeOptionsEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionsKeywords;
+            categoryMergeOptionsEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionsCategories;
+            groupsMergeOptionsEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionsGroups;
 
         }
         #endregion
@@ -79,10 +93,14 @@ namespace SwissAcademic.Addons.PushAndMerge
             _pushAndMergeOptions.MergeKnowldgeItemGroups = includeGroupsCheckbox.Checked;
             _pushAndMergeOptions.MergeKnowledgeItemCategories = includeCategoriesCheckbox.Checked;
 
-            _pushAndMergeOptions.MergeReferenceOptionAbstract = (MergeReferenceOptions)abstractMergeOptionsTextEditor.SelectedItem;
-            _pushAndMergeOptions.MergeReferenceOptionEvaluation = (MergeReferenceOptions)evalutationMergeOptionsTextEditor.SelectedItem;
-            _pushAndMergeOptions.MergeReferenceOptionTableOfContents = (MergeReferenceOptions)tableOfContentsMergeOptionsTextEditor.SelectedItem;
-            _pushAndMergeOptions.MergeReferenceOptionNotes = (MergeReferenceOptions)notesMergeOptionsTextEditor.SelectedItem;
+            _pushAndMergeOptions.MergeReferenceOptionAbstract = (MergeReferenceContentOptions)abstractMergeOptionsTextEditor.SelectedItem;
+            _pushAndMergeOptions.MergeReferenceOptionEvaluation = (MergeReferenceContentOptions)evalutationMergeOptionsTextEditor.SelectedItem;
+            _pushAndMergeOptions.MergeReferenceOptionTableOfContents = (MergeReferenceContentOptions)tableOfContentsMergeOptionsTextEditor.SelectedItem;
+            _pushAndMergeOptions.MergeReferenceOptionNotes = (MergeReferenceContentOptions)notesMergeOptionsTextEditor.SelectedItem;
+
+            _pushAndMergeOptions.MergeReferenceOptionsCategories = (MergeReferenceOptions)categoryMergeOptionsEditor.SelectedItem;
+            _pushAndMergeOptions.MergeReferenceOptionsKeywords = (MergeReferenceOptions)keywordMergeOptionsEditor.SelectedItem;
+            _pushAndMergeOptions.MergeReferenceOptionsGroups = (MergeReferenceOptions)groupsMergeOptionsEditor.SelectedItem;
 
             _pushAndMergeOptions.IgnoreKnowledgeItemOnMatch = (bool)mergeKnowledgeItemsTextEditor.SelectedItem;
         }

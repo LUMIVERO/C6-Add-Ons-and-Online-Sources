@@ -241,7 +241,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Complete all ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add ähnelt.
         /// </summary>
         internal static string MergeReferenceOptionComplete {
             get {
@@ -250,7 +250,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Complete if empty ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add if empty ähnelt.
         /// </summary>
         internal static string MergeReferenceOptionCompleteIfEmpty {
             get {
@@ -268,11 +268,29 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Override ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace ähnelt.
         /// </summary>
         internal static string MergeReferenceOptionOverride {
             get {
                 return ResourceManager.GetString("MergeReferenceOptionOverride", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Nur nicht-identische ergänzen ähnelt.
+        /// </summary>
+        internal static string MergeReferenceOptionsCompleteIfNotEqual {
+            get {
+                return ResourceManager.GetString("MergeReferenceOptionsCompleteIfNotEqual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Alle ersetzen ähnelt.
+        /// </summary>
+        internal static string MergeReferenceOptionsReplace {
+            get {
+                return ResourceManager.GetString("MergeReferenceOptionsReplace", resourceCulture);
             }
         }
         
@@ -295,8 +313,8 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Titel, die im Zielprojekt zusammengeführt werden:
-        ///Welche Daten möchten Sie zusammenführen? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die References to be merged in the target project:
+        ///which data should be merged? ähnelt.
         /// </summary>
         internal static string MergeTitlesTabTitle {
             get {
@@ -377,7 +395,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Zielprojekt auswählen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select target project ähnelt.
         /// </summary>
         internal static string SelectProjectTabTitle {
             get {
@@ -395,7 +413,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Restrictions / Settings ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings and restrictions ähnelt.
         /// </summary>
         internal static string TitleSelectionTabSettingsLabel {
             get {
