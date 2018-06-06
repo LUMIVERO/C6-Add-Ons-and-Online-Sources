@@ -37,7 +37,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #region IncludeCustomField3
 
-        public bool IncludeCustomField3 { get;  set; } = true;
+        public bool IncludeCustomField3 { get; set; } = true;
 
         #endregion
 
@@ -173,6 +173,10 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         public MergeReferenceOptions MergeReferenceOptionsGroups { get; set; } = MergeReferenceOptions.Ignore;
 
+        #endregion
+
+        #region OverrideRaging
+        public bool OverrideRating { get; set; }
         #endregion
 
         #endregion

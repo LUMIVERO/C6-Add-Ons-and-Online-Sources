@@ -99,7 +99,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
                 var clonesWithResult = references.CloneCollectionWithResults(targetProject, cloneOptions);
                 var referencesToImport = new List<Reference>();
-                var importGroupReferences = new List<Reference>();
+                var mergedRefrences = new List<Reference>();
 
                 foreach (var r in clonesWithResult.Results)
                 {
@@ -111,7 +111,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                     {
                         MergeReferenceData((Reference)r.Source, reference, options);
                         await MergeKnowledgeItemsAsync((Reference)r.Source, reference, options);
-                        importGroupReferences.Add(reference);
+                        mergedRefrences.Add(reference);
                         continue;
                     }
 
@@ -125,7 +125,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                             {
                                 MergeReferenceData(reference, matchedReference, options);
                                 await MergeKnowledgeItemsAsync(reference, matchedReference, options);
-                                importGroupReferences.Add(matchedReference);
+                                mergedRefrences.Add(matchedReference);
                                 continue;
                             }
                         }
@@ -145,7 +145,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                         {
                             MergeReferenceData(reference, matchedReference, options);
                             await MergeKnowledgeItemsAsync(reference, matchedReference, options);
-                            importGroupReferences.Add(matchedReference);
+                            mergedRefrences.Add(matchedReference);
                             continue;
                         }
                     }
@@ -157,18 +157,34 @@ namespace SwissAcademic.Addons.PushAndMerge
                 }
                 targetProject.References.AddRange(referencesToImport);
 
-                var concatedReferences = referencesToImport.Concat(importGroupReferences);
+                ImportGroup group = null;
 
-                if (concatedReferences.Any())
+                if(referencesToImport.Any())
                 {
                     var importGroup = new ImportGroup(targetProject, ImportGroupType.FileImport);
-                    importGroup.Source = "Push&Merge";
-                    importGroup.References.AddRange(referencesToImport.Concat(importGroupReferences));
+                    importGroup.Source = "Add-On: Copied";
+                    importGroup.References.AddRange(referencesToImport);
 
                     targetProject.ImportGroups.Add(importGroup);
 
+                    group = importGroup;
+                }
+
+                if (mergedRefrences.Any())
+                {
+                    var importGroup = new ImportGroup(targetProject, ImportGroupType.FileImport);
+                    importGroup.Source = "Add-On: Merged";
+                    importGroup.References.AddRange(mergedRefrences);
+
+                    targetProject.ImportGroups.Add(importGroup);
+
+                    group = importGroup;
+                }
+
+                if (group != null)
+                {
                     var shell = Program.ProjectShells.Single(i => i.Project == targetProject);
-                    shell.PrimaryMainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new ReferenceFilter[] { new ReferenceFilter(importGroup) });
+                    shell.PrimaryMainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new ReferenceFilter[] { new ReferenceFilter(group) });
                 }
             }
             finally
@@ -176,6 +192,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                 targetProject.ResumeTrackingOfModificationInfo();
             }
         }
+
         static void MergeReferenceData(Reference source, Reference target, PushAndMergeOptions options)
         {
             target.Abstract.Text = HandleReferenceMergeOptions(source.Abstract.Text, target.Abstract.Text, options.MergeReferenceOptionAbstract);
@@ -183,15 +200,20 @@ namespace SwissAcademic.Addons.PushAndMerge
             target.Notes = HandleReferenceMergeOptions(source.Notes, target.Notes, options.MergeReferenceOptionNotes);
             target.TableOfContents.Text = HandleReferenceMergeOptions(source.TableOfContents.Text, target.TableOfContents.Text, options.MergeReferenceOptionTableOfContents);
 
-            switch(options.MergeReferenceOptionsCategories)
+            if(options.OverrideRating)
+            {
+                target.Rating = source.Rating;
+            }
+
+            switch (options.MergeReferenceOptionsCategories)
             {
                 case MergeReferenceOptions.Ignore: break;
                 case MergeReferenceOptions.Replace:
                     target.Categories.Clear();
-                    target.Categories.AddRange(source.Categories.CloneCollection(target.Project));
+                    AddCategories(source.Categories, source.Project, target.Project, target);
                     break;
                 case MergeReferenceOptions.Merge:
-                    target.Categories.AddRange(source.Categories.CloneCollection(target.Project));
+                    AddCategories(source.Categories, source.Project, target.Project, target);
                     break;
             }
             switch(options.MergeReferenceOptionsKeywords)
@@ -303,6 +325,44 @@ namespace SwissAcademic.Addons.PushAndMerge
 
                 location.Project.EntityLinks.Add(quotation, newAnnotation, EntityLink.PdfKnowledgeItemIndication);
             }
+        }
+
+        static void AddCategories(IEnumerable<Category> categoriesToAdd, Project sourceProject, Project targetProject, Reference target)
+        {
+            var list = new List<Category>();
+
+            for(int i = 0; i < categoriesToAdd.Count(); i++)
+            {
+                var category = categoriesToAdd.ElementAt(i);
+
+                list.Add(category);
+                while (!category.IsRootCategory)
+                {
+                    list.Insert(0, category.ParentCategory);
+                    category = category.ParentCategory;
+                }
+
+                ICategoryHierarchyParent parent = targetProject;
+                for (int c = 0; c < list.Count; c++)
+                {
+                    var existing = parent.Categories.FindId(list[c].Id);
+
+                    if(existing == null)
+                    {
+                        existing = parent.Categories.Where(x => x.Name.Equals(list[c].Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    }
+
+                    if (existing == null)
+                    {
+                        parent = parent.Categories.Add(list[c].Clone(parent));
+                    }
+                    else
+                    {
+                        parent = existing;
+                    }
+                }
+            }
+            target.Categories.AddRange(categoriesToAdd);
         }
     }
 }

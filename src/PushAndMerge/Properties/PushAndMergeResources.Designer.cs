@@ -97,6 +97,15 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Override rating ähnelt.
+        /// </summary>
+        internal static string CheckBoxOverrideRating {
+            get {
+                return ResourceManager.GetString("CheckBoxOverrideRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Copy, duplicate if same creator and creation date. ähnelt.
         /// </summary>
         internal static string CloneKnowledgeItemOnMatchText {
@@ -277,7 +286,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Nur nicht-identische ergänzen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Only add if not identical ähnelt.
         /// </summary>
         internal static string MergeReferenceOptionsCompleteIfNotEqual {
             get {
@@ -286,7 +295,7 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Alle ersetzen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace all ähnelt.
         /// </summary>
         internal static string MergeReferenceOptionsReplace {
             get {

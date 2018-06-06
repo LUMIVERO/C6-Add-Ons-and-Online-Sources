@@ -83,6 +83,7 @@ namespace SwissAcademic.Addons.PushAndMerge
             categoryMergeOptionsEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionsCategories;
             groupsMergeOptionsEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionsGroups;
 
+            overrideRatingCheckbox.Checked = _pushAndMergeOptions.OverrideRating;
         }
         #endregion
 
@@ -103,6 +104,8 @@ namespace SwissAcademic.Addons.PushAndMerge
             _pushAndMergeOptions.MergeReferenceOptionsGroups = (MergeReferenceOptions)groupsMergeOptionsEditor.SelectedItem;
 
             _pushAndMergeOptions.IgnoreKnowledgeItemOnMatch = (bool)mergeKnowledgeItemsTextEditor.SelectedItem;
+
+            _pushAndMergeOptions.OverrideRating = overrideRatingCheckbox.Checked;
         }
         #endregion
 

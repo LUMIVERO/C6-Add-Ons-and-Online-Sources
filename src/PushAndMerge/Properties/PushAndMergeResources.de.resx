@@ -282,4 +282,7 @@ Welche Daten möchten Sie zusammenführen?</value>
   <data name="MergeReferenceOptionsCompleteIfNotEqual" xml:space="preserve">
     <value>Nur nicht-identische ergänzen</value>
   </data>
+  <data name="CheckBoxOverrideRating" xml:space="preserve">
+    <value>Rating überschreiben</value>
+  </data>
 </root>

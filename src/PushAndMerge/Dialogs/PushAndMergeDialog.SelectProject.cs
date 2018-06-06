@@ -84,6 +84,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             foreach (var project in Program.Engine.Projects)
             {
+                if (project == _sourceProject) continue;
                 var knownProject = new KnownProject(project);
                 _targetProjectEditorComboBoxHelpers.Add(knownProject, knownProject.Name);
             }
@@ -91,6 +92,9 @@ namespace SwissAcademic.Addons.PushAndMerge
             _targetProjectEditorComboBoxHelpers.Sort();
 
             projectTextEditor.ListItems = _targetProjectEditorComboBoxHelpers;
+
+            if (projectTextEditor.ListItems.Count() == 1) projectTextEditor.SelectedIndex = 0;
+
             UpdateProjectEditorLeftIcon();
         }
         #endregion

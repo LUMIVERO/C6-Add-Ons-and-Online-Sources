@@ -279,4 +279,7 @@ which data should be merged?</value>
   <data name="MergeReferenceOptionsCompleteIfNotEqual" xml:space="preserve">
     <value>Only add if not identical</value>
   </data>
+  <data name="CheckBoxOverrideRating" xml:space="preserve">
+    <value>Override rating</value>
+  </data>
 </root>

@@ -68,6 +68,7 @@
             this.tasksCheckbox = new SwissAcademic.Controls.CheckBox();
             this.label1 = new SwissAcademic.Controls.Label();
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.overrideRatingCheckbox = new System.Windows.Forms.CheckBox();
             this.groupsMergeOptionsEditor = new SwissAcademic.Controls.TextEditor();
             this.groupLabel = new SwissAcademic.Controls.Label();
             this.categoryMergeOptionsEditor = new SwissAcademic.Controls.TextEditor();
@@ -96,11 +97,11 @@
             this.wizardTabControl = new SwissAcademic.Controls.TabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.paddingPannel = new System.Windows.Forms.Panel();
-            this.helpBox = new SwissAcademic.Citavi.Shell.Controls.Help.CitaviHelpBox();
             this.navigationPanel = new System.Windows.Forms.Panel();
             this.backButton = new SwissAcademic.Controls.Button();
             this.nextButton = new SwissAcademic.Controls.Button();
             this.cancelButton = new SwissAcademic.Controls.Button();
+            this.helpBox = new SwissAcademic.Citavi.Shell.Controls.Help.CitaviHelpBox();
             this.ultraTabPageControl1.SuspendLayout();
             this.selectTitleContentPanel.SuspendLayout();
             this.ultraTabPageControl2.SuspendLayout();
@@ -116,9 +117,9 @@
             // ultraTabPageControl1
             // 
             this.ultraTabPageControl1.Controls.Add(this.selectTitleContentPanel);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(0, 0);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
-            this.ultraTabPageControl1.Size = new System.Drawing.Size(596, 440);
+            this.ultraTabPageControl1.Size = new System.Drawing.Size(596, 456);
             // 
             // selectTitleContentPanel
             // 
@@ -135,7 +136,7 @@
             this.selectTitleContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectTitleContentPanel.Location = new System.Drawing.Point(0, 0);
             this.selectTitleContentPanel.Name = "selectTitleContentPanel";
-            this.selectTitleContentPanel.Size = new System.Drawing.Size(596, 440);
+            this.selectTitleContentPanel.Size = new System.Drawing.Size(596, 456);
             this.selectTitleContentPanel.TabIndex = 6;
             // 
             // copyOtherTitlesRadioButton
@@ -143,7 +144,7 @@
             this.copyOtherTitlesRadioButton.AutoSize = true;
             this.copyOtherTitlesRadioButton.Location = new System.Drawing.Point(72, 298);
             this.copyOtherTitlesRadioButton.Name = "copyOtherTitlesRadioButton";
-            this.copyOtherTitlesRadioButton.Size = new System.Drawing.Size(247, 29);
+            this.copyOtherTitlesRadioButton.Size = new System.Drawing.Size(164, 19);
             this.copyOtherTitlesRadioButton.TabIndex = 11;
             this.copyOtherTitlesRadioButton.TabStop = true;
             this.copyOtherTitlesRadioButton.Text = "In das Zielprojekt kopieren";
@@ -155,7 +156,7 @@
             this.ignoreOtherTitlesRadioButton.AutoSize = true;
             this.ignoreOtherTitlesRadioButton.Location = new System.Drawing.Point(72, 276);
             this.ignoreOtherTitlesRadioButton.Name = "ignoreOtherTitlesRadioButton";
-            this.ignoreOtherTitlesRadioButton.Size = new System.Drawing.Size(118, 29);
+            this.ignoreOtherTitlesRadioButton.Size = new System.Drawing.Size(79, 19);
             this.ignoreOtherTitlesRadioButton.TabIndex = 10;
             this.ignoreOtherTitlesRadioButton.TabStop = true;
             this.ignoreOtherTitlesRadioButton.Text = "Ignorieren";
@@ -166,7 +167,7 @@
             // 
             this.allOtherTitlesSubtitleLabel.Location = new System.Drawing.Point(67, 247);
             this.allOtherTitlesSubtitleLabel.Name = "allOtherTitlesSubtitleLabel";
-            this.allOtherTitlesSubtitleLabel.Size = new System.Drawing.Size(197, 30);
+            this.allOtherTitlesSubtitleLabel.Size = new System.Drawing.Size(129, 19);
             this.allOtherTitlesSubtitleLabel.Style = SwissAcademic.Controls.LabelStyle.SubtitleBlack;
             this.allOtherTitlesSubtitleLabel.TabIndex = 7;
             this.allOtherTitlesSubtitleLabel.Text = "2. Alle anderen Titel";
@@ -177,7 +178,7 @@
             this.mergeStaticIdCheckbox.AutoSize = true;
             this.mergeStaticIdCheckbox.Location = new System.Drawing.Point(72, 216);
             this.mergeStaticIdCheckbox.Name = "mergeStaticIdCheckbox";
-            this.mergeStaticIdCheckbox.Size = new System.Drawing.Size(232, 29);
+            this.mergeStaticIdCheckbox.Size = new System.Drawing.Size(158, 19);
             this.mergeStaticIdCheckbox.TabIndex = 6;
             this.mergeStaticIdCheckbox.Text = "Titel mit gleicher StaticID";
             this.mergeStaticIdCheckbox.UseVisualStyleBackColor = true;
@@ -188,7 +189,7 @@
             this.mergeEssentialFieldsCheckBox.AutoSize = true;
             this.mergeEssentialFieldsCheckBox.Location = new System.Drawing.Point(72, 196);
             this.mergeEssentialFieldsCheckBox.Name = "mergeEssentialFieldsCheckBox";
-            this.mergeEssentialFieldsCheckBox.Size = new System.Drawing.Size(530, 29);
+            this.mergeEssentialFieldsCheckBox.Size = new System.Drawing.Size(358, 19);
             this.mergeEssentialFieldsCheckBox.TabIndex = 5;
             this.mergeEssentialFieldsCheckBox.Text = "Titel mit einer 100%-Übereinstimmung in wesentlichen Feldern";
             this.mergeEssentialFieldsCheckBox.UseVisualStyleBackColor = true;
@@ -199,7 +200,7 @@
             this.mergeSameIdsCheckbox.AutoSize = true;
             this.mergeSameIdsCheckbox.Location = new System.Drawing.Point(72, 176);
             this.mergeSameIdsCheckbox.Name = "mergeSameIdsCheckbox";
-            this.mergeSameIdsCheckbox.Size = new System.Drawing.Size(482, 29);
+            this.mergeSameIdsCheckbox.Size = new System.Drawing.Size(323, 19);
             this.mergeSameIdsCheckbox.TabIndex = 4;
             this.mergeSameIdsCheckbox.Text = "Titel mit gleicher ID (ISBN, DOI, PubMedID, PMC, arXiv)  ";
             this.mergeSameIdsCheckbox.UseVisualStyleBackColor = true;
@@ -209,7 +210,7 @@
             // 
             this.selectTitlesMergeSubtitleLabel.Location = new System.Drawing.Point(67, 147);
             this.selectTitlesMergeSubtitleLabel.Name = "selectTitlesMergeSubtitleLabel";
-            this.selectTitlesMergeSubtitleLabel.Size = new System.Drawing.Size(581, 30);
+            this.selectTitlesMergeSubtitleLabel.Size = new System.Drawing.Size(383, 19);
             this.selectTitlesMergeSubtitleLabel.Style = SwissAcademic.Controls.LabelStyle.SubtitleBlack;
             this.selectTitlesMergeSubtitleLabel.TabIndex = 3;
             this.selectTitlesMergeSubtitleLabel.Text = "1. Titel, deren Daten im Zielprojekt zusammengeführt werden";
@@ -218,7 +219,7 @@
             // 
             this.selectTitlesSettingsTitleLabel.Location = new System.Drawing.Point(33, 116);
             this.selectTitlesSettingsTitleLabel.Name = "selectTitlesSettingsTitleLabel";
-            this.selectTitlesSettingsTitleLabel.Size = new System.Drawing.Size(364, 32);
+            this.selectTitlesSettingsTitleLabel.Size = new System.Drawing.Size(236, 21);
             this.selectTitlesSettingsTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
             this.selectTitlesSettingsTitleLabel.TabIndex = 2;
             this.selectTitlesSettingsTitleLabel.Text = "Einschränkungen / Einstellungen";
@@ -227,7 +228,7 @@
             // 
             this.selectTitleLabel.Location = new System.Drawing.Point(33, 30);
             this.selectTitleLabel.Name = "selectTitleLabel";
-            this.selectTitleLabel.Size = new System.Drawing.Size(180, 32);
+            this.selectTitleLabel.Size = new System.Drawing.Size(117, 21);
             this.selectTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
             this.selectTitleLabel.TabIndex = 0;
             this.selectTitleLabel.Text = "Titel auswählen";
@@ -260,7 +261,7 @@
             this.ultraTabPageControl2.Controls.Add(this.label1);
             this.ultraTabPageControl2.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl2.Name = "ultraTabPageControl2";
-            this.ultraTabPageControl2.Size = new System.Drawing.Size(596, 440);
+            this.ultraTabPageControl2.Size = new System.Drawing.Size(596, 456);
             // 
             // customTextsCheckboxTreeView
             // 
@@ -269,10 +270,9 @@
             this.customTextsCheckboxTreeView.ExpansionIndicatorImageCollapsedHotTracked = ((System.Drawing.Image)(resources.GetObject("customTextsCheckboxTreeView.ExpansionIndicatorImageCollapsedHotTracked")));
             this.customTextsCheckboxTreeView.ExpansionIndicatorImageExpanded = ((System.Drawing.Image)(resources.GetObject("customTextsCheckboxTreeView.ExpansionIndicatorImageExpanded")));
             this.customTextsCheckboxTreeView.ExpansionIndicatorImageExpandedHotTracked = ((System.Drawing.Image)(resources.GetObject("customTextsCheckboxTreeView.ExpansionIndicatorImageExpandedHotTracked")));
-            this.customTextsCheckboxTreeView.ExpansionIndicatorSize = new System.Drawing.Size(23, 23);
+            this.customTextsCheckboxTreeView.ExpansionIndicatorSize = new System.Drawing.Size(16, 16);
             this.customTextsCheckboxTreeView.ImagePadding = 4;
             this.customTextsCheckboxTreeView.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.customTextsCheckboxTreeView.LeftImagesSize = new System.Drawing.Size(23, 23);
             this.customTextsCheckboxTreeView.Location = new System.Drawing.Point(307, 82);
             this.customTextsCheckboxTreeView.Name = "customTextsCheckboxTreeView";
             this.customTextsCheckboxTreeView.NodeConnectorColor = System.Drawing.SystemColors.ControlDark;
@@ -311,7 +311,6 @@
             _override1.NodeStyle = Infragistics.Win.UltraWinTree.NodeStyle.CheckBoxTriState;
             _override1.ReserveImageSpace = Infragistics.Win.DefaultableBoolean.True;
             this.customTextsCheckboxTreeView.Override = _override1;
-            this.customTextsCheckboxTreeView.RightImagesSize = new System.Drawing.Size(23, 23);
             this.customTextsCheckboxTreeView.ShowRootLines = true;
             this.customTextsCheckboxTreeView.Size = new System.Drawing.Size(286, 270);
             this.customTextsCheckboxTreeView.TabIndex = 13;
@@ -322,7 +321,7 @@
             this.notesCheckbox.AutoSize = true;
             this.notesCheckbox.Location = new System.Drawing.Point(71, 242);
             this.notesCheckbox.Name = "notesCheckbox";
-            this.notesCheckbox.Size = new System.Drawing.Size(80, 29);
+            this.notesCheckbox.Size = new System.Drawing.Size(54, 19);
             this.notesCheckbox.TabIndex = 12;
             this.notesCheckbox.Text = "Notiz";
             this.notesCheckbox.UseVisualStyleBackColor = true;
@@ -332,7 +331,7 @@
             this.evaluationCheckbox.AutoSize = true;
             this.evaluationCheckbox.Location = new System.Drawing.Point(71, 222);
             this.evaluationCheckbox.Name = "evaluationCheckbox";
-            this.evaluationCheckbox.Size = new System.Drawing.Size(122, 29);
+            this.evaluationCheckbox.Size = new System.Drawing.Size(83, 19);
             this.evaluationCheckbox.TabIndex = 11;
             this.evaluationCheckbox.Text = "Bewertung";
             this.evaluationCheckbox.UseVisualStyleBackColor = true;
@@ -342,7 +341,7 @@
             this.tableOfContentsCheckbox.AutoSize = true;
             this.tableOfContentsCheckbox.Location = new System.Drawing.Point(71, 202);
             this.tableOfContentsCheckbox.Name = "tableOfContentsCheckbox";
-            this.tableOfContentsCheckbox.Size = new System.Drawing.Size(175, 29);
+            this.tableOfContentsCheckbox.Size = new System.Drawing.Size(119, 19);
             this.tableOfContentsCheckbox.TabIndex = 10;
             this.tableOfContentsCheckbox.Text = "Inhaltsverzeichnis";
             this.tableOfContentsCheckbox.UseVisualStyleBackColor = true;
@@ -352,7 +351,7 @@
             this.abstractCheckbox.AutoSize = true;
             this.abstractCheckbox.Location = new System.Drawing.Point(71, 182);
             this.abstractCheckbox.Name = "abstractCheckbox";
-            this.abstractCheckbox.Size = new System.Drawing.Size(104, 29);
+            this.abstractCheckbox.Size = new System.Drawing.Size(70, 19);
             this.abstractCheckbox.TabIndex = 9;
             this.abstractCheckbox.Text = "Abstract";
             this.abstractCheckbox.UseVisualStyleBackColor = true;
@@ -362,7 +361,7 @@
             this.groupsCheckbox.AutoSize = true;
             this.groupsCheckbox.Location = new System.Drawing.Point(71, 152);
             this.groupsCheckbox.Name = "groupsCheckbox";
-            this.groupsCheckbox.Size = new System.Drawing.Size(107, 29);
+            this.groupsCheckbox.Size = new System.Drawing.Size(72, 19);
             this.groupsCheckbox.TabIndex = 8;
             this.groupsCheckbox.Text = "Gruppen";
             this.groupsCheckbox.UseVisualStyleBackColor = true;
@@ -372,7 +371,7 @@
             this.categoriesCheckbox.AutoSize = true;
             this.categoriesCheckbox.Location = new System.Drawing.Point(71, 132);
             this.categoriesCheckbox.Name = "categoriesCheckbox";
-            this.categoriesCheckbox.Size = new System.Drawing.Size(123, 29);
+            this.categoriesCheckbox.Size = new System.Drawing.Size(83, 19);
             this.categoriesCheckbox.TabIndex = 7;
             this.categoriesCheckbox.Text = "Kategorien";
             this.categoriesCheckbox.UseVisualStyleBackColor = true;
@@ -382,7 +381,7 @@
             this.keywordCheckbox.AutoSize = true;
             this.keywordCheckbox.Location = new System.Drawing.Point(71, 112);
             this.keywordCheckbox.Name = "keywordCheckbox";
-            this.keywordCheckbox.Size = new System.Drawing.Size(141, 29);
+            this.keywordCheckbox.Size = new System.Drawing.Size(95, 19);
             this.keywordCheckbox.TabIndex = 6;
             this.keywordCheckbox.Text = "Schlagwörter";
             this.keywordCheckbox.UseVisualStyleBackColor = true;
@@ -392,7 +391,7 @@
             this.tasksCheckbox.AutoSize = true;
             this.tasksCheckbox.Location = new System.Drawing.Point(71, 82);
             this.tasksCheckbox.Name = "tasksCheckbox";
-            this.tasksCheckbox.Size = new System.Drawing.Size(116, 29);
+            this.tasksCheckbox.Size = new System.Drawing.Size(78, 19);
             this.tasksCheckbox.TabIndex = 5;
             this.tasksCheckbox.Text = "Aufgaben";
             this.tasksCheckbox.UseVisualStyleBackColor = true;
@@ -401,7 +400,7 @@
             // 
             this.label1.Location = new System.Drawing.Point(33, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(459, 64);
+            this.label1.Size = new System.Drawing.Size(294, 42);
             this.label1.Style = SwissAcademic.Controls.LabelStyle.Title;
             this.label1.TabIndex = 1;
             this.label1.Text = "Titel, die ins Zielprojekt kopiert werden: \r\nWelche Daten möchten Sie mitkopieren" +
@@ -409,6 +408,7 @@
             // 
             // ultraTabPageControl3
             // 
+            this.ultraTabPageControl3.Controls.Add(this.overrideRatingCheckbox);
             this.ultraTabPageControl3.Controls.Add(this.groupsMergeOptionsEditor);
             this.ultraTabPageControl3.Controls.Add(this.groupLabel);
             this.ultraTabPageControl3.Controls.Add(this.categoryMergeOptionsEditor);
@@ -429,9 +429,19 @@
             this.ultraTabPageControl3.Controls.Add(this.mergeKnowledgeItemsTextEditor);
             this.ultraTabPageControl3.Controls.Add(this.knowledgeItemsLabel);
             this.ultraTabPageControl3.Controls.Add(this.mergeTitlesTabTitleLabel);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(0, 0);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
-            this.ultraTabPageControl3.Size = new System.Drawing.Size(596, 440);
+            this.ultraTabPageControl3.Size = new System.Drawing.Size(596, 456);
+            // 
+            // overrideRatingCheckbox
+            // 
+            this.overrideRatingCheckbox.AutoSize = true;
+            this.overrideRatingCheckbox.Location = new System.Drawing.Point(187, 326);
+            this.overrideRatingCheckbox.Name = "overrideRatingCheckbox";
+            this.overrideRatingCheckbox.Size = new System.Drawing.Size(138, 19);
+            this.overrideRatingCheckbox.TabIndex = 27;
+            this.overrideRatingCheckbox.Text = "Rating überschreiben";
+            this.overrideRatingCheckbox.UseVisualStyleBackColor = true;
             // 
             // groupsMergeOptionsEditor
             // 
@@ -440,7 +450,7 @@
             this.groupsMergeOptionsEditor.AllowUndo = false;
             this.groupsMergeOptionsEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.groupsMergeOptionsEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
-            this.groupsMergeOptionsEditor.Location = new System.Drawing.Point(187, 408);
+            this.groupsMergeOptionsEditor.Location = new System.Drawing.Point(187, 426);
             this.groupsMergeOptionsEditor.Name = "groupsMergeOptionsEditor";
             this.groupsMergeOptionsEditor.ReadOnly = true;
             this.groupsMergeOptionsEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
@@ -450,7 +460,7 @@
             // groupLabel
             // 
             this.groupLabel.AutoSize = false;
-            this.groupLabel.Location = new System.Drawing.Point(37, 396);
+            this.groupLabel.Location = new System.Drawing.Point(37, 414);
             this.groupLabel.Name = "groupLabel";
             this.groupLabel.Size = new System.Drawing.Size(135, 30);
             this.groupLabel.TabIndex = 25;
@@ -464,7 +474,7 @@
             this.categoryMergeOptionsEditor.AllowUndo = false;
             this.categoryMergeOptionsEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.categoryMergeOptionsEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
-            this.categoryMergeOptionsEditor.Location = new System.Drawing.Point(187, 377);
+            this.categoryMergeOptionsEditor.Location = new System.Drawing.Point(187, 395);
             this.categoryMergeOptionsEditor.Name = "categoryMergeOptionsEditor";
             this.categoryMergeOptionsEditor.ReadOnly = true;
             this.categoryMergeOptionsEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
@@ -474,7 +484,7 @@
             // categoryLabel
             // 
             this.categoryLabel.AutoSize = false;
-            this.categoryLabel.Location = new System.Drawing.Point(37, 365);
+            this.categoryLabel.Location = new System.Drawing.Point(37, 383);
             this.categoryLabel.Name = "categoryLabel";
             this.categoryLabel.Size = new System.Drawing.Size(135, 30);
             this.categoryLabel.TabIndex = 23;
@@ -488,7 +498,7 @@
             this.keywordMergeOptionsEditor.AllowUndo = false;
             this.keywordMergeOptionsEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.keywordMergeOptionsEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
-            this.keywordMergeOptionsEditor.Location = new System.Drawing.Point(187, 346);
+            this.keywordMergeOptionsEditor.Location = new System.Drawing.Point(187, 364);
             this.keywordMergeOptionsEditor.Name = "keywordMergeOptionsEditor";
             this.keywordMergeOptionsEditor.ReadOnly = true;
             this.keywordMergeOptionsEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
@@ -498,7 +508,7 @@
             // keywordsLabel
             // 
             this.keywordsLabel.AutoSize = false;
-            this.keywordsLabel.Location = new System.Drawing.Point(37, 334);
+            this.keywordsLabel.Location = new System.Drawing.Point(37, 352);
             this.keywordsLabel.Name = "keywordsLabel";
             this.keywordsLabel.Size = new System.Drawing.Size(135, 30);
             this.keywordsLabel.TabIndex = 21;
@@ -512,7 +522,7 @@
             this.notesMergeOptionsTextEditor.AllowUndo = false;
             this.notesMergeOptionsTextEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.notesMergeOptionsTextEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
-            this.notesMergeOptionsTextEditor.Location = new System.Drawing.Point(187, 305);
+            this.notesMergeOptionsTextEditor.Location = new System.Drawing.Point(187, 272);
             this.notesMergeOptionsTextEditor.Name = "notesMergeOptionsTextEditor";
             this.notesMergeOptionsTextEditor.ReadOnly = true;
             this.notesMergeOptionsTextEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
@@ -522,7 +532,7 @@
             // noteLabel
             // 
             this.noteLabel.AutoSize = false;
-            this.noteLabel.Location = new System.Drawing.Point(37, 293);
+            this.noteLabel.Location = new System.Drawing.Point(37, 260);
             this.noteLabel.Name = "noteLabel";
             this.noteLabel.Size = new System.Drawing.Size(135, 30);
             this.noteLabel.TabIndex = 19;
@@ -536,7 +546,7 @@
             this.evalutationMergeOptionsTextEditor.AllowUndo = false;
             this.evalutationMergeOptionsTextEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.evalutationMergeOptionsTextEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
-            this.evalutationMergeOptionsTextEditor.Location = new System.Drawing.Point(187, 273);
+            this.evalutationMergeOptionsTextEditor.Location = new System.Drawing.Point(187, 302);
             this.evalutationMergeOptionsTextEditor.Name = "evalutationMergeOptionsTextEditor";
             this.evalutationMergeOptionsTextEditor.ReadOnly = true;
             this.evalutationMergeOptionsTextEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
@@ -546,7 +556,7 @@
             // evaluationLabel
             // 
             this.evaluationLabel.AutoSize = false;
-            this.evaluationLabel.Location = new System.Drawing.Point(37, 261);
+            this.evaluationLabel.Location = new System.Drawing.Point(37, 290);
             this.evaluationLabel.Name = "evaluationLabel";
             this.evaluationLabel.Size = new System.Drawing.Size(135, 30);
             this.evaluationLabel.TabIndex = 17;
@@ -606,7 +616,7 @@
             this.includeGroupsCheckbox.AutoSize = true;
             this.includeGroupsCheckbox.Location = new System.Drawing.Point(187, 167);
             this.includeGroupsCheckbox.Name = "includeGroupsCheckbox";
-            this.includeGroupsCheckbox.Size = new System.Drawing.Size(107, 29);
+            this.includeGroupsCheckbox.Size = new System.Drawing.Size(72, 19);
             this.includeGroupsCheckbox.TabIndex = 12;
             this.includeGroupsCheckbox.Text = "Gruppen";
             this.includeGroupsCheckbox.UseVisualStyleBackColor = true;
@@ -616,7 +626,7 @@
             this.includeCategoriesCheckbox.AutoSize = true;
             this.includeCategoriesCheckbox.Location = new System.Drawing.Point(187, 147);
             this.includeCategoriesCheckbox.Name = "includeCategoriesCheckbox";
-            this.includeCategoriesCheckbox.Size = new System.Drawing.Size(123, 29);
+            this.includeCategoriesCheckbox.Size = new System.Drawing.Size(83, 19);
             this.includeCategoriesCheckbox.TabIndex = 11;
             this.includeCategoriesCheckbox.Text = "Kategorien";
             this.includeCategoriesCheckbox.UseVisualStyleBackColor = true;
@@ -626,7 +636,7 @@
             this.includeKeywordsCheckbox.AutoSize = true;
             this.includeKeywordsCheckbox.Location = new System.Drawing.Point(187, 127);
             this.includeKeywordsCheckbox.Name = "includeKeywordsCheckbox";
-            this.includeKeywordsCheckbox.Size = new System.Drawing.Size(141, 29);
+            this.includeKeywordsCheckbox.Size = new System.Drawing.Size(95, 19);
             this.includeKeywordsCheckbox.TabIndex = 10;
             this.includeKeywordsCheckbox.Text = "Schlagwörter";
             this.includeKeywordsCheckbox.UseVisualStyleBackColor = true;
@@ -659,7 +669,7 @@
             // 
             this.mergeTitlesTabTitleLabel.Location = new System.Drawing.Point(33, 30);
             this.mergeTitlesTabTitleLabel.Name = "mergeTitlesTabTitleLabel";
-            this.mergeTitlesTabTitleLabel.Size = new System.Drawing.Size(554, 64);
+            this.mergeTitlesTabTitleLabel.Size = new System.Drawing.Size(357, 42);
             this.mergeTitlesTabTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
             this.mergeTitlesTabTitleLabel.TabIndex = 2;
             this.mergeTitlesTabTitleLabel.Text = "Titel, die im Zielprojekt zusammengeführt werden:\r\nWelche Daten möchten Sie zusam" +
@@ -673,7 +683,7 @@
             this.ultraTabPageControl4.Controls.Add(this.destinationProjectTitleLabel);
             this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
-            this.ultraTabPageControl4.Size = new System.Drawing.Size(596, 440);
+            this.ultraTabPageControl4.Size = new System.Drawing.Size(596, 456);
             // 
             // openProjectButton
             // 
@@ -705,7 +715,7 @@
             // 
             this.projectNameLabel.Location = new System.Drawing.Point(34, 64);
             this.projectNameLabel.Name = "projectNameLabel";
-            this.projectNameLabel.Size = new System.Drawing.Size(111, 25);
+            this.projectNameLabel.Size = new System.Drawing.Size(74, 15);
             this.projectNameLabel.TabIndex = 10;
             this.projectNameLabel.Text = "Projektname";
             this.projectNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -714,7 +724,7 @@
             // 
             this.destinationProjectTitleLabel.Location = new System.Drawing.Point(33, 30);
             this.destinationProjectTitleLabel.Name = "destinationProjectTitleLabel";
-            this.destinationProjectTitleLabel.Size = new System.Drawing.Size(248, 32);
+            this.destinationProjectTitleLabel.Size = new System.Drawing.Size(162, 21);
             this.destinationProjectTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
             this.destinationProjectTitleLabel.TabIndex = 3;
             this.destinationProjectTitleLabel.Text = "Zielprojekt auswählen";
@@ -733,7 +743,7 @@
             this.wizardTabControl.MinTabWidth = 57;
             this.wizardTabControl.Name = "wizardTabControl";
             this.wizardTabControl.SharedControlsPage = this.ultraTabSharedControlsPage1;
-            this.wizardTabControl.Size = new System.Drawing.Size(596, 440);
+            this.wizardTabControl.Size = new System.Drawing.Size(596, 456);
             this.wizardTabControl.SpaceAfterTabs = new Infragistics.Win.DefaultableInteger(0);
             this.wizardTabControl.SpaceBeforeTabs = new Infragistics.Win.DefaultableInteger(0);
             this.wizardTabControl.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Wizard;
@@ -761,7 +771,7 @@
             // 
             this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
-            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(596, 440);
+            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(596, 456);
             // 
             // paddingPannel
             // 
@@ -770,17 +780,8 @@
             this.paddingPannel.Location = new System.Drawing.Point(0, 0);
             this.paddingPannel.Name = "paddingPannel";
             this.paddingPannel.Padding = new System.Windows.Forms.Padding(10, 10, 10, 20);
-            this.paddingPannel.Size = new System.Drawing.Size(616, 470);
+            this.paddingPannel.Size = new System.Drawing.Size(616, 486);
             this.paddingPannel.TabIndex = 0;
-            // 
-            // helpBox
-            // 
-            this.helpBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.helpBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.helpBox.Location = new System.Drawing.Point(616, 0);
-            this.helpBox.Name = "helpBox";
-            this.helpBox.Size = new System.Drawing.Size(240, 527);
-            this.helpBox.TabIndex = 5;
             // 
             // navigationPanel
             // 
@@ -788,7 +789,7 @@
             this.navigationPanel.Controls.Add(this.nextButton);
             this.navigationPanel.Controls.Add(this.cancelButton);
             this.navigationPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.navigationPanel.Location = new System.Drawing.Point(0, 470);
+            this.navigationPanel.Location = new System.Drawing.Point(0, 486);
             this.navigationPanel.Name = "navigationPanel";
             this.navigationPanel.Size = new System.Drawing.Size(616, 57);
             this.navigationPanel.TabIndex = 6;
@@ -820,9 +821,18 @@
             this.cancelButton.Text = "Abbrechen";
             this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
             // 
+            // helpBox
+            // 
+            this.helpBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.helpBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.helpBox.Location = new System.Drawing.Point(616, 0);
+            this.helpBox.Name = "helpBox";
+            this.helpBox.Size = new System.Drawing.Size(240, 543);
+            this.helpBox.TabIndex = 5;
+            // 
             // PushAndMergeDialog
             // 
-            this.ClientSize = new System.Drawing.Size(856, 527);
+            this.ClientSize = new System.Drawing.Size(856, 543);
             this.Controls.Add(this.paddingPannel);
             this.Controls.Add(this.navigationPanel);
             this.Controls.Add(this.helpBox);
@@ -830,7 +840,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PushAndMergeDialog";
-            this.Text = "PushAndMergeDialog";
+            this.Text = "Copy & Merge";
             this.ultraTabPageControl1.ResumeLayout(false);
             this.selectTitleContentPanel.ResumeLayout(false);
             this.selectTitleContentPanel.PerformLayout();
@@ -908,5 +918,6 @@
         private Controls.Label categoryLabel;
         private Controls.TextEditor keywordMergeOptionsEditor;
         private Controls.Label keywordsLabel;
+        private System.Windows.Forms.CheckBox overrideRatingCheckbox;
     }
 }
