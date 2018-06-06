@@ -280,7 +280,7 @@ which data should be merged?</value>
     <value>Only add if not identical</value>
   </data>
   <data name="CheckBoxOverrideRating" xml:space="preserve">
-    <value>Override rating</value>
+    <value>Replace rating</value>
   </data>
   <data name="SelectTitleDataTitleLabel" xml:space="preserve">
     <value>References not in target project that will be copied:
