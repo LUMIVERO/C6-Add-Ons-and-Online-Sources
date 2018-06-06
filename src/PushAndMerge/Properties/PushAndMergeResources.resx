@@ -283,7 +283,7 @@ which data should be merged?</value>
     <value>Override rating</value>
   </data>
   <data name="SelectTitleDataTitleLabel" xml:space="preserve">
-    <value>[EN]Im Zielprojekt nicht vorhandene Titel, die kopiert werden:
-Welche Daten möchten Sie mitkopieren?</value>
+    <value>References not in target project that will be copied:
+Which data do you would you like to copy for these references?</value>
   </data>
 </root>
