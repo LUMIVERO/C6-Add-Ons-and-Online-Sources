@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SwissAcademic.Addons.PushAndMerge</RootNamespace>
-    <AssemblyName>Brainlab.CopyAndMerge</AssemblyName>
+    <AssemblyName>SwissAcademic.Citavi.Brainlab.CopyAndMerge</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

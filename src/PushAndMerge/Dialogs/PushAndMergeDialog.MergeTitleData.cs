@@ -24,6 +24,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             mergeTitlesTabTitleLabel.Text = PushAndMergeResources.MergeTitlesTabTitle;
             knowledgeItemsLabel.Text = PushAndMergeResources.KnowledgeItemsLabel;
+            overrideRatingCheckbox.Text = PushAndMergeResources.CheckBoxOverrideRating;
             includeKeywordsCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Keywords.ToString());
             includeGroupsCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Groups.ToString());
             includeCategoriesCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Categories.ToString());
@@ -31,7 +32,6 @@ namespace SwissAcademic.Addons.PushAndMerge
             abstractLabel.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Abstract.ToString());
             tableOfContentsLabel.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.TableOfContents.ToString());
             evaluationLabel.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Evaluation.ToString());
-            noteLabel.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Notes.ToString());
         }
         #endregion
 
@@ -55,7 +55,6 @@ namespace SwissAcademic.Addons.PushAndMerge
                 abstractMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
                 evalutationMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
                 tableOfContentsMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
-                notesMergeOptionsTextEditor.ListItems = _mergeReferenceContentOptionsCollection;
 
                 var comboxHelperCollection = new ComboBoxHelperCollection();
                 comboxHelperCollection.Add(true, PushAndMergeResources.IgnoreKnowledgeItemOnMatchText);
@@ -75,7 +74,6 @@ namespace SwissAcademic.Addons.PushAndMerge
             abstractMergeOptionsTextEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionAbstract;
             evalutationMergeOptionsTextEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionEvaluation;
             tableOfContentsMergeOptionsTextEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionTableOfContents;
-            notesMergeOptionsTextEditor.SelectedItem = _pushAndMergeOptions.MergeReferenceOptionNotes;
 
             mergeKnowledgeItemsTextEditor.SelectedItem = _pushAndMergeOptions.IgnoreKnowledgeItemOnMatch;
 
@@ -97,7 +95,6 @@ namespace SwissAcademic.Addons.PushAndMerge
             _pushAndMergeOptions.MergeReferenceOptionAbstract = (MergeReferenceContentOptions)abstractMergeOptionsTextEditor.SelectedItem;
             _pushAndMergeOptions.MergeReferenceOptionEvaluation = (MergeReferenceContentOptions)evalutationMergeOptionsTextEditor.SelectedItem;
             _pushAndMergeOptions.MergeReferenceOptionTableOfContents = (MergeReferenceContentOptions)tableOfContentsMergeOptionsTextEditor.SelectedItem;
-            _pushAndMergeOptions.MergeReferenceOptionNotes = (MergeReferenceContentOptions)notesMergeOptionsTextEditor.SelectedItem;
 
             _pushAndMergeOptions.MergeReferenceOptionsCategories = (MergeReferenceOptions)categoryMergeOptionsEditor.SelectedItem;
             _pushAndMergeOptions.MergeReferenceOptionsKeywords = (MergeReferenceOptions)keywordMergeOptionsEditor.SelectedItem;

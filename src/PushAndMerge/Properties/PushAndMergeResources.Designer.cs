@@ -413,6 +413,16 @@ namespace SwissAcademic.Addons.PushAndMerge.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [EN]Im Zielprojekt nicht vorhandene Titel, die kopiert werden:
+        ///Welche Daten möchten Sie mitkopieren? ähnelt.
+        /// </summary>
+        internal static string SelectTitleDataTitleLabel {
+            get {
+                return ResourceManager.GetString("SelectTitleDataTitleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die 1. References that should be merged in the target project ähnelt.
         /// </summary>
         internal static string TitleSelectionMergeSubtitleLabel {

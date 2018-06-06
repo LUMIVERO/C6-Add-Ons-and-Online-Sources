@@ -282,4 +282,8 @@ which data should be merged?</value>
   <data name="CheckBoxOverrideRating" xml:space="preserve">
     <value>Override rating</value>
   </data>
+  <data name="SelectTitleDataTitleLabel" xml:space="preserve">
+    <value>[EN]Im Zielprojekt nicht vorhandene Titel, die kopiert werden:
+Welche Daten möchten Sie mitkopieren?</value>
+  </data>
 </root>

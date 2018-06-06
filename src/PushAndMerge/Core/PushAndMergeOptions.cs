@@ -8,7 +8,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #region Properties
 
         #region CopyAllNonMatchedReferences
-        public bool CopyAllNonMatchedReferences { get; set; } = false;
+        public bool CopyAllNonMatchedReferences { get; set; } = true;
         #endregion
 
         #region IncludeAbstract
@@ -19,7 +19,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #region IncludeCategories
 
-        public bool IncludeCategories { get; set; } = true;
+        public bool IncludeCategories { get; set; } = false;
 
         #endregion
 
@@ -85,7 +85,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #region IncludeGroups
 
-        public bool IncludeGroups { get; set; } = true;
+        public bool IncludeGroups { get; set; } = false;
 
         #endregion
 
@@ -114,7 +114,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region IncludeTasks
-        public bool IncludeTasks { get; set; } = true;
+        public bool IncludeTasks { get; set; } = false;
         #endregion
 
         #region ReferenceSelection
@@ -130,7 +130,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region MergeKnowldgeItemKeywords
-        public bool MergeKnowledgeItemKeywords { get; set; }
+        public bool MergeKnowledgeItemKeywords { get; set; } = true;
         #endregion
 
         #region MergeKnowldgeItemCategories
@@ -142,11 +142,11 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region MergeReferenceOptionAbstract
-        public MergeReferenceContentOptions MergeReferenceOptionAbstract { get; set; } = MergeReferenceContentOptions.CompleIfNotEqual;
+        public MergeReferenceContentOptions MergeReferenceOptionAbstract { get; set; } = MergeReferenceContentOptions.CompleteIfEmpty;
         #endregion
 
         #region MergeReferenceOptionTableOfContents
-        public MergeReferenceContentOptions MergeReferenceOptionTableOfContents { get; set; } = MergeReferenceContentOptions.CompleIfNotEqual;
+        public MergeReferenceContentOptions MergeReferenceOptionTableOfContents { get; set; } = MergeReferenceContentOptions.CompleteIfEmpty;
         #endregion
 
         #region MergeReferenceOptionEvaluation 
@@ -154,7 +154,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region MergeReferenceOptionNotes
-        public MergeReferenceContentOptions MergeReferenceOptionNotes { get; set; } = MergeReferenceContentOptions.CompleIfNotEqual;
+        public MergeReferenceContentOptions MergeReferenceOptionNotes { get; set; } = MergeReferenceContentOptions.Ignore;
         #endregion
 
         #region MergeReferenceOptionCategories
@@ -176,7 +176,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region OverrideRaging
-        public bool OverrideRating { get; set; }
+        public bool OverrideRating { get; set; } = true;
         #endregion
 
         #endregion

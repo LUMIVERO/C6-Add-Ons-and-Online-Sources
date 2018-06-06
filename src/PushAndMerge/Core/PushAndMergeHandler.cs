@@ -303,11 +303,11 @@ namespace SwissAcademic.Addons.PushAndMerge
             switch(options)
             {
                 case MergeReferenceContentOptions.Complete:
-                    return $"{target}{System.Environment.NewLine}---{System.Environment.NewLine}{source}";
+                    return $"{source}{System.Environment.NewLine}{GetDivider()}{System.Environment.NewLine}{target}";
                 case MergeReferenceContentOptions.CompleteIfEmpty:
                     return string.IsNullOrEmpty(target) ? source : target;
                 case MergeReferenceContentOptions.CompleIfNotEqual:
-                    return target.Equals(source, StringComparison.InvariantCultureIgnoreCase) ? target : $"{target}{System.Environment.NewLine}---{System.Environment.NewLine}{source}";
+                    return target.Equals(source, StringComparison.InvariantCultureIgnoreCase) ? target : $"{source}{System.Environment.NewLine}{GetDivider()}{System.Environment.NewLine}{target}";
                 case MergeReferenceContentOptions.Ignore:
                     return target;
                 case MergeReferenceContentOptions.Override:
@@ -364,5 +364,7 @@ namespace SwissAcademic.Addons.PushAndMerge
             }
             target.Categories.AddRange(categoriesToAdd);
         }
+
+        static string GetDivider() => $"---";
     }
 }

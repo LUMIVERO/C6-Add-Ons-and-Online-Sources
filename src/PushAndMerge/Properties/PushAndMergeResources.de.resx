@@ -285,4 +285,8 @@ Welche Daten möchten Sie zusammenführen?</value>
   <data name="CheckBoxOverrideRating" xml:space="preserve">
     <value>Rating überschreiben</value>
   </data>
+  <data name="SelectTitleDataTitleLabel" xml:space="preserve">
+    <value>Im Zielprojekt nicht vorhandene Titel, die kopiert werden:
+Welche Daten möchten Sie mitkopieren?</value>
+  </data>
 </root>
