@@ -23,7 +23,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #region Properties
 
         #region TextDividerStart
-        static string Divider => $"<--- {_executionTime.ToString("yyyy-MM-dd_HH-mm")} - Do not change --->";
+        static string Divider => "---";//$"<--- {_executionTime.ToString("yyyy-MM-dd_HH-mm")} - Do not change --->";
         #endregion
 
         #endregion
@@ -70,47 +70,6 @@ namespace SwissAcademic.Addons.PushAndMerge
             target.Categories.AddRange(categoriesToAdd);
         }
 
-        #endregion
-
-        #region BuildValues
-        static List<string> BuildValues(Match match, string text)
-        {
-            var result = new List<string>();
-
-            if (!match.Success)
-            {
-                result.Add(text);
-            }
-
-            if (match.Index > 0)
-            {
-                var firstValue = text.Substring(0, match.Index).Trim();
-                result.Add(firstValue);
-            }
-
-            while (match.Success)
-            {
-                var length = match.Length;
-
-                var firstMatchIndex = match.Index;
-
-                match = match.NextMatch();
-
-                int secondMatchIndex = match.Success ? match.Index : -1;
-
-                string innerValue = string.Empty;
-                if (secondMatchIndex > -1)
-                {
-                    innerValue = text.Substring(firstMatchIndex + length, secondMatchIndex - firstMatchIndex - length).Trim();
-                }
-                else
-                {
-                    innerValue = text.Substring(firstMatchIndex + length).Trim();
-                }
-                result.Add(innerValue);
-            }
-            return result;
-        }
         #endregion
 
         #region ConnectAnnotations
@@ -317,12 +276,10 @@ namespace SwissAcademic.Addons.PushAndMerge
         #region HandleReferenceMergeOptions
         static string HandleReferenceMergeOptions(string source, string target, MergeReferenceContentOptions options)
         {
-            var test = SplitAndCompareTextData(source, target);
-
             switch (options)
             {
                 case MergeReferenceContentOptions.Complete:
-                    return SplitAndCompareTextData(source, target);
+                    return $"{source}{System.Environment.NewLine}{Divider}{System.Environment.NewLine}{target}";
                 case MergeReferenceContentOptions.CompleteIfEmpty:
                     return string.IsNullOrEmpty(target) ? source : target;
                 case MergeReferenceContentOptions.CompleIfNotEqual:
@@ -453,36 +410,59 @@ namespace SwissAcademic.Addons.PushAndMerge
         {
             try
             {
-                if (string.IsNullOrEmpty(targetText)) return sourceText;
 
-                var sourceMatch = _dividerRegex.Match(sourceText);
-                var targetMatch = _dividerRegex.Match(targetText);
+                if (string.IsNullOrEmpty(targetText)) return  $"{Divider}{System.Environment.NewLine}{sourceText}";
 
-                var sourceValues = BuildValues(sourceMatch, sourceText);
-                var targetValues = BuildValues(targetMatch, targetText);
+                sourceText = sourceText.Trim();
+                targetText = targetText.Trim();
 
-                var newValues = new List<string>();
+                var sourceValues = Regex.Split(sourceText, "---");
+                var targetValues = Regex.Split(targetText, "---");
+
+                var sourceValuesList = new List<string>();
+                var targetValuesList = new List<string>();
+
+                foreach(var i in sourceValues)
+                {
+                    var value = i.Trim();
+
+                    if (string.IsNullOrEmpty(value)) continue;
+                    sourceValuesList.Add(value);
+                }
+
+                foreach (var i in targetValues)
+                {
+                    var value = i.Trim();
+
+                    if (string.IsNullOrEmpty(value)) continue;
+                    targetValuesList.Add(value);
+                }
 
                 var builder = new StringBuilder();
-                foreach (var i in sourceValues)
+                foreach (var i in sourceValuesList)
                 {
-                    if (!targetValues.Contains(i))
+                    if (string.IsNullOrEmpty(i.Trim())) continue;
+
+                    if (!targetValuesList.Contains(i.Trim()))
                     {
-                        builder.AppendLine(i);
+                        builder.AppendLine(i.Trim());
                     }
                 }
 
                 var result = builder.ToString();
 
-                return string.IsNullOrEmpty(result) ? targetText : $"{builder}{Divider}{System.Environment.NewLine}{targetText}";
+                if (!targetText.StartsWith("---"))
+                {
+                    builder.AppendLine($"{Divider}");
+                }
+
+                return string.IsNullOrEmpty(result) ? targetText : $"{Divider}{System.Environment.NewLine}{builder}{targetText}";
             }
             catch
             {
-                return $"{sourceText}{System.Environment.NewLine}{Divider}{System.Environment.NewLine}{targetText}";
+                return $"{Divider}{System.Environment.NewLine}{sourceText}{System.Environment.NewLine}{Divider}{System.Environment.NewLine}{targetText}";
             }
         }
-
-        
 
         #endregion
 
