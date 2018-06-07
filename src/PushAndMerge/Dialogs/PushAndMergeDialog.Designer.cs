@@ -66,7 +66,7 @@
             this.categoriesCheckbox = new SwissAcademic.Controls.CheckBox();
             this.keywordCheckbox = new SwissAcademic.Controls.CheckBox();
             this.tasksCheckbox = new SwissAcademic.Controls.CheckBox();
-            this.label1 = new SwissAcademic.Controls.Label();
+            this.selectTitleDataTitleLabel = new SwissAcademic.Controls.Label();
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.overrideRatingCheckbox = new System.Windows.Forms.CheckBox();
             this.groupsMergeOptionsEditor = new SwissAcademic.Controls.TextEditor();
@@ -256,8 +256,8 @@
             this.ultraTabPageControl2.Controls.Add(this.categoriesCheckbox);
             this.ultraTabPageControl2.Controls.Add(this.keywordCheckbox);
             this.ultraTabPageControl2.Controls.Add(this.tasksCheckbox);
-            this.ultraTabPageControl2.Controls.Add(this.label1);
-            this.ultraTabPageControl2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl2.Controls.Add(this.selectTitleDataTitleLabel);
+            this.ultraTabPageControl2.Location = new System.Drawing.Point(0, 0);
             this.ultraTabPageControl2.Name = "ultraTabPageControl2";
             this.ultraTabPageControl2.Size = new System.Drawing.Size(596, 432);
             // 
@@ -394,14 +394,14 @@
             this.tasksCheckbox.Text = "Aufgaben";
             this.tasksCheckbox.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // selectTitleDataTitleLabel
             // 
-            this.label1.Location = new System.Drawing.Point(33, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 42);
-            this.label1.Style = SwissAcademic.Controls.LabelStyle.Title;
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Titel, die ins Zielprojekt kopiert werden: \r\nWelche Daten möchten Sie mitkopieren" +
+            this.selectTitleDataTitleLabel.Location = new System.Drawing.Point(33, 30);
+            this.selectTitleDataTitleLabel.Name = "selectTitleDataTitleLabel";
+            this.selectTitleDataTitleLabel.Size = new System.Drawing.Size(294, 42);
+            this.selectTitleDataTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
+            this.selectTitleDataTitleLabel.TabIndex = 1;
+            this.selectTitleDataTitleLabel.Text = "Titel, die ins Zielprojekt kopiert werden: \r\nWelche Daten möchten Sie mitkopieren" +
     "? ";
             // 
             // ultraTabPageControl3
@@ -425,7 +425,7 @@
             this.ultraTabPageControl3.Controls.Add(this.mergeKnowledgeItemsTextEditor);
             this.ultraTabPageControl3.Controls.Add(this.knowledgeItemsLabel);
             this.ultraTabPageControl3.Controls.Add(this.mergeTitlesTabTitleLabel);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(0, 0);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
             this.ultraTabPageControl3.Size = new System.Drawing.Size(596, 432);
             // 
@@ -857,7 +857,7 @@
         private SwissAcademic.Controls.CheckBox categoriesCheckbox;
         private SwissAcademic.Controls.CheckBox keywordCheckbox;
         private SwissAcademic.Controls.CheckBox tasksCheckbox;
-        private SwissAcademic.Controls.Label label1;
+        private SwissAcademic.Controls.Label selectTitleDataTitleLabel;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl3;
         private SwissAcademic.Controls.TextEditor evalutationMergeOptionsTextEditor;
         private SwissAcademic.Controls.Label evaluationLabel;

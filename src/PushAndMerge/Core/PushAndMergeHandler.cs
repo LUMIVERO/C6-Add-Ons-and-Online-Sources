@@ -3,6 +3,8 @@ using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,6 +13,122 @@ namespace SwissAcademic.Addons.PushAndMerge
 {
     public static class PushAndMergeHandler
     {
+        #region Fields
+
+        static DateTime _executionTime;
+        static readonly Regex _dividerRegex = new Regex("<--- [0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[1-2][0-9]|3[0-1])_(?:2[0-3]|[01][0-9])-[0-5][0-9] - Do not change --->");
+
+        #endregion
+
+        #region Properties
+
+        #region TextDividerStart
+        static string Divider => $"<--- {_executionTime.ToString("yyyy-MM-dd_HH-mm")} - Do not change --->";
+        #endregion
+
+        #endregion
+
+        #region Methods
+
+        #region AddCategories
+        static void AddCategories(IEnumerable<Category> categoriesToAdd, Project sourceProject, Project targetProject, Reference target)
+        {
+            var list = new List<Category>();
+
+            for (int i = 0; i < categoriesToAdd.Count(); i++)
+            {
+                list.Clear();
+                var category = categoriesToAdd.ElementAt(i);
+
+                list.Add(category);
+                while (!category.IsRootCategory)
+                {
+                    list.Insert(0, category.ParentCategory);
+                    category = category.ParentCategory;
+                }
+
+                ICategoryHierarchyParent parent = targetProject;
+                for (int c = 0; c < list.Count; c++)
+                {
+                    var existing = parent.Categories.FindId(list[c].Id);
+
+                    if (existing == null)
+                    {
+                        existing = parent.Categories.Where(x => x.Name.Equals(list[c].Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    }
+
+                    if (existing == null)
+                    {
+                        parent = parent.Categories.Add(list[c].Clone(parent));
+                    }
+                    else
+                    {
+                        parent = existing;
+                    }
+                }
+            }
+            target.Categories.AddRange(categoriesToAdd);
+        }
+
+        #endregion
+
+        #region BuildValues
+        static List<string> BuildValues(Match match, string text)
+        {
+            var result = new List<string>();
+
+            if (!match.Success)
+            {
+                result.Add(text);
+            }
+
+            if (match.Index > 0)
+            {
+                var firstValue = text.Substring(0, match.Index).Trim();
+                result.Add(firstValue);
+            }
+
+            while (match.Success)
+            {
+                var length = match.Length;
+
+                var firstMatchIndex = match.Index;
+
+                match = match.NextMatch();
+
+                int secondMatchIndex = match.Success ? match.Index : -1;
+
+                string innerValue = string.Empty;
+                if (secondMatchIndex > -1)
+                {
+                    innerValue = text.Substring(firstMatchIndex + length, secondMatchIndex - firstMatchIndex - length).Trim();
+                }
+                else
+                {
+                    innerValue = text.Substring(firstMatchIndex + length).Trim();
+                }
+                result.Add(innerValue);
+            }
+            return result;
+        }
+        #endregion
+
+        #region ConnectAnnotations
+        static void ConnectAnnotations(KnowledgeItem quotation, Location location, IEnumerable<Annotation> annotations)
+        {
+            if (quotation == null || location == null) return;
+            ClonePool.Reset();
+            foreach (var annotation in annotations)
+            {
+                var newAnnotation = annotation.Clone(location);
+                newAnnotation = location.Annotations.Add(newAnnotation);
+
+                location.Project.EntityLinks.Add(quotation, newAnnotation, EntityLink.PdfKnowledgeItemIndication);
+            }
+        }
+        #endregion
+
+        #region ExecuteAsync
         public static async Task ExecuteAsync(
             Form dialogOwner,
             Project sourceProject,
@@ -19,6 +137,8 @@ namespace SwissAcademic.Addons.PushAndMerge
             Progress<PercentageAndTextProgressInfo> progress, 
             CancellationToken cancellationToken = default(CancellationToken))
         {
+            _executionTime = DateTime.Now;
+
             #region Selection
             var referenceSelectionSupporter = dialogOwner as ISupportReferenceSelection;
 
@@ -192,7 +312,31 @@ namespace SwissAcademic.Addons.PushAndMerge
                 targetProject.ResumeTrackingOfModificationInfo();
             }
         }
+        #endregion
 
+        #region HandleReferenceMergeOptions
+        static string HandleReferenceMergeOptions(string source, string target, MergeReferenceContentOptions options)
+        {
+            var test = SplitAndCompareTextData(source, target);
+
+            switch (options)
+            {
+                case MergeReferenceContentOptions.Complete:
+                    return SplitAndCompareTextData(source, target);
+                case MergeReferenceContentOptions.CompleteIfEmpty:
+                    return string.IsNullOrEmpty(target) ? source : target;
+                case MergeReferenceContentOptions.CompleIfNotEqual:
+                    return target.Equals(source, StringComparison.OrdinalIgnoreCase) ? target : SplitAndCompareTextData(source, target); 
+                case MergeReferenceContentOptions.Ignore:
+                    return target;
+                case MergeReferenceContentOptions.Override:
+                    return source;
+                default: throw new InvalidOperationException();
+            }
+        }
+        #endregion
+
+        #region MergeReferenceData
         static void MergeReferenceData(Reference source, Reference target, PushAndMergeOptions options)
         {
             target.Abstract.Text = HandleReferenceMergeOptions(source.Abstract.Text, target.Abstract.Text, options.MergeReferenceOptionAbstract);
@@ -239,6 +383,9 @@ namespace SwissAcademic.Addons.PushAndMerge
                     break;
             }
         }
+        #endregion
+
+        #region MergeKnowledgeItemsAsync
         static async Task MergeKnowledgeItemsAsync(Reference source, Reference target, PushAndMergeOptions options)
         {
             ClonePool.Reset();
@@ -298,73 +445,47 @@ namespace SwissAcademic.Addons.PushAndMerge
             }
        
         }
-        static string HandleReferenceMergeOptions(string source, string target, MergeReferenceContentOptions options)
+        #endregion
+
+        #region SplitAndCompareTextData
+
+        static string SplitAndCompareTextData(string sourceText, string targetText)
         {
-            switch(options)
+            try
             {
-                case MergeReferenceContentOptions.Complete:
-                    return $"{source}{System.Environment.NewLine}{GetDivider()}{System.Environment.NewLine}{target}";
-                case MergeReferenceContentOptions.CompleteIfEmpty:
-                    return string.IsNullOrEmpty(target) ? source : target;
-                case MergeReferenceContentOptions.CompleIfNotEqual:
-                    return target.Equals(source, StringComparison.InvariantCultureIgnoreCase) ? target : $"{source}{System.Environment.NewLine}{GetDivider()}{System.Environment.NewLine}{target}";
-                case MergeReferenceContentOptions.Ignore:
-                    return target;
-                case MergeReferenceContentOptions.Override:
-                    return source;
-                default: throw new InvalidOperationException();
-            }
-        }
-        static void ConnectAnnotations(KnowledgeItem quotation, Location location, IEnumerable<Annotation> annotations)
-        {
-            ClonePool.Reset();
-            foreach (var annotation in annotations)
-            {
-                var newAnnotation = annotation.Clone(location);
-                newAnnotation = location.Annotations.Add(newAnnotation);
+                if (string.IsNullOrEmpty(targetText)) return sourceText;
 
-                location.Project.EntityLinks.Add(quotation, newAnnotation, EntityLink.PdfKnowledgeItemIndication);
-            }
-        }
+                var sourceMatch = _dividerRegex.Match(sourceText);
+                var targetMatch = _dividerRegex.Match(targetText);
 
-        static void AddCategories(IEnumerable<Category> categoriesToAdd, Project sourceProject, Project targetProject, Reference target)
-        {
-            var list = new List<Category>();
+                var sourceValues = BuildValues(sourceMatch, sourceText);
+                var targetValues = BuildValues(targetMatch, targetText);
 
-            for(int i = 0; i < categoriesToAdd.Count(); i++)
-            {
-                var category = categoriesToAdd.ElementAt(i);
+                var newValues = new List<string>();
 
-                list.Add(category);
-                while (!category.IsRootCategory)
+                var builder = new StringBuilder();
+                foreach (var i in sourceValues)
                 {
-                    list.Insert(0, category.ParentCategory);
-                    category = category.ParentCategory;
+                    if (!targetValues.Contains(i))
+                    {
+                        builder.AppendLine(i);
+                    }
                 }
 
-                ICategoryHierarchyParent parent = targetProject;
-                for (int c = 0; c < list.Count; c++)
-                {
-                    var existing = parent.Categories.FindId(list[c].Id);
+                var result = builder.ToString();
 
-                    if(existing == null)
-                    {
-                        existing = parent.Categories.Where(x => x.Name.Equals(list[c].Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
-                    }
-
-                    if (existing == null)
-                    {
-                        parent = parent.Categories.Add(list[c].Clone(parent));
-                    }
-                    else
-                    {
-                        parent = existing;
-                    }
-                }
+                return string.IsNullOrEmpty(result) ? targetText : $"{builder}{Divider}{System.Environment.NewLine}{targetText}";
             }
-            target.Categories.AddRange(categoriesToAdd);
+            catch
+            {
+                return $"{sourceText}{System.Environment.NewLine}{Divider}{System.Environment.NewLine}{targetText}";
+            }
         }
 
-        static string GetDivider() => $"---";
+        
+
+        #endregion
+
+        #endregion
     }
 }
