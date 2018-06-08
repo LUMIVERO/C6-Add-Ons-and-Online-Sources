@@ -411,13 +411,11 @@ namespace SwissAcademic.Addons.PushAndMerge
             try
             {
 
-                if (string.IsNullOrEmpty(targetText)) return  $"{Divider}{System.Environment.NewLine}{sourceText}";
-
                 sourceText = sourceText.Trim();
                 targetText = targetText.Trim();
 
-                var sourceValues = Regex.Split(sourceText, "---");
-                var targetValues = Regex.Split(targetText, "---");
+                var sourceValues = Regex.Split(sourceText, Divider);
+                var targetValues = Regex.Split(targetText, Divider);
 
                 var sourceValuesList = new List<string>();
                 var targetValuesList = new List<string>();
@@ -445,18 +443,18 @@ namespace SwissAcademic.Addons.PushAndMerge
 
                     if (!targetValuesList.Contains(i.Trim()))
                     {
-                        builder.AppendLine(i.Trim());
+                        builder.AppendLine($"{Divider}{System.Environment.NewLine}{i.Trim()}");
                     }
                 }
 
                 var result = builder.ToString();
 
-                if (!targetText.StartsWith("---"))
+                if (!targetText.StartsWith(Divider))
                 {
-                    builder.AppendLine($"{Divider}");
+                    builder.AppendLine(Divider);
                 }
 
-                return string.IsNullOrEmpty(result) ? targetText : $"{Divider}{System.Environment.NewLine}{builder}{targetText}";
+                return string.IsNullOrEmpty(result) ? targetText : $"{builder}{targetText}";
             }
             catch
             {
