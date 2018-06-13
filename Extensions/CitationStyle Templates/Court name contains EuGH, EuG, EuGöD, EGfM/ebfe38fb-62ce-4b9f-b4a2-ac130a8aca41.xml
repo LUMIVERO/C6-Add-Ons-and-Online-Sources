@@ -1,8 +1,8 @@
-﻿<CustomTemplateCondition id="ebfe38fb-62ce-4b9f-b4a2-ac130a8aca41" version="1.0.0.0">
-  <Name>Court name contains EuGH, EuG, or EuGöD</Name>
+﻿<CustomTemplateCondition id="ebfe38fb-62ce-4b9f-b4a2-ac130a8aca41" version="1.0.0.2">
+  <Name>Feld "Gericht" enthält EuGH, EUGO, EuGöD, oder EGfM</Name>
   <Notes />
   <Macro><![CDATA[// #C5_43238
-//Version 1.0
+//Version 1.1
 
 using System.Linq;
 using System.Text;
@@ -44,8 +44,10 @@ namespace SwissAcademic.Citavi.Citations
 			//note: if you do not specify the whole word, but rather its first characters, do NOT use * as a wildcard, but
 			//\\w*, which means "zero or more word characters"
 			var wordList2 = new string[] {
-				"EuGH", 
-				"EuG", 
+				"EGfM",
+				"EuG",
+				"EuGH",
+				"EUGO", 
 				"EuGöD", 
 				"Europ\\w*" 
 			};
