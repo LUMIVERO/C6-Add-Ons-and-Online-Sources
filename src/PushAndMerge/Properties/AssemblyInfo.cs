@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PushAndMerge")]
+[assembly: AssemblyTitle("SwissAcademic.Citavi.Brainlab.CopyAndMerge")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PushAndMerge")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCompany("Swiss Academic Software GmbH")]
+[assembly: AssemblyProduct("Copy & Merge Knowledge")]
+[assembly: AssemblyCopyright("Copyright © 2018 Swiss Academic Software GmbH")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

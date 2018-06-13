@@ -91,7 +91,7 @@ namespace SwissAcademic.Addons.PushAndMerge
                         helpBox.TextEditor.Clear();
                     }
                     break;
-                case TabKeys.MergeTitleData:
+                case TabKeys.SelectTitleData:
                     helpBox.SetHelpText(PushAndMergeResources.HelpText_SelectDataToCopy);
                     break;
                 default:

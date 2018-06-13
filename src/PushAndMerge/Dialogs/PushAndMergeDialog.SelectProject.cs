@@ -65,6 +65,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         {
             nextButton.Text = PushAndMergeResources.FinishButton;
             projectNameLabel.Text = PushAndMergeResources.ProjectNameLabel;
+            destinationProjectTitleLabel.Text = PushAndMergeResources.SelectProjectTabTitle;
 
             openProjectButton.Text = PushAndMergeResources.OpenProjectButtonText;
 
@@ -81,15 +82,19 @@ namespace SwissAcademic.Addons.PushAndMerge
 
             _targetProjectEditorComboBoxHelpers = new ComboBoxHelperCollection();
 
-            foreach (var knownProject in Program.Engine.Settings.General.KnownProjects)
+            foreach (var project in Program.Engine.Projects)
             {
-                if (!knownProject.Exists() || knownProject.ConnectionString.Equals(sourceProject.DesktopProjectConfiguration.ConnectionIdentifier, StringComparison.OrdinalIgnoreCase)) continue;
+                if (project == _sourceProject) continue;
+                var knownProject = new KnownProject(project);
                 _targetProjectEditorComboBoxHelpers.Add(knownProject, knownProject.Name);
             }
 
             _targetProjectEditorComboBoxHelpers.Sort();
 
             projectTextEditor.ListItems = _targetProjectEditorComboBoxHelpers;
+
+            if (projectTextEditor.ListItems.Count() == 1) projectTextEditor.SelectedIndex = 0;
+
             UpdateProjectEditorLeftIcon();
         }
         #endregion
@@ -100,7 +105,7 @@ namespace SwissAcademic.Addons.PushAndMerge
             ProjectType projectType;
             var selectedItem = projectTextEditor.SelectedItem as KnownProject;
 
-            if (selectedItem == null)
+            if (selectedItem == null)   
             {
                 var parameters = projectTextEditor.SelectedItem as ProjectCreationParametersExtended;
 
