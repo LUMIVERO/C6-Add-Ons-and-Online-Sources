@@ -239,12 +239,14 @@ namespace SwissAcademic.Addons.MacroManager
             isNew = true;
             _editor = new MacroEditorForm();
             _editor.FormClosed += MacroEditorForm_FormClosed;
+          
 
 #if DEBUG
             _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroInternal;
 #else
             _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroExternal;
 #endif
+            _editor.SetAsDefault();
             _editor.Show();
 
             hidden = hide;
