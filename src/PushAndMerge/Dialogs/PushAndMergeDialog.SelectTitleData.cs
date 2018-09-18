@@ -37,6 +37,8 @@ namespace SwissAcademic.Addons.PushAndMerge
             tableOfContentsCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.TableOfContents.ToString());
             evaluationCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Evaluation.ToString());
             notesCheckbox.Text = ResourceHelper.GetPropertyName("Reference", ReferencePropertyId.Notes.ToString());
+            selectTitleDataTitleLabel.Text = PushAndMergeResources.SelectTitleDataTitleLabel;
+            
 
             customTextsCheckboxTreeView.GetNodeByKey("CustomFields").Text = PushAndMergeResources.CustomFields;
             customTextsCheckboxTreeView.GetNodeByKey("CustomField1").Text = ReferencePropertyDescriptor.CustomField1.GetNameLocalized(sourceProject);

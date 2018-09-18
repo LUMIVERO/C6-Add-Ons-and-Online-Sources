@@ -1,9 +1,5 @@
 ﻿using SwissAcademic.Citavi;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SwissAcademic.Addons.PushAndMerge
 {
@@ -12,7 +8,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #region Properties
 
         #region CopyAllNonMatchedReferences
-        public bool CopyAllNonMatchedReferences { get; set; } = false;
+        public bool CopyAllNonMatchedReferences { get; set; } = true;
         #endregion
 
         #region IncludeAbstract
@@ -23,7 +19,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #region IncludeCategories
 
-        public bool IncludeCategories { get; set; } = true;
+        public bool IncludeCategories { get; set; } = false;
 
         #endregion
 
@@ -41,7 +37,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #region IncludeCustomField3
 
-        public bool IncludeCustomField3 { get;  set; } = true;
+        public bool IncludeCustomField3 { get; set; } = true;
 
         #endregion
 
@@ -89,7 +85,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
         #region IncludeGroups
 
-        public bool IncludeGroups { get; set; } = true;
+        public bool IncludeGroups { get; set; } = false;
 
         #endregion
 
@@ -118,7 +114,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region IncludeTasks
-        public bool IncludeTasks { get; set; } = true;
+        public bool IncludeTasks { get; set; } = false;
         #endregion
 
         #region ReferenceSelection
@@ -134,7 +130,7 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region MergeKnowldgeItemKeywords
-        public bool MergeKnowledgeItemKeywords { get; set; }
+        public bool MergeKnowledgeItemKeywords { get; set; } = true;
         #endregion
 
         #region MergeKnowldgeItemCategories
@@ -146,19 +142,41 @@ namespace SwissAcademic.Addons.PushAndMerge
         #endregion
 
         #region MergeReferenceOptionAbstract
-        public MergeReferenceOptions MergeReferenceOptionAbstract { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
+        public MergeReferenceContentOptions MergeReferenceOptionAbstract { get; set; } = MergeReferenceContentOptions.CompleteIfEmpty;
         #endregion
 
         #region MergeReferenceOptionTableOfContents
-        public MergeReferenceOptions MergeReferenceOptionTableOfContents { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
+        public MergeReferenceContentOptions MergeReferenceOptionTableOfContents { get; set; } = MergeReferenceContentOptions.CompleteIfEmpty;
         #endregion
 
         #region MergeReferenceOptionEvaluation 
-        public MergeReferenceOptions MergeReferenceOptionEvaluation { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
+        public MergeReferenceContentOptions MergeReferenceOptionEvaluation { get; set; } = MergeReferenceContentOptions.CompleIfNotEqual;
         #endregion
 
         #region MergeReferenceOptionNotes
-        public MergeReferenceOptions MergeReferenceOptionNotes { get; set; } = MergeReferenceOptions.CompleteIfEmpty;
+        public MergeReferenceContentOptions MergeReferenceOptionNotes { get; set; } = MergeReferenceContentOptions.Ignore;
+        #endregion
+
+        #region MergeReferenceOptionCategories
+
+        public MergeReferenceOptions MergeReferenceOptionsCategories { get; set; } = MergeReferenceOptions.Ignore;
+
+        #endregion
+
+        #region MergeReferenceOptionsKeywords
+
+        public MergeReferenceOptions MergeReferenceOptionsKeywords { get; set; } = MergeReferenceOptions.Merge;
+
+        #endregion
+
+        #region MergeReferenceOptionsGroups
+
+        public MergeReferenceOptions MergeReferenceOptionsGroups { get; set; } = MergeReferenceOptions.Ignore;
+
+        #endregion
+
+        #region OverrideRaging
+        public bool OverrideRating { get; set; } = true;
         #endregion
 
         #endregion
@@ -171,11 +189,18 @@ namespace SwissAcademic.Addons.PushAndMerge
         EqualEssentialFields = 1 << 1,
         EqualStaticId = 1 << 2
     }
-    public enum MergeReferenceOptions
+    public enum MergeReferenceContentOptions
     {
         Ignore,
         Override,
         Complete,
-        CompleteIfEmpty
+        CompleteIfEmpty,
+        CompleIfNotEqual
+    }
+    public enum MergeReferenceOptions
+    {
+        Ignore,
+        Replace,
+        Merge
     }
 }

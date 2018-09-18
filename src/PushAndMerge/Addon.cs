@@ -52,6 +52,7 @@ namespace SwissAcademic.Addons.PushAndMerge
 
                         using (var dialog = new PushAndMergeDialog(e.Form, mainForm.Project))
                         {
+                            dialog.Text = "Copy & Merge Knowledge";
                             dialog.ShowDialog();
                         }
                     }

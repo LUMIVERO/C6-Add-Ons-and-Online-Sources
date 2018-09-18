@@ -66,10 +66,15 @@
             this.categoriesCheckbox = new SwissAcademic.Controls.CheckBox();
             this.keywordCheckbox = new SwissAcademic.Controls.CheckBox();
             this.tasksCheckbox = new SwissAcademic.Controls.CheckBox();
-            this.label1 = new SwissAcademic.Controls.Label();
+            this.selectTitleDataTitleLabel = new SwissAcademic.Controls.Label();
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.notesMergeOptionsTextEditor = new SwissAcademic.Controls.TextEditor();
-            this.noteLabel = new SwissAcademic.Controls.Label();
+            this.overrideRatingCheckbox = new System.Windows.Forms.CheckBox();
+            this.groupsMergeOptionsEditor = new SwissAcademic.Controls.TextEditor();
+            this.groupLabel = new SwissAcademic.Controls.Label();
+            this.categoryMergeOptionsEditor = new SwissAcademic.Controls.TextEditor();
+            this.categoryLabel = new SwissAcademic.Controls.Label();
+            this.keywordMergeOptionsEditor = new SwissAcademic.Controls.TextEditor();
+            this.keywordsLabel = new SwissAcademic.Controls.Label();
             this.evalutationMergeOptionsTextEditor = new SwissAcademic.Controls.TextEditor();
             this.evaluationLabel = new SwissAcademic.Controls.Label();
             this.tableOfContentsMergeOptionsTextEditor = new SwissAcademic.Controls.TextEditor();
@@ -81,7 +86,7 @@
             this.includeKeywordsCheckbox = new SwissAcademic.Controls.CheckBox();
             this.mergeKnowledgeItemsTextEditor = new SwissAcademic.Controls.TextEditor();
             this.knowledgeItemsLabel = new SwissAcademic.Controls.Label();
-            this.label2 = new SwissAcademic.Controls.Label();
+            this.mergeTitlesTabTitleLabel = new SwissAcademic.Controls.Label();
             this.ultraTabPageControl4 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.openProjectButton = new SwissAcademic.Controls.Button();
             this.projectTextEditor = new SwissAcademic.Controls.TextEditor();
@@ -90,11 +95,11 @@
             this.wizardTabControl = new SwissAcademic.Controls.TabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.paddingPannel = new System.Windows.Forms.Panel();
-            this.helpBox = new SwissAcademic.Citavi.Shell.Controls.Help.CitaviHelpBox();
             this.navigationPanel = new System.Windows.Forms.Panel();
             this.backButton = new SwissAcademic.Controls.Button();
             this.nextButton = new SwissAcademic.Controls.Button();
             this.cancelButton = new SwissAcademic.Controls.Button();
+            this.helpBox = new SwissAcademic.Citavi.Shell.Controls.Help.CitaviHelpBox();
             this.ultraTabPageControl1.SuspendLayout();
             this.selectTitleContentPanel.SuspendLayout();
             this.ultraTabPageControl2.SuspendLayout();
@@ -110,9 +115,9 @@
             // ultraTabPageControl1
             // 
             this.ultraTabPageControl1.Controls.Add(this.selectTitleContentPanel);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(0, 0);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
-            this.ultraTabPageControl1.Size = new System.Drawing.Size(596, 338);
+            this.ultraTabPageControl1.Size = new System.Drawing.Size(596, 432);
             // 
             // selectTitleContentPanel
             // 
@@ -129,7 +134,7 @@
             this.selectTitleContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.selectTitleContentPanel.Location = new System.Drawing.Point(0, 0);
             this.selectTitleContentPanel.Name = "selectTitleContentPanel";
-            this.selectTitleContentPanel.Size = new System.Drawing.Size(596, 338);
+            this.selectTitleContentPanel.Size = new System.Drawing.Size(596, 432);
             this.selectTitleContentPanel.TabIndex = 6;
             // 
             // copyOtherTitlesRadioButton
@@ -251,10 +256,10 @@
             this.ultraTabPageControl2.Controls.Add(this.categoriesCheckbox);
             this.ultraTabPageControl2.Controls.Add(this.keywordCheckbox);
             this.ultraTabPageControl2.Controls.Add(this.tasksCheckbox);
-            this.ultraTabPageControl2.Controls.Add(this.label1);
-            this.ultraTabPageControl2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl2.Controls.Add(this.selectTitleDataTitleLabel);
+            this.ultraTabPageControl2.Location = new System.Drawing.Point(0, 0);
             this.ultraTabPageControl2.Name = "ultraTabPageControl2";
-            this.ultraTabPageControl2.Size = new System.Drawing.Size(596, 338);
+            this.ultraTabPageControl2.Size = new System.Drawing.Size(596, 432);
             // 
             // customTextsCheckboxTreeView
             // 
@@ -264,6 +269,7 @@
             this.customTextsCheckboxTreeView.ExpansionIndicatorImageExpanded = ((System.Drawing.Image)(resources.GetObject("customTextsCheckboxTreeView.ExpansionIndicatorImageExpanded")));
             this.customTextsCheckboxTreeView.ExpansionIndicatorImageExpandedHotTracked = ((System.Drawing.Image)(resources.GetObject("customTextsCheckboxTreeView.ExpansionIndicatorImageExpandedHotTracked")));
             this.customTextsCheckboxTreeView.ExpansionIndicatorSize = new System.Drawing.Size(16, 16);
+            this.customTextsCheckboxTreeView.ImagePadding = 4;
             this.customTextsCheckboxTreeView.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.customTextsCheckboxTreeView.Location = new System.Drawing.Point(307, 82);
             this.customTextsCheckboxTreeView.Name = "customTextsCheckboxTreeView";
@@ -388,20 +394,25 @@
             this.tasksCheckbox.Text = "Aufgaben";
             this.tasksCheckbox.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // selectTitleDataTitleLabel
             // 
-            this.label1.Location = new System.Drawing.Point(33, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 42);
-            this.label1.Style = SwissAcademic.Controls.LabelStyle.Title;
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Titel, die ins Zielprojekt kopiert werden: \r\nWelche Daten möchten Sie mitkopieren" +
+            this.selectTitleDataTitleLabel.Location = new System.Drawing.Point(33, 30);
+            this.selectTitleDataTitleLabel.Name = "selectTitleDataTitleLabel";
+            this.selectTitleDataTitleLabel.Size = new System.Drawing.Size(294, 42);
+            this.selectTitleDataTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
+            this.selectTitleDataTitleLabel.TabIndex = 1;
+            this.selectTitleDataTitleLabel.Text = "Titel, die ins Zielprojekt kopiert werden: \r\nWelche Daten möchten Sie mitkopieren" +
     "? ";
             // 
             // ultraTabPageControl3
             // 
-            this.ultraTabPageControl3.Controls.Add(this.notesMergeOptionsTextEditor);
-            this.ultraTabPageControl3.Controls.Add(this.noteLabel);
+            this.ultraTabPageControl3.Controls.Add(this.overrideRatingCheckbox);
+            this.ultraTabPageControl3.Controls.Add(this.groupsMergeOptionsEditor);
+            this.ultraTabPageControl3.Controls.Add(this.groupLabel);
+            this.ultraTabPageControl3.Controls.Add(this.categoryMergeOptionsEditor);
+            this.ultraTabPageControl3.Controls.Add(this.categoryLabel);
+            this.ultraTabPageControl3.Controls.Add(this.keywordMergeOptionsEditor);
+            this.ultraTabPageControl3.Controls.Add(this.keywordsLabel);
             this.ultraTabPageControl3.Controls.Add(this.evalutationMergeOptionsTextEditor);
             this.ultraTabPageControl3.Controls.Add(this.evaluationLabel);
             this.ultraTabPageControl3.Controls.Add(this.tableOfContentsMergeOptionsTextEditor);
@@ -413,34 +424,92 @@
             this.ultraTabPageControl3.Controls.Add(this.includeKeywordsCheckbox);
             this.ultraTabPageControl3.Controls.Add(this.mergeKnowledgeItemsTextEditor);
             this.ultraTabPageControl3.Controls.Add(this.knowledgeItemsLabel);
-            this.ultraTabPageControl3.Controls.Add(this.label2);
+            this.ultraTabPageControl3.Controls.Add(this.mergeTitlesTabTitleLabel);
             this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
-            this.ultraTabPageControl3.Size = new System.Drawing.Size(596, 338);
+            this.ultraTabPageControl3.Size = new System.Drawing.Size(596, 432);
             // 
-            // notesMergeOptionsTextEditor
+            // overrideRatingCheckbox
             // 
-            this.notesMergeOptionsTextEditor.AllowCut = false;
-            this.notesMergeOptionsTextEditor.AllowPaste = false;
-            this.notesMergeOptionsTextEditor.AllowUndo = false;
-            this.notesMergeOptionsTextEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.notesMergeOptionsTextEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
-            this.notesMergeOptionsTextEditor.Location = new System.Drawing.Point(187, 305);
-            this.notesMergeOptionsTextEditor.Name = "notesMergeOptionsTextEditor";
-            this.notesMergeOptionsTextEditor.ReadOnly = true;
-            this.notesMergeOptionsTextEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
-            this.notesMergeOptionsTextEditor.Size = new System.Drawing.Size(386, 21);
-            this.notesMergeOptionsTextEditor.TabIndex = 20;
+            this.overrideRatingCheckbox.AutoSize = true;
+            this.overrideRatingCheckbox.Location = new System.Drawing.Point(187, 298);
+            this.overrideRatingCheckbox.Name = "overrideRatingCheckbox";
+            this.overrideRatingCheckbox.Size = new System.Drawing.Size(138, 19);
+            this.overrideRatingCheckbox.TabIndex = 27;
+            this.overrideRatingCheckbox.Text = "Rating überschreiben";
+            this.overrideRatingCheckbox.UseVisualStyleBackColor = true;
             // 
-            // noteLabel
+            // groupsMergeOptionsEditor
             // 
-            this.noteLabel.AutoSize = false;
-            this.noteLabel.Location = new System.Drawing.Point(37, 293);
-            this.noteLabel.Name = "noteLabel";
-            this.noteLabel.Size = new System.Drawing.Size(135, 30);
-            this.noteLabel.TabIndex = 19;
-            this.noteLabel.Text = "Notiz";
-            this.noteLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.groupsMergeOptionsEditor.AllowCut = false;
+            this.groupsMergeOptionsEditor.AllowPaste = false;
+            this.groupsMergeOptionsEditor.AllowUndo = false;
+            this.groupsMergeOptionsEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.groupsMergeOptionsEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
+            this.groupsMergeOptionsEditor.Location = new System.Drawing.Point(187, 401);
+            this.groupsMergeOptionsEditor.Name = "groupsMergeOptionsEditor";
+            this.groupsMergeOptionsEditor.ReadOnly = true;
+            this.groupsMergeOptionsEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
+            this.groupsMergeOptionsEditor.Size = new System.Drawing.Size(386, 21);
+            this.groupsMergeOptionsEditor.TabIndex = 26;
+            // 
+            // groupLabel
+            // 
+            this.groupLabel.AutoSize = false;
+            this.groupLabel.Location = new System.Drawing.Point(37, 389);
+            this.groupLabel.Name = "groupLabel";
+            this.groupLabel.Size = new System.Drawing.Size(135, 30);
+            this.groupLabel.TabIndex = 25;
+            this.groupLabel.Text = "Gruppen";
+            this.groupLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // categoryMergeOptionsEditor
+            // 
+            this.categoryMergeOptionsEditor.AllowCut = false;
+            this.categoryMergeOptionsEditor.AllowPaste = false;
+            this.categoryMergeOptionsEditor.AllowUndo = false;
+            this.categoryMergeOptionsEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.categoryMergeOptionsEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
+            this.categoryMergeOptionsEditor.Location = new System.Drawing.Point(187, 370);
+            this.categoryMergeOptionsEditor.Name = "categoryMergeOptionsEditor";
+            this.categoryMergeOptionsEditor.ReadOnly = true;
+            this.categoryMergeOptionsEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
+            this.categoryMergeOptionsEditor.Size = new System.Drawing.Size(386, 21);
+            this.categoryMergeOptionsEditor.TabIndex = 24;
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.AutoSize = false;
+            this.categoryLabel.Location = new System.Drawing.Point(37, 358);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(135, 30);
+            this.categoryLabel.TabIndex = 23;
+            this.categoryLabel.Text = "Kategorien";
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // keywordMergeOptionsEditor
+            // 
+            this.keywordMergeOptionsEditor.AllowCut = false;
+            this.keywordMergeOptionsEditor.AllowPaste = false;
+            this.keywordMergeOptionsEditor.AllowUndo = false;
+            this.keywordMergeOptionsEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.keywordMergeOptionsEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
+            this.keywordMergeOptionsEditor.Location = new System.Drawing.Point(187, 339);
+            this.keywordMergeOptionsEditor.Name = "keywordMergeOptionsEditor";
+            this.keywordMergeOptionsEditor.ReadOnly = true;
+            this.keywordMergeOptionsEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
+            this.keywordMergeOptionsEditor.Size = new System.Drawing.Size(386, 21);
+            this.keywordMergeOptionsEditor.TabIndex = 22;
+            // 
+            // keywordsLabel
+            // 
+            this.keywordsLabel.AutoSize = false;
+            this.keywordsLabel.Location = new System.Drawing.Point(37, 327);
+            this.keywordsLabel.Name = "keywordsLabel";
+            this.keywordsLabel.Size = new System.Drawing.Size(135, 30);
+            this.keywordsLabel.TabIndex = 21;
+            this.keywordsLabel.Text = "Schlagwörter";
+            this.keywordsLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // evalutationMergeOptionsTextEditor
             // 
@@ -449,7 +518,7 @@
             this.evalutationMergeOptionsTextEditor.AllowUndo = false;
             this.evalutationMergeOptionsTextEditor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.evalutationMergeOptionsTextEditor.DropDownStyle = SwissAcademic.Controls.DropDownStyle.DropDownList;
-            this.evalutationMergeOptionsTextEditor.Location = new System.Drawing.Point(187, 273);
+            this.evalutationMergeOptionsTextEditor.Location = new System.Drawing.Point(187, 272);
             this.evalutationMergeOptionsTextEditor.Name = "evalutationMergeOptionsTextEditor";
             this.evalutationMergeOptionsTextEditor.ReadOnly = true;
             this.evalutationMergeOptionsTextEditor.SelectionMode = SwissAcademic.Controls.SelectionMode.Box;
@@ -459,7 +528,7 @@
             // evaluationLabel
             // 
             this.evaluationLabel.AutoSize = false;
-            this.evaluationLabel.Location = new System.Drawing.Point(37, 261);
+            this.evaluationLabel.Location = new System.Drawing.Point(37, 260);
             this.evaluationLabel.Name = "evaluationLabel";
             this.evaluationLabel.Size = new System.Drawing.Size(135, 30);
             this.evaluationLabel.TabIndex = 17;
@@ -568,14 +637,14 @@
             this.knowledgeItemsLabel.Text = "Wissenselemente";
             this.knowledgeItemsLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label2
+            // mergeTitlesTabTitleLabel
             // 
-            this.label2.Location = new System.Drawing.Point(33, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(357, 42);
-            this.label2.Style = SwissAcademic.Controls.LabelStyle.Title;
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Titel, die im Zielprojekt zusammengeführt werden:\r\nWelche Daten möchten Sie zusam" +
+            this.mergeTitlesTabTitleLabel.Location = new System.Drawing.Point(33, 30);
+            this.mergeTitlesTabTitleLabel.Name = "mergeTitlesTabTitleLabel";
+            this.mergeTitlesTabTitleLabel.Size = new System.Drawing.Size(357, 42);
+            this.mergeTitlesTabTitleLabel.Style = SwissAcademic.Controls.LabelStyle.Title;
+            this.mergeTitlesTabTitleLabel.TabIndex = 2;
+            this.mergeTitlesTabTitleLabel.Text = "Titel, die im Zielprojekt zusammengeführt werden:\r\nWelche Daten möchten Sie zusam" +
     "menführen?";
             // 
             // ultraTabPageControl4
@@ -586,7 +655,7 @@
             this.ultraTabPageControl4.Controls.Add(this.destinationProjectTitleLabel);
             this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
-            this.ultraTabPageControl4.Size = new System.Drawing.Size(596, 338);
+            this.ultraTabPageControl4.Size = new System.Drawing.Size(596, 432);
             // 
             // openProjectButton
             // 
@@ -643,13 +712,15 @@
             this.wizardTabControl.InterRowSpacing = new Infragistics.Win.DefaultableInteger(0);
             this.wizardTabControl.InterTabSpacing = new Infragistics.Win.DefaultableInteger(0);
             this.wizardTabControl.Location = new System.Drawing.Point(10, 10);
+            this.wizardTabControl.MinTabWidth = 57;
             this.wizardTabControl.Name = "wizardTabControl";
             this.wizardTabControl.SharedControlsPage = this.ultraTabSharedControlsPage1;
-            this.wizardTabControl.Size = new System.Drawing.Size(596, 338);
+            this.wizardTabControl.Size = new System.Drawing.Size(596, 432);
             this.wizardTabControl.SpaceAfterTabs = new Infragistics.Win.DefaultableInteger(0);
             this.wizardTabControl.SpaceBeforeTabs = new Infragistics.Win.DefaultableInteger(0);
             this.wizardTabControl.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.Wizard;
             this.wizardTabControl.TabIndex = 0;
+            this.wizardTabControl.TabPadding = new System.Drawing.Size(7, 7);
             ultraTab1.Key = "TitleSelection";
             ultraTab1.TabPage = this.ultraTabPageControl1;
             ultraTab1.Text = "TitleSelection";
@@ -672,7 +743,7 @@
             // 
             this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
-            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(596, 338);
+            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(596, 432);
             // 
             // paddingPannel
             // 
@@ -681,17 +752,8 @@
             this.paddingPannel.Location = new System.Drawing.Point(0, 0);
             this.paddingPannel.Name = "paddingPannel";
             this.paddingPannel.Padding = new System.Windows.Forms.Padding(10, 10, 10, 20);
-            this.paddingPannel.Size = new System.Drawing.Size(616, 368);
+            this.paddingPannel.Size = new System.Drawing.Size(616, 462);
             this.paddingPannel.TabIndex = 0;
-            // 
-            // helpBox
-            // 
-            this.helpBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.helpBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.helpBox.Location = new System.Drawing.Point(616, 0);
-            this.helpBox.Name = "helpBox";
-            this.helpBox.Size = new System.Drawing.Size(240, 425);
-            this.helpBox.TabIndex = 5;
             // 
             // navigationPanel
             // 
@@ -699,7 +761,7 @@
             this.navigationPanel.Controls.Add(this.nextButton);
             this.navigationPanel.Controls.Add(this.cancelButton);
             this.navigationPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.navigationPanel.Location = new System.Drawing.Point(0, 368);
+            this.navigationPanel.Location = new System.Drawing.Point(0, 462);
             this.navigationPanel.Name = "navigationPanel";
             this.navigationPanel.Size = new System.Drawing.Size(616, 57);
             this.navigationPanel.TabIndex = 6;
@@ -731,9 +793,18 @@
             this.cancelButton.Text = "Abbrechen";
             this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
             // 
+            // helpBox
+            // 
+            this.helpBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.helpBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.helpBox.Location = new System.Drawing.Point(616, 0);
+            this.helpBox.Name = "helpBox";
+            this.helpBox.Size = new System.Drawing.Size(240, 519);
+            this.helpBox.TabIndex = 5;
+            // 
             // PushAndMergeDialog
             // 
-            this.ClientSize = new System.Drawing.Size(856, 425);
+            this.ClientSize = new System.Drawing.Size(856, 519);
             this.Controls.Add(this.paddingPannel);
             this.Controls.Add(this.navigationPanel);
             this.Controls.Add(this.helpBox);
@@ -741,7 +812,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PushAndMergeDialog";
-            this.Text = "PushAndMergeDialog";
+            this.Text = "Copy & Merge Knowledge";
             this.ultraTabPageControl1.ResumeLayout(false);
             this.selectTitleContentPanel.ResumeLayout(false);
             this.selectTitleContentPanel.PerformLayout();
@@ -786,10 +857,8 @@
         private SwissAcademic.Controls.CheckBox categoriesCheckbox;
         private SwissAcademic.Controls.CheckBox keywordCheckbox;
         private SwissAcademic.Controls.CheckBox tasksCheckbox;
-        private SwissAcademic.Controls.Label label1;
+        private SwissAcademic.Controls.Label selectTitleDataTitleLabel;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl3;
-        private SwissAcademic.Controls.TextEditor notesMergeOptionsTextEditor;
-        private SwissAcademic.Controls.Label noteLabel;
         private SwissAcademic.Controls.TextEditor evalutationMergeOptionsTextEditor;
         private SwissAcademic.Controls.Label evaluationLabel;
         private SwissAcademic.Controls.TextEditor tableOfContentsMergeOptionsTextEditor;
@@ -801,7 +870,7 @@
         private SwissAcademic.Controls.CheckBox includeKeywordsCheckbox;
         private SwissAcademic.Controls.TextEditor mergeKnowledgeItemsTextEditor;
         private SwissAcademic.Controls.Label knowledgeItemsLabel;
-        private SwissAcademic.Controls.Label label2;
+        private SwissAcademic.Controls.Label mergeTitlesTabTitleLabel;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl4;
         private SwissAcademic.Controls.Button openProjectButton;
         private SwissAcademic.Controls.TextEditor projectTextEditor;
@@ -813,5 +882,12 @@
         private Controls.Button cancelButton;
         private Controls.RadioButton copyOtherTitlesRadioButton;
         private Controls.RadioButton ignoreOtherTitlesRadioButton;
+        private Controls.TextEditor groupsMergeOptionsEditor;
+        private Controls.Label groupLabel;
+        private Controls.TextEditor categoryMergeOptionsEditor;
+        private Controls.Label categoryLabel;
+        private Controls.TextEditor keywordMergeOptionsEditor;
+        private Controls.Label keywordsLabel;
+        private System.Windows.Forms.CheckBox overrideRatingCheckbox;
     }
 }
