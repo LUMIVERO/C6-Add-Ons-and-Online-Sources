@@ -2,6 +2,7 @@
 using SwissAcademic.Citavi.Shell.Controls.Editors;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace SwissAcademic.Addons.MacroManager
 {
@@ -50,6 +51,18 @@ namespace SwissAcademic.Addons.MacroManager
             if (method != null)
             {
                 method.Invoke(macroEditorForm, new object[] { "Save", null, null, null });
+            }
+        }
+
+        public static void SetAsDefault(this MacroEditorForm macroEditorForm)
+        {
+            try
+            {
+                var field = typeof(Program).GetField("_macroEditor", BindingFlags.Static | BindingFlags.NonPublic);
+                field?.SetValue(null, macroEditorForm);
+            }
+            catch (Exception)
+            {
             }
         }
     }
