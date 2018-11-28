@@ -71,7 +71,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
             {
                 if (MainForm.NavigationGridItemFilter is ItemFilter itemFilter)
                 {
-                    MessageBox.Show(Properties.Resources.WarningMoreThanOneProjectOpen,mainForm.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(Properties.Resources.WarningMoreThanOneProjectOpen, mainForm.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MainForm.NavigationGridItemFilter = null;
                     mainForm.ReferenceEditorNavigationGrid.Refresh();
                 }
