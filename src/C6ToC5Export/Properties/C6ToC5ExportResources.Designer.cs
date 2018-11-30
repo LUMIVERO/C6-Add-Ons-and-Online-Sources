@@ -80,7 +80,7 @@ namespace SwissAcademic.Addons.C6ToC5Export.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bei dem geöffneten Projekt handelt es sich um ein Cloud-Projekt. Bitte wandeln Sie das Projekt in ein lokales Projekt um, bevor Sie es exportieren (&lt;a href=&quot;https://www1.citavi.com/sub/manual6/de/converting_cloud_projects.html&quot;&gt;Citavi-Handbuch&lt;/a&gt;). ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bei dem geöffneten Projekt handelt es sich um ein Cloud-Projekt mit Attachments. Bitte wandeln Sie das Projekt in ein lokales Projekt um, bevor Sie es exportieren (&lt;a href=&quot;https://www1.citavi.com/sub/manual6/de/converting_cloud_projects.html&quot;&gt;Citavi-Handbuch&lt;/a&gt;). ähnelt.
         /// </summary>
         internal static string ExportCloudProjectErrorMessage {
             get {

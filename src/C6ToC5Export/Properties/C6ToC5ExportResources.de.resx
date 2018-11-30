@@ -139,6 +139,6 @@ Soll die komplette Fehlermeldung in die Zwischenablage kopiert werden?</value>
     <value>Exportieren...</value>
   </data>
   <data name="ExportCloudProjectErrorMessage" xml:space="preserve">
-    <value>Bei dem geöffneten Projekt handelt es sich um ein Cloud-Projekt. Bitte wandeln Sie das Projekt in ein lokales Projekt um, bevor Sie es exportieren (&lt;a href="https://www1.citavi.com/sub/manual6/de/converting_cloud_projects.html"&gt;Citavi-Handbuch&lt;/a&gt;).</value>
+    <value>Bei dem geöffneten Projekt handelt es sich um ein Cloud-Projekt mit Attachments. Bitte wandeln Sie das Projekt in ein lokales Projekt um, bevor Sie es exportieren (&lt;a href="https://www1.citavi.com/sub/manual6/de/converting_cloud_projects.html"&gt;Citavi-Handbuch&lt;/a&gt;).</value>
   </data>
 </root>

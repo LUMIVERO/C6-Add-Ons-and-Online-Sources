@@ -143,6 +143,6 @@ Do you want to copy the error message to the Clipboard?</value>
     <value>..\addon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExportCloudProjectErrorMessage" xml:space="preserve">
-    <value>[en] Bei dem geöffneten Projekt handelt es sich um ein Cloud-Projekt. Bitte wandeln Sie das Projekt in ein lokales Projekt um, bevor Sie es exportieren (&lt;a href="https://www1.citavi.com/sub/manual6/de/converting_cloud_projects.html"&gt;Citavi-Handbuch&lt;/a&gt;).</value>
+    <value>[en] Bei dem geöffneten Projekt handelt es sich um ein Cloud-Projekt mit Attachments. Bitte wandeln Sie das Projekt in ein lokales Projekt um, bevor Sie es exportieren (&lt;a href="https://www1.citavi.com/sub/manual6/de/converting_cloud_projects.html"&gt;Citavi-Handbuch&lt;/a&gt;).</value>
   </data>
 </root>
