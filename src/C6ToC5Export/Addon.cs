@@ -4,6 +4,7 @@ using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SwissAcademic.Addons.C6ToC5Export
 {
@@ -33,20 +34,34 @@ namespace SwissAcademic.Addons.C6ToC5Export
                 {
                     case (Key_Button_Export):
                         {
-                            using (var saveFileDialog = new SaveFileDialog { Filter = C6ToC5ExportResources.ProjectFilters, CheckPathExists = true, Title = C6ToC5ExportResources.ExportTitle })
+                            if (mainForm.Project.ProjectType == ProjectType.DesktopCloud && mainForm.Project.AllLocations.HasFileLocations())
                             {
-                                if (saveFileDialog.ShowDialog(e.Form) == DialogResult.OK)
+                                using (var messageBox = new CitaviMessageBox(mainForm))
                                 {
-                                    try
+                                    messageBox.DescriptionEditor.DetectHiddenLinks = true;
+                                    messageBox.DescriptionTagged = C6ToC5ExportResources.ExportCloudProjectErrorMessage;
+                                    messageBox.Icon = MessageBoxIcon.Error;
+                                    messageBox.CancelledButton.Visible = false;
+                                    messageBox.ShowDialog(mainForm);
+                                }
+                            }
+                            else
+                            {
+                                using (var saveFileDialog = new SaveFileDialog { Filter = C6ToC5ExportResources.ProjectFilters, CheckPathExists = true, Title = C6ToC5ExportResources.ExportTitle })
+                                {
+                                    if (saveFileDialog.ShowDialog(e.Form) == DialogResult.OK)
                                     {
-                                        mainForm.Project.SaveAsXml(saveFileDialog.FileName, ProjectXmlExportCompatibility.Citavi5);
-                                        MessageBox.Show(e.Form, C6ToC5ExportResources.ExportFinallyMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        if (MessageBox.Show(e.Form, C6ToC5ExportResources.ExportExceptionMessage.FormatString(ex.Message), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                                        try
                                         {
-                                            Clipboard.SetText(e.ToString());
+                                            mainForm.Project.SaveAsXml(saveFileDialog.FileName, ProjectXmlExportCompatibility.Citavi5);
+                                            MessageBox.Show(e.Form, C6ToC5ExportResources.ExportFinallyMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            if (MessageBox.Show(e.Form, C6ToC5ExportResources.ExportExceptionMessage.FormatString(ex.Message), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                                            {
+                                                Clipboard.SetText(e.ToString());
+                                            }
                                         }
                                     }
                                 }
@@ -93,5 +108,22 @@ namespace SwissAcademic.Addons.C6ToC5Export
         }
 
         #endregion
+    }
+
+    public static class Extensions
+    {
+        public static bool HasFileLocations(this ProjectAllLocationsCollection locations)
+        {
+            return (from location in locations
+                    where
+                       location.LocationType == LocationType.ElectronicAddress &&
+                       ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote) ||
+                       (
+                           location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
+                           location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
+                           location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
+                       ))
+                    select location).Count() > 0;
+        }
     }
 }

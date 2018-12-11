@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushAndMerge", "PushAndMerg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HideHelpBox", "HideHelpBox\HideHelpBox.csproj", "{CF91AD69-885E-4192-AB3F-7080BBA8D8F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortReferencesByParentChild", "SortReferencesByParentChild\SortReferencesByParentChild.csproj", "{465C5BBD-C386-434A-A4DB-864D80FB33DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +197,14 @@ Global
 		{CF91AD69-885E-4192-AB3F-7080BBA8D8F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF91AD69-885E-4192-AB3F-7080BBA8D8F7}.Release|x86.ActiveCfg = Release|Any CPU
 		{CF91AD69-885E-4192-AB3F-7080BBA8D8F7}.Release|x86.Build.0 = Release|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Debug|x86.Build.0 = Debug|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Release|x86.ActiveCfg = Release|Any CPU
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,6 +228,7 @@ Global
 		{7A7C1902-DA88-458A-9C3F-24E5E6EF1ABA} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{EF13E339-46A2-44BB-816D-98A961E0D2CE} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{CF91AD69-885E-4192-AB3F-7080BBA8D8F7} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{465C5BBD-C386-434A-A4DB-864D80FB33DF} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}
