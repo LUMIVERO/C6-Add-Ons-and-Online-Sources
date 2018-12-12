@@ -39,8 +39,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceEvaluation", "Refe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingsView", "SettingsView\SettingsView.csproj", "{7A7C1902-DA88-458A-9C3F-24E5E6EF1ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushAndMerge", "PushAndMerge\PushAndMerge.csproj", "{EF13E339-46A2-44BB-816D-98A961E0D2CE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HideHelpBox", "HideHelpBox\HideHelpBox.csproj", "{CF91AD69-885E-4192-AB3F-7080BBA8D8F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortReferencesByParentChild", "SortReferencesByParentChild\SortReferencesByParentChild.csproj", "{465C5BBD-C386-434A-A4DB-864D80FB33DF}"
