@@ -17,20 +17,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
+    <OutputPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\AddOns</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
+    <StartProgram>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
+    <StartProgram>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\AddOns</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,41 +38,41 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Citavi">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinGrid.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinGrid.v11.2.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Infragistics4.Win.UltraWinGrid.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Infragistics4.Win.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Citavi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Resources">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Resources.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Resources.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.WordProcessing">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.WordProcessing.dll</HintPath>
+      <HintPath>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.WordProcessing.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System " />

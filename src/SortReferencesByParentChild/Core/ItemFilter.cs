@@ -68,7 +68,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
             }
 
             handled = true;
-            var spacer = new string((char)8201, 11);
+            var spacer = new string('\u2008', 11);
             switch (column)
             {
                 #region AuthorsOrEditorsOrOrganizations
@@ -177,7 +177,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                             }
                         }
 
-                        return new string(' ', 7) + result;
+                        return spacer + result;
                     }
 
                 #endregion

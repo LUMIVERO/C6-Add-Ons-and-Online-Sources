@@ -60,39 +60,18 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
 
         public override void OnApplicationIdle(MainForm mainForm)
         {
-
-            //Check if user has several MainForms open, if so, deactivate ItemFilter.
-            //Reason: MainForm.NavigationGridItemFilter is static property and therefore application-wide, but sorting isn't.
-            //In order to avoid, that the ItemFilter collides with a sorting, that does NOT show children below their parents, we just switch off the ItemFilter.
-
-            //The DEBUG version of C3 has a new NavigationGridItemFilterInstace property and can therefore handle several MainForms independently.
-            //if (Program.ProjectShells.Count > 1 || Program.ProjectShells[0].MainForms.Count > 1)
-            if (Program.ProjectShells.Count > 1)
-            {
-                if (MainForm.NavigationGridItemFilter is ItemFilter itemFilter)
-                {
-                    MessageBox.Show(Properties.Resources.WarningMoreThanOneProjectOpen, mainForm.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MainForm.NavigationGridItemFilter = null;
-                    mainForm.ReferenceEditorNavigationGrid.Refresh();
-                }
-                return;
-            }
-
             if (mainForm.Project.References.Comparer is ReferenceComparerByParentChild specialComparer)
             {
-
-
-
-                if (MainForm.NavigationGridItemFilter == null)
+                if (mainForm.ProjectShell.NavigationGridItemFilter == null)
                 {
-                    MainForm.NavigationGridItemFilter = new ItemFilter(mainForm);
+                    mainForm.ProjectShell.NavigationGridItemFilter = new ItemFilter(mainForm);
                     mainForm.ReferenceEditorNavigationGrid.Refresh();
                 }
 
                 //we MUST display child items indented if not yet the case
-                if (!(MainForm.NavigationGridItemFilter is ItemFilter itemFilter))
+                if (!(mainForm.ProjectShell.NavigationGridItemFilter is ItemFilter itemFilter))
                 {
-                    MainForm.NavigationGridItemFilter = new ItemFilter();
+                    mainForm.ProjectShell.NavigationGridItemFilter = new ItemFilter();
                     mainForm.ReferenceEditorNavigationGrid.Refresh();
                 }
             }
@@ -100,16 +79,16 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
             {
                 //System.Diagnostics.Debug.WriteLine(string.Format("ApplicationIdle: {0} - Has other comparer", mainForm.Project.Name));
 
-                if (MainForm.NavigationGridItemFilter != null)
+                if (mainForm.ProjectShell.NavigationGridItemFilter != null)
                 {
-                    MainForm.NavigationGridItemFilter = null;
+                    mainForm.ProjectShell.NavigationGridItemFilter = null;
                     mainForm.ReferenceEditorNavigationGrid.Refresh();
                 }
 
                 //we MUST NOT display child items indented
-                if (MainForm.NavigationGridItemFilter is ItemFilter itemFilter)
+                if (mainForm.ProjectShell.NavigationGridItemFilter is ItemFilter itemFilter)
                 {
-                    MainForm.NavigationGridItemFilter = null;
+                    mainForm.ProjectShell.NavigationGridItemFilter = null;
                     mainForm.ReferenceEditorNavigationGrid.Refresh();
                 }
 
