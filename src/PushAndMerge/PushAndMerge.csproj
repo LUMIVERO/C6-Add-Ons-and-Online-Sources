@@ -17,20 +17,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\AddOns</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <StartAction>Program</StartAction>
-    <StartProgram>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\AddOns</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Citavi">
-      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Shared.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
@@ -62,15 +62,15 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
-      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Citavi.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
-      <HintPath>D:\code\Application\Citavi 6-dev\SwissAcademic.Citavi.Shell\bin\Desktop Debug\SwissAcademic.Controls.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Resources">

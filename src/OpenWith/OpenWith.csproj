@@ -38,31 +38,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Citavi">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Shared.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Shared.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Shared.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.Misc.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinEditors.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinEditors.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinEditors.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -70,15 +70,15 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System " />
