@@ -182,6 +182,18 @@
     <value>Settings</value>
   </data>
   <data name="Evaluator_Count" xml:space="preserve">
-    <value>Count</value>
+    <value>Number</value>
+  </data>
+  <data name="PersonAndSexEvaluator_Caption" xml:space="preserve">
+    <value>Number of references by author and gender</value>
+  </data>
+  <data name="Evaluator_Sex" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Evaluation_CountByProject" xml:space="preserve">
+    <value>Number by project</value>
+  </data>
+  <data name="Evaluation_CountBySelection" xml:space="preserve">
+    <value>Number by selection</value>
   </data>
 </root>

@@ -43,7 +43,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         {
             return _mainForm?
                    .GetFilteredReferences()
-                   .FindAll(reference => reference.ReferenceType.AllowedChildren.Count > 0) ?? new List<Reference>();
+                   .FindAll(reference => reference?.ReferenceType?.AllowedChildren?.Count > 0) ?? new List<Reference>();
         }
 
         public bool Filters(ReferenceNavigationGridDisplayItemColumn column)
@@ -69,7 +69,6 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
 
             handled = true;
             var spacer = new string((char)8201, 11);
-
             switch (column)
             {
                 #region AuthorsOrEditorsOrOrganizations
@@ -178,7 +177,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                             }
                         }
 
-                        return "&nbsp;&nbsp;&nbsp;&nbsp;" + result;
+                        return new string(' ', 7) + result;
                     }
 
                 #endregion

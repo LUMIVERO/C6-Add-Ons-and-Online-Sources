@@ -84,6 +84,7 @@
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtResult.Size = new System.Drawing.Size(945, 400);
             this.txtResult.TabIndex = 4;
+            this.txtResult.WordWrap = false;
             // 
             // lblResult
             // 

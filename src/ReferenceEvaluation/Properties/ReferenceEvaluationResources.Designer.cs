@@ -98,7 +98,25 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Count.
+        ///   Looks up a localized string similar to Number by project.
+        /// </summary>
+        internal static string Evaluation_CountByProject {
+            get {
+                return ResourceManager.GetString("Evaluation_CountByProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number by selection.
+        /// </summary>
+        internal static string Evaluation_CountBySelection {
+            get {
+                return ResourceManager.GetString("Evaluation_CountBySelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
         /// </summary>
         internal static string Evaluator_Count {
             get {
@@ -112,6 +130,15 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
         internal static string Evaluator_Name {
             get {
                 return ResourceManager.GetString("Evaluator_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        internal static string Evaluator_Sex {
+            get {
+                return ResourceManager.GetString("Evaluator_Sex", resourceCulture);
             }
         }
         
@@ -193,6 +220,15 @@ namespace SwissAcademic.Addons.ReferenceEvaluation.Properties {
         internal static string KeywordsEvaluator_NoKeywords {
             get {
                 return ResourceManager.GetString("KeywordsEvaluator_NoKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of references by author and gender.
+        /// </summary>
+        internal static string PersonAndSexEvaluator_Caption {
+            get {
+                return ResourceManager.GetString("PersonAndSexEvaluator_Caption", resourceCulture);
             }
         }
         

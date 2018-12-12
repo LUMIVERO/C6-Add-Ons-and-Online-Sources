@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <StartProgram>D:\programme\Citavi 5\bin\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <StartAction>1</StartAction>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -25,68 +25,68 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <StartProgram>D:\programme\Citavi 5\bin\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <StartAction>1</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <StartProgram>D:\programme\Citavi 5\bin\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <StartAction>1</StartAction>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Citavi">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Shared.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Shared.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Shared.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.Misc.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinEditors.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinEditors.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinEditors.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.v11.2">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Citavi">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Controls">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic.Resources">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Resources.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.Resources.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

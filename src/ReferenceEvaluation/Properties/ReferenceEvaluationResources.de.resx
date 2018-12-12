@@ -180,4 +180,16 @@
   <data name="Evaluator_Count" xml:space="preserve">
     <value>Anzahl</value>
   </data>
+  <data name="PersonAndSexEvaluator_Caption" xml:space="preserve">
+    <value>Personen mit Geschlecht und Anzahl der zugeordneten Titel</value>
+  </data>
+  <data name="Evaluator_Sex" xml:space="preserve">
+    <value>Geschlecht</value>
+  </data>
+  <data name="Evaluation_CountByProject" xml:space="preserve">
+    <value>Anzahl nach Projekt</value>
+  </data>
+  <data name="Evaluation_CountBySelection" xml:space="preserve">
+    <value>Anzahl nach Auswahl</value>
+  </data>
 </root>

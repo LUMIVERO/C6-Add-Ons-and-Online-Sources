@@ -1,5 +1,7 @@
 ﻿using SwissAcademic.Addons.ReferenceEvaluation.Properties;
+using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SwissAcademic.Addons.ReferenceEvaluation
@@ -16,34 +18,90 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
 
         public override string Run(MainForm mainForm)
         {
+            var referencesBySelection = mainForm.GetFilteredReferences();
+            var isFiltered = !mainForm.ReferenceEditorFilterSet.IsEmpty;
+
             _stringBuilder.Clear();
 
-            var keywords = mainForm.Project.Keywords.ToList();
+            var entities = mainForm.Project.Keywords.Select(keyword => new EvaluationEntity<Keyword>(keyword)).ToList();
 
-            if (keywords.Count == 0)
+            if (entities.Count == 0)
             {
                 _stringBuilder.AppendLine(ReferenceEvaluationResources.KeywordsEvaluator_NoKeywords);
                 return _stringBuilder.ToString();
             }
 
-            keywords.Sort((x, y) => x.References.Count.CompareTo(y.References.Count) * (-1));
-            var maxLength = keywords.Max(keyword => keyword.FullName.Length);
+            foreach (var entity in entities)
+            {
+                entity.CountByProject = entity.Entity.References.Count;
+
+                if (!mainForm.ReferenceEditorFilterSet.IsEmpty)
+                {
+                    entity.CountBySelection = entity.Entity.References.Where(reference => referencesBySelection.Contains(reference)).Count();
+                }
+            }
+
+            if (isFiltered)
+            {
+                entities.Sort((x, y) => x.CountBySelection.CompareTo(y.CountBySelection) * (-1));
+            }
+            else
+            {
+                entities.Sort((x, y) => x.CountByProject.CompareTo(y.CountByProject) * (-1));
+            }
+
+            var columnsWidth = CreateColumnsWidth(entities, isFiltered);
 
             if (ShowHeader)
             {
-                var headers = ReferenceEvaluationResources.Evaluator_Name
-                              + ' '.Repeat(maxLength - ReferenceEvaluationResources.Evaluator_Name.Length + 10)
-                              + ReferenceEvaluationResources.Evaluator_Count;
+                var headers = CreateHeader(entities, isFiltered, columnsWidth);
                 _stringBuilder.AppendLine(headers);
                 _stringBuilder.AppendLine();
             }
 
-            foreach (var keyword in keywords)
+            foreach (var entity in entities)
             {
-                _stringBuilder.AppendLine(keyword.FullName + ' '.Repeat(maxLength - keyword.FullName.Length + 10) + keyword.References.Count);
+                var keyword = entity.Entity;
+
+                if (mainForm.ReferenceEditorFilterSet.IsEmpty)
+                {
+                    _stringBuilder.AppendLine(keyword.FullName + ' '.Repeat(columnsWidth[0] - keyword.FullName.Length + 10) + entity.CountByProject);
+                }
+                else
+                {
+                    _stringBuilder.AppendLine(
+                        keyword.FullName
+                        + ' '.Repeat(columnsWidth[0] - keyword.FullName.Length + 10)
+                        + entity.CountBySelection
+                        + ' '.Repeat(columnsWidth[1] - entity.CountBySelection.ToString().Length + 10)
+                        + entity.CountByProject);
+                }
             }
 
             return _stringBuilder.ToString();
+        }
+
+        string CreateHeader(List<EvaluationEntity<Keyword>> entities, bool isFiltered, List<int> columnsWidth)
+        {
+            return ReferenceEvaluationResources.Evaluator_Name
+                           + ' '.Repeat(columnsWidth[0] - ReferenceEvaluationResources.Evaluator_Name.Length + 10)
+                           + (isFiltered
+                                 ? ReferenceEvaluationResources.Evaluation_CountBySelection
+                                    + ' '.Repeat(columnsWidth[1] - ReferenceEvaluationResources.Evaluation_CountBySelection.Length + 10)
+                                    + ReferenceEvaluationResources.Evaluation_CountByProject
+                                  : ReferenceEvaluationResources.Evaluator_Count);
+
+        }
+
+        List<int> CreateColumnsWidth(List<EvaluationEntity<Keyword>> entities, bool isFiltered)
+        {
+            return new List<int>
+            {
+                entities.Max(entity => entity.Entity.FullName.Length),
+                isFiltered
+                 ? System.Math.Max(entities.Max(entity => entity.CountBySelection.ToString().Length), ReferenceEvaluationResources.Evaluation_CountBySelection.Length)
+                 : System.Math.Max(entities.Max(entity => entity.CountByProject.ToString().Length), ReferenceEvaluationResources.Evaluator_Count.Length)
+            };
         }
 
         #endregion
