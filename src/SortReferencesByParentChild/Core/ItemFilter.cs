@@ -5,6 +5,7 @@ using SwissAcademic.Citavi.Metadata;
 using System.Linq;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
+using System.Globalization;
 
 namespace SwissAcademic.Addons.SortReferencesByParentChild
 {
@@ -68,7 +69,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
             }
 
             handled = true;
-            var spacer = new string('\u2008', 11);
+            var spacer = new string('\u00A0', 11);
             switch (column)
             {
                 #region AuthorsOrEditorsOrOrganizations
@@ -141,11 +142,8 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                     {
                         string result;
 
-                        var title = reference.HasFormatsForProperty(ReferencePropertyDescriptor.Title) && reference.TitleTagged.HasTags() ?
-                            reference.TitleTagged.CssStyleTagsToHtmlStyleTags() : reference.Title;
-
-                        var subtitle = reference.HasFormatsForProperty(ReferencePropertyDescriptor.Subtitle) && reference.SubtitleTagged.HasTags() ?
-                            reference.SubtitleTagged.CssStyleTagsToHtmlStyleTags() : reference.Subtitle;
+                        var title = string.IsNullOrEmpty(reference.TitleTagged) ? string.Empty : reference.TitleTagged.CssStyleTagsToHtmlStyleTags();
+                        var subtitle = string.IsNullOrEmpty(reference.SubtitleTagged) ? string.Empty : reference.SubtitleTagged.CssStyleTagsToHtmlStyleTags();
 
                         if (string.IsNullOrEmpty(title))
                         {
@@ -177,7 +175,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                             }
                         }
 
-                        return spacer + result;
+                        return "&nbsp;&nbsp;&nbsp;&nbsp;" + result;
                     }
 
                 #endregion
