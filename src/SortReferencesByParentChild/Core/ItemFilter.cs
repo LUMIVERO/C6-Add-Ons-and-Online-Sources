@@ -81,20 +81,20 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                         if (reference.HasCoreField(ReferenceTypeCoreFieldId.Authors) && reference.Authors.Count != 0)
                         {
                             if (reference.Authors.Count <= 10) result = reference.Authors.ToString();
-                            else result = ((IList<Person>)reference.Authors.Take(11)).ToString("; ");
+                            else result = reference.Authors.Take(11).ToString("; ");
                         }
 
                         else if (reference.HasCoreField(ReferenceTypeCoreFieldId.Editors) && reference.Editors.Count != 0)
                         {
                             if (reference.Editors.Count == 1) result = string.Concat(reference.Editors, " (", Strings.Ed, ")");
                             else if (reference.Editors.Count > 1 && reference.Editors.Count <= 10) result = string.Concat(reference.Editors, " (", Strings.Eds, ")");
-                            else result = string.Concat(((IList<Person>)reference.Editors.Take(11)).ToString("; "), " (", Strings.Eds, ")");
+                            else result = string.Concat(reference.Editors.Take(11).ToString("; "), " (", Strings.Eds, ")");
                         }
 
                         else if (reference.HasCoreField(ReferenceTypeCoreFieldId.Organizations) && reference.Organizations.Count != 0)
                         {
                             if (reference.Organizations.Count <= 10) result = reference.Organizations.ToString();
-                            else result = ((IList<Person>)reference.Organizations.Take(11)).ToString("; ");
+                            else result = reference.Organizations.Take(11).ToString("; ");
                         }
 
                         else

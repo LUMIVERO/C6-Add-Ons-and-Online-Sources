@@ -68,16 +68,5 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild.Properties {
                 return ResourceManager.GetString("ParentChild", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die You have more than one project open.
-        /// 
-        ///Child references can only be shown indented below their parent references in the navigation list, if just one project is open at a time. Therefore this feature will be deactivated temporarily. ähnelt.
-        /// </summary>
-        internal static string WarningMoreThanOneProjectOpen {
-            get {
-                return ResourceManager.GetString("WarningMoreThanOneProjectOpen", resourceCulture);
-            }
-        }
     }
 }
