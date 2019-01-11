@@ -288,3 +288,4 @@ __pycache__/
 *.xsd.cs
 *.zip
 /src/OpenWith/OpenWithAddon.metrop
+/src/PushAndMerge
