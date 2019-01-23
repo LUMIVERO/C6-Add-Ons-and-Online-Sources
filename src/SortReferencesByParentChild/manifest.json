@@ -1,1 +1,30 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"SortReferencesByParentChildAddon.dll","Icon":"addon.png","Summary":"Group edited books with their contributions in the list of references.","summary_localized":{"de":"In der Titelliste werden Beiträge unterhalb ihrer Sammelwerke angezeigt."},"Url":"www.citavi.com/SortReferencesByParentChild","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"This add-on adds a sort option to the list of references in the navigation pane. Right-click a reference in the list of references. Select “Sort”. Select the sorting “By short title (keep parent and child references together)”. \r\nContributions will then appear indented underneath the book in which they appear. In order to use this sorting, only one project can be open at a time.","description_localized":{"de":"Dieses Add-on ergänzt eine Sortierung für die Titelliste.\r\nKlicken Sie mit der rechten Maustaste auf einen Titel in der Titelliste. Wählen Sie «Sortieren». Wählen Sie die Sortierung  «Nach Kurztitel (Sammelwerke und Beiträge beisammen)».\r\nBeiträge eines übergeordneten Titels werden eingerückt darunter sortiert. Es darf nur ein Projekt geöffnet sein, um die Sortierung zu nutzen."},"Id":"1f33e1c2-8b3f-4185-a3ca-8123d0ee5246","Name":"Sort by parent and child references","name_localized":{"de":"Sortieren nach über- und untergeordneten Werken"},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":7,"MajorRevision":0,"MinorRevision":7}}
+﻿{
+    "Author": "Swiss Academic Software",
+    "EntryPoint": "SortReferencesByParentChildAddon.dll",
+    "Icon": "addon.png",
+    "Summary": "Group edited books with their contributions in the list of references.",
+    "summary_localized": { "de": "In der Titelliste werden Beiträge unterhalb ihrer Sammelwerke angezeigt." },
+    "Url": "www.citavi.com/SortReferencesByParentChild",
+    "citavi_min_version": {
+        "Major": 6,
+        "Minor": 3,
+        "Build": 0,
+        "Revision": 0,
+        "MajorRevision": 0,
+        "MinorRevision": 0
+    },
+    "Description": "This add-on adds a sort option to the list of references in the navigation pane. Right-click a reference in the list of references. Select “Sort”. Select the sorting “By short title (keep parent and child references together)”. \r\nContributions will then appear indented underneath the book in which they appear.",
+    "description_localized": { "de": "Dieses Add-on ergänzt eine Sortierung für die Titelliste.\r\nKlicken Sie mit der rechten Maustaste auf einen Titel in der Titelliste. Wählen Sie «Sortieren». Wählen Sie die Sortierung  «Nach Kurztitel (Sammelwerke und Beiträge beisammen)».\r\nBeiträge eines übergeordneten Titels werden eingerückt darunter sortiert." },
+    "Id": "1f33e1c2-8b3f-4185-a3ca-8123d0ee5246",
+    "Name": "Sort by parent and child references",
+    "name_localized": { "de": "Sortieren nach über- und untergeordneten Werken" },
+    "manifest_version": 1,
+    "Version": {
+        "Major": 1,
+        "Minor": 0,
+        "Build": 0,
+        "Revision": 8,
+        "MajorRevision": 0,
+        "MinorRevision": 8
+    }
+}
