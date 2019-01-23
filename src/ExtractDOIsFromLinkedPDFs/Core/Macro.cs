@@ -112,7 +112,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                         continue;
                     }
 
-                    var matches = supporter.FindIdentifierInFile(container.Path, ReferenceIdentifierType.Doi, false);
+                    var matches = supporter.FindIdentifierInFile(container.Path,5, ReferenceIdentifierType.Doi, false);
                     if (matches.Count == 0)
                     {
                         progress.ReportSafe(container.Location.ToString(), percentage);
