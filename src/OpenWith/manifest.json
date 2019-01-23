@@ -1,1 +1,30 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"OpenWithAddon.dll","Icon":"addon.png","Summary":"This add-on lets you open attachments with a program other than the default program.","summary_localized":{"de":"Fügt einen Eintrag im Kontextmenü hinzu, um angehängte Dateien zusätzlich zum Standardprogramm auch mit weiteren Anwendungen zu öffnen."},"Url":"www.citavi.com/OpenWith","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"Use this add-on to open attachments or URLs with a program other than the default program defined in Windows.\r\nThe add-on adds a configurable shortcut menu to the Reference tab. After installing the add-on, you can then right-click a location (URL, PDF, etc.), and you will see the \"Open with\" option.\r\nUnder \"Configuration\" > \"Add\" select the path to the application that you want to use to open the file in the future.\r\nUnder \"Filter\" you can set which application should be displayed for which location file type.\r\nIf the application needs additional information to start, enter this in the  \"Arguments\" field in front of the placeholder for the application path %1, for example: /open %1 ","description_localized":{"de":"Mit diesem Add-on lassen sich die in Citavi angehängten Dateien sowie Internetadressen statt mit dem unter Windows definierten Standardprogramm auch mit weiteren Anwendungen öffnen.\r\n\r\nBei den Standorten auf der Karteikarte \"Titel\" wird ein konfigurierbares Kontext-Menü hinzugefügt.\r\n\r\nNachdem Sie das Add-on installiert haben, steht Ihnen das Menü \"Öffnen mit\" beim Rechtsklick auf einen Standort (URL, PDF, etc.) auf der Karteikarte \"Titel\" zur Verfügung. \r\n\r\nÜber \"Konfigurieren\" > \"Hinzufügen\" wählen Sie den Pfad zu der Anwendung aus, mit der Sie die Datei zukünftig öffnen möchten.\r\n\r\nUnter \"Filter\" können Sie einstellen, für welchen Dateityp Ihrer Dateianhänge das Programm angezeigt werden soll.\r\n\r\nBenötigt die Anwendung weitere Informationen zum Starten, tragen Sie diese im Feld \"Argumente\" beim Platzhalter des Programm-Pfades %1 ein, z.B.: /open %1"},"Id":"c74ea685-cc83-412d-90e0-a75e10a89326","Name":"Open with ","name_localized":{"de":"Öffnen mit als zusätzliche Option für angehängte Dateien"},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":17,"MajorRevision":0,"MinorRevision":17}}
+{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "OpenWithAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "...",
+  "summary_localized": { "de": "..." },
+  "Url": "...",
+  "citavi_min_version": {
+    "Major": 5,
+    "Minor": 8,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "...",
+  "description_localized": { "de": "..." },
+  "Id": "ee5a53ce-2dd9-452e-929b-dd8639b9328d",
+  "Name": "OpenWithAddon",
+  "name_localized": { "de": "..." },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 4,
+    "MajorRevision": 0,
+    "MinorRevision": 4
+  }
+}

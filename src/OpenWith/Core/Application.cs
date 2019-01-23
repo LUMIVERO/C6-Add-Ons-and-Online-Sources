@@ -1,76 +1,79 @@
-﻿using Newtonsoft.Json;
-using SwissAcademic.Citavi;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace SwissAcademic.Addons.OpenWith
 {
-    [JsonObject(MemberSerialization.OptIn)]
-    public class Application : ICloneable
+    public class Application
     {
         #region Constructors
 
-        public Application()
+        Application(string name, string path, List<string> parameters)
         {
             Id = Guid.NewGuid().ToString();
-            Filters = new List<string>();
-            Argument = "%1";
+            Name = name;
+            Path = path;
+            Parameters = parameters;
         }
 
         #endregion
 
         #region Properties
 
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        public string Id { get; }
+        public string Name { get; }
 
-        [JsonProperty(PropertyName = "path")]
-        public string Path { get; set; }
+        public string Path { get; }
 
-        [JsonProperty(PropertyName = "argument")]
-        public string Argument { get; set; }
-
-        [JsonProperty(PropertyName = "filters")]
-        public List<string> Filters { get; set; }
-
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public IList<string> Parameters { get; }
 
         #endregion
 
         #region Methods
+
+        public static Application Analyze(string path)
+        {
+            var splitPath = path
+                .Split(new char[] { '"' }, StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
+
+            splitPath.RemoveAll(s => string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s));
+
+            if (splitPath.Count < 2) return null;
+
+            var fileInfo = new FileInfo(splitPath[0].Trim());
+            if (!fileInfo.Exists) return null;
+            var productName = FileVersionInfo.GetVersionInfo(fileInfo.FullName)?.ProductName;
+
+            if (splitPath.Count == 2) return new Application(productName, fileInfo.FullName, new List<string> { splitPath[1].Trim() });
+
+            var parameters = new List<string>();
+
+            for (int i = 1; i < splitPath.Count; i++)
+            {
+                parameters.Add(splitPath[i].Trim());
+            }
+
+            return new Application(productName, fileInfo.FullName, parameters);
+        }
 
         public override string ToString()
         {
             return Name;
         }
 
-        public object Clone()
-        {
-            return new Application { Name = this.Name, Argument = this.Argument, Path = this.Path, Id = this.Id, Filters = this.Filters };
-        }
 
-        public void Run(Dictionary<Location, string> locations)
+        public void Run(IEnumerable<string> pathes)
         {
-            if (locations.Count == 0) return;
-            foreach (var pair in locations)
+            foreach (var path in pathes)
             {
-                var path = pair.Value;
-                var location = pair.Key;
-
-                if (!File.Exists(path) && location.Address.LinkedResourceType != LinkedResourceType.RemoteUri) continue;
-
-                var startInfo = new ProcessStartInfo(this.Path)
+                var startInfo = new ProcessStartInfo(Path)
                 {
-                    WindowStyle = ProcessWindowStyle.Normal
+                    WindowStyle = ProcessWindowStyle.Normal,
+                    Arguments = Parameters.Count != 0 ? string.Join(" ", Parameters.Select(parameter => parameter.FormatWithCheck(path))) : string.Empty
                 };
-
-                if (!string.IsNullOrEmpty(this.Argument))
-                {
-                    startInfo.Arguments = this.Argument.FormatWithCheck(path);
-                }
 
                 Process.Start(startInfo);
             }

@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
@@ -10,9 +9,11 @@ namespace SwissAcademic.Addons.OpenWith
 {
     internal static class Extensions
     {
-        public static Dictionary<Location, string> GetAvailableSelectedLocations(this MainForm mainForm)
+        #region SwissAcademic.Citavi.Shell.Mainform
+
+        public static IEnumerable<string> GetAvailableSelectedLocationsAsFilePath(this MainForm mainForm)
         {
-            var locations = (from location in mainForm.GetSelectedElectronicLocations()
+            return (from location in mainForm.GetSelectedElectronicLocations()
                              where
                                  location.LocationType == LocationType.ElectronicAddress &&
                                  ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
@@ -26,33 +27,30 @@ namespace SwissAcademic.Addons.OpenWith
                              let path = location.Address.LinkedResourceType != LinkedResourceType.RemoteUri ? location.Address.Resolve().GetLocalPathSafe() : location.Address.UriString
                              where
                                 location.Address.LinkedResourceType == LinkedResourceType.RemoteUri || File.Exists(path)
-                             select new KeyValuePair<Location, string>(location, path)).ToList();
-
-            var dictionary = new Dictionary<Location, string>();
-            dictionary.AddRange(locations);
-            return dictionary;
+                             select path).ToList();
         }
 
-        public static Configuration Load(this Dictionary<string, string> settings)
+        #endregion
+
+        #region System.Collections.Generic.IEnumerable<string>
+
+        public static IEnumerable<IGrouping<string,string>> GroupByExtension(this IEnumerable<string> pathes)
         {
-            if (!settings.ContainsKey(Addon.Key_Settings.FormatString(Device.Name))) return Configuration.Empty;
-
-            var json = settings[Addon.Key_Settings.FormatString(Device.Name)];
-
-            return JsonConvert.DeserializeObject<Configuration>(json);
+            return pathes.GroupBy(path => Path.GetExtension(path)).ToList();
         }
 
-        public static void Save(this Dictionary<string, string> settings, Configuration configuration)
+        #endregion
+
+        #region System.Collections.Generic.IEnumerable<IGrouping<string, string>>
+
+        public static IEnumerable<string> FirstOrDefault(this IEnumerable<IGrouping<string, string>> pathes)
         {
-            var json = JsonConvert.SerializeObject(configuration);
-            settings[Addon.Key_Settings.FormatString(Device.Name)] = json;
+            return pathes.SelectMany(g => g).ToList();
         }
 
-        public static IEnumerable<T> Clone<T>(this IEnumerable<T> list) where T : ICloneable
-        {
-            return (from value in list
-                    select (T)Convert.ChangeType(value, typeof(T)));
-        }
+        #endregion
+
+        #region System.string
 
         public static string FormatWithCheck(this string toFormat, string path)
         {
@@ -62,5 +60,7 @@ namespace SwissAcademic.Addons.OpenWith
 
             return toFormat.Replace("%1", "\"" + path + "\"");
         }
+
+        #endregion
     }
 }

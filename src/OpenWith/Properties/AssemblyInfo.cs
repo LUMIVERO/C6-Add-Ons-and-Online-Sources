@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Swiss Academic Software")]
 [assembly: AssemblyProduct("OpenWithAddon")]
-[assembly: AssemblyCopyright("Copyright © Swiss Academic Software 2017")]
+[assembly: AssemblyCopyright("Copyright © Swiss Academic Software 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c74ea685-cc83-412d-90e0-a75e10a89326")]
+[assembly: Guid("659e4146-8ecd-47d7-b267-93e2348d5384")]
 
 // Version information for an assembly consists of the following four values:
 //

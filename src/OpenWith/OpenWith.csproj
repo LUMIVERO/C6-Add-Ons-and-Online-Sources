@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C74EA685-CC83-412D-90E0-A75E10A89326}</ProjectGuid>
+    <ProjectGuid>{659E4146-8ECD-47D7-B267-93E2348D5384}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SwissAcademic.Addons.OpenWith</RootNamespace>
@@ -22,15 +22,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
+    <StartProgram>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
+    <StartProgram>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,32 +41,29 @@
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Infragistics4.Shared.v11.2">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Shared.v11.2.dll</HintPath>
+    <Reference Include="Infragistics4.Shared.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Infragistics\NetAdvantage 2011.2\Windows Forms\CLR4.0\Bin\Infragistics4.Shared.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Infragistics4.Win.Misc.v11.2">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
+    <Reference Include="Infragistics4.Win.Misc.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Infragistics\NetAdvantage 2011.2\Windows Forms\CLR4.0\Bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Infragistics4.Win.UltraWinEditors.v11.2">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinEditors.v11.2.dll</HintPath>
+    <Reference Include="Infragistics4.Win.UltraWinExplorerBar.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Infragistics\NetAdvantage 2011.2\Windows Forms\CLR4.0\Bin\Infragistics4.Win.UltraWinExplorerBar.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Infragistics\NetAdvantage 2011.2\Windows Forms\CLR4.0\Bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Infragistics4.Win.v11.2">
-      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Infragistics4.Win.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Infragistics\NetAdvantage 2011.2\Windows Forms\CLR4.0\Bin\Infragistics4.Win.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
@@ -92,29 +89,11 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Addon.cs" />
-    <Compile Include="Dialogs\DataTypesDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\DataTypesDialog.Designer.cs">
-      <DependentUpon>DataTypesDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\ApplicationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ApplicationDialog.Designer.cs">
-      <DependentUpon>ApplicationDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Core\Application.cs" />
-    <Compile Include="Core\Configuration.cs" />
-    <Compile Include="Core\Device.cs" />
-    <Compile Include="Dialogs\ConfigurationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\ConfigurationDialog.Designer.cs">
-      <DependentUpon>ConfigurationDialog.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Core\StringEntry.cs" />
     <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Core\Registry2.cs" />
+    <Compile Include="Addon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\OpenWithResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -123,31 +102,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Dialogs\ApplicationDialog.resx">
-      <DependentUpon>ApplicationDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ConfigurationDialog.resx">
-      <DependentUpon>ConfigurationDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DataTypesDialog.resx">
-      <DependentUpon>DataTypesDialog.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="addon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Properties\OpenWithResources.de.resx" />
     <EmbeddedResource Include="Properties\OpenWithResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>OpenWithResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="manifest.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="addon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
