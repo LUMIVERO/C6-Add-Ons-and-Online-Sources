@@ -41,7 +41,16 @@ namespace SwissAcademic.Addons.OpenWith
 
             splitPath.RemoveAll(s => string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s));
 
-            if (splitPath.Count < 2) return null;
+            if (splitPath.Count < 2)
+            {
+
+                if (path.Contains("\"")) return null;
+                splitPath = path
+                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
+
+                if (splitPath.Count < 2) return null;
+            }
 
             var fileInfo = new FileInfo(splitPath[0].Trim());
             if (!fileInfo.Exists) return null;

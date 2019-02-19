@@ -56,7 +56,7 @@ namespace SwissAcademic.Addons.OpenWith
         {
             if (string.IsNullOrEmpty(toFormat)) return toFormat;
 
-            if (!toFormat.Contains("%1")) return toFormat;
+            if (!toFormat.Contains("%1")) return "";
 
             return toFormat.Replace("%1", "\"" + path + "\"");
         }
