@@ -25,6 +25,16 @@ namespace SwissAcademic.Addons.TomatoTimer
 
         #endregion
 
+        #region Events
+
+        public event EventHandler Updated;
+        protected void OnUpdated()
+        {
+            Updated?.Invoke(this, EventArgs.Empty);
+        }
+
+        #endregion
+
         #region Constructors
 
         public TomatoTimer()
@@ -70,6 +80,7 @@ namespace SwissAcademic.Addons.TomatoTimer
                 ShowMessage(_states.Current.Message);
                 _states.Next();
                 Minutes = _states.Current.Minutes;
+                OnUpdated();
             }
         }
 
@@ -90,6 +101,8 @@ namespace SwissAcademic.Addons.TomatoTimer
             };
             _timer.Elapsed += _timer_Elapsed;
             _timer.Start();
+
+            OnUpdated();
         }
 
         public void Stop()
@@ -103,6 +116,7 @@ namespace SwissAcademic.Addons.TomatoTimer
             _timer.Dispose();
             _timer = null;
             _states.Reset();
+            OnUpdated();
         }
 
         public void ShowMessage(string message)

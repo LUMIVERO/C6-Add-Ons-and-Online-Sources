@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SwissAcademic.Addons.TomatoTimer.Properties;
+using System;
 
 namespace SwissAcademic.Addons.TomatoTimer
 {
@@ -26,6 +27,7 @@ namespace SwissAcademic.Addons.TomatoTimer
         public Addon()
         {
             _tomatoTimer = new TomatoTimer();
+            _tomatoTimer.Updated += TomatoTimer_Updated;
             _formsAndPanels = new Dictionary<Form, Infragistics.Win.UltraWinStatusBar.UltraStatusPanel>();
         }
 
@@ -37,8 +39,6 @@ namespace SwissAcademic.Addons.TomatoTimer
         {
             if (_formsAndPanels.ContainsKey(mainForm))
             {
-                _formsAndPanels[mainForm].Appearance.Image = _tomatoTimer.Image;
-                _formsAndPanels[mainForm].Text = _tomatoTimer.Status;
                 _formsAndPanels[mainForm].ToolTipText = _tomatoTimer.ToolTip;
             }
 
@@ -108,6 +108,19 @@ namespace SwissAcademic.Addons.TomatoTimer
             {
                 if (_tomatoTimer.IsRunning) _tomatoTimer.Stop();
                 else _tomatoTimer.Start();
+            }
+        }
+
+        void TomatoTimer_Updated(object sender, System.EventArgs e)
+        {
+            if (Program.ActiveProjectShell.ActiveForm is MainForm mainForm && _formsAndPanels.ContainsKey(mainForm))
+            {
+                mainForm.Invoke((Action)delegate
+                {
+                    _formsAndPanels[mainForm].Appearance.Image = _tomatoTimer.Image;
+                    _formsAndPanels[mainForm].Text = _tomatoTimer.Status;
+
+                });
             }
         }
 
