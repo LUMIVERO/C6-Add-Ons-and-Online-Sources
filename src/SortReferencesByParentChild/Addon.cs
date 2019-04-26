@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
+using System.Linq;
 
 namespace SwissAcademic.Addons.SortReferencesByParentChild
 {
@@ -10,6 +11,34 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         #region Constants
 
         const string Key_Button_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.ButtonCommand";
+        const string Key_Settings_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.RestoreComparer";
+
+
+        #endregion
+
+        #region Fields
+
+        CommandbarButton _button;
+
+        #endregion
+
+        #region EventHandlers
+
+        void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (sender is MainForm mainForm)
+            {
+                if (Program.ProjectShells.Count == 1)
+                {
+                    if (mainForm.Project.References.Comparer is ReferenceComparerByParentChild)
+                    {
+                        Settings.Add(Key_Settings_Addon, "Restore");
+                    }
+                }
+
+                mainForm.FormClosing -= MainForm_FormClosing;
+            }
+        }
 
         #endregion
 
@@ -17,26 +46,37 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            var button = mainForm
-                         .GetReferenceEditorNavigationCommandbarManager()
-                         .GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar)
-                         .GetCommandbarMenu(MainFormReferenceEditorNavigationCommandbarMenuId.Sort)
-                         .AddCommandbarButton(Key_Button_Addon, Properties.Resources.ParentChild);
+            if (!mainForm.IsPreviewFullScreenForm)
+            {
+                _button = mainForm
+                             .GetReferenceEditorNavigationCommandbarManager()
+                             .GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar)
+                             .GetCommandbarMenu(MainFormReferenceEditorNavigationCommandbarMenuId.Sort)
+                             .AddCommandbarButton(Key_Button_Addon, Properties.Resources.ParentChild);
+                _button.HasSeparator = true;
 
-            button.HasSeparator = true;
+                if (Settings.ContainsKey(Key_Settings_Addon))
+                {
+                    mainForm.Project.References.Comparer = ReferenceComparerByParentChild.Default;
+                    mainForm.Project.References.AutoSort = true;
+                    Settings.Remove(Key_Settings_Addon);
+                }
+
+                mainForm.FormClosing += MainForm_FormClosing;
+            }
 
             base.OnHostingFormLoaded(mainForm);
         }
 
-        public override void OnBeforePerformingCommand(MainForm form, BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_Addon, StringComparison.OrdinalIgnoreCase))
             {
                 try
                 {
                     e.Handled = true;
-                    form.Project.References.Comparer = ReferenceComparerByParentChild.Default;
-                    form.Project.References.AutoSort = true;
+                    mainForm.Project.References.Comparer = ReferenceComparerByParentChild.Default;
+                    mainForm.Project.References.AutoSort = true;
                 }
                 catch (Exception exception)
                 {
@@ -44,23 +84,18 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                 }
             }
 
-            base.OnBeforePerformingCommand(form, e);
+            base.OnBeforePerformingCommand(mainForm, e);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var button = mainForm
-                         .GetReferenceEditorNavigationCommandbarManager()
-                         .GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar)
-                         .GetCommandbarMenu(MainFormReferenceEditorNavigationCommandbarMenuId.Sort)
-                         .GetCommandbarButton(Key_Button_Addon);
-            if (button != null) button.Text = Properties.Resources.ParentChild;
+            if (_button != null) _button.Text = Properties.Resources.ParentChild;
             base.OnLocalizing(mainForm);
         }
 
         public override void OnApplicationIdle(MainForm mainForm)
         {
-            if (mainForm.Project.References.Comparer is ReferenceComparerByParentChild specialComparer)
+            if (mainForm.Project.References.Comparer is ReferenceComparerByParentChild)
             {
                 if (mainForm.ProjectShell.NavigationGridItemFilter == null)
                 {
@@ -69,7 +104,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                 }
 
                 //we MUST display child items indented if not yet the case
-                if (!(mainForm.ProjectShell.NavigationGridItemFilter is ItemFilter itemFilter))
+                if (!(mainForm.ProjectShell.NavigationGridItemFilter is ItemFilter))
                 {
                     mainForm.ProjectShell.NavigationGridItemFilter = new ItemFilter();
                     mainForm.ReferenceEditorNavigationGrid.Refresh();
@@ -77,8 +112,6 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
             }
             else
             {
-                //System.Diagnostics.Debug.WriteLine(string.Format("ApplicationIdle: {0} - Has other comparer", mainForm.Project.Name));
-
                 if (mainForm.ProjectShell.NavigationGridItemFilter != null)
                 {
                     mainForm.ProjectShell.NavigationGridItemFilter = null;
@@ -86,7 +119,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                 }
 
                 //we MUST NOT display child items indented
-                if (mainForm.ProjectShell.NavigationGridItemFilter is ItemFilter itemFilter)
+                if (mainForm.ProjectShell.NavigationGridItemFilter is ItemFilter)
                 {
                     mainForm.ProjectShell.NavigationGridItemFilter = null;
                     mainForm.ReferenceEditorNavigationGrid.Refresh();
