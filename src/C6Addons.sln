@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManifestoForAddOns", "Manifesto\ManifestoForAddOns.csproj", "{A7CB18F2-A148-43DE-8BF6-FE0523BD4988}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomatoTimer", "TomatoTimer\TomatoTimer.csproj", "{29AA4196-3E36-4CDE-B49C-C0D61A44B9A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceEditorKnowledgeOrganizerFilterCoordination", "ReferenceEditorKnowledgeOrganizerFilterCoordination\ReferenceEditorKnowledgeOrganizerFilterCoordination.csproj", "{DC28EE07-8F0C-42A5-95DA-1E5D479528C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceGridFormWorkSpaceEditor", "ReferenceGridFormWorkSpaceEditor\ReferenceGridFormWorkSpaceEditor.csproj", "{B6961D86-3FDF-45B7-AF31-7652B319FEC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -215,6 +217,14 @@ Global
 		{DC28EE07-8F0C-42A5-95DA-1E5D479528C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC28EE07-8F0C-42A5-95DA-1E5D479528C2}.Release|x86.ActiveCfg = Release|x86
 		{DC28EE07-8F0C-42A5-95DA-1E5D479528C2}.Release|x86.Build.0 = Release|x86
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Debug|x86.Build.0 = Debug|Any CPU
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Release|x86.ActiveCfg = Release|Any CPU
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -240,6 +250,7 @@ Global
 		{659E4146-8ECD-47D7-B267-93E2348D5384} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{29AA4196-3E36-4CDE-B49C-C0D61A44B9A1} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{DC28EE07-8F0C-42A5-95DA-1E5D479528C2} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{B6961D86-3FDF-45B7-AF31-7652B319FEC7} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}
