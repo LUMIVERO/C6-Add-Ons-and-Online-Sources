@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using Newtonsoft.Json;
+using SwissAcademic.Citavi.Shell;
+using System.Reflection;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 {
@@ -13,5 +15,28 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
                 null, args, null, null);
             return (T)instance;
         }
+    }
+
+    public static class Extensions
+    {
+        public static AddonSettings Load(this string settings)
+        {
+            if (string.IsNullOrEmpty(settings)) return AddonSettings.Default;
+            return JsonConvert.DeserializeObject<AddonSettings>(settings);
+        }
+
+        public static string ToJson(this AddonSettings settings)
+        {
+            if (settings == null) return string.Empty;
+
+            return JsonConvert.SerializeObject(settings);
+        }
+
+
+        public static WorkSpace CreateWorkSpaceByName(this ReferenceGridForm referenceGridForm, string name)
+        {
+            return new WorkSpace();
+        }
+
     }
 }

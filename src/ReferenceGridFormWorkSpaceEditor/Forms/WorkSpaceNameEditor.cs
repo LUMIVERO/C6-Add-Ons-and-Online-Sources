@@ -6,11 +6,23 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 {
     public partial class WorkSpaceNameEditor : FormBase
     {
+        #region Fields
+
+        bool editMode;
+
+        #endregion
+
         #region Constructors
 
         public WorkSpaceNameEditor(Form owner) : base(owner)
         {
             InitializeComponent();
+        }
+
+        public WorkSpaceNameEditor(Form owner, string caption) : this(owner)
+        {
+            lbl_workspace_name.Text = caption;
+            editMode = true;
         }
 
         #endregion
@@ -33,7 +45,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Form_Text;
             lbl_workspace_name.Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Label_Name;
             btn_cancel.Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Cancel;
-            btn_create.Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Create;
+            btn_create.Text = editMode ? Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Rename : Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Create;
         }
 
         protected override void OnApplicationIdle()

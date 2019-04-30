@@ -62,6 +62,16 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [de] Neuen Arbeitsbereich anlegen... ähnelt.
         /// </summary>
         internal static string Button_CreateWorkSpace {
@@ -76,6 +86,16 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
         internal static string Button_EditWorkSpaces {
             get {
                 return ResourceManager.GetString("Button_EditWorkSpaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap down {
+            get {
+                object obj = ResourceManager.GetObject("down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -107,6 +127,15 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [de] Umbenennen ähnelt.
+        /// </summary>
+        internal static string NameEditor_Button_Rename {
+            get {
+                return ResourceManager.GetString("NameEditor_Button_Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die [de] Name für Arbeitsbereich ähnelt.
         /// </summary>
         internal static string NameEditor_Form_Text {
@@ -121,6 +150,62 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
         internal static string NameEditor_Label_Name {
             get {
                 return ResourceManager.GetString("NameEditor_Label_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove {
+            get {
+                object obj = ResourceManager.GetObject("remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap up {
+            get {
+                object obj = ResourceManager.GetObject("up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [de] Schließen ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Button_Close {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Button_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [de] Neuen Arbeitsbereich anlegen... ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Button_ToolTip_Add {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Button_ToolTip_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [de] Arbeitsbereich löschen ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Button_ToolTip_Remove {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Button_ToolTip_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [de] Arbeitsbereiche verwalten ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Form_Text {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Form_Text", resourceCulture);
             }
         }
     }

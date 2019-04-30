@@ -19,12 +19,14 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         const string Key_Menu_Addon = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.MenuKey";
         const string Key_Button_Edit_Addon = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.EditButtonKey";
         const string Key_Button_Create_Addon = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.CreateButtonKey";
+        const string Key_Settings = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Settings";
 
         #endregion
 
         #region Fields
 
         CommandbarMenu _menu;
+        AddonSettings _settings;
 
         #endregion
 
@@ -36,6 +38,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             switch (e.Key)
             {
                 case Key_Button_Edit_Addon:
+                    EditWorkSpaces(referenceGridForm);
                     break;
                 case Key_Button_Create_Addon:
                     CreateWorkSpace(referenceGridForm);
@@ -50,6 +53,8 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         public override void OnHostingFormLoaded(ReferenceGridForm referenceGridForm)
         {
+            _settings = this.Settings[Key_Settings]?.Load();
+
             //var viewMenu = referenceGridForm
             //               .GetCommandbar(ReferenceGridFormCommandbarId.Menu)
             //               .GetCommandbarMenu(ReferenceGridFormCommandbarMenuId.View);
@@ -77,12 +82,34 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             base.OnLocalizing(referenceGridForm);
         }
 
-        void CreateWorkSpace(Form owner)
+        void CreateWorkSpace(ReferenceGridForm owner)
         {
             using (var form = new WorkSpaceNameEditor(owner))
             {
                 if (form.ShowDialog() == DialogResult.Cancel) return;
+                var workSpace = owner.CreateWorkSpaceByName(form.WorkSpaceName);
+                _settings.WorkSpaces.Add(workSpace);
             }
+
+            RefreshMenuItems();
+        }
+
+        void EditWorkSpaces(ReferenceGridForm owner)
+        {
+            using (var workSpaceEditor = new WorkSpaceEditor(owner, _settings))
+            {
+                workSpaceEditor.ShowDialog();
+                _settings = workSpaceEditor.Settings;
+            }
+
+            this.Settings[Key_Settings] = _settings.ToJson();
+
+            RefreshMenuItems();
+        }
+
+        void RefreshMenuItems()
+        {
+
         }
 
         #endregion

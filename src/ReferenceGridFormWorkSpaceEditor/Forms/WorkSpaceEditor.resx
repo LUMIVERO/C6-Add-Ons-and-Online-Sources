@@ -117,40 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Menu_Caption" xml:space="preserve">
-    <value>Arbeitsbereiche</value>
-  </data>
-  <data name="Button_EditWorkSpaces" xml:space="preserve">
-    <value>Arbeitsbereiche verwalten...</value>
-  </data>
-  <data name="Button_CreateWorkSpace" xml:space="preserve">
-    <value>Neuen Arbeitsbereich anlegen...</value>
-  </data>
-  <data name="NameEditor_Form_Text" xml:space="preserve">
-    <value>Name für Arbeitsbereich</value>
-  </data>
-  <data name="NameEditor_Label_Name" xml:space="preserve">
-    <value>Name des Arbeitsbereiches:</value>
-  </data>
-  <data name="NameEditor_Button_Create" xml:space="preserve">
-    <value>Anlegen</value>
-  </data>
-  <data name="NameEditor_Button_Cancel" xml:space="preserve">
-    <value>Abbrechen</value>
-  </data>
-  <data name="WorkSpaceEditor_Form_Text" xml:space="preserve">
-    <value>Arbeitsbereiche verwalten</value>
-  </data>
-  <data name="WorkSpaceEditor_Button_Close" xml:space="preserve">
-    <value>Schließen</value>
-  </data>
-  <data name="WorkSpaceEditor_Button_ToolTip_Add" xml:space="preserve">
-    <value>Neuen Arbeitsbereich anlegen...</value>
-  </data>
-  <data name="WorkSpaceEditor_Button_ToolTip_Remove" xml:space="preserve">
-    <value>Arbeitsbereich löschen</value>
-  </data>
-  <data name="NameEditor_Button_Rename" xml:space="preserve">
-    <value>Umbenennen</value>
-  </data>
 </root>
