@@ -139,7 +139,8 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
                 {
                     using (var tool = _menu.Tool.Tools[index])
                     {
-                        _menu.Tool.Tools.RemoveAt(index);
+                        _menu.Tool.Tools.Remove(tool);
+                        _menu.Tool.ToolbarsManager.Tools.Remove(tool);
                     }
                 }
 

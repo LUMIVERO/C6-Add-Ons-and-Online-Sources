@@ -40,7 +40,7 @@
             // btn_close
             // 
             this.btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_close.Location = new System.Drawing.Point(247, 403);
+            this.btn_close.Location = new System.Drawing.Point(247, 208);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(75, 23);
             this.btn_close.TabIndex = 0;
@@ -50,13 +50,14 @@
             // 
             // lb_workspaces
             // 
-            this.lb_workspaces.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lb_workspaces.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_workspaces.FormattingEnabled = true;
             this.lb_workspaces.ItemHeight = 15;
             this.lb_workspaces.Location = new System.Drawing.Point(12, 12);
             this.lb_workspaces.Name = "lb_workspaces";
-            this.lb_workspaces.Size = new System.Drawing.Size(272, 379);
+            this.lb_workspaces.Size = new System.Drawing.Size(272, 184);
             this.lb_workspaces.TabIndex = 1;
             // 
             // btn_remove
@@ -118,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 438);
+            this.ClientSize = new System.Drawing.Size(334, 243);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_add);
@@ -126,6 +127,7 @@
             this.Controls.Add(this.btn_up);
             this.Controls.Add(this.lb_workspaces);
             this.Controls.Add(this.btn_close);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WorkSpaceEditor";

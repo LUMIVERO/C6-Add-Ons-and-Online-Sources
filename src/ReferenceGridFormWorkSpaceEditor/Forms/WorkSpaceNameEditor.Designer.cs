@@ -84,6 +84,7 @@
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.txt_workspace_name);
             this.Controls.Add(this.lbl_workspace_name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WorkSpaceNameEditor";
