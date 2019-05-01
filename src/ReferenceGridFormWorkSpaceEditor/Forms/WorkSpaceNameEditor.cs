@@ -21,7 +21,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         public WorkSpaceNameEditor(Form owner, string caption) : this(owner)
         {
-            lbl_workspace_name.Text = caption;
+            txt_workspace_name.Text = caption;
             editMode = true;
         }
 
@@ -74,6 +74,13 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             DialogResult = DialogResult.Cancel;
         }
 
+        void Txt_workspace_name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyData == Keys.Enter && !string.IsNullOrEmpty(txt_workspace_name.Text)) DialogResult = DialogResult.OK;
+        }
+
         #endregion
+
+
     }
 }

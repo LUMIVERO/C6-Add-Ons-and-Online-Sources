@@ -208,5 +208,14 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
                 return ResourceManager.GetString("WorkSpaceEditor_Form_Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [de] Möchten Sie den Arbeitsbereich &quot;{0}&quot; wirklich löschen? ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Messages_RemoveWorkSpace {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Messages_RemoveWorkSpace", resourceCulture);
+            }
+        }
     }
 }

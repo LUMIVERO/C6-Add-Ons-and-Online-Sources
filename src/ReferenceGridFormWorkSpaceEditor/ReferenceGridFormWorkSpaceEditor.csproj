@@ -51,6 +51,11 @@
       <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinGrid.v11.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Infragistics4.Win.UltraWinToolbars.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinToolbars.v11.2.dll</HintPath>

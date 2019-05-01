@@ -153,4 +153,7 @@
   <data name="NameEditor_Button_Rename" xml:space="preserve">
     <value>Umbenennen</value>
   </data>
+  <data name="WorkSpaceEditor_Messages_RemoveWorkSpace" xml:space="preserve">
+    <value>Möchten Sie den Arbeitsbereich "{0}" wirklich löschen?</value>
+  </data>
 </root>

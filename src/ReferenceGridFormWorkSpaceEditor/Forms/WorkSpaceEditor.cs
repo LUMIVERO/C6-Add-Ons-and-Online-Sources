@@ -1,4 +1,5 @@
-﻿using SwissAcademic.Citavi.Shell;
+﻿using SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties;
+using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Windows.Forms;
@@ -7,11 +8,18 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 {
     public partial class WorkSpaceEditor : FormBase
     {
+        #region Fields
+
+        ReferenceGridForm referenceGridForm;
+
+        #endregion
+
         #region Constructors
 
-        public WorkSpaceEditor(Form owner, AddonSettings settings) : base(owner)
+        public WorkSpaceEditor(ReferenceGridForm owner, AddonSettings settings) : base(owner)
         {
             InitializeComponent();
+            referenceGridForm = owner;
             InitializeListBox(settings);
         }
 
@@ -60,14 +68,17 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         void InitializeListBox(AddonSettings settings)
         {
-
+            foreach (var workSpace in settings.WorkSpaces)
+            {
+                lb_workspaces.Items.Add(workSpace);
+            }
         }
 
         public override void Localize()
         {
             base.Localize();
 
-            Text = Properties.ReferenceGridFormWorkSpaceEditorResources.WorkSpaceEditor_Form_Text;
+            Text = ReferenceGridFormWorkSpaceEditorResources.WorkSpaceEditor_Form_Text;
         }
 
         #endregion
@@ -84,15 +95,21 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             using (var form = new WorkSpaceNameEditor(this))
             {
                 if (form.ShowDialog() == DialogResult.Cancel) return;
-                var workSpace = ((ReferenceGridForm)form.Owner).CreateWorkSpaceByName(form.WorkSpaceName);
+                var workSpace = referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
                 lb_workspaces.Items.Add(workSpace);
-                lb_workspaces.Update();
+                lb_workspaces.Refresh();
             }
         }
 
         void Btn_remove_Click(object sender, EventArgs e)
         {
-
+            if (lb_workspaces.SelectedItem is WorkSpace workSpace)
+            {
+                if (MessageBox.Show(ReferenceGridFormWorkSpaceEditorResources.WorkSpaceEditor_Messages_RemoveWorkSpace.FormatString(workSpace.Caption), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    lb_workspaces.Items.RemoveAt(lb_workspaces.SelectedIndex);
+                }
+            }
         }
 
         void Btn_up_Click(object sender, EventArgs e)
@@ -116,7 +133,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
                     workspace.Caption = form.WorkSpaceName;
                 }
 
-                lb_workspaces.Update();
+                lb_workspaces.Invoke("RefreshItems");
             }
         }
 

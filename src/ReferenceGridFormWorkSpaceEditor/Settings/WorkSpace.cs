@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SwissAcademic.Citavi.Settings;
+using System;
 using System.Collections.Generic;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
@@ -11,6 +12,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         public WorkSpace()
         {
             Columns = new List<ColumnDescriptor>();
+            Id = Guid.NewGuid().ToString();
         }
 
         #endregion
@@ -28,6 +30,9 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         [JsonProperty]
         public bool GroupByBoxVisible { get; set; }
+
+        [JsonIgnore]
+        public string Id { get; set; }
 
         #endregion
 

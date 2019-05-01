@@ -51,13 +51,14 @@
             this.txt_workspace_name.Name = "txt_workspace_name";
             this.txt_workspace_name.Size = new System.Drawing.Size(390, 23);
             this.txt_workspace_name.TabIndex = 1;
+            this.txt_workspace_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_workspace_name_KeyDown);
             // 
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancel.Location = new System.Drawing.Point(341, 67);
+            this.btn_cancel.Location = new System.Drawing.Point(323, 67);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.Size = new System.Drawing.Size(93, 23);
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.Text = "Abbrechen";
             this.btn_cancel.UseVisualStyleBackColor = true;
@@ -66,9 +67,9 @@
             // btn_create
             // 
             this.btn_create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_create.Location = new System.Drawing.Point(260, 67);
+            this.btn_create.Location = new System.Drawing.Point(224, 67);
             this.btn_create.Name = "btn_create";
-            this.btn_create.Size = new System.Drawing.Size(75, 23);
+            this.btn_create.Size = new System.Drawing.Size(93, 23);
             this.btn_create.TabIndex = 3;
             this.btn_create.Text = "Anlegen";
             this.btn_create.UseVisualStyleBackColor = true;
