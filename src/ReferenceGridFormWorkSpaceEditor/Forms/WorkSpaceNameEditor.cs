@@ -80,7 +80,5 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         }
 
         #endregion
-
-
     }
 }

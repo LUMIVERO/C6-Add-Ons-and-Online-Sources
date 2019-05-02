@@ -110,7 +110,6 @@ public static class Extensions
         return JsonConvert.SerializeObject(settings);
     }
 
-
     public static WorkSpace CreateWorkSpaceByName(this ReferenceGridForm referenceGridForm, string name)
     {
         var workSpace = new WorkSpace { Caption = name };

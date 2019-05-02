@@ -1,4 +1,5 @@
-﻿using SwissAcademic;
+﻿using Infragistics.Win.UltraWinGrid;
+using SwissAcademic;
 using SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
@@ -46,7 +47,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
                     break;
                 default:
 
-                    if (_settings.WorkSpaces.FirstOrDefault(ws =>e.Key.Equals(Key_Button_WorkSpaces.FormatString(ws.Id), StringComparison.Ordinal)) is WorkSpace workSpace)
+                    if (_settings.WorkSpaces.FirstOrDefault(ws => e.Key.Equals(Key_Button_WorkSpaces.FormatString(ws.Id), StringComparison.Ordinal)) is WorkSpace workSpace)
                     {
                         LoadWorkSpace(referenceGridForm, workSpace);
                     }
@@ -128,7 +129,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             Program.Settings.ReferenceGridForm.GroupByBoxVisible = workSpace.GroupByBoxVisible;
             Program.Settings.ReferenceGridForm.ColumnDescriptors.Clear();
             workSpace.Columns.ForEach(cl => Program.Settings.ReferenceGridForm.ColumnDescriptors.Add(cl));
-            referenceGridForm.Invoke("mainGrid_InitializeLayout ", referenceGridForm.Field<ReferenceGridForm, UltraGrid>("mainGrid"), EventArgs.Empty);
+            referenceGridForm.Invoke("mainGrid_InitializeLayout", new object(), new InitializeLayoutEventArgs(new UltraGridLayout()));
         }
 
         void RefreshMenuItems()
