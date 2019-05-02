@@ -49,14 +49,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_workspace_name.Location = new System.Drawing.Point(26, 38);
             this.txt_workspace_name.Name = "txt_workspace_name";
-            this.txt_workspace_name.Size = new System.Drawing.Size(390, 23);
+            this.txt_workspace_name.Size = new System.Drawing.Size(276, 23);
             this.txt_workspace_name.TabIndex = 1;
             this.txt_workspace_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Txt_workspace_name_KeyDown);
             // 
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancel.Location = new System.Drawing.Point(323, 67);
+            this.btn_cancel.Location = new System.Drawing.Point(209, 67);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(93, 23);
             this.btn_cancel.TabIndex = 2;
@@ -67,7 +67,7 @@
             // btn_create
             // 
             this.btn_create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_create.Location = new System.Drawing.Point(224, 67);
+            this.btn_create.Location = new System.Drawing.Point(110, 67);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(93, 23);
             this.btn_create.TabIndex = 3;
@@ -79,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 98);
+            this.ClientSize = new System.Drawing.Size(314, 98);
             this.Controls.Add(this.btn_create);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.txt_workspace_name);

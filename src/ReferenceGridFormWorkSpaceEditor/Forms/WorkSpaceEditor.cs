@@ -94,7 +94,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         {
             using (var form = new WorkSpaceNameEditor(this))
             {
-                if (form.ShowDialog() == DialogResult.Cancel) return;
+                if (form.ShowDialog(this) == DialogResult.Cancel) return;
                 var workSpace = referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
                 lb_workspaces.Items.Add(workSpace);
                 lb_workspaces.Refresh();
@@ -114,12 +114,24 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         void Btn_up_Click(object sender, EventArgs e)
         {
-
+            if (lb_workspaces.SelectedItem is WorkSpace workSpace)
+            {
+                var index = lb_workspaces.SelectedIndex;
+                lb_workspaces.Items.RemoveAt(index);
+                lb_workspaces.Items.Insert(index - 1, workSpace);
+                lb_workspaces.SelectedItem = workSpace;
+            }
         }
 
         void Btn_down_Click(object sender, EventArgs e)
         {
-
+            if (lb_workspaces.SelectedItem is WorkSpace workSpace)
+            {
+                var index = lb_workspaces.SelectedIndex;
+                lb_workspaces.Items.RemoveAt(index);
+                lb_workspaces.Items.Insert(index + 1, workSpace);
+                lb_workspaces.SelectedItem = workSpace;
+            }
         }
 
         void Btn_edit_Click(object sender, EventArgs e)
@@ -128,7 +140,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             {
                 using (var form = new WorkSpaceNameEditor(this, workspace.Caption))
                 {
-                    if (form.ShowDialog() == DialogResult.Cancel) return;
+                    if (form.ShowDialog(this) == DialogResult.Cancel) return;
 
                     workspace.Caption = form.WorkSpaceName;
                 }
