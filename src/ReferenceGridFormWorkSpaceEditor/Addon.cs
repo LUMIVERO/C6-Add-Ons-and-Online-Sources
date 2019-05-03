@@ -1,15 +1,11 @@
 ﻿using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win.UltraWinToolbars;
-using SwissAcademic;
 using SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties;
-using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using SwissAcademic.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
@@ -80,17 +76,12 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             }
 
 
-            //var viewMenu = referenceGridForm
-            //               .GetCommandbar(ReferenceGridFormCommandbarId.Menu)
-            //               .GetCommandbarMenu(ReferenceGridFormCommandbarMenuId.View);
-
-            // TODO mit neuer Nightly ausbauen
-            var viewMenu = Reflection2
-                           .CreateInstanceOf<ReferenceGridFormCommandbar>(referenceGridForm.MainToolbarsManager.Toolbars["MainMenu"])
-                           .GetCommandbarMenu(ReferenceGridFormCommandbarMenuId.View);
-
             if (!_menus.ContainsKey(referenceGridForm))
             {
+                var viewMenu = referenceGridForm
+                           .GetCommandbar(ReferenceGridFormCommandbarId.Menu)
+                           .GetCommandbarMenu(ReferenceGridFormCommandbarMenuId.View);
+
                 var menu = viewMenu.InsertCommandbarMenu(viewMenu.Tool.Tools.Count - 1, Key_Menu.FormatString(referenceGridForm.Id.ToString()), ReferenceGridFormWorkSpaceEditorResources.Menu_Caption);
                 menu.HasSeparator = true;
                 _menus.Add(referenceGridForm, menu);
@@ -142,7 +133,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             RefreshMenuItems();
         }
 
-
         void LoadWorkSpace(ReferenceGridForm referenceGridForm, WorkSpace workSpace)
         {
             Program.Settings.ReferenceGridForm.AllowUpdate = workSpace.AllowUpdate;
@@ -150,6 +140,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             Program.Settings.ReferenceGridForm.ColumnDescriptors.Clear();
             workSpace.Columns.ForEach(cl => Program.Settings.ReferenceGridForm.ColumnDescriptors.Add(cl));
             referenceGridForm.Invoke("mainGrid_InitializeLayout", new object(), new InitializeLayoutEventArgs(new UltraGridLayout()));
+            referenceGridForm.Invoke("Refresh");
         }
 
         void RefreshMenuItems()
@@ -181,7 +172,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
                 }
             }
         }
-
 
         #endregion
 
