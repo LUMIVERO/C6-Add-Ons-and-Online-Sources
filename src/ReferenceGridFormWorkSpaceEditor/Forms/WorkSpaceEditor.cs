@@ -2,6 +2,7 @@
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
@@ -94,7 +95,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         void Btn_add_Click(object sender, EventArgs e)
         {
-            using (var form = new WorkSpaceNameEditor(this))
+            using (var form = new WorkSpaceNameEditor(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList()))
             {
                 if (form.ShowDialog(this) == DialogResult.Cancel) return;
                 var workSpace = _referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
@@ -140,7 +141,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         {
             if (lb_workspaces.SelectedItem is WorkSpace workspace)
             {
-                using (var form = new WorkSpaceNameEditor(this, workspace.Caption))
+                using (var form = new WorkSpaceNameEditor(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList(), workspace.Caption))
                 {
                     if (form.ShowDialog(this) == DialogResult.Cancel) return;
 

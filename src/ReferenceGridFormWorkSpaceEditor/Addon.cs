@@ -109,7 +109,8 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         void CreateWorkSpace(ReferenceGridForm referenceGridForm)
         {
-            using (var form = new WorkSpaceNameEditor(referenceGridForm))
+            var captions = _settings.WorkSpaces.Select(ws => ws.Caption).ToList();
+            using (var form = new WorkSpaceNameEditor(referenceGridForm, captions))
             {
                 if (form.ShowDialog(referenceGridForm) == DialogResult.Cancel) return;
                 var workSpace = referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);

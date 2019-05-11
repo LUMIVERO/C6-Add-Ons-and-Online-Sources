@@ -1,5 +1,8 @@
 ﻿using SwissAcademic.Controls;
 using System;
+using System.Collections;
+using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
@@ -8,21 +11,26 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
     {
         #region Fields
 
-        bool editMode;
+        readonly bool _editMode;
+        readonly string _caption;
+
+        IEnumerable<string> _captions;
 
         #endregion
 
         #region Constructors
 
-        public WorkSpaceNameEditor(Form owner) : base(owner)
+        public WorkSpaceNameEditor(Form owner, IEnumerable<string> captions) : base(owner)
         {
             InitializeComponent();
+            _captions = captions;
         }
 
-        public WorkSpaceNameEditor(Form owner, string caption) : this(owner)
+        public WorkSpaceNameEditor(Form owner, IEnumerable<string> captions, string caption) : this(owner, captions)
         {
             txt_workspace_name.Text = caption;
-            editMode = true;
+            _caption = caption;
+            _editMode = true;
         }
 
         #endregion
@@ -45,12 +53,14 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Form_Text;
             lbl_workspace_name.Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Label_Name;
             btn_cancel.Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Cancel;
-            btn_create.Text = editMode ? Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Rename : Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Create;
+            btn_create.Text = _editMode ? Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Rename : Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Create;
         }
 
         protected override void OnApplicationIdle()
         {
-            btn_create.Enabled = !string.IsNullOrEmpty(txt_workspace_name.Text.Trim());
+            btn_create.Enabled =
+                !string.IsNullOrEmpty(txt_workspace_name.Text.Trim()) &&
+                ((_editMode && txt_workspace_name.Text.Trim().Equals(_caption, StringComparison.OrdinalIgnoreCase)) || !_captions.Any(c => c.Equals(txt_workspace_name.Text.Trim(), StringComparison.OrdinalIgnoreCase)));
             base.OnApplicationIdle();
         }
 
@@ -76,7 +86,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         void Txt_workspace_name_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyData == Keys.Enter && !string.IsNullOrEmpty(txt_workspace_name.Text)) DialogResult = DialogResult.OK;
+            if (e.KeyData == Keys.Enter && !string.IsNullOrEmpty(txt_workspace_name.Text)) DialogResult = DialogResult.OK;
         }
 
         #endregion
