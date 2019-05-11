@@ -10,7 +10,8 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
     {
         #region Fields
 
-        ReferenceGridForm referenceGridForm;
+        ReferenceGridForm _referenceGridForm;
+        AddonSettings _settings;
 
         #endregion
 
@@ -18,9 +19,9 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
         public WorkSpaceEditor(ReferenceGridForm owner, AddonSettings settings) : base(owner)
         {
+            _referenceGridForm = owner;
+            _settings = settings;
             InitializeComponent();
-            referenceGridForm = owner;
-            InitializeListBox(settings);
         }
 
         #endregion
@@ -30,6 +31,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            InitializeListBox(_settings);
         }
 
         protected override void OnApplicationIdle()
@@ -95,7 +97,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             using (var form = new WorkSpaceNameEditor(this))
             {
                 if (form.ShowDialog(this) == DialogResult.Cancel) return;
-                var workSpace = referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
+                var workSpace = _referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
                 lb_workspaces.Items.Add(workSpace);
                 lb_workspaces.Refresh();
             }
