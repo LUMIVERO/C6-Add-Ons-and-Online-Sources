@@ -33,6 +33,12 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         {
             base.OnLoad(e);
             InitializeListBox(_settings);
+
+            btn_add.Image = Control2.ScaleBitmap(Resources.add);
+            btn_down.Image = Control2.ScaleBitmap(Resources.down);
+            btn_edit.Image = Control2.ScaleBitmap(Properties.Resources.edit);
+            btn_remove.Image = Control2.ScaleBitmap(Properties.Resources.remove);
+            btn_up.Image = Control2.ScaleBitmap(Properties.Resources.up);
         }
 
         protected override void OnApplicationIdle()
@@ -43,7 +49,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
             btn_down.Enabled = lb_workspaces.SelectedIndex != -1 && lb_workspaces.SelectedIndex != lb_workspaces.Items.Count - 1;
             btn_edit.Enabled = lb_workspaces.SelectedIndex != -1;
         }
-
 
         #endregion
 
@@ -87,11 +92,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         #endregion
 
         #region Events
-
-        void Btn_close_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-        }
 
         void Btn_add_Click(object sender, EventArgs e)
         {
