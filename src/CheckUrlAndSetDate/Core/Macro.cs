@@ -98,13 +98,19 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                 {
                     var reference = references[i];
 
+                    if (reference == null)
+                    {
+                        progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
+                        continue;
+                    }
+
                     cancellationToken.ThrowIfCancellationRequested();
 
                     var location = (from currentLocation in reference.Locations
                                     where currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
                                     select currentLocation).FirstOrDefault();
 
-                    if (location == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
+                    if (location == null || location.Address == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
                     {
                         progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
                         continue;

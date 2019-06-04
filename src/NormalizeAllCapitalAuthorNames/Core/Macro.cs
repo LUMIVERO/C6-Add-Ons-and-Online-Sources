@@ -23,7 +23,8 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
                 var originalAuthorFullName = author.FullName.ToString();
                 var originalAuthorLastName = author.LastName.ToString();
 
-                if ((!string.IsNullOrEmpty(originalAuthorFullName) && originalAuthorFullName.Equals(originalAuthorFullName.ToUpper(), StringComparison.Ordinal)) || (!string.IsNullOrEmpty(originalAuthorLastName) && originalAuthorLastName.Equals(originalAuthorLastName.ToUpper(), StringComparison.Ordinal) && normalizeCapitalLastname))
+                if ((!string.IsNullOrEmpty(originalAuthorFullName) && originalAuthorFullName.Equals(originalAuthorFullName.ToUpper(), StringComparison.Ordinal)) || 
+                    (!string.IsNullOrEmpty(originalAuthorLastName) && originalAuthorLastName.Equals(originalAuthorLastName.ToUpper(), StringComparison.Ordinal) && normalizeCapitalLastname))
                 {
                     counter++;
 
