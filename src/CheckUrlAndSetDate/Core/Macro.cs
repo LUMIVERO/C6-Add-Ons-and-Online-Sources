@@ -120,17 +120,17 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
                     result.LoopedCount++;
 
-                    var oldAccessDate = reference.AccessDate;
+                    var oldAccessDate = reference.AccessDate ?? string.Empty;
 
                     if (RemoteFileExists(url, timeOut, out string urlResult))
                     {
-                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
+                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                         reference.AccessDate = newAccessDate;
                         result.ChangedCount++;
                     }
                     else
                     {
-                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress, DateTime.Now.ToString(), urlResult, oldAccessDate);
+                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                         result.InvalidCount++;
                         result.InvalidReferences.Add(reference);
                     }
