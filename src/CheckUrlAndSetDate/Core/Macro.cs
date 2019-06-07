@@ -40,26 +40,33 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
             if (isCanceled) return;
 
-            if (MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
+            if (result.InvalidCount != 0)
             {
-                var filter = new ReferenceFilter(result.InvalidReferences, CheckUrlAndSetDateResources.ReferenceInvalidFilterName, false);
-                mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
+                if (MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
+                {
+                    var filter = new ReferenceFilter(result.InvalidReferences, CheckUrlAndSetDateResources.ReferenceInvalidFilterName, false);
+                    mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
+                }
+            }
+            else
+            {
+                MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessageWithoutSelection, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
 
-        static bool RemoteFileExists(string url, int timeOut, out string urlResult)
+        async static Task<(bool, string)> RemoteFileExists(string url, int timeOut)
         {
+            string urlResult;
             try
             {
                 var request = WebRequest.Create(url) as HttpWebRequest;
                 request.Method = "HEAD";
                 request.Timeout = timeOut;
 
-                using (var response = request.GetResponse() as HttpWebResponse)
-                {
-                    urlResult = null;
 
+                using (var response = await request.GetResponseAsync() as HttpWebResponse)
+                {
                     if ((int)response.StatusCode >= 300 && (int)response.StatusCode <= 400)
                     {
                         if (response.Headers["Location"] != null)
@@ -76,68 +83,68 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                         urlResult = ((int)response.StatusCode).ToString() + " " + response.StatusDescription;
                     }
 
-                    return response.StatusCode == HttpStatusCode.OK;
+                    return (response.StatusCode == HttpStatusCode.OK, urlResult);
                 }
             }
             catch (Exception e)
             {
                 urlResult = e.Message.ToString();
-                return false;
+                return (false, urlResult);
             }
         }
 
-        static Task<MacroResult> CheckReferences(List<Reference> references, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        async static Task<MacroResult> CheckReferences(List<Reference> references, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
         {
-            return Task.Run(() =>
+
+            var result = new MacroResult();
+            var timeOut = 3000;
+            var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat);
+
+            for (int i = 0; i < references.Count; i++)
             {
-                var result = new MacroResult();
-                var timeOut = 3000;
-                var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat);
+                var reference = references[i];
 
-                for (int i = 0; i < references.Count; i++)
+                if (reference == null)
                 {
-                    var reference = references[i];
-
-                    if (reference == null)
-                    {
-                        progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
-                        continue;
-                    }
-
-                    cancellationToken.ThrowIfCancellationRequested();
-
-                    var location = (from currentLocation in reference.Locations
-                                    where currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
-                                    select currentLocation).FirstOrDefault();
-
-                    if (location == null || location.Address == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
-                    {
-                        progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
-                        continue;
-                    }
-
-                    var url = location.Address.Resolve().ToString();
-
-                    result.LoopedCount++;
-
-                    var oldAccessDate = reference.AccessDate ?? string.Empty;
-
-                    if (RemoteFileExists(url, timeOut, out string urlResult))
-                    {
-                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
-                        reference.AccessDate = newAccessDate;
-                        result.ChangedCount++;
-                    }
-                    else
-                    {
-                        reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
-                        result.InvalidCount++;
-                        result.InvalidReferences.Add(reference);
-                    }
                     progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
+                    continue;
                 }
-                return result;
-            });
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                var location = (from currentLocation in reference.Locations
+                                where currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
+                                select currentLocation).FirstOrDefault();
+
+                if (location == null || location.Address == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
+                {
+                    progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
+                    continue;
+                }
+
+                var url = location.Address.Resolve().ToString();
+
+                result.LoopedCount++;
+
+                var oldAccessDate = reference.AccessDate ?? string.Empty;
+
+                (bool exist, string urlResult) = await RemoteFileExists(url, timeOut);
+
+                if (exist)
+                {
+                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty) + "\n";
+                    reference.AccessDate = newAccessDate;
+                    result.ChangedCount++;
+                }
+                else
+                {
+                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty) + "\n";
+                    result.InvalidCount++;
+                    result.InvalidReferences.Add(reference);
+                }
+                progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
+            }
+            return result;
         }
     }
 }

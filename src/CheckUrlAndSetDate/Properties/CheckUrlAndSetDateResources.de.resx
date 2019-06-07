@@ -136,4 +136,9 @@ Möchten Sie eine Auswahl der Titel erstellen, deren Links nicht erreichbar sind
   <data name="ReferenceInvalidFilterName" xml:space="preserve">
     <value>Titel mit nicht erreichbaren Links</value>
   </data>
+  <data name="MacroResultMessageWithoutSelection" xml:space="preserve">
+    <value>{0} Link(s) geprüft:
+{1} Link(s) gültig und erreichbar
+{2} Link(s) nicht erreichbar</value>
+  </data>
 </root>

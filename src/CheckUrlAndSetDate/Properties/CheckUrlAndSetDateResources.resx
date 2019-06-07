@@ -139,4 +139,9 @@ Would you like to show a selection of references with an unreachable online addr
   <data name="ReferenceInvalidFilterName" xml:space="preserve">
     <value>References with invalid URLs</value>
   </data>
+  <data name="MacroResultMessageWithoutSelection" xml:space="preserve">
+    <value>{0} links checked:
+{1} URLs valid
+{2} URLs not reachable</value>
+  </data>
 </root>
