@@ -2,11 +2,10 @@
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<PersonList>
     {
         #region Constants
 
@@ -14,49 +13,37 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 
         #endregion
 
-        #region Properties
-
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.PersonList;
-
-        #endregion
-
         #region Methods
 
-        protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(PersonList personList, BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is PersonList personList && e.Key.Equals(Key_Button_NormalizeAllCapitalAuthorNames, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(Key_Button_NormalizeAllCapitalAuthorNames, StringComparison.OrdinalIgnoreCase))
             {
-                Macro.Run(personList);
                 e.Handled = true;
+                Macro.Run(personList);
             }
 
-            base.OnBeforePerformingCommand(e);
+            base.OnBeforePerformingCommand(personList, e);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(PersonList personList)
         {
-            if (form is PersonList personListFrom)
-            {
-                personListFrom.GetCommandbar(PersonListCommandbarId.Menu)
-                              .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                              .InsertCommandbarButton(2, Key_Button_NormalizeAllCapitalAuthorNames, NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText, image: NormalizeAllCapitalAuthorNamesResources.addon);
-            }
+            personList.GetCommandbar(PersonListCommandbarId.Menu)
+                      .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
+                      .InsertCommandbarButton(2, Key_Button_NormalizeAllCapitalAuthorNames, NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText, image: NormalizeAllCapitalAuthorNamesResources.addon);
 
-            base.OnHostingFormLoaded(form);
+            base.OnHostingFormLoaded(personList);
         }
 
-        protected override void OnLocalizing(Form form)
+        public override void OnLocalizing(PersonList personList)
         {
-            if (form is PersonList personListFrom)
-            {
-                var button = personListFrom.GetCommandbar(PersonListCommandbarId.Menu)
-                                           .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                                           .GetCommandbarButton(Key_Button_NormalizeAllCapitalAuthorNames);
+            var button = personList.GetCommandbar(PersonListCommandbarId.Menu)
+                                   .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
+                                   .GetCommandbarButton(Key_Button_NormalizeAllCapitalAuthorNames);
 
-                if (button != null) button.Text = NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText;
-            }
+            if (button != null) button.Text = NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText;
 
-            base.OnLocalizing(form);
+            base.OnLocalizing(personList);
         }
 
         #endregion

@@ -155,10 +155,12 @@ namespace SwissAcademic.Addons.MacroManager
                 form.FormClosed += Form_FormClosed;
                 _containers.Add(container);
 
-                var oldMacroEditorTool = mainForm.GetMainCommandbarManager().GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu).GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.Tools).GetCommandbarButton("ShowMacroEditorForm");
+                var toolsMenu = mainForm.GetMainCommandbarManager()?.GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.Tools);
+                var oldMacroEditorTool = toolsMenu.GetCommandbarButton("ShowMacroEditorForm");
 
                 if (oldMacroEditorTool != null)
                 {
+                    toolsMenu?.Tool?.Tools?.Remove(oldMacroEditorTool.Tool);
                     oldMacroEditorTool.Tool.ToolbarsManager.Tools.Remove(oldMacroEditorTool.Tool);
                 }
 
