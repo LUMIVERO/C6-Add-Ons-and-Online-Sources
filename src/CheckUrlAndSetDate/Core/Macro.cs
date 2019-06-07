@@ -132,13 +132,13 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
                 if (exist)
                 {
-                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty) + "\n";
+                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                     reference.AccessDate = newAccessDate;
                     result.ChangedCount++;
                 }
                 else
                 {
-                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty) + "\n";
+                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                     result.InvalidCount++;
                     result.InvalidReferences.Add(reference);
                 }
