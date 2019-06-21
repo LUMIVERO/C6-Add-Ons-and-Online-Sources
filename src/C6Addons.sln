@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceEditorKnowledgeOrg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceGridFormWorkSpaceEditor", "ReferenceGridFormWorkSpaceEditor\ReferenceGridFormWorkSpaceEditor.csproj", "{B6961D86-3FDF-45B7-AF31-7652B319FEC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportAttachmentsToCategoryFolderStructure", "ExportAttachmentsToCategoryFolderStructure\ExportAttachmentsToCategoryFolderStructure.csproj", "{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -225,6 +227,14 @@ Global
 		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Release|x86.ActiveCfg = Release|Any CPU
 		{B6961D86-3FDF-45B7-AF31-7652B319FEC7}.Release|x86.Build.0 = Release|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -251,6 +261,7 @@ Global
 		{29AA4196-3E36-4CDE-B49C-C0D61A44B9A1} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{DC28EE07-8F0C-42A5-95DA-1E5D479528C2} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 		{B6961D86-3FDF-45B7-AF31-7652B319FEC7} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
+		{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B} = {43BC8C9D-3E3E-4A6C-8081-B650A64B4AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35B6DDE7-8873-4665-81D1-40B7DB6A95FD}
