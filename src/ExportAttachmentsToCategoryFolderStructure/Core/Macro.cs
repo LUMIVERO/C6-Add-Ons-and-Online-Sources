@@ -27,7 +27,10 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
 
                 var categoryPathes = reference.Categories.CreateCategoryPathes(exportPath);
                 if (categoryPathes.Count == 0)
-                    categoryPathes.Add(ExportAttachmentsToCategoryFolderStructureResources.NoCategoryFolder);
+                {
+                    var tempPath = mainForm.Project.AllCategories.Count == 0 ? exportPath : exportPath + @"\" + ExportAttachmentsToCategoryFolderStructureResources.NoCategoryFolder;
+                    categoryPathes.Add(tempPath);
+                }
 
 
                 // create folders if necessary ...
@@ -114,7 +117,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                 {
                     categoryPaths[i] = MakeValidFileName(categoryPaths[i]);
                 }
-                pathes.Add(exportPath + @"\" + string.Join(@"\",categoryPaths));
+                pathes.Add(exportPath + @"\" + string.Join(@"\", categoryPaths));
             }
             return pathes;
         }
