@@ -249,7 +249,13 @@ namespace SwissAcademic.Addons.MacroManager
             _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroExternal;
 #endif
             _editor.SetAsDefault();
-            _editor.Show();
+            if (hide)
+            {
+                _editor.Opacity = 0;
+                _editor.Show();
+            }
+            else
+                _editor.Show();
 
             hidden = hide;
 
