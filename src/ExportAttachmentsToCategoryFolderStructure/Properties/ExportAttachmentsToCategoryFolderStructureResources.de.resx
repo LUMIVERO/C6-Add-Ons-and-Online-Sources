@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Button_Text" xml:space="preserve">
-    <value>Attachments mit Kategorien Struktur exportieren</value>
+    <value>Attachments in Ordner-Struktur exportieren</value>
   </data>
   <data name="Messages_SelectRootFolder" xml:space="preserve">
-    <value>Bitte wähle einen Quellordner für den Export</value>
+    <value>Wählen Sie einen übergeordneten Ordner für den Export</value>
   </data>
   <data name="NoCategoryFolder" xml:space="preserve">
     <value>0 Keine Kategorien</value>
