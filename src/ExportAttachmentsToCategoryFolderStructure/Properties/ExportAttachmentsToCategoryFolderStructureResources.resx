@@ -122,21 +122,21 @@
     <value>..\Resources\addon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button_Text" xml:space="preserve">
-    <value>[eng] Attachments mit Kategorien Struktur exportieren</value>
+    <value>Export attachments to category tree</value>
   </data>
   <data name="Messages_SelectRootFolder" xml:space="preserve">
-    <value>Please select root folder for export</value>
+    <value>Please select a top-level folder for the export</value>
   </data>
   <data name="NoCategoryFolder" xml:space="preserve">
-    <value>0 No Category</value>
+    <value>0 No categories</value>
   </data>
   <data name="Messages_CreatingFolderError" xml:space="preserve">
-    <value>An error occurred creating a folder: </value>
+    <value>An error occurred while creating the folder: </value>
   </data>
   <data name="Messages_Error" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="Messages_Completed" xml:space="preserve">
-    <value>Finished {0} files copied {1} errors occurred</value>
+    <value>Finished copying {0} files with {1} error(s)</value>
   </data>
 </root>
