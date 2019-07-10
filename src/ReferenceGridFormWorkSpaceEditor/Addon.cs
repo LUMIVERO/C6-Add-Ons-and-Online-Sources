@@ -78,14 +78,9 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
             if (!_menus.ContainsKey(referenceGridForm))
             {
-                // C6.3 Falscher Key
-                //var viewMenu = referenceGridForm
-                //           .GetCommandbar(ReferenceGridFormCommandbarId.Menu)
-                //           .GetCommandbarMenu(ReferenceGridFormCommandbarMenuId.View);
-
-                // in C6.3 funktioniert referenceGridForm.GetCommandbar(ReferenceGridFormCommandbarId.Menu) nicht
-                var viewMenu = CommandbarMenu.Create(referenceGridForm.MainToolbarsManager.Toolbars["MainMenu"].Tools["ViewMenu"] as PopupMenuTool);
-
+                var viewMenu = referenceGridForm
+                           .GetCommandbar(ReferenceGridFormCommandbarId.Menu)
+                           .GetCommandbarMenu(ReferenceGridFormCommandbarMenuId.View);
 
                 var menu = viewMenu.InsertCommandbarMenu(viewMenu.Tool.Tools.Count - 1, Key_Menu.FormatString(referenceGridForm.Id.ToString()), ReferenceGridFormWorkSpaceEditorResources.Menu_Caption);
                 menu.HasSeparator = true;
