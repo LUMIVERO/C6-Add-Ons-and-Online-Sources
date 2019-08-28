@@ -3,7 +3,6 @@ using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Resources;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportSequenceNumber
@@ -12,17 +11,15 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
     {
         #region Fields
 
-        Project _project;
-        List<SequenceNumberImportInfo> _sequenceNumberImportInfos;
+        readonly Project _project;
 
         #endregion
 
         #region Constructors
-        public ChoosePropertyIdDialog(Project project, List<SequenceNumberImportInfo> sequenceNumberImportInfos)
+        public ChoosePropertyIdDialog(Project project)
         {
             InitializeComponent();
             _project = project;
-            _sequenceNumberImportInfos = sequenceNumberImportInfos;
             Initialize();
         }
 
@@ -38,7 +35,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
 
         ReferencePropertyId ConvertIndexToPropertyId(int index)
         {
-            switch (cboTargets.SelectedIndex)
+            switch (index)
             {
                 case 0:
                     return ReferencePropertyId.CustomField1;

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportSequenceNumber
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 
@@ -16,31 +16,22 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
 
         #endregion
 
-        #region Properties
-
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
-
-        #endregion
-
         #region Methods
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                var button = mainForm.GetMainCommandbarManager()
-                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                     .AddCommandbarButton(Key_Button_ImportSequenceNumber, ImportSequenceNumberResources.MenuCaption, image: ImportSequenceNumberResources.addon);
-                if (button != null) button.HasSeparator = true;
-            }
+            var button = mainForm.GetMainCommandbarManager()
+                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
+                                    .AddCommandbarButton(Key_Button_ImportSequenceNumber, ImportSequenceNumberResources.MenuCaption, image: ImportSequenceNumberResources.addon);
+            if (button != null) button.HasSeparator = true;
 
-            base.OnHostingFormLoaded(form);
+            base.OnHostingFormLoaded(mainForm);
         }
 
-        async protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+        public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(Key_Button_ImportSequenceNumber, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(Key_Button_ImportSequenceNumber, StringComparison.OrdinalIgnoreCase))
             {
                 if (mainForm.Project.ProjectType == ProjectType.DesktopSQLite)
                 {
@@ -59,14 +50,14 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                             {
                                 var projectConfiguration = await DesktopProjectConfiguration.OpenAsync(Program.Engine, openFileDialog.FileName);
 
-                                if (projectConfiguration.SQLiteProjectInfo.IsProtected.GetValueOrDefault(false) == false)
+                                if (!projectConfiguration.SQLiteProjectInfo.IsProtected.GetValueOrDefault(false))
                                 {
                                     var sequenceNumbers = SequenceNumberImportInfoUtilities.Load(openFileDialog.FileName);
                                     sequenceNumbers.LoadTargetReferences(mainForm.Project.References);
 
                                     if (sequenceNumbers.Count != 0)
                                     {
-                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdDialog(mainForm.Project, sequenceNumbers) { Icon = e.Form.Icon })
+                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdDialog(mainForm.Project) { Icon = e.Form.Icon })
                                         {
                                             if (chooseTargetFieldDialog.ShowDialog(e.Form) == DialogResult.OK)
                                             {
@@ -110,20 +101,19 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                 }
                 e.Handled = true;
             }
+
+            base.OnBeforePerformingCommand(mainForm, e);
         }
 
-        protected override void OnLocalizing(Form form)
+        public override void OnLocalizing(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                var button = mainForm.GetMainCommandbarManager()
-                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                     .GetCommandbarButton(Key_Button_ImportSequenceNumber);
-                if (button != null) button.Text = ImportSequenceNumberResources.MenuCaption;
-            }
+            var button = mainForm.GetMainCommandbarManager()
+                                   .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                   .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
+                                   .GetCommandbarButton(Key_Button_ImportSequenceNumber);
+            if (button != null) button.Text = ImportSequenceNumberResources.MenuCaption;
 
-            base.OnLocalizing(form);
+            base.OnLocalizing(mainForm);
         }
 
         #endregion
