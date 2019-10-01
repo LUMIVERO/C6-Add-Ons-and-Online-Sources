@@ -1,0 +1,25 @@
+﻿<BibliographyGroupingSet id="f1d93c08-cd19-47c3-9029-a976fe80dea1" version="1.0.0.2">
+  <Groupings>
+    <BibliographyGrouping>
+      <Caption>Online Quellen</Caption>
+      <CaptionType>Manual</CaptionType>
+      <FilterValue>Mit Online-Adresse oder DOI</FilterValue>
+      <GroupingMode>Single</GroupingMode>
+      <GroupingType>SavedSearches</GroupingType>
+      <SavedSearch>
+        <MatchCase>false</MatchCase>
+        <MatchWholeWord>false</MatchWholeWord>
+        <MatchEquivalentCharacters>true</MatchEquivalentCharacters>
+        <Name>Mit Online-Adresse oder DOI</Name>
+        <Query>"Online Adresse": * OR DOI: *</Query>
+      </SavedSearch>
+      <Suppress>False</Suppress>
+    </BibliographyGrouping>
+  </Groupings>
+  <Name>Print, Online</Name>
+  <UngroupedReferencesSettings>
+    <Caption>Gedruckte Quellen</Caption>
+    <Position>Top</Position>
+    <Suppress>False</Suppress>
+  </UngroupedReferencesSettings>
+</BibliographyGroupingSet>
