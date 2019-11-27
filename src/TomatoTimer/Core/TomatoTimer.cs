@@ -95,7 +95,7 @@ namespace SwissAcademic.Addons.TomatoTimer
 
             Minutes = _states.Current.Minutes;
 
-            _timer = new Timer(600)
+            _timer = new Timer(60000)
             {
                 AutoReset = true
             };
