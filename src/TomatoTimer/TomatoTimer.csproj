@@ -17,20 +17,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Repositories\sas\Citavi\SwissAcademic.Citavi.Shell\bin\Desktop Debug\Citavi.exe</StartProgram>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Citavi 6\AddOns\</OutputPath>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
