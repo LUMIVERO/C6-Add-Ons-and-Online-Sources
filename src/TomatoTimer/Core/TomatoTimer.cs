@@ -122,7 +122,7 @@ namespace SwissAcademic.Addons.TomatoTimer
         public void ShowMessage(string message)
         {
             if (string.IsNullOrEmpty(message)) return;
-            var mainForm = Program.ActiveProjectShell.PrimaryMainForm;
+            var mainForm = GetActiveMainForm();
 
             mainForm.Invoke((Action)delegate {
 
@@ -132,6 +132,7 @@ namespace SwissAcademic.Addons.TomatoTimer
                     Image = TomatoTimerResources.pause,
                     ScreenPosition = ScreenPosition.Center,
                     Key = TomatoTimer_DesktopAlert_Key,
+                    Screen = System.Windows.Forms.Screen.FromControl(mainForm)
                 };
 
                 var showDesktopAlertMethod = mainForm
@@ -144,6 +145,11 @@ namespace SwissAcademic.Addons.TomatoTimer
                 showDesktopAlertMethod?.Invoke(mainForm, new object[] { info, 3000 });
 
             });
+        }
+
+        MainForm GetActiveMainForm()
+        {
+            return (Program.ActiveProjectShell.ActiveForm as MainForm) ?? Program.ActiveProjectShell.PrimaryMainForm;
         }
 
         #endregion
