@@ -1,11 +1,11 @@
-﻿using SwissAcademic.Citavi.Shell;
+﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties;
+using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System.Windows.Forms;
-using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties;
 
 namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 
@@ -13,66 +13,47 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 
         #endregion
 
-        #region Properties
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
-
-        #endregion
 
         #region Methods
 
-        protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+
+        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm)
+            if (e.Key.Equals(Key_Button_UpdateBibliographicDataFromPubMedSearch, System.StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
-                switch (e.Key)
+                using (var dialog = new OverrideFieldsDialog { Owner = mainForm })
                 {
-                    case (Key_Button_UpdateBibliographicDataFromPubMedSearch):
-                        {
-                            using (var dialog = new OverrideFieldsDialog { Owner = e.Form })
-                            {
-                                if (dialog.ShowDialog() == DialogResult.OK)
-                                {
-                                    Macro.Run(mainForm, dialog.Settings);
-                                }
-                            }
-                        }
-                        break;
-                    default:
-                        e.Handled = false;
-                        break;
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Macro.Run(mainForm, dialog.Settings);
+                    }
                 }
             }
 
-            base.OnBeforePerformingCommand(e);
+            base.OnBeforePerformingCommand(mainForm, e);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                mainForm.GetMainCommandbarManager()
-                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(4, Key_Button_UpdateBibliographicDataFromPubMedSearch, UpdateBibliographicDataFromPubMedSearchResources.CommandText, image: UpdateBibliographicDataFromPubMedSearchResources.addon);
-            }
+            mainForm.GetMainCommandbarManager()
+                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                    .InsertCommandbarButton(4, Key_Button_UpdateBibliographicDataFromPubMedSearch, UpdateBibliographicDataFromPubMedSearchResources.CommandText, image: UpdateBibliographicDataFromPubMedSearchResources.addon);
 
-            base.OnHostingFormLoaded(form);
+            base.OnHostingFormLoaded(mainForm);
         }
 
-        protected override void OnLocalizing(Form form)
+        public override void OnLocalizing(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                var button = mainForm.GetMainCommandbarManager()
-                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(Key_Button_UpdateBibliographicDataFromPubMedSearch);
-                if (button != null) button.Text = UpdateBibliographicDataFromPubMedSearchResources.CommandText;
-            }
+            var button = mainForm.GetMainCommandbarManager()
+                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                                 .GetCommandbarButton(Key_Button_UpdateBibliographicDataFromPubMedSearch);
+            if (button != null) button.Text = UpdateBibliographicDataFromPubMedSearchResources.CommandText;
 
-            base.OnLocalizing(form);
+            base.OnLocalizing(mainForm);
         }
 
         #endregion
