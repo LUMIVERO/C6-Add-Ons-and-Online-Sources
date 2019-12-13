@@ -46,11 +46,14 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 
         static async Task<IEnumerable<Reference>> RunAsync(Tuple<Project, List<Reference>, MacroSettings> tuple, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
         {
-            var identifierSupport = new ReferenceIdentifierSupport();
+            
             var references = tuple.Item2;
             var project = tuple.Item1;
             var settings = tuple.Item3;
             var mergedReferences = new List<Reference>();
+
+
+            var identifierSupport = new ReferenceIdentifierSupport(project);
 
             for (int i = 0; i < references.Count; i++)
             {
