@@ -16,12 +16,17 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
     {
         public async static void Run(MainForm mainForm, MacroSettings settings)
         {
-            var referencesWithDoi = mainForm.GetFilteredReferences()
+            var referencesWithPmid = mainForm.GetFilteredReferences()
                                             .Where(reference => !string.IsNullOrEmpty(reference.PubMedId))
                                             .ToList();
+
+            var referencesWithDoi = mainForm.GetFilteredReferences()
+                                           .Where(reference => string.IsNullOrEmpty(reference.PubMedId) && !string.IsNullOrEmpty(reference.Doi))
+                                           .ToList();
+
             try
             {
-                var mergedReferences = await GenericProgressDialog.RunTask(mainForm, RunAsync, Tuple.Create(mainForm.Project, referencesWithDoi, settings));
+                var mergedReferences = await GenericProgressDialog.RunTask(mainForm, RunAsync, Tuple.Create(mainForm.Project, referencesWithPmid, referencesWithDoi, settings));
 
                 if (mergedReferences.Count() != 0)
                 {
@@ -44,26 +49,29 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
             }
         }
 
-        static async Task<IEnumerable<Reference>> RunAsync(Tuple<Project, List<Reference>, MacroSettings> tuple, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        static async Task<IEnumerable<Reference>> RunAsync(Tuple<Project, List<Reference>, List<Reference>, MacroSettings> tuple, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
         {
-            
-            var references = tuple.Item2;
             var project = tuple.Item1;
-            var settings = tuple.Item3;
+            var referencesWithPmid = tuple.Item2;
+            var referencesWithDoi = tuple.Item3;
+            var settings = tuple.Item4;
             var mergedReferences = new List<Reference>();
 
+            var count = referencesWithDoi.Count + referencesWithPmid.Count;
 
             var identifierSupport = new ReferenceIdentifierSupport(project);
 
-            for (int i = 0; i < references.Count; i++)
+            // PMID
+
+            for (int i = 0; i < referencesWithPmid.Count; i++)
             {
-                var reference = references[i];
+                var reference = referencesWithPmid[i];
                 cancellationToken.ThrowIfCancellationRequested();
 
                 var lookedUpReference = await identifierSupport.FindReferenceAsync(project, new ReferenceIdentifier() { Type = ReferenceIdentifierType.PubMedId, Value = reference.PubMedId }, cancellationToken);
                 if (lookedUpReference == null)
                 {
-                    progress.ReportSafe(Convert.ToInt32(100.00 / references.Count * i));
+                    progress.ReportSafe(Convert.ToInt32(100.00 / count * i));
                     continue;
                 }
                 var omitData = new List<ReferencePropertyId>
@@ -85,8 +93,44 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                 if (project.Engine.Settings.BibTeXCitationKey.IsCitationKeyEnabled) reference.CitationKey = project.CitationKeyAssistant.GenerateKey(reference);
 
                 mergedReferences.Add(reference);
-                progress.ReportSafe(Convert.ToInt32(100.00 / references.Count * i));
+                progress.ReportSafe(Convert.ToInt32(100.00 / count * i));
             }
+
+            // DOI
+
+            for (int i = 0; i < referencesWithDoi.Count; i++)
+            {
+                var reference = referencesWithDoi[i];
+                cancellationToken.ThrowIfCancellationRequested();
+
+                var lookedUpReference = await identifierSupport.FindReferenceAsync(project, new ReferenceIdentifier() { Type = ReferenceIdentifierType.Doi, Value = reference.Doi }, cancellationToken);
+                if (lookedUpReference == null)
+                {
+                    progress.ReportSafe(Convert.ToInt32(100.00 / count * (i+referencesWithPmid.Count)));
+                    continue;
+                }
+                var omitData = new List<ReferencePropertyId>
+                    {
+                        ReferencePropertyId.CoverPath,
+                        ReferencePropertyId.Locations
+                    };
+
+                if (reference.Periodical != null) omitData.Add(ReferencePropertyId.Periodical);
+
+                if (!settings.OverwriteAbstract) omitData.Add(ReferencePropertyId.Abstract);
+                if (!settings.OverwriteTableOfContents) omitData.Add(ReferencePropertyId.TableOfContents);
+                if (!settings.OverwriteKeywords) omitData.Add(ReferencePropertyId.Keywords);
+
+                reference.MergeReference(lookedUpReference, true, omitData);
+
+                if (settings.ClearNotes) reference.Notes = string.Empty;
+                if (project.Engine.Settings.BibTeXCitationKey.IsTeXEnabled) reference.BibTeXKey = project.BibTeXKeyAssistant.GenerateKey(reference);
+                if (project.Engine.Settings.BibTeXCitationKey.IsCitationKeyEnabled) reference.CitationKey = project.CitationKeyAssistant.GenerateKey(reference);
+
+                mergedReferences.Add(reference);
+                progress.ReportSafe(Convert.ToInt32(100.00 / count * (i + referencesWithPmid.Count)));
+            }
+
 
             return mergedReferences;
         }
