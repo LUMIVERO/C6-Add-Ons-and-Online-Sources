@@ -122,7 +122,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                     continue;
                 }
 
-                var url = location.Address.Resolve().ToString();
+                var url = location.Address.UriString;
 
                 result.LoopedCount++;
 
