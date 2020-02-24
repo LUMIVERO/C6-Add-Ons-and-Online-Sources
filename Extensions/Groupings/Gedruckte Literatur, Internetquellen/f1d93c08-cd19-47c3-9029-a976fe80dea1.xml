@@ -11,7 +11,7 @@
         <MatchWholeWord>false</MatchWholeWord>
         <MatchEquivalentCharacters>true</MatchEquivalentCharacters>
         <Name>Mit Online-Adresse oder DOI</Name>
-        <Query>"Online Adresse": * OR DOI: *</Query>
+        <Query>"Online address": * OR "DOI name": *</Query>
       </SavedSearch>
       <Suppress>False</Suppress>
     </BibliographyGrouping>
