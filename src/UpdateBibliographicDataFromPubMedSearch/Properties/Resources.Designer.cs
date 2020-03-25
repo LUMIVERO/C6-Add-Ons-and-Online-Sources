@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.C6ToC5Export.Properties {
+namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties {
     using System;
     
     
@@ -19,17 +19,17 @@ namespace SwissAcademic.Addons.C6ToC5Export.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class C6ToC5ExportResources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal C6ToC5ExportResources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,8 @@ namespace SwissAcademic.Addons.C6ToC5Export.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.C6ToC5Export.Properties.C6ToC5ExportResources", typeof(C6ToC5ExportResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties.Resources" +
+                            "", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -71,62 +72,85 @@ namespace SwissAcademic.Addons.C6ToC5Export.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Export to Citavi 5 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
         /// </summary>
-        internal static string ExportCitaviButtonText {
+        internal static string Cancel {
             get {
-                return ResourceManager.GetString("ExportCitaviButtonText", resourceCulture);
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Bei dem geöffneten Projekt handelt es sich um ein Cloud-Projekt mit Attachments. Bitte wandeln Sie das Projekt in ein lokales Projekt um, bevor Sie es exportieren (&lt;a href=&quot;https://www1.citavi.com/sub/manual6/de/converting_cloud_projects.html&quot;&gt;Citavi-Handbuch&lt;/a&gt;). ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete notes ähnelt.
         /// </summary>
-        internal static string ExportCloudProjectErrorMessage {
+        internal static string ClearNotes {
             get {
-                return ResourceManager.GetString("ExportCloudProjectErrorMessage", resourceCulture);
+                return ResourceManager.GetString("ClearNotes", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The export was not completed.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update reference information ähnelt.
+        /// </summary>
+        internal static string CommandText {
+            get {
+                return ResourceManager.GetString("CommandText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ok ähnelt.
+        /// </summary>
+        internal static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Overwrite abstract ähnelt.
+        /// </summary>
+        internal static string OverrideAbstract {
+            get {
+                return ResourceManager.GetString("OverrideAbstract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Overwrite keywords ähnelt.
+        /// </summary>
+        internal static string OverrideKeywords {
+            get {
+                return ResourceManager.GetString("OverrideKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Overwrite table of contents ähnelt.
+        /// </summary>
+        internal static string OverrideToc {
+            get {
+                return ResourceManager.GetString("OverrideToc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Updating complete. {0} references were updated.
         ///
-        ///Error
-        ///
-        ///{0}
-        ///
-        ///Do you want to copy the error message to the Clipboard? ähnelt.
+        ///Do you want to view these references as a selection? ähnelt.
         /// </summary>
-        internal static string ExportExceptionMessage {
+        internal static string ProcessFinishWithChangesMessage {
             get {
-                return ResourceManager.GetString("ExportExceptionMessage", resourceCulture);
+                return ResourceManager.GetString("ProcessFinishWithChangesMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The export was successful. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Updating was canceled. No information was updated. ähnelt.
         /// </summary>
-        internal static string ExportFinallyMessage {
+        internal static string ProcessFinishWithoutChangesMessage {
             get {
-                return ResourceManager.GetString("ExportFinallyMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Export... ähnelt.
-        /// </summary>
-        internal static string ExportTitle {
-            get {
-                return ResourceManager.GetString("ExportTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die XML files (*.xml)|*.xml|All files (*.*)|*.* ähnelt.
-        /// </summary>
-        internal static string ProjectFilters {
-            get {
-                return ResourceManager.GetString("ProjectFilters", resourceCulture);
+                return ResourceManager.GetString("ProcessFinishWithoutChangesMessage", resourceCulture);
             }
         }
     }

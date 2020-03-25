@@ -2,13 +2,14 @@
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Citavi.Shell;
+using SwissAcademic.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.DerivePageCountFromPageRange
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 
@@ -18,41 +19,31 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
 
         #region Fields
 
-        List<Project> _observedProjects;
+        readonly List<Project> _observedProjects;
 
         #endregion
 
         #region Constructors
 
-        public Addon()
-        {
-            _observedProjects = new List<Project>();
-        }
-
-        #endregion
-
-        #region Properties
-
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
+        public Addon() => _observedProjects = new List<Project>();
 
         #endregion
 
         #region Methods
 
-        protected override void OnBeforePerformingCommand(Controls.BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_DerivePageCountFromPageRange, StringComparison.OrdinalIgnoreCase) && e.Form is MainForm mainForm)
+            if (e.Key.Equals(Key_Button_DerivePageCountFromPageRange, StringComparison.OrdinalIgnoreCase))
             {
+                e.Handled = true;
+
                 try
                 {
-                    e.Handled = true;
-
-                    if (MessageBox.Show(mainForm, DerivePageCountFromPageRangeResources.FilterInfo, mainForm.ProductName, MessageBoxButtons.OKCancel) != DialogResult.OK) return;
+                    if (MessageBox.Show(mainForm, Properties.Resources.FilterInfo, mainForm.ProductName, MessageBoxButtons.OKCancel) != DialogResult.OK) return;
 
                     DerivePageCountFromPageRange(mainForm.GetFilteredReferences());
 
-                    MessageBox.Show(mainForm, DerivePageCountFromPageRangeResources.Finished, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show(mainForm, Properties.Resources.Finished, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 catch (Exception exception)
@@ -60,57 +51,43 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
                     MessageBox.Show(mainForm, exception.Message, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            base.OnBeforePerformingCommand(e);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
+            try
             {
-                try
+                if (!_observedProjects.Contains(mainForm.Project))
                 {
-                    if (!_observedProjects.Contains(mainForm.Project))
-                    {
-                        _observedProjects.Add(mainForm.Project);
-                        ObserveProject(mainForm.Project, true);
-                    }
-
-                    ObserveMainForm(mainForm, true);
-
-                    var button = mainForm.GetMainCommandbarManager()
-                                         .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                         .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                         .AddCommandbarButton(Key_Button_DerivePageCountFromPageRange, DerivePageCountFromPageRangeResources.DerivePageCountFromPageRange, image: DerivePageCountFromPageRangeResources.addon);
-                    if (button != null) button.HasSeparator = true;
-
-
-                    base.OnHostingFormLoaded(form);
+                    _observedProjects.Add(mainForm.Project);
+                    ObserveProject(mainForm.Project, true);
                 }
 
-                catch (Exception exception)
-                {
-                    MessageBox.Show(mainForm, exception.Message, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+                ObserveMainForm(mainForm, true);
 
-            base.OnHostingFormLoaded(form);
-        }
-
-        protected override void OnLocalizing(Form form)
-        {
-            if (form is MainForm mainForm)
-            {
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(Key_Button_DerivePageCountFromPageRange);
-
-                if (button != null) button.Text = DerivePageCountFromPageRangeResources.DerivePageCountFromPageRange;
+                                     .AddCommandbarButton(Key_Button_DerivePageCountFromPageRange, Properties.Resources.DerivePageCountFromPageRange, image: Properties.Resources.addon);
+                if (button != null) button.HasSeparator = true;
             }
 
-            base.OnLocalizing(form);
+            catch (Exception exception)
+            {
+                MessageBox.Show(mainForm, exception.Message, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        public override void OnLocalizing(MainForm mainForm)
+        {
+            var button = mainForm.GetMainCommandbarManager()
+                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                                  .GetCommandbarButton(Key_Button_DerivePageCountFromPageRange);
+
+            if (button != null) button.Text = Properties.Resources.DerivePageCountFromPageRange;
+        }
+
 
         static void DerivePageCountFromPageRange(Reference reference)
         {
@@ -123,21 +100,12 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
 
             startPage = reference.PageRange.StartPage.Number.Value;
 
-            endPage = reference.PageRange.EndPage.Number.HasValue
-                             ? reference.PageRange.EndPage.Number.Value
-                             : startPage;
-
+            endPage = reference.PageRange.EndPage.Number ?? startPage;
 
             reference.PageCount = (endPage - startPage + 1).ToString();
         }
 
-        static void DerivePageCountFromPageRange(IList<Reference> references)
-        {
-            foreach (var reference in references)
-            {
-                DerivePageCountFromPageRange(reference);
-            }
-        }
+        static void DerivePageCountFromPageRange(IList<Reference> references) => references.ForEach(reference => DerivePageCountFromPageRange(reference));
 
         void ObserveMainForm(MainForm mainForm, bool start)
         {

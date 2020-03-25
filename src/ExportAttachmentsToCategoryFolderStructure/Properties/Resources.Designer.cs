@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.CheckUrlAndSetDate.Properties {
+namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CheckUrlAndSetDateResources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CheckUrlAndSetDateResources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,8 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.CheckUrlAndSetDate.Properties.CheckUrlAndSetDateResources", typeof(CheckUrlAndSetDateResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties.Resour" +
+                            "ces", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -71,61 +72,56 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Check links in the online address field ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Export attachments to category tree ähnelt.
         /// </summary>
-        internal static string CheckUrlAndSetDateCommandText {
+        internal static string Button_Text {
             get {
-                return ResourceManager.GetString("CheckUrlAndSetDateCommandText", resourceCulture);
+                return ResourceManager.GetString("Button_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  *** link {0} checked on {1}: {2}; original access date: {3} *** ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Finished copying {0} files with {1} error(s) ähnelt.
         /// </summary>
-        internal static string LinkCheckNotes {
+        internal static string Messages_Completed {
             get {
-                return ResourceManager.GetString("LinkCheckNotes", resourceCulture);
+                return ResourceManager.GetString("Messages_Completed", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0} links checked:
-        ///{1} URLs valid
-        ///{2} URLs not reachable
-        ///Would you like to show a selection of references with an unreachable online address? ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die An error occurred while creating the folder:  ähnelt.
         /// </summary>
-        internal static string MacroResultMessage {
+        internal static string Messages_CreatingFolderError {
             get {
-                return ResourceManager.GetString("MacroResultMessage", resourceCulture);
+                return ResourceManager.GetString("Messages_CreatingFolderError", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0} links checked:
-        ///{1} URLs valid
-        ///{2} URLs not reachable ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error ähnelt.
         /// </summary>
-        internal static string MacroResultMessageWithoutSelection {
+        internal static string Messages_Error {
             get {
-                return ResourceManager.GetString("MacroResultMessageWithoutSelection", resourceCulture);
+                return ResourceManager.GetString("Messages_Error", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die No references were found with links in the online address field. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please select a top-level folder for the export ähnelt.
         /// </summary>
-        internal static string NoReferencesFoundedMessage {
+        internal static string Messages_SelectRootFolder {
             get {
-                return ResourceManager.GetString("NoReferencesFoundedMessage", resourceCulture);
+                return ResourceManager.GetString("Messages_SelectRootFolder", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die References with invalid URLs ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 0 No categories ähnelt.
         /// </summary>
-        internal static string ReferenceInvalidFilterName {
+        internal static string NoCategoryFolder {
             get {
-                return ResourceManager.GetString("ReferenceInvalidFilterName", resourceCulture);
+                return ResourceManager.GetString("NoCategoryFolder", resourceCulture);
             }
         }
     }

@@ -1,11 +1,10 @@
 ﻿using SwissAcademic.Addons.ReferenceEvaluation.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceEvaluation
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 
@@ -13,51 +12,36 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
 
         #endregion
 
-        #region Properties
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
-
-        #endregion
-
         #region Methods
 
-        protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(Key_Button_Addon, System.StringComparison.Ordinal))
+            if (e.Key.Equals(Key_Button_Addon, System.StringComparison.Ordinal))
             {
                 e.Handled = true;
 
-                using (var form = new ReferenceEvaluationDialog(mainForm))
+                using (var dialog = new ReferenceEvaluationDialog(mainForm))
                 {
-                    form.ShowDialog();
+                    dialog.ShowDialog();
                 }
             }
-            base.OnBeforePerformingCommand(e);
+        }
+        public override void OnHostingFormLoaded(MainForm mainForm)
+        {
+            mainForm.GetMainCommandbarManager()
+                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                    .AddCommandbarButton(Key_Button_Addon, Resources.Addon_Command, image: Resources.addon);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnLocalizing(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                mainForm.GetMainCommandbarManager()
-                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .AddCommandbarButton(Key_Button_Addon, ReferenceEvaluationResources.Addon_Command, image: ReferenceEvaluationResources.addon);
-            }
-            base.OnHostingFormLoaded(form);
-        }
-
-        protected override void OnLocalizing(Form form)
-        {
-            if (form is MainForm mainForm)
-            {
-                var button = mainForm.GetMainCommandbarManager()
+            var button = mainForm.GetMainCommandbarManager()
                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                      .GetCommandbarButton(Key_Button_Addon);
 
-                if (button != null) button.Text = ReferenceEvaluationResources.Addon_Command;
-            }
-            base.OnLocalizing(form);
+            if (button != null) button.Text = Resources.Addon_Command;
         }
 
         #endregion

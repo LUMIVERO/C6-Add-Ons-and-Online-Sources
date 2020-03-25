@@ -37,7 +37,7 @@ namespace SwissAcademic.Addons.MacroManager
                     fileCounter++;
 
                     var key = Addon.Key_Menu_Directory.FormatString(folderCounter) + "." + fileCounter;
-                    var menu = commandbarMenu.InsertCommandbarMenu(index, key, Path.GetFileName(strFile), image: MacroManagerResources.Macro);
+                    var menu = commandbarMenu.InsertCommandbarMenu(index, key, Path.GetFileName(strFile), image: Properties.Resources.Macro);
                     index = index + 1;
                     if (isFirst)
                     {
@@ -47,11 +47,11 @@ namespace SwissAcademic.Addons.MacroManager
 
                     container.Tools.Add(menu.Tool, null);
                     key = Addon.Key_Button_Directory + "." + fileCounter + ".1";
-                    var button = menu.AddCommandbarButton(key, MacroManagerResources.EditCommand);
+                    var button = menu.AddCommandbarButton(key, Properties.Resources.EditCommand);
                     container.Macros.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
                     container.Tools.Add(button.Tool, "EditCommand");
                     key = Addon.Key_Button_Directory + "." + fileCounter + ".2";
-                    button = menu.AddCommandbarButton(Addon.Key_Button_Directory + "." + fileCounter + ".2", MacroManagerResources.RunCommand);
+                    button = menu.AddCommandbarButton(Addon.Key_Button_Directory + "." + fileCounter + ".2", Properties.Resources.RunCommand);
                     container.Macros.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
                     container.Tools.Add(button.Tool, "RunCommand");
                 }

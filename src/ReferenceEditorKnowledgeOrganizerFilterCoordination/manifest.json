@@ -1,1 +1,36 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"ReferenceEditorKnowledgeOrganizerFilterCoordination.dll","Icon":"addon.png","Summary":"This add-on lets you select the same category or the same keyword in both the Reference Editor and the Knowledge Organizer.","summary_localized":{"de":"Wählt für Sie dasselbe Schlagwort / dieselbe Kategorie in der Literaturverwaltung und der Wissensorganisation."},"Url":"www.citavi.com/ReferenceEditorKnowledgeOrganizerFilterCoordination","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"When you select a category or keyword in either the Reference Editor or the Knowledge Organizer, it will also be selected in the other workspace.\r\n\r\nTo use this add-on, the categories or keywords columns need to be displayed in both workspaces. Click \"View\" > \"Show category column\" (Alt + 5) or \"Show keyword column\" (Alt + 4).","description_localized":{"de":"Dieses Add-On sorgt dafür, dass in der Literaturverwaltung und der Wissensorganisation immer dieselbe Kategorie oder dasselbe Schlagwort des anderen Programmteils in der Spalte ausgewählt ist.\r\nVoraussetzung ist, dass in beiden Programmteilen die Kategorien- oder Schlagwort-Spalte angezeigt wird. Klicken Sie dazu auf «Ansicht» > «Kategorien als Spalte einblenden» (Alt + 5) bzw. «Schlagwörter als Spalte einblenden» (Alt + 4)."},"Id":"b9cd2692-ef6b-4b1c-9e05-1bd113099074","Name":"Synchronized Navigation of Categories and Keywords","name_localized":{"de":"Kategorien und Schlagwörter synchron navigieren"},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":8,"MajorRevision":0,"MinorRevision":8}}
+﻿{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "ReferenceEditorKnowledgeOrganizerFilterCoordination.dll",
+  "Icon": "addon.png",
+  "Summary": "This add-on lets you select the same category or the same keyword in both the Reference Editor and the Knowledge Organizer.",
+  "summary_localized": {
+    "de": "Wählt für Sie dasselbe Schlagwort / dieselbe Kategorie in der Literaturverwaltung und der Wissensorganisation."
+  },
+  "Url": "www.citavi.com/ReferenceEditorKnowledgeOrganizerFilterCoordination",
+  "citavi_min_version": {
+    "Major": 6,
+    "Minor": 4,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "When you select a category or keyword in either the Reference Editor or the Knowledge Organizer, it will also be selected in the other workspace.\r\n\r\nTo use this add-on, the categories or keywords columns need to be displayed in both workspaces. Click \"View\" > \"Show category column\" (Alt + 5) or \"Show keyword column\" (Alt + 4).",
+  "description_localized": {
+    "de": "Dieses Add-On sorgt dafür, dass in der Literaturverwaltung und der Wissensorganisation immer dieselbe Kategorie oder dasselbe Schlagwort des anderen Programmteils in der Spalte ausgewählt ist.\r\nVoraussetzung ist, dass in beiden Programmteilen die Kategorien- oder Schlagwort-Spalte angezeigt wird. Klicken Sie dazu auf «Ansicht» > «Kategorien als Spalte einblenden» (Alt + 5) bzw. «Schlagwörter als Spalte einblenden» (Alt + 4)."
+  },
+  "Id": "b9cd2692-ef6b-4b1c-9e05-1bd113099074",
+  "Name": "Synchronized Navigation of Categories and Keywords",
+  "name_localized": {
+    "de": "Kategorien und Schlagwörter synchron navigieren"
+  },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 8,
+    "MajorRevision": 0,
+    "MinorRevision": 8
+  }
+}

@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Addons.ImportJournals.Properties;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
@@ -23,8 +22,8 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 using (var openFileDialog = new OpenFileDialog
                 {
-                    Filter = ImportJournalsResources.FileMacroOpenFileDialogFilters,
-                    Title = ImportJournalsResources.FileMacroOpenFileDialogSubject
+                    Filter = Properties.Resources.FileMacroOpenFileDialogFilters,
+                    Title = Properties.Resources.FileMacroOpenFileDialogSubject
                 })
                 {
                     if (openFileDialog.ShowDialog(periodicalList) != DialogResult.OK) return;
@@ -46,7 +45,7 @@ namespace SwissAcademic.Addons.ImportJournals
                 if (testRegex.IsMatch(journalList))
                 {
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show(periodicalList, ImportJournalsResources.FileMacroNotSupportedCharactersMessage, periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(periodicalList, Properties.Resources.FileMacroNotSupportedCharactersMessage, periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -96,7 +95,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(periodicalList, ImportJournalsResources.FileMacroResultMessage.FormatString(journalCollection.Count), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(periodicalList, Properties.Resources.FileMacroResultMessage.FormatString(journalCollection.Count), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 

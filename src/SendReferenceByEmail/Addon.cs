@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.SendReferenceByEmail
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 
@@ -14,18 +14,13 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
 
         #endregion
 
-        #region Properties
-
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
-
-        #endregion
-
         #region Methods
 
-        protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm && e.Key.Equals(Key_Button_SendReferenceByEmail, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(Key_Button_SendReferenceByEmail, StringComparison.OrdinalIgnoreCase))
             {
+                e.Handled = true;
                 try
                 {
                     mainForm.ActiveReference.SendByEMailAsync(mainForm);
@@ -34,34 +29,24 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
                 {
                     MessageBox.Show(mainForm, ee.ToString(), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                e.Handled = true;
             }
-            base.OnBeforePerformingCommand(e);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                mainForm.GetMainCommandbarManager()
-                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .AddCommandbarButton(Key_Button_SendReferenceByEmail, SendReferenceByEmailResources.ButtonCaption, image: SendReferenceByEmailResources.addon);
-            }
-            base.OnHostingFormLoaded(form);
+            mainForm.GetMainCommandbarManager()
+                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                    .AddCommandbarButton(Key_Button_SendReferenceByEmail, Resources.ButtonCaption, image: Resources.addon);
         }
 
-        protected override void OnLocalizing(Form form)
+        public override void OnLocalizing(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                var button = mainForm.GetMainCommandbarManager()
-                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .GetCommandbarButton(Key_Button_SendReferenceByEmail);
-                if (button != null) button.Text = SendReferenceByEmailResources.ButtonCaption;
-            }
-            base.OnLocalizing(form);
+            var button = mainForm.GetMainCommandbarManager()
+                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                                 .GetCommandbarButton(Key_Button_SendReferenceByEmail);
+            if (button != null) button.Text = Resources.ButtonCaption;
         }
 
         #endregion

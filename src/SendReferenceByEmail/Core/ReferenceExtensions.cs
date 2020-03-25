@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
             }
 
             var shortTitle = (string.IsNullOrEmpty(reference.ShortTitle)
-                             ? SendReferenceByEmailResources.ShortTitleMissing
+                             ? Resources.ShortTitleMissing
                              : reference.ShortTitle).UnciodeToLatin();
 
             mailTemplate.Subject = "Citavi: " + shortTitle;
@@ -71,8 +71,8 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
             attachmentFileNames.AppendLine(Path.GetFileName(risTempFileName));
 
             mailTemplate.Body = mailTemplate.Attachments.Count > 0
-                        ? string.Format(SendReferenceByEmailResources.SendReferenceByEMailBodyText_WithAttachments, reference.Project.Name, reference.ToString(TextFormat.Text), attachmentFileNames.ToString())
-                        : string.Format(SendReferenceByEmailResources.SendReferenceByEMailBodyText, reference.Project.Name, reference.ToString(TextFormat.Text));
+                        ? string.Format(Resources.SendReferenceByEMailBodyText_WithAttachments, reference.Project.Name, reference.ToString(TextFormat.Text), attachmentFileNames.ToString())
+                        : string.Format(Resources.SendReferenceByEMailBodyText, reference.Project.Name, reference.ToString(TextFormat.Text));
 
             try
             {
@@ -80,7 +80,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
             }
             catch (System.Runtime.InteropServices.COMException)
             {
-                MessageBox.Show(mainForm, SendReferenceByEmailResources.OutlookRightsMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(mainForm, Resources.OutlookRightsMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -104,6 +104,5 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
         {
             return location.LocationType == LocationType.ElectronicAddress && location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote;
         }
-
     }
 }

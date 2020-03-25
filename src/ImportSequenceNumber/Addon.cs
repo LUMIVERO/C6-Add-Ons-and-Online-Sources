@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Addons.ImportSequenceNumber.Properties;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using SwissAcademic.Resources;
@@ -23,7 +22,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
             var button = mainForm.GetMainCommandbarManager()
                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                    .AddCommandbarButton(Key_Button_ImportSequenceNumber, ImportSequenceNumberResources.MenuCaption, image: ImportSequenceNumberResources.addon);
+                                    .AddCommandbarButton(Key_Button_ImportSequenceNumber, Properties.Resources.MenuCaption, image: Properties.Resources.addon);
             if (button != null) button.HasSeparator = true;
 
             base.OnHostingFormLoaded(mainForm);
@@ -37,8 +36,8 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                 {
                     using (var openFileDialog = new OpenFileDialog()
                     {
-                        Title = ImportSequenceNumberResources.OpenFileDialogTitle,
-                        Filter = ImportSequenceNumberResources.OpenFileDialogFilters,
+                        Title = Properties.Resources.OpenFileDialogTitle,
+                        Filter = Properties.Resources.OpenFileDialogFilters,
                         CheckFileExists = true,
                         CheckPathExists = true,
                         Multiselect = false
@@ -67,13 +66,13 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                                                 switch (successCount)
                                                 {
                                                     case 0:
-                                                        MessageBox.Show(mainForm, ImportSequenceNumberResources.CompleteZeroResultMessage, ImportSequenceNumberResources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        MessageBox.Show(mainForm, Properties.Resources.CompleteZeroResultMessage, Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         break;
                                                     case 1:
-                                                        MessageBox.Show(mainForm, ImportSequenceNumberResources.CompleteSingleResultMessage, ImportSequenceNumberResources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        MessageBox.Show(mainForm, Properties.Resources.CompleteSingleResultMessage, Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         break;
                                                     default:
-                                                        MessageBox.Show(mainForm, ImportSequenceNumberResources.CompleteMultipleResultsMessage.FormatString(successCount), ImportSequenceNumberResources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        MessageBox.Show(mainForm, Properties.Resources.CompleteMultipleResultsMessage.FormatString(successCount), Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         break;
                                                 }
                                             }
@@ -81,23 +80,23 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                                     }
                                     else
                                     {
-                                        MessageBox.Show(mainForm, ImportSequenceNumberResources.FoundReferenceCountNull, ImportSequenceNumberResources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show(mainForm, Properties.Resources.FoundReferenceCountNull, Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show(mainForm, ImportSequenceNumberResources.OpenProtectedProjectMessage, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show(mainForm, Properties.Resources.OpenProtectedProjectMessage, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             catch (Exception)
                             {
-                                MessageBox.Show(mainForm, ImportSequenceNumberResources.OpenProjectConfigurationException, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(mainForm, Properties.Resources.OpenProjectConfigurationException, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                 }
                 else
                 {
-                    MessageBox.Show(mainForm, ImportSequenceNumberResources.OnlyDesktopProjectsSupport, ImportSequenceNumberResources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mainForm, Properties.Resources.OnlyDesktopProjectsSupport, Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 e.Handled = true;
             }
@@ -111,7 +110,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
                                    .GetCommandbarButton(Key_Button_ImportSequenceNumber);
-            if (button != null) button.Text = ImportSequenceNumberResources.MenuCaption;
+            if (button != null) button.Text = Properties.Resources.MenuCaption;
 
             base.OnLocalizing(mainForm);
         }

@@ -18,7 +18,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
 
             string sourcePath;
 
-            using (var folderDialog = new FolderBrowserDialog { Description = ImportPdfsAndCategorySystemResource.FolderBrowserDialogDescription })
+            using (var folderDialog = new FolderBrowserDialog { Description = Resource.FolderBrowserDialogDescription })
             {
                 if (folderDialog.ShowDialog() != DialogResult.OK) return;
 
@@ -44,7 +44,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
                 }
             }
 
-            MessageBox.Show(mainForm, ImportPdfsAndCategorySystemResource.MacroResultMessage.FormatString(counter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mainForm, Resource.MacroResultMessage.FormatString(counter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static void AddCategories(IEnumerable<Reference> references, string categoryHierarchy)

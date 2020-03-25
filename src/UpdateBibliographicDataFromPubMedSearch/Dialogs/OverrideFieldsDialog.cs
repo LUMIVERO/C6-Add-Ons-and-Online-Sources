@@ -12,12 +12,12 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
         {
             InitializeComponent();
 
-            chbOverrideAbstract.Text = UpdateBibliographicDataFromPubMedSearchResources.OverrideAbstract;
-            chbOverrideKeywords.Text = UpdateBibliographicDataFromPubMedSearchResources.OverrideKeywords;
-            chbOverrideTOC.Text = UpdateBibliographicDataFromPubMedSearchResources.OverrideToc;
-            chbRemoveNotes.Text = UpdateBibliographicDataFromPubMedSearchResources.ClearNotes;
-            btnCancel.Text = UpdateBibliographicDataFromPubMedSearchResources.Cancel;
-            btnOk.Text = UpdateBibliographicDataFromPubMedSearchResources.Ok;
+            chbOverrideAbstract.Text = Resources.OverrideAbstract;
+            chbOverrideKeywords.Text = Resources.OverrideKeywords;
+            chbOverrideTOC.Text = Resources.OverrideToc;
+            chbRemoveNotes.Text = Resources.ClearNotes;
+            btnCancel.Text = Resources.Cancel;
+            btnOk.Text = Resources.Ok;
         }
 
         #endregion

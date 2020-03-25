@@ -119,10 +119,10 @@
     <Compile Include="Core\MacroCommand.cs" />
     <Compile Include="Core\MacroAction.cs" />
     <Compile Include="Core\EnvironmentVariable.cs" />
-    <Compile Include="Properties\MacroManagerResources.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MacroManagerResources.resx</DependentUpon>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -130,10 +130,10 @@
     <EmbeddedResource Include="Dialogs\DirectoryDialog.resx">
       <DependentUpon>DirectoryDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\MacroManagerResources.de.resx" />
-    <EmbeddedResource Include="Properties\MacroManagerResources.resx">
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MacroManagerResources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="manifest.json">

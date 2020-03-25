@@ -13,7 +13,6 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
 
         #endregion
 
-
         #region Methods
 
 
@@ -40,7 +39,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
             mainForm.GetMainCommandbarManager()
                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .InsertCommandbarButton(4, Key_Button_UpdateBibliographicDataFromPubMedSearch, UpdateBibliographicDataFromPubMedSearchResources.CommandText, image: UpdateBibliographicDataFromPubMedSearchResources.addon);
+                    .InsertCommandbarButton(4, Key_Button_UpdateBibliographicDataFromPubMedSearch, Resources.CommandText, image: Resources.addon);
 
             base.OnHostingFormLoaded(mainForm);
         }
@@ -51,7 +50,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                  .GetCommandbarButton(Key_Button_UpdateBibliographicDataFromPubMedSearch);
-            if (button != null) button.Text = UpdateBibliographicDataFromPubMedSearchResources.CommandText;
+            if (button != null) button.Text = Resources.CommandText;
 
             base.OnLocalizing(mainForm);
         }

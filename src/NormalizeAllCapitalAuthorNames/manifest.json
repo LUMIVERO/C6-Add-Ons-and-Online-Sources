@@ -6,8 +6,8 @@
   "summary_localized": { "de": "Korrigiert Autorennamen in Großbuchstaben zu normaler Groß-/Kleinschreibung." },
   "Url": "www.citavi.com/NormalizeAllCapitalAuthorNames",
   "citavi_min_version": {
-    "Major": 5,
-    "Minor": 8,
+    "Major": 6,
+    "Minor": 4,
     "Build": 0,
     "Revision": 0,
     "MajorRevision": 0,

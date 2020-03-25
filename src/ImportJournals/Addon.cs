@@ -1,11 +1,9 @@
-﻿using SwissAcademic.Addons.ImportJournals.Properties;
-using SwissAcademic.Citavi.Shell;
+﻿using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportJournals
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<PeriodicalList>
     {
         #region Constants
 
@@ -16,83 +14,62 @@ namespace SwissAcademic.Addons.ImportJournals
 
         #endregion
 
-        #region Properties
-
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.PeriodicalList;
-
-        #endregion
-
         #region Methods
 
-        protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(PeriodicalList periodicalList, BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is PeriodicalList periodicalList)
+            e.Handled = true;
+            switch (e.Key)
             {
-                e.Handled = true;
-                switch (e.Key)
-                {
-                    case (Key_Button_ImportByFile):
-                        {
-                            ImportJournalsByFileMacro.Run(periodicalList);
-                        }
-                        break;
+                case (Key_Button_ImportByFile):
+                    {
+                        ImportJournalsByFileMacro.Run(periodicalList);
+                    }
+                    break;
 
-                    case (Key_Button_ImportByPubmed):
-                        {
-                            ImportJournalsByPubMedMacro.Run(periodicalList);
-                        }
-                        break;
+                case (Key_Button_ImportByPubmed):
+                    {
+                        ImportJournalsByPubMedMacro.Run(periodicalList);
+                    }
+                    break;
 
-                    case (Key_Button_ImportByWoodward):
-                        {
-                            ImportJournalsByWoodwardMacro.Run(periodicalList);
-                        }
-                        break;
-                    default:
-                        e.Handled = false;
-                        break;
-                }
+                case (Key_Button_ImportByWoodward):
+                    {
+                        ImportJournalsByWoodwardMacro.Run(periodicalList);
+                    }
+                    break;
+                default:
+                    e.Handled = false;
+                    break;
             }
-
-            base.OnBeforePerformingCommand(e);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(PeriodicalList periodicalList)
         {
-            if (form is PeriodicalList periodicalList)
-            {
-                var menu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu)
+            var menu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu)
                                          .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
-                                         .InsertCommandbarMenu(3, Key_Menu_ImportJournals, ImportJournalsResources.ImportJournalsMenu, image: ImportJournalsResources.addon);
-                menu?.AddCommandbarButton(Key_Button_ImportByFile, ImportJournalsResources.ImportJournalsByFileCommandText);
-                menu?.AddCommandbarButton(Key_Button_ImportByPubmed, ImportJournalsResources.ImportJournalsByPubMedCommandText);
-                menu?.AddCommandbarButton(Key_Button_ImportByWoodward, ImportJournalsResources.ImportJournalsByWoodwardLibraryCommandText);
-            }
-
-            base.OnHostingFormLoaded(form);
+                                         .InsertCommandbarMenu(3, Key_Menu_ImportJournals, Properties.Resources.ImportJournalsMenu, image: Properties.Resources.addon);
+            menu?.AddCommandbarButton(Key_Button_ImportByFile, Properties.Resources.ImportJournalsByFileCommandText);
+            menu?.AddCommandbarButton(Key_Button_ImportByPubmed, Properties.Resources.ImportJournalsByPubMedCommandText);
+            menu?.AddCommandbarButton(Key_Button_ImportByWoodward, Properties.Resources.ImportJournalsByWoodwardLibraryCommandText);
         }
 
-        protected override void OnLocalizing(Form form)
+        public override void OnLocalizing(PeriodicalList periodicalList)
         {
+            var menu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu)
+                                          .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
+                                          .GetCommandbarMenu(Key_Menu_ImportJournals);
 
-            if (form is PeriodicalList periodicalList)
-            {
-                var menu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu)
-                                         .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
-                                         .GetCommandbarMenu(Key_Menu_ImportJournals);
+            if (menu != null) menu.Text = Properties.Resources.ImportJournalsMenu;
 
-                if (menu != null) menu.Text = ImportJournalsResources.ImportJournalsMenu;
+            var button = menu?.GetCommandbarButton(Key_Button_ImportByFile);
+            if (button != null) button.Text = Properties.Resources.ImportJournalsByFileCommandText;
 
-                var button = menu?.GetCommandbarButton(Key_Button_ImportByFile);
-                if (button != null) button.Text = ImportJournalsResources.ImportJournalsByFileCommandText;
+            button = menu?.GetCommandbarButton(Key_Button_ImportByPubmed);
+            if (button != null) button.Text = Properties.Resources.ImportJournalsByPubMedCommandText;
 
-                button = menu?.GetCommandbarButton(Key_Button_ImportByPubmed);
-                if (button != null) button.Text = ImportJournalsResources.ImportJournalsByPubMedCommandText;
-
-                button = menu?.GetCommandbarButton(Key_Button_ImportByWoodward);
-                if (button != null) button.Text = ImportJournalsResources.ImportJournalsByWoodwardLibraryCommandText;
-            }
-            base.OnLocalizing(form);
+            button = menu?.GetCommandbarButton(Key_Button_ImportByWoodward);
+            if (button != null) button.Text = Properties.Resources.ImportJournalsByWoodwardLibraryCommandText;
         }
 
         #endregion

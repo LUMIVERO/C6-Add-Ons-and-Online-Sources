@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using SwissAcademic.Addons.TomatoTimer.Properties;
 
 namespace SwissAcademic.Addons.TomatoTimer
 {
@@ -45,9 +44,9 @@ namespace SwissAcademic.Addons.TomatoTimer
 
         public override TimerState State => TimerState.Stopped;
 
-        public override Image Image => TomatoTimerResources.tomato_stop;
+        public override Image Image => Properties.Resources.tomato_stop;
 
-        public override string Status => TomatoTimerResources.StartMessage;
+        public override string Status => Properties.Resources.StartMessage;
 
         #endregion
     }
@@ -64,9 +63,9 @@ namespace SwissAcademic.Addons.TomatoTimer
 
         public override TimerState State => TimerState.Running;
 
-        public override Image Image => TomatoTimerResources.tomato;
+        public override Image Image => Properties.Resources.tomato;
 
-        public override string Status => TomatoTimerResources.Active;
+        public override string Status => Properties.Resources.Active;
 
         #endregion
     }
@@ -83,9 +82,9 @@ namespace SwissAcademic.Addons.TomatoTimer
 
         public override TimerState State => TimerState.Walking;
 
-        public override Image Image => TomatoTimerResources.walk;
+        public override Image Image => Properties.Resources.walk;
 
-        public override string Status => TomatoTimerResources.Rest;
+        public override string Status => Properties.Resources.Rest;
 
         #endregion
     }
@@ -102,9 +101,9 @@ namespace SwissAcademic.Addons.TomatoTimer
 
         public override TimerState State => TimerState.Pausing;
 
-        public override Image Image => TomatoTimerResources.pause;
+        public override Image Image => Properties.Resources.pause;
 
-        public override string Status => TomatoTimerResources.Rest;
+        public override string Status => Properties.Resources.Rest;
 
         #endregion
     }

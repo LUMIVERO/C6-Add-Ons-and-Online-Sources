@@ -2,11 +2,10 @@
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.CheckUrlAndSetDate
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 
@@ -14,50 +13,33 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
         #endregion
 
-        #region Properties
-
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
-
-        #endregion
-
         #region Methods
 
-        protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_CheckUrl, StringComparison.OrdinalIgnoreCase) && (e.Form is MainForm mainForm))
+            if (e.Key.Equals(Key_Button_CheckUrl, StringComparison.OrdinalIgnoreCase))
             {
                 Macro.Run(mainForm);
                 e.Handled = true;
             }
-
-            base.OnBeforePerformingCommand(e);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                mainForm.GetMainCommandbarManager()
-                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(7, Key_Button_CheckUrl, CheckUrlAndSetDateResources.CheckUrlAndSetDateCommandText, image: CheckUrlAndSetDateResources.addon);
-            }
-
-            base.OnHostingFormLoaded(form);
-        }
-
-        protected override void OnLocalizing(Form form)
-        {
-            if (form is MainForm mainForm)
-            {
-                var button = mainForm.GetMainCommandbarManager()
+            mainForm.GetMainCommandbarManager()
                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .GetCommandbarButton(Key_Button_CheckUrl);
+                    .InsertCommandbarButton(7, Key_Button_CheckUrl, Resources.CheckUrlAndSetDateCommandText, image: Resources.addon);
+        }
 
-                if (button != null) button.Text = CheckUrlAndSetDateResources.CheckUrlAndSetDateCommandText;
-            }
-            base.OnLocalizing(form);
+        public override void OnLocalizing(MainForm mainForm)
+        {
+            var button = mainForm.GetMainCommandbarManager()
+                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                                 .GetCommandbarButton(Key_Button_CheckUrl);
+
+            if (button != null) button.Text = Resources.CheckUrlAndSetDateCommandText;
         }
 
         #endregion

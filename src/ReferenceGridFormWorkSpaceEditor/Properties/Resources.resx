@@ -117,20 +117,59 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Menu_Caption" xml:space="preserve">
+    <value>Work areas</value>
+  </data>
+  <data name="Button_EditWorkSpaces" xml:space="preserve">
+    <value>Manage work areas...</value>
+  </data>
+  <data name="Button_CreateWorkSpace" xml:space="preserve">
+    <value>Save new work area...</value>
+  </data>
+  <data name="NameEditor_Form_Text" xml:space="preserve">
+    <value>Work area name</value>
+  </data>
+  <data name="NameEditor_Label_Name" xml:space="preserve">
+    <value>Work area name:</value>
+  </data>
+  <data name="NameEditor_Button_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="NameEditor_Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="WorkSpaceEditor_Form_Text" xml:space="preserve">
+    <value>Manage work areas</value>
+  </data>
+  <data name="WorkSpaceEditor_Button_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\down1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\remove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WorkSpaceEditor_Button_ToolTip_Add" xml:space="preserve">
+    <value>Save new work area...</value>
+  </data>
+  <data name="WorkSpaceEditor_Button_ToolTip_Remove" xml:space="preserve">
+    <value>Delete work area</value>
+  </data>
+  <data name="NameEditor_Button_Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="WorkSpaceEditor_Messages_RemoveWorkSpace" xml:space="preserve">
+    <value>Do you really want to delete "{0}"?</value>
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\remove1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\up1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

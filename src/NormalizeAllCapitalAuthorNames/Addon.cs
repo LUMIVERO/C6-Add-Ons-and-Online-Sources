@@ -30,7 +30,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
         {
             personList.GetCommandbar(PersonListCommandbarId.Menu)
                       .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                      .InsertCommandbarButton(2, Key_Button_NormalizeAllCapitalAuthorNames, NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText, image: NormalizeAllCapitalAuthorNamesResources.addon);
+                      .InsertCommandbarButton(2, Key_Button_NormalizeAllCapitalAuthorNames, Resources.NormalizeAuthorNamesCommandText, image: Resources.addon);
 
             base.OnHostingFormLoaded(personList);
         }
@@ -41,7 +41,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
                                    .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
                                    .GetCommandbarButton(Key_Button_NormalizeAllCapitalAuthorNames);
 
-            if (button != null) button.Text = NormalizeAllCapitalAuthorNamesResources.NormalizeAuthorNamesCommandText;
+            if (button != null) button.Text = Resources.NormalizeAuthorNamesCommandText;
 
             base.OnLocalizing(personList);
         }

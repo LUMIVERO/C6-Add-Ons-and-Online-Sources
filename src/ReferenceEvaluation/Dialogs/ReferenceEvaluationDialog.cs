@@ -31,13 +31,13 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
 
         void Localizen()
         {
-            Text = ReferenceEvaluationResources.Form_Text;
-            btnClose.Text = ReferenceEvaluationResources.Form_Close;
-            btnClipboard.Text = ReferenceEvaluationResources.Form_Clipboard;
-            lblResult.Text = ReferenceEvaluationResources.Form_Result;
-            lblChoice.Text = ReferenceEvaluationResources.Form_Choice;
-            chbShowHeaders.Text = ReferenceEvaluationResources.Form_ShowHeader;
-            lblOptions.Text = ReferenceEvaluationResources.Form_Options;
+            Text = Resources.Form_Text;
+            btnClose.Text = Resources.Form_Close;
+            btnClipboard.Text = Resources.Form_Clipboard;
+            lblResult.Text = Resources.Form_Result;
+            lblChoice.Text = Resources.Form_Choice;
+            chbShowHeaders.Text = Resources.Form_ShowHeader;
+            lblOptions.Text = Resources.Form_Options;
             Icon = _mainForm.Icon;
         }
 

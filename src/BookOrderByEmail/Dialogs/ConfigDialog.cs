@@ -30,11 +30,11 @@ namespace SwissAcademic.Addons.BookOrderByEmail
 
         void Localize()
         {
-            Text = BookOrderByEmailResources.ConfigDialog_Text;
-            btnOk.Text = BookOrderByEmailResources.ConfigDialog_Ok;
-            btnCancel.Text = BookOrderByEmailResources.ConfigDialog_Cancel;
-            lblReceiver.Text = BookOrderByEmailResources.ConfigDialog_lbl_Receiver;
-            lblBody.Text = BookOrderByEmailResources.ConfigDialog_lbl_Body;
+            Text = Resources.ConfigDialog_Text;
+            btnOk.Text = Resources.ConfigDialog_Ok;
+            btnCancel.Text = Resources.ConfigDialog_Cancel;
+            lblReceiver.Text = Resources.ConfigDialog_lbl_Receiver;
+            lblBody.Text = Resources.ConfigDialog_lbl_Body;
         }
 
         #endregion

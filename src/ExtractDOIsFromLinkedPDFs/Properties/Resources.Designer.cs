@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.AddOns.ReferenceEditorKnowledgeOrganizerFilterCoordination.Properties {
+namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace SwissAcademic.AddOns.ReferenceEditorKnowledgeOrganizerFilterCoordinati
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -39,8 +39,7 @@ namespace SwissAcademic.AddOns.ReferenceEditorKnowledgeOrganizerFilterCoordinati
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.AddOns.ReferenceEditorKnowledgeOrganizerFilterCoordination.Properti" +
-                            "es.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -58,6 +57,52 @@ namespace SwissAcademic.AddOns.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addon {
+            get {
+                object obj = ResourceManager.GetObject("addon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add DOIs from PDFs ähnelt.
+        /// </summary>
+        internal static string CommandButtonText {
+            get {
+                return ResourceManager.GetString("CommandButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fetching PDF attachments ähnelt.
+        /// </summary>
+        internal static string GenericDialogFetchAttributsTitle {
+            get {
+                return ResourceManager.GetString("GenericDialogFetchAttributsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Finished adding DOIs ähnelt.
+        /// </summary>
+        internal static string ProcessFinishMessage {
+            get {
+                return ResourceManager.GetString("ProcessFinishMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die This cloud project contains attachments that are not locally available on your computer. You first need to download all attachments to extract the DOIs. To do so, click File &gt; This project &gt; Properties &gt; Attachments &gt; Save all attachments locally. ähnelt.
+        /// </summary>
+        internal static string UserMessageUnavailableAttachements {
+            get {
+                return ResourceManager.GetString("UserMessageUnavailableAttachements", resourceCulture);
             }
         }
     }

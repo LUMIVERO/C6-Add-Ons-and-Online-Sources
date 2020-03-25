@@ -9,7 +9,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
     {
         #region Properties
 
-        public override string Caption => ReferenceEvaluationResources.TwoLinksEvaluator_Caption;
+        public override string Caption => Resources.TwoLinksEvaluator_Caption;
 
         #endregion
 
@@ -24,9 +24,9 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
             {
 
 
-                var titleHeader = ReferenceEvaluationResources.TwoLinksEvaluator_ShortTitle;
-                var fromHeader = ReferenceEvaluationResources.TwoLinksEvaluator_From;
-                var toHeader = ReferenceEvaluationResources.TwoLinksEvaluator_To;
+                var titleHeader = Resources.TwoLinksEvaluator_ShortTitle;
+                var fromHeader = Resources.TwoLinksEvaluator_From;
+                var toHeader = Resources.TwoLinksEvaluator_To;
 
                 var statistics = references.GetStatistics();
 
@@ -57,7 +57,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
             }
             else
             {
-                _stringBuilder.AppendLine(ReferenceEvaluationResources.TwoLinksEvaluator_NoReferences);
+                _stringBuilder.AppendLine(Resources.TwoLinksEvaluator_NoReferences);
                 return _stringBuilder.ToString();
             }
             return _stringBuilder.ToString();

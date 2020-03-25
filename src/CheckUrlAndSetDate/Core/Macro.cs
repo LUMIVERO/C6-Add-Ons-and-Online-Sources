@@ -22,7 +22,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
             if (referencesWithUrl.Count == 0)
             {
-                MessageBox.Show(mainForm, CheckUrlAndSetDateResources.NoReferencesFoundedMessage, mainForm.ProductName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                MessageBox.Show(mainForm, Resources.NoReferencesFoundedMessage, mainForm.ProductName, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -42,15 +42,15 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
             if (result.InvalidCount != 0)
             {
-                if (MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
+                if (MessageBox.Show(string.Format(Resources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
                 {
-                    var filter = new ReferenceFilter(result.InvalidReferences, CheckUrlAndSetDateResources.ReferenceInvalidFilterName, false);
+                    var filter = new ReferenceFilter(result.InvalidReferences, Resources.ReferenceInvalidFilterName, false);
                     mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
                 }
             }
             else
             {
-                MessageBox.Show(string.Format(CheckUrlAndSetDateResources.MacroResultMessageWithoutSelection, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format(Resources.MacroResultMessageWithoutSelection, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -132,13 +132,13 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
                 if (exist)
                 {
-                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
+                    reference.Notes += String.Format(Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                     reference.AccessDate = newAccessDate;
                     result.ChangedCount++;
                 }
                 else
                 {
-                    reference.Notes += String.Format(CheckUrlAndSetDateResources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
+                    reference.Notes += String.Format(Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                     result.InvalidCount++;
                     result.InvalidReferences.Add(reference);
                 }

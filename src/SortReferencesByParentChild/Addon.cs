@@ -1,8 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using SwissAcademic.Citavi.Shell;
+﻿using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using System.Linq;
+using System;
+using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.SortReferencesByParentChild
 {

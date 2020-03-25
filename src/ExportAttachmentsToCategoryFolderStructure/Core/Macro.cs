@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Linq;
-using System.IO;
-
+﻿using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
-
-using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
 {
@@ -28,7 +26,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                 var categoryPathes = reference.Categories.CreateCategoryPathes(exportPath);
                 if (categoryPathes.Count == 0)
                 {
-                    var tempPath = mainForm.Project.AllCategories.Count == 0 ? exportPath : exportPath + @"\" + ExportAttachmentsToCategoryFolderStructureResources.NoCategoryFolder;
+                    var tempPath = mainForm.Project.AllCategories.Count == 0 ? exportPath : exportPath + @"\" + Resources.NoCategoryFolder;
                     categoryPathes.Add(tempPath);
                 }
 
@@ -73,8 +71,8 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                             catch (Exception e)
                             {
                                 tryAgain = false;
-                                DialogResult directoryError = MessageBox.Show(ExportAttachmentsToCategoryFolderStructureResources.Messages_CreatingFolderError + e.Message,
-                                                            ExportAttachmentsToCategoryFolderStructureResources.Messages_Error, MessageBoxButtons.AbortRetryIgnore,
+                                DialogResult directoryError = MessageBox.Show(Resources.Messages_CreatingFolderError + e.Message,
+                                                            Resources.Messages_Error, MessageBoxButtons.AbortRetryIgnore,
                                                             MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
                                 if (directoryError == DialogResult.Abort) return;
@@ -90,7 +88,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                 }
             }
 
-            MessageBox.Show(ExportAttachmentsToCategoryFolderStructureResources.Messages_Completed.FormatString(System.Environment.NewLine + changeCounter, System.Environment.NewLine + errorCounter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Resources.Messages_Completed.FormatString(System.Environment.NewLine + changeCounter, System.Environment.NewLine + errorCounter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static IEnumerable<Location> FilterBySupportedLocations(this ReferenceLocationCollection collection)
@@ -136,8 +134,8 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                     }
                     catch (Exception e)
                     {
-                        var directoryError = MessageBox.Show(ExportAttachmentsToCategoryFolderStructureResources.Messages_CreatingFolderError + e.Message,
-                                                             ExportAttachmentsToCategoryFolderStructureResources.Messages_Error,
+                        var directoryError = MessageBox.Show(Resources.Messages_CreatingFolderError + e.Message,
+                                                             Resources.Messages_Error,
                                                              MessageBoxButtons.AbortRetryIgnore,
                                                              MessageBoxIcon.Error,
                                                              MessageBoxDefaultButton.Button1
@@ -150,7 +148,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
             }
         }
 
-        public static string MakeValidFileName(this string name)
+        static string MakeValidFileName(this string name)
         {
             return String.Join("_", name.Split(Path.GetInvalidFileNameChars(), StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
         }

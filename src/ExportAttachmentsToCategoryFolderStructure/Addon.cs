@@ -47,7 +47,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
             mainForm.GetMainCommandbarManager()
                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                       .InsertCommandbarButton(4, Key_Button_ExportAttachmentsToCategoryFolderStructure, ExportAttachmentsToCategoryFolderStructureResources.Button_Text, image: ExportAttachmentsToCategoryFolderStructureResources.addon);
+                       .InsertCommandbarButton(4, Key_Button_ExportAttachmentsToCategoryFolderStructure, Resources.Button_Text, image: Resources.addon);
 
             base.OnHostingFormLoaded(mainForm);
         }
@@ -58,7 +58,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                     .GetCommandbarButton(Key_Button_ExportAttachmentsToCategoryFolderStructure);
-            if (button != null) button.Text = ExportAttachmentsToCategoryFolderStructureResources.Button_Text;
+            if (button != null) button.Text = Resources.Button_Text;
 
             base.OnLocalizing(mainForm);
         }
@@ -66,7 +66,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
         public bool AskForExportPath(out string exportPath)
         {
             exportPath = null;
-            using (var fodlerBrowserDialog = new FolderBrowserDialog { Description = ExportAttachmentsToCategoryFolderStructureResources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
+            using (var fodlerBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
             {
                 if (fodlerBrowserDialog.ShowDialog() != DialogResult.OK) return false;
 

@@ -1,8 +1,8 @@
-﻿using SwissAcademic.Citavi.Shell;
+﻿using SwissAcademic.Addons.TomatoTimer.Properties;
+using SwissAcademic.Citavi.Shell;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using SwissAcademic.Addons.TomatoTimer.Properties;
-using System;
 
 namespace SwissAcademic.Addons.TomatoTimer
 {
@@ -52,7 +52,7 @@ namespace SwissAcademic.Addons.TomatoTimer
                 var statusbar = mainForm.GetStatusBar();
                 var appearance = new Infragistics.Win.Appearance
                 {
-                    Image = TomatoTimerResources.tomato,
+                    Image = Resources.tomato,
                     TextHAlign = Infragistics.Win.HAlign.Left,
                     TextVAlign = Infragistics.Win.VAlign.Middle,
                     Cursor = Cursors.Hand
@@ -62,7 +62,7 @@ namespace SwissAcademic.Addons.TomatoTimer
                 {
                     Key = PanelKey,
                     Appearance = appearance,
-                    Text = TomatoTimerResources.StartMessage
+                    Text = Resources.StartMessage
                 };
 
                 statusbar.Panels.Insert(statusbar.Panels.Count - 2, panel);

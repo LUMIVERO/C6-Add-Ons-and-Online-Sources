@@ -19,7 +19,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -71,6 +71,24 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save new work area... ähnelt.
+        /// </summary>
+        internal static string Button_CreateWorkSpace {
+            get {
+                return ResourceManager.GetString("Button_CreateWorkSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Manage work areas... ähnelt.
+        /// </summary>
+        internal static string Button_EditWorkSpaces {
+            get {
+                return ResourceManager.GetString("Button_EditWorkSpaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap down {
@@ -91,6 +109,60 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Work areas ähnelt.
+        /// </summary>
+        internal static string Menu_Caption {
+            get {
+                return ResourceManager.GetString("Menu_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string NameEditor_Button_Cancel {
+            get {
+                return ResourceManager.GetString("NameEditor_Button_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Create ähnelt.
+        /// </summary>
+        internal static string NameEditor_Button_Create {
+            get {
+                return ResourceManager.GetString("NameEditor_Button_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename ähnelt.
+        /// </summary>
+        internal static string NameEditor_Button_Rename {
+            get {
+                return ResourceManager.GetString("NameEditor_Button_Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Work area name ähnelt.
+        /// </summary>
+        internal static string NameEditor_Form_Text {
+            get {
+                return ResourceManager.GetString("NameEditor_Form_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Work area name: ähnelt.
+        /// </summary>
+        internal static string NameEditor_Label_Name {
+            get {
+                return ResourceManager.GetString("NameEditor_Label_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap remove {
@@ -107,6 +179,51 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
             get {
                 object obj = ResourceManager.GetObject("up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Close ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Button_Close {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Button_Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save new work area... ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Button_ToolTip_Add {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Button_ToolTip_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete work area ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Button_ToolTip_Remove {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Button_ToolTip_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Manage work areas ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Form_Text {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Form_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to delete &quot;{0}&quot;? ähnelt.
+        /// </summary>
+        internal static string WorkSpaceEditor_Messages_RemoveWorkSpace {
+            get {
+                return ResourceManager.GetString("WorkSpaceEditor_Messages_RemoveWorkSpace", resourceCulture);
             }
         }
     }

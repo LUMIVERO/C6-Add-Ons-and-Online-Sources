@@ -50,10 +50,10 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         public override void Localize()
         {
             base.Localize();
-            Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Form_Text;
-            lbl_workspace_name.Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Label_Name;
-            btn_cancel.Text = Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Cancel;
-            btn_create.Text = _editMode ? Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Rename : Properties.ReferenceGridFormWorkSpaceEditorResources.NameEditor_Button_Create;
+            Text = Properties.Resources.NameEditor_Form_Text;
+            lbl_workspace_name.Text = Properties.Resources.NameEditor_Label_Name;
+            btn_cancel.Text = Properties.Resources.NameEditor_Button_Cancel;
+            btn_create.Text = _editMode ? Properties.Resources.NameEditor_Button_Rename : Properties.Resources.NameEditor_Button_Create;
         }
 
         protected override void OnApplicationIdle()

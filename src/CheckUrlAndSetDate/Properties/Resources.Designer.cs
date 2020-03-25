@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.TomatoTimer.Properties {
+namespace SwissAcademic.Addons.CheckUrlAndSetDate.Properties {
     using System;
     
     
@@ -19,17 +19,17 @@ namespace SwissAcademic.Addons.TomatoTimer.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class TomatoTimerResources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal TomatoTimerResources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.TomatoTimer.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.TomatoTimer.Properties.TomatoTimerResources", typeof(TomatoTimerResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.CheckUrlAndSetDate.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,105 +61,71 @@ namespace SwissAcademic.Addons.TomatoTimer.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Active ähnelt.
-        /// </summary>
-        internal static string Active {
-            get {
-                return ResourceManager.GetString("Active", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Well done! It’s tea time, now! ähnelt.
-        /// </summary>
-        internal static string FinishMessage {
-            get {
-                return ResourceManager.GetString("FinishMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 1 minute left ähnelt.
-        /// </summary>
-        internal static string LastMinute {
-            get {
-                return ResourceManager.GetString("LastMinute", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Take a break! ähnelt.
-        /// </summary>
-        internal static string Message_Break {
-            get {
-                return ResourceManager.GetString("Message_Break", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pause {
+        internal static System.Drawing.Bitmap addon {
             get {
-                object obj = ResourceManager.GetObject("pause", resourceCulture);
+                object obj = ResourceManager.GetObject("addon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Remaining: {0} Minutes ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Check links in the online address field ähnelt.
         /// </summary>
-        internal static string RemainingMinutes {
+        internal static string CheckUrlAndSetDateCommandText {
             get {
-                return ResourceManager.GetString("RemainingMinutes", resourceCulture);
+                return ResourceManager.GetString("CheckUrlAndSetDateCommandText", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Break ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die  *** link {0} checked on {1}: {2}; original access date: {3} *** ähnelt.
         /// </summary>
-        internal static string Rest {
+        internal static string LinkCheckNotes {
             get {
-                return ResourceManager.GetString("Rest", resourceCulture);
+                return ResourceManager.GetString("LinkCheckNotes", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Start ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} links checked:
+        ///{1} URLs valid
+        ///{2} URLs not reachable
+        ///Would you like to show a selection of references with an unreachable online address? ähnelt.
         /// </summary>
-        internal static string StartMessage {
+        internal static string MacroResultMessage {
             get {
-                return ResourceManager.GetString("StartMessage", resourceCulture);
+                return ResourceManager.GetString("MacroResultMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} links checked:
+        ///{1} URLs valid
+        ///{2} URLs not reachable ähnelt.
         /// </summary>
-        internal static System.Drawing.Bitmap tomato {
+        internal static string MacroResultMessageWithoutSelection {
             get {
-                object obj = ResourceManager.GetObject("tomato", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("MacroResultMessageWithoutSelection", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Zeichenfolge, die No references were found with links in the online address field. ähnelt.
         /// </summary>
-        internal static System.Drawing.Bitmap tomato_stop {
+        internal static string NoReferencesFoundedMessage {
             get {
-                object obj = ResourceManager.GetObject("tomato_stop", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("NoReferencesFoundedMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        ///   Sucht eine lokalisierte Zeichenfolge, die References with invalid URLs ähnelt.
         /// </summary>
-        internal static System.Drawing.Bitmap walk {
+        internal static string ReferenceInvalidFilterName {
             get {
-                object obj = ResourceManager.GetObject("walk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ReferenceInvalidFilterName", resourceCulture);
             }
         }
     }

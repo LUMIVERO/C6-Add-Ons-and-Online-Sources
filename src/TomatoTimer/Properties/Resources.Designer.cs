@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties {
+namespace SwissAcademic.Addons.TomatoTimer.Properties {
     using System;
     
     
@@ -19,17 +19,17 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Proper
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ExportAttachmentsToCategoryFolderStructureResources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ExportAttachmentsToCategoryFolderStructureResources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,8 +39,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Proper
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties.Export" +
-                            "AttachmentsToCategoryFolderStructureResources", typeof(ExportAttachmentsToCategoryFolderStructureResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.TomatoTimer.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,66 +61,105 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Proper
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Active ähnelt.
+        /// </summary>
+        internal static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Well done! It’s tea time, now! ähnelt.
+        /// </summary>
+        internal static string FinishMessage {
+            get {
+                return ResourceManager.GetString("FinishMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1 minute left ähnelt.
+        /// </summary>
+        internal static string LastMinute {
+            get {
+                return ResourceManager.GetString("LastMinute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Take a break! ähnelt.
+        /// </summary>
+        internal static string Message_Break {
+            get {
+                return ResourceManager.GetString("Message_Break", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addon {
+        internal static System.Drawing.Bitmap pause {
             get {
-                object obj = ResourceManager.GetObject("addon", resourceCulture);
+                object obj = ResourceManager.GetObject("pause", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die [eng] Attachments mit Kategorien Struktur exportieren ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remaining: {0} Minutes ähnelt.
         /// </summary>
-        internal static string Button_Text {
+        internal static string RemainingMinutes {
             get {
-                return ResourceManager.GetString("Button_Text", resourceCulture);
+                return ResourceManager.GetString("RemainingMinutes", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Finished {0} files copied {1} errors occurred ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Break ähnelt.
         /// </summary>
-        internal static string Messages_Completed {
+        internal static string Rest {
             get {
-                return ResourceManager.GetString("Messages_Completed", resourceCulture);
+                return ResourceManager.GetString("Rest", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die An error occurred creating a folder:  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Start ähnelt.
         /// </summary>
-        internal static string Messages_CreatingFolderError {
+        internal static string StartMessage {
             get {
-                return ResourceManager.GetString("Messages_CreatingFolderError", resourceCulture);
+                return ResourceManager.GetString("StartMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Error ähnelt.
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static string Messages_Error {
+        internal static System.Drawing.Bitmap tomato {
             get {
-                return ResourceManager.GetString("Messages_Error", resourceCulture);
+                object obj = ResourceManager.GetObject("tomato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Please select root folder for export ähnelt.
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static string Messages_SelectRootFolder {
+        internal static System.Drawing.Bitmap tomato_stop {
             get {
-                return ResourceManager.GetString("Messages_SelectRootFolder", resourceCulture);
+                object obj = ResourceManager.GetObject("tomato_stop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 0 No Category ähnelt.
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static string NoCategoryFolder {
+        internal static System.Drawing.Bitmap walk {
             get {
-                return ResourceManager.GetString("NoCategoryFolder", resourceCulture);
+                object obj = ResourceManager.GetObject("walk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

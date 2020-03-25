@@ -1,11 +1,10 @@
 ﻿using SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
 {
-    public class Addon : CitaviAddOn
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 
@@ -14,78 +13,55 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
 
         #endregion
 
-        #region Properties
-
-        public override AddOnHostingForm HostingForm => AddOnHostingForm.MainForm;
-
-        #endregion
-
         #region Methods
 
-        protected override void OnBeforePerformingCommand(BeforePerformingCommandEventArgs e)
+        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Form is MainForm mainForm)
+            e.Handled = true;
+            switch (e.Key)
             {
-                e.Handled = true;
-                switch (e.Key)
-                {
-                    case (Key_Button_File):
-                        {
-                            Macro.Run(mainForm);
-                        }
-                        break;
-                    case (Key_Button_References):
-                        {
-                            Macro.Run(mainForm);
-                        }
-                        break;
-                    default:
-                        e.Handled = false;
-                        break;
-                }
+                case (Key_Button_File):
+                    {
+                        Macro.Run(mainForm);
+                    }
+                    break;
+                case (Key_Button_References):
+                    {
+                        Macro.Run(mainForm);
+                    }
+                    break;
+                default:
+                    e.Handled = false;
+                    break;
             }
-
-            base.OnBeforePerformingCommand(e);
         }
 
-        protected override void OnHostingFormLoaded(Form form)
+        public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                mainForm.GetMainCommandbarManager()
-                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                        .InsertCommandbarButton(6, Key_Button_File, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
+            var commandBar = mainForm.GetMainCommandbarManager()
+                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
+            commandBar.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                      .InsertCommandbarButton(6, Key_Button_File, Resource.AddonCommandbarButton, image: Resource.addon);
 
-                mainForm.GetMainCommandbarManager()
-                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                        .InsertCommandbarButton(3, Key_Button_References, ImportPdfsAndCategorySystemResource.AddonCommandbarButton, image: ImportPdfsAndCategorySystemResource.addon);
-            }
-
-            base.OnHostingFormLoaded(form);
+            commandBar.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                      .InsertCommandbarButton(3, Key_Button_References, Resource.AddonCommandbarButton, image: Resource.addon);
         }
 
-        protected override void OnLocalizing(Form form)
+        public override void OnLocalizing(MainForm mainForm)
         {
-            if (form is MainForm mainForm)
-            {
-                var button = mainForm.GetMainCommandbarManager()
-                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                                     .GetCommandbarButton(Key_Button_File);
+            var button = mainForm.GetMainCommandbarManager()
+                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                                      .GetCommandbarButton(Key_Button_File);
 
-                if (button != null) button.Text = ImportPdfsAndCategorySystemResource.AddonCommandbarButton;
+            if (button != null) button.Text = Resource.AddonCommandbarButton;
 
-                button = mainForm.GetMainCommandbarManager()
-                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                                 .GetCommandbarButton(Key_Button_References);
+            button = mainForm.GetMainCommandbarManager()
+                             .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                             .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                             .GetCommandbarButton(Key_Button_References);
 
-                if (button != null) button.Text = ImportPdfsAndCategorySystemResource.AddonCommandbarButton;
-            }
-
-            base.OnLocalizing(form);
+            if (button != null) button.Text = Resource.AddonCommandbarButton;
         }
 
         #endregion

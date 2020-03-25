@@ -1,1 +1,36 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"ExportAttachmentsToCategoryFolderStructureAddon.dll","Icon":"addon.png","Summary":"Export PDFs saved in Citavi to folders corresponding to the category system in your proejct.","summary_localized":{"de":"Exportieren Sie die in Citavi hinterlegten PDFs in eine Ordnerstruktur, die den Kategorien in Ihrem Projekt entspricht."},"Url":"www.citavi.com/ExportAttachmentsToCategoryFolderStructureAddon","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"This add-on lets you export all of the attachments in a project.\r\nThe reference categories are used to create the folders. The PDFs are then copied to the corresponding folder.\r\nYou can create a selection before running the add-on to only export the attachments for the selected references. For example, you could create a selection of all of the cited references in an open document.\r\nTo use this add-on, click «References» > «Export attachments to category tree».","description_localized":{"de":"Mit diesem Add-on können Sie alle Attachments eines Projekts exportieren.\r\nDie Kategorien der Titel werden dabei als Ordner-Struktur angelegt und die PDFs in die jeweiligen Ordner kopiert.\r\nErstellen Sie vorher eine Auswahl, werden nur die Attachments dieser Titel exportiert, z.B. aller zitierter Titel im geöffneten Dokument.\r\nKlicken Sie auf «Titel» > «Attachments in Ordner-Struktur exportieren», um das Add-on zu nutzen."},"Id":"5bbbb341-4fcb-4e5f-aa43-5c0f23993098","Name":"Export attachments to a folder tree","name_localized":{"de":"Export der Attachments in Ordner-Struktur"},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":9,"MajorRevision":0,"MinorRevision":9}}
+﻿{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "ExportAttachmentsToCategoryFolderStructureAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "Export PDFs saved in Citavi to folders corresponding to the category system in your proejct.",
+  "summary_localized": {
+    "de": "Exportieren Sie die in Citavi hinterlegten PDFs in eine Ordnerstruktur, die den Kategorien in Ihrem Projekt entspricht."
+  },
+  "Url": "www.citavi.com/ExportAttachmentsToCategoryFolderStructureAddon",
+  "citavi_min_version": {
+    "Major": 6,
+    "Minor": 4,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "This add-on lets you export all of the attachments in a project.\r\nThe reference categories are used to create the folders. The PDFs are then copied to the corresponding folder.\r\nYou can create a selection before running the add-on to only export the attachments for the selected references. For example, you could create a selection of all of the cited references in an open document.\r\nTo use this add-on, click «References» > «Export attachments to category tree».",
+  "description_localized": {
+    "de": "Mit diesem Add-on können Sie alle Attachments eines Projekts exportieren.\r\nDie Kategorien der Titel werden dabei als Ordner-Struktur angelegt und die PDFs in die jeweiligen Ordner kopiert.\r\nErstellen Sie vorher eine Auswahl, werden nur die Attachments dieser Titel exportiert, z.B. aller zitierter Titel im geöffneten Dokument.\r\nKlicken Sie auf «Titel» > «Attachments in Ordner-Struktur exportieren», um das Add-on zu nutzen."
+  },
+  "Id": "5bbbb341-4fcb-4e5f-aa43-5c0f23993098",
+  "Name": "Export attachments to a folder tree",
+  "name_localized": {
+    "de": "Export der Attachments in Ordner-Struktur"
+  },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 9,
+    "MajorRevision": 0,
+    "MinorRevision": 9
+  }
+}

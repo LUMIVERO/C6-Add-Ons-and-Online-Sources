@@ -52,7 +52,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
 
                 }
             }
-            MessageBox.Show(personList, NormalizeAllCapitalAuthorNamesResources.ResultMessage.FormatString(counter), personList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(personList, Resources.ResultMessage.FormatString(counter), personList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

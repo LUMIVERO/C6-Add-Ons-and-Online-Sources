@@ -22,7 +22,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
                 try
                 {
-                    await GenericProgressDialog.RunTask(mainForm, FetchAllAttributes, project, ExtractDOIsFromLinkedPDFsResources.GenericDialogFetchAttributsTitle, null, cts);
+                    await GenericProgressDialog.RunTask(mainForm, FetchAllAttributes, project, Resources.GenericDialogFetchAttributsTitle, null, cts);
                 }
                 catch (OperationCanceledException)
                 {
@@ -45,7 +45,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
                 if (hasUnavailableAttachments)
                 {
-                    MessageBox.Show(mainForm, ExtractDOIsFromLinkedPDFsResources.UserMessageUnavailableAttachements, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mainForm, Resources.UserMessageUnavailableAttachements, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }
@@ -77,7 +77,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                 isCanceled = true;
             }
 
-            if (!isCanceled) MessageBox.Show(mainForm, ExtractDOIsFromLinkedPDFsResources.ProcessFinishMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (!isCanceled) MessageBox.Show(mainForm, Resources.ProcessFinishMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         static Task FetchAllAttributes(Project project, CancellationToken cancellationToken)
@@ -112,7 +112,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                         continue;
                     }
 
-                    var matches = supporter.FindIdentifierInFile(container.Path,5, ReferenceIdentifierType.Doi, false);
+                    var matches = supporter.FindIdentifierInFile(container.Path, 5, ReferenceIdentifierType.Doi, false);
                     if (matches.Count == 0)
                     {
                         progress.ReportSafe(container.Location.ToString(), percentage);

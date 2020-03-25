@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Addons.ImportJournals.Properties;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
@@ -39,7 +38,7 @@ namespace SwissAcademic.Addons.ImportJournals
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(periodicalList, ImportJournalsResources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, Properties.Resources.PubMedMacroReadErrorMessage.FormatString(journalUrl, e.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -131,7 +130,7 @@ namespace SwissAcademic.Addons.ImportJournals
             {
                 Cursor.Current = Cursors.Default;
                 journalCollection = null;
-                MessageBox.Show(periodicalList, ImportJournalsResources.MacroImportingErrorMessage.FormatString(exception.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(periodicalList, Properties.Resources.MacroImportingErrorMessage.FormatString(exception.Message), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -139,7 +138,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                 if (journalCollection != null)
                 {
-                    MessageBox.Show(periodicalList, ImportJournalsResources.PubMedMacroResultMessage.FormatString(journalCollection.Count.ToString()), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(periodicalList, Properties.Resources.PubMedMacroResultMessage.FormatString(journalCollection.Count.ToString()), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
 

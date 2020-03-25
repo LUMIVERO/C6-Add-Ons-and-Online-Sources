@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Addons.ImportSequenceNumber.Properties;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Resources;
 using System;
@@ -64,7 +63,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
         {
             btnOk.Text = ControlTexts.okButton;
             btnCancel.Text = ControlTexts.CancelButton;
-            lblDescription.Text = ImportSequenceNumberResources.ChooseFieldMessage;
+            lblDescription.Text = Properties.Resources.ChooseFieldMessage;
 
             cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField1].LabelText);
             cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField2].LabelText);

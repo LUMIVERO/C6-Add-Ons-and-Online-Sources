@@ -24,7 +24,7 @@ namespace SwissAcademic.Addons.BookOrderByEmail
         {
             var mail = new MailTemplate
             {
-                Subject = BookOrderByEmailResources.Order
+                Subject = Resources.Order
 
             };
 
@@ -39,10 +39,10 @@ namespace SwissAcademic.Addons.BookOrderByEmail
             }
 
             var isbn = string.IsNullOrEmpty(reference.Isbn)
-                       ? BookOrderByEmailResources.OrderByEMailBodyTextISBNMissing
+                       ? Resources.OrderByEMailBodyTextISBNMissing
                        : reference.Isbn.ToString();
 
-            mail.Body = string.Format(BookOrderByEmailResources.OrderByEMailBodyText, reference.ToString(TextFormat.Text), isbn, configuration.Body);
+            mail.Body = string.Format(Resources.OrderByEMailBodyText, reference.ToString(TextFormat.Text), isbn, configuration.Body);
             return mail;
         }
     }

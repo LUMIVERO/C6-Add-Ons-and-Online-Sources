@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
     {
         #region Properties
 
-        public override string Caption => ReferenceEvaluationResources.KeywordsEvaluator_Caption;
+        public override string Caption => Resources.KeywordsEvaluator_Caption;
 
         #endregion
 
@@ -27,7 +27,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
 
             if (entities.Count == 0)
             {
-                _stringBuilder.AppendLine(ReferenceEvaluationResources.KeywordsEvaluator_NoKeywords);
+                _stringBuilder.AppendLine(Resources.KeywordsEvaluator_NoKeywords);
                 return _stringBuilder.ToString();
             }
 
@@ -83,13 +83,13 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
 
         string CreateHeader(List<EvaluationEntity<Keyword>> entities, bool isFiltered, List<int> columnsWidth)
         {
-            return ReferenceEvaluationResources.Evaluator_Name
-                           + ' '.Repeat(columnsWidth[0] - ReferenceEvaluationResources.Evaluator_Name.Length + 10)
+            return Resources.Evaluator_Name
+                           + ' '.Repeat(columnsWidth[0] - Resources.Evaluator_Name.Length + 10)
                            + (isFiltered
-                                 ? ReferenceEvaluationResources.Evaluation_CountBySelection
-                                    + ' '.Repeat(columnsWidth[1] - ReferenceEvaluationResources.Evaluation_CountBySelection.Length + 10)
-                                    + ReferenceEvaluationResources.Evaluation_CountByProject
-                                  : ReferenceEvaluationResources.Evaluator_Count);
+                                 ? Resources.Evaluation_CountBySelection
+                                    + ' '.Repeat(columnsWidth[1] - Resources.Evaluation_CountBySelection.Length + 10)
+                                    + Resources.Evaluation_CountByProject
+                                  : Resources.Evaluator_Count);
 
         }
 
@@ -99,8 +99,8 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
             {
                 entities.Max(entity => entity.Entity.FullName.Length),
                 isFiltered
-                 ? System.Math.Max(entities.Max(entity => entity.CountBySelection.ToString().Length), ReferenceEvaluationResources.Evaluation_CountBySelection.Length)
-                 : System.Math.Max(entities.Max(entity => entity.CountByProject.ToString().Length), ReferenceEvaluationResources.Evaluator_Count.Length)
+                 ? System.Math.Max(entities.Max(entity => entity.CountBySelection.ToString().Length), Resources.Evaluation_CountBySelection.Length)
+                 : System.Math.Max(entities.Max(entity => entity.CountByProject.ToString().Length), Resources.Evaluator_Count.Length)
             };
         }
 

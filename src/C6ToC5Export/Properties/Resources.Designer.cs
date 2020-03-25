@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
+namespace SwissAcademic.Addons.C6ToC5Export.Properties {
     using System;
     
     
@@ -19,17 +19,17 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ExtractDOIsFromLinkedPDFsResources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ExtractDOIsFromLinkedPDFsResources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,8 +39,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties.ExtractDOIsFromLinkedPD" +
-                            "FsResources", typeof(ExtractDOIsFromLinkedPDFsResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.C6ToC5Export.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -72,38 +71,62 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Add DOIs from PDFs ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Export to Citavi 5 ähnelt.
         /// </summary>
-        internal static string CommandButtonText {
+        internal static string ExportCitaviButtonText {
             get {
-                return ResourceManager.GetString("CommandButtonText", resourceCulture);
+                return ResourceManager.GetString("ExportCitaviButtonText", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fetching PDF attachments ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The current project is a cloud project with attachments. Convert the cloud project to a local project before you export it. (&lt;a href=&quot;https://www1.citavi.com/sub/manual6/en/converting_cloud_projects.html&quot;&gt;Citavi manual&lt;/a&gt;). ähnelt.
         /// </summary>
-        internal static string GenericDialogFetchAttributsTitle {
+        internal static string ExportCloudProjectErrorMessage {
             get {
-                return ResourceManager.GetString("GenericDialogFetchAttributsTitle", resourceCulture);
+                return ResourceManager.GetString("ExportCloudProjectErrorMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Finished adding DOIs ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The export was not completed.
+        ///
+        ///Error
+        ///
+        ///{0}
+        ///
+        ///Do you want to copy the error message to the Clipboard? ähnelt.
         /// </summary>
-        internal static string ProcessFinishMessage {
+        internal static string ExportExceptionMessage {
             get {
-                return ResourceManager.GetString("ProcessFinishMessage", resourceCulture);
+                return ResourceManager.GetString("ExportExceptionMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die This cloud project contains attachments that are not locally available on your computer. You first need to download all attachments to extract the DOIs. To do so, click File &gt; This project &gt; Properties &gt; Attachments &gt; Save all attachments locally. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The export was successful. ähnelt.
         /// </summary>
-        internal static string UserMessageUnavailableAttachements {
+        internal static string ExportFinallyMessage {
             get {
-                return ResourceManager.GetString("UserMessageUnavailableAttachements", resourceCulture);
+                return ResourceManager.GetString("ExportFinallyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Export... ähnelt.
+        /// </summary>
+        internal static string ExportTitle {
+            get {
+                return ResourceManager.GetString("ExportTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die XML files (*.xml)|*.xml|All files (*.*)|*.* ähnelt.
+        /// </summary>
+        internal static string ProjectFilters {
+            get {
+                return ResourceManager.GetString("ProjectFilters", resourceCulture);
             }
         }
     }

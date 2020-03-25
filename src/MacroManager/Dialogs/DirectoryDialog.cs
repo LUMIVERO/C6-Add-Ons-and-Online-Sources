@@ -43,7 +43,7 @@ namespace SwissAcademic.Addons.MacroManager
         {
             if (string.IsNullOrEmpty(directory))
             {
-                MessageBox.Show(this, MacroManagerResources.FolderBrowseDialogDescription, Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, Properties.Resources.FolderBrowseDialogDescription, Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
 
@@ -51,15 +51,15 @@ namespace SwissAcademic.Addons.MacroManager
 
             if (System.IO.Directory.Exists(path)) return true;
 
-            MessageBox.Show(this, MacroManagerResources.DirectoryNotResolveMessage.FormatString(path), Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, Properties.Resources.DirectoryNotResolveMessage.FormatString(path), Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
         void Localize()
         {
-            this.Text = MacroManagerResources.DirectoryDialogTitle;
-            btnCancel.Text = MacroManagerResources.Btn_Cancel;
-            btnOk.Text = MacroManagerResources.Btn_Ok;
+            this.Text = Properties.Resources.DirectoryDialogTitle;
+            btnCancel.Text = Properties.Resources.Btn_Cancel;
+            btnOk.Text = Properties.Resources.Btn_Ok;
         }
 
         IEnumerable<EnvironmentVariable> GetPossibleUserEnvironmentVariables()
@@ -120,7 +120,7 @@ namespace SwissAcademic.Addons.MacroManager
 
         void BtnFolderBrowserDialog_Click(object sender, EventArgs e)
         {
-            using (var folderBrowseDialog = new FolderBrowserDialog { Description = MacroManagerResources.FolderBrowseDialogDescription })
+            using (var folderBrowseDialog = new FolderBrowserDialog { Description = Properties.Resources.FolderBrowseDialogDescription })
             {
                 var root = System.IO.Path2.GetFullPathFromPathWithVariables(txtPath.Text);
                 if (System.IO.Directory.Exists(root)) folderBrowseDialog.SelectedPath = root;
@@ -129,7 +129,7 @@ namespace SwissAcademic.Addons.MacroManager
 
                 var entry = GetPathWithVariablesFromFullPath(folderBrowseDialog.SelectedPath);
 
-                if (!string.IsNullOrEmpty(entry) && !folderBrowseDialog.SelectedPath.Equals(entry, StringComparison.OrdinalIgnoreCase) && MessageBox.Show(this, MacroManagerResources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), Owner.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (!string.IsNullOrEmpty(entry) && !folderBrowseDialog.SelectedPath.Equals(entry, StringComparison.OrdinalIgnoreCase) && MessageBox.Show(this, Properties.Resources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), Owner.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     txtPath.Text = entry;
                     lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(entry);
@@ -151,17 +151,17 @@ namespace SwissAcademic.Addons.MacroManager
                 switch (entry.Type)
                 {
                     case EnvironmentVariableTarget.User:
-                        ccEnvironment.Items.Add(entry.Name, MacroManagerResources.user, ToolStripItem_ItemClick);
+                        ccEnvironment.Items.Add(entry.Name, Properties.Resources.user, ToolStripItem_ItemClick);
                         break;
                     case EnvironmentVariableTarget.Machine:
-                        ccEnvironment.Items.Add(entry.Name, MacroManagerResources.maschine, ToolStripItem_ItemClick);
+                        ccEnvironment.Items.Add(entry.Name, Properties.Resources.maschine, ToolStripItem_ItemClick);
                         break;
                 }
             }
 
             if (ccEnvironment.Items.Count == 0)
             {
-                MessageBox.Show(this, MacroManagerResources.EnvironmentVariablesNotFound, Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, Properties.Resources.EnvironmentVariablesNotFound, Owner.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

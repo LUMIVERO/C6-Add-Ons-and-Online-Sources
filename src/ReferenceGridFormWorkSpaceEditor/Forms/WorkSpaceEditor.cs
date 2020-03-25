@@ -36,9 +36,9 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
             btn_add.Image = Control2.ScaleBitmap(Resources.add);
             btn_down.Image = Control2.ScaleBitmap(Resources.down);
-            btn_edit.Image = Control2.ScaleBitmap(Properties.Resources.edit);
-            btn_remove.Image = Control2.ScaleBitmap(Properties.Resources.remove);
-            btn_up.Image = Control2.ScaleBitmap(Properties.Resources.up);
+            btn_edit.Image = Control2.ScaleBitmap(Resources.edit);
+            btn_remove.Image = Control2.ScaleBitmap(Resources.remove);
+            btn_up.Image = Control2.ScaleBitmap(Resources.up);
         }
 
         protected override void OnApplicationIdle()
@@ -86,7 +86,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         {
             base.Localize();
 
-            Text = ReferenceGridFormWorkSpaceEditorResources.WorkSpaceEditor_Form_Text;
+            Text = Properties.Resources.WorkSpaceEditor_Form_Text;
         }
 
         #endregion
@@ -108,7 +108,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         {
             if (lb_workspaces.SelectedItem is WorkSpace workSpace)
             {
-                if (MessageBox.Show(ReferenceGridFormWorkSpaceEditorResources.WorkSpaceEditor_Messages_RemoveWorkSpace.FormatString(workSpace.Caption), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Properties.Resources.WorkSpaceEditor_Messages_RemoveWorkSpace.FormatString(workSpace.Caption), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     lb_workspaces.Items.RemoveAt(lb_workspaces.SelectedIndex);
                 }

@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Timers;
-using SwissAcademic.Addons.TomatoTimer.Properties;
 
 namespace SwissAcademic.Addons.TomatoTimer
 {
@@ -41,11 +40,11 @@ namespace SwissAcademic.Addons.TomatoTimer
         {
             _states = new TomatoTimerStates(new StoppedTimer(0))
             {
-                new RunningTimer(25){ MessageResolver=()=>{return TomatoTimerResources.Message_Break; } },
+                new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.Message_Break; } },
                 new PausingTimer(5),
-                new RunningTimer(25){ MessageResolver=()=>{return TomatoTimerResources.Message_Break; } },
+                new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.Message_Break; } },
                 new PausingTimer(5),
-                new RunningTimer(25){ MessageResolver=()=>TomatoTimerResources.FinishMessage},
+                new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.FinishMessage; } },
                 new WalkingTimer(15)
             };
 
@@ -62,11 +61,11 @@ namespace SwissAcademic.Addons.TomatoTimer
 
         public int Minutes { get; private set; }
 
-        public string Status => _timer != null ? (Minutes > 1 ? _states.Current.Status : TomatoTimerResources.LastMinute) : TomatoTimerResources.StartMessage;
+        public string Status => _timer != null ? (Minutes > 1 ? _states.Current.Status : Properties.Resources.LastMinute) : Properties.Resources.StartMessage;
 
         public Image Image => _timer != null ? _states.Current.Image : _states.Default.Image;
 
-        public string ToolTip => _timer != null ? (Minutes > 1 ? TomatoTimerResources.RemainingMinutes.FormatString(Minutes) : TomatoTimerResources.LastMinute) : "TomatoTimer";
+        public string ToolTip => _timer != null ? (Minutes > 1 ? Properties.Resources.RemainingMinutes.FormatString(Minutes) : Properties.Resources.LastMinute) : "TomatoTimer";
 
         #endregion
 
@@ -124,12 +123,13 @@ namespace SwissAcademic.Addons.TomatoTimer
             if (string.IsNullOrEmpty(message)) return;
             var mainForm = GetActiveMainForm();
 
-            mainForm.Invoke((Action)delegate {
+            mainForm.Invoke((Action)delegate
+            {
 
                 var info = new UltraDesktopAlertShowWindowInfo
                 {
                     Caption = message,
-                    Image = TomatoTimerResources.pause,
+                    Image = Properties.Resources.pause,
                     ScreenPosition = ScreenPosition.Center,
                     Key = TomatoTimer_DesktopAlert_Key,
                     Screen = System.Windows.Forms.Screen.FromControl(mainForm)

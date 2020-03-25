@@ -1,1 +1,36 @@
-﻿{"Author":"Swiss Academic Software","EntryPoint":"C6ToC5ExportAddon.dll","Icon":"addon.png","Summary":"Exports a Citavi 6 project as an XML file which can then be imported in Citavi 5 using a macro.","summary_localized":{"de":"Exportiert ein Citavi 6-Projekt als XML-Datei, die in Citavi 5 über ein Makro importiert werden kann."},"Url":"www.citavi.com/C6ToC5Export","citavi_min_version":{"Major":5,"Minor":8,"Build":0,"Revision":0,"MajorRevision":0,"MinorRevision":0},"Description":"You created a project in Citavi 6. You now want to share this project with someone who is still using Citavi 5. \r\nThis add-on exports Citavi 6 data in an XML file which you can save locally.\r\nUnder \"More information\", download a macro to help you import the XML file into a new Citavi 5 project.\r\nExport your project by clicking File > This project > Export to Citavi 5.","description_localized":{"de":"Sie haben ein Projekt in Citavi 6 erstellt. Dieses Projekt möchten Sie an jemanden weitergeben, der noch mit Citavi 5 arbeitet. \r\nDieses Add-on exportiert die Daten von Citavi 6 in eine XML-Datei, die Sie lokal speichern.\r\nLaden Sie anschließend das unter \"Weitere Informationen\" erhältliche Makro herunter, mit dem Sie die XML-Datei in ein neues Citavi 5-Projekt importieren. \r\nExportieren Sie Ihr Projekt über den Befehl Datei > Dieses Projekt > «Exportieren nach Citavi 5».\r\n"},"Id":"e0eb4b3a-2af6-4770-b0f1-6d8003fc7e60","Name":"Convert a Citavi 6 project to Citavi 5 format","name_localized":{"de":"Ein Citavi 6-Projekt in das Citavi 5-Format rückkonvertieren "},"manifest_version":1,"Version":{"Major":1,"Minor":0,"Build":0,"Revision":10,"MajorRevision":0,"MinorRevision":10}}
+﻿{
+  "Author": "Swiss Academic Software",
+  "EntryPoint": "C6ToC5ExportAddon.dll",
+  "Icon": "addon.png",
+  "Summary": "Exports a Citavi 6 project as an XML file which can then be imported in Citavi 5 using a macro.",
+  "summary_localized": {
+    "de": "Exportiert ein Citavi 6-Projekt als XML-Datei, die in Citavi 5 über ein Makro importiert werden kann."
+  },
+  "Url": "www.citavi.com/C6ToC5Export",
+  "citavi_min_version": {
+    "Major": 6,
+    "Minor": 4,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "Description": "You created a project in Citavi 6. You now want to share this project with someone who is still using Citavi 5. \r\nThis add-on exports Citavi 6 data in an XML file which you can save locally.\r\nUnder \"More information\", download a macro to help you import the XML file into a new Citavi 5 project.\r\nExport your project by clicking File > This project > Export to Citavi 5.",
+  "description_localized": {
+    "de": "Sie haben ein Projekt in Citavi 6 erstellt. Dieses Projekt möchten Sie an jemanden weitergeben, der noch mit Citavi 5 arbeitet. \r\nDieses Add-on exportiert die Daten von Citavi 6 in eine XML-Datei, die Sie lokal speichern.\r\nLaden Sie anschließend das unter \"Weitere Informationen\" erhältliche Makro herunter, mit dem Sie die XML-Datei in ein neues Citavi 5-Projekt importieren. \r\nExportieren Sie Ihr Projekt über den Befehl Datei > Dieses Projekt > «Exportieren nach Citavi 5».\r\n"
+  },
+  "Id": "e0eb4b3a-2af6-4770-b0f1-6d8003fc7e60",
+  "Name": "Convert a Citavi 6 project to Citavi 5 format",
+  "name_localized": {
+    "de": "Ein Citavi 6-Projekt in das Citavi 5-Format rückkonvertieren "
+  },
+  "manifest_version": 1,
+  "Version": {
+    "Major": 1,
+    "Minor": 0,
+    "Build": 0,
+    "Revision": 10,
+    "MajorRevision": 0,
+    "MinorRevision": 10
+  }
+}
