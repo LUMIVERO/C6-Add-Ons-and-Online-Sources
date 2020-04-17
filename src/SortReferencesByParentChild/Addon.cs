@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         #region Constants
 
         const string Key_Button_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.ButtonCommand";
-        const string Key_Settings_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.RestoreComparer";
+        public static string Key_Settings_Addon => "SortReferencesByParentChildRestoreComparer_1";
 
 
         #endregion
@@ -27,12 +27,14 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         {
             if (sender is MainForm mainForm)
             {
-                if (Program.ProjectShells.Count == 1)
+
+                if (mainForm.Project.References.Comparer is ReferenceComparerByParentChild)
                 {
-                    if (mainForm.Project.References.Comparer is ReferenceComparerByParentChild)
-                    {
-                        Settings.Add(Key_Settings_Addon, "Restore");
-                    }
+                    mainForm.Project.AddComparerStatus();
+                }
+                else
+                {
+                    mainForm.Project.RemoveComparerStatus();
                 }
 
                 mainForm.FormClosing -= MainForm_FormClosing;
@@ -54,7 +56,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                              .AddCommandbarButton(Key_Button_Addon, Properties.Resources.ParentChild);
                 _button.HasSeparator = true;
 
-                if (Settings.ContainsKey(Key_Settings_Addon))
+                if (mainForm.Project.RestoreComparer())
                 {
                     mainForm.Project.References.Comparer = ReferenceComparerByParentChild.Default;
                     mainForm.Project.References.AutoSort = true;
