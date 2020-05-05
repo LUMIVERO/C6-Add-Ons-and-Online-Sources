@@ -1,4 +1,4 @@
-﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties;
+﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.DataExchange;
 using SwissAcademic.Citavi.Metadata;
@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
+namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
     internal static class Macro
     {

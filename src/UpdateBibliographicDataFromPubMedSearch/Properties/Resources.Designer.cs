@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties {
+namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Properties {
     using System;
     
     
@@ -39,8 +39,8 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Propertie
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties.Resources" +
-                            "", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Properties.Reso" +
+                            "urces", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

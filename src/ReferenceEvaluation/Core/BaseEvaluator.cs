@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SwissAcademic.Addons.ReferenceEvaluation
+namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     internal abstract class BaseEvaluator
     {

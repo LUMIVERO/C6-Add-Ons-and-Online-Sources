@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Citavi.Shell;
 using System.Linq;
 
-namespace SwissAcademic.Addons.TomatoTimer
+namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     internal static class Extensions
     {

@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Citavi;
 using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.ReferenceEvaluation
+namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     internal class PersonComparerReferencesCount : IComparer<Person>
     {

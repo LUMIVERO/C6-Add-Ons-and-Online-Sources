@@ -1,4 +1,4 @@
-﻿using SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties;
+﻿using SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.DataExchange;
 using SwissAcademic.Citavi.Shell;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
+namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 {
     internal static class Macro
     {

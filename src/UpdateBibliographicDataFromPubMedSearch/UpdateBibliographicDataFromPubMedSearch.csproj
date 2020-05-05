@@ -13,7 +13,7 @@
     <ProjectGuid>{08F006D3-9B79-40D2-9ABF-A8FC0FE298F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon</RootNamespace>
     <AssemblyName>UpdateBibliographicDataFromPubMedSearchAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

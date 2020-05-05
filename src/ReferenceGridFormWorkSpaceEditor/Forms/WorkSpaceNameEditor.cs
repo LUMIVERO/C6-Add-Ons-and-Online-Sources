@@ -1,11 +1,10 @@
 ﻿using SwissAcademic.Controls;
 using System;
-using System.Collections;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public partial class WorkSpaceNameEditor : FormBase
     {

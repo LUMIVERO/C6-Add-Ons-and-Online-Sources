@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.BookOrderByEmail
+﻿namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     partial class ConfigDialog
     {

@@ -1,8 +1,8 @@
-﻿using SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties;
+﻿using SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 
-namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
+namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

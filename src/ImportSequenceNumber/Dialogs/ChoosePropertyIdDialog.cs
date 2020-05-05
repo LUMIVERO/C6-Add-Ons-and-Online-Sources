@@ -4,7 +4,7 @@ using SwissAcademic.Resources;
 using System;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ImportSequenceNumber
+namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
     public partial class ChoosePropertyIdDialog : Form
     {

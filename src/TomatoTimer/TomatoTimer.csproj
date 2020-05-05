@@ -13,7 +13,7 @@
     <ProjectGuid>{29AA4196-3E36-4CDE-B49C-C0D61A44B9A1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.TomatoTimer</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.TomatoTimerAddon</RootNamespace>
     <AssemblyName>TomatoTimerAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Citavi;
 using System.Linq;
 
-namespace SwissAcademic.Addons.C6ToC5Export
+namespace SwissAcademic.Addons.C6ToC5ExportAddon
 {
     internal static class Extensions
     {

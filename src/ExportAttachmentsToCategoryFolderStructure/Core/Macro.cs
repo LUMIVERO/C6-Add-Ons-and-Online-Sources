@@ -1,4 +1,4 @@
-﻿using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties;
+﻿using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using System;
@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
+namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 {
     public static class Macro
     {

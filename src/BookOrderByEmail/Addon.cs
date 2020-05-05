@@ -1,9 +1,9 @@
-﻿using SwissAcademic.Addons.BookOrderByEmail.Properties;
+﻿using SwissAcademic.Addons.BookOrderByEmailAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.BookOrderByEmail
+namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

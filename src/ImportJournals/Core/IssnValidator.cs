@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace SwissAcademic.Addons.ImportJournals
+namespace SwissAcademic.Addons.ImportJournalsAddon
 {
     internal static class IssnValidator
     {

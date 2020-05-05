@@ -1,11 +1,11 @@
-﻿using SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties;
+﻿using SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public partial class WorkSpaceEditor : FormBase
     {

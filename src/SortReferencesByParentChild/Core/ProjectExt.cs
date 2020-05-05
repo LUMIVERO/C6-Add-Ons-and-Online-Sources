@@ -2,7 +2,7 @@
 using SwissAcademic.Citavi;
 using System;
 
-namespace SwissAcademic.Addons.SortReferencesByParentChild
+namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
     internal static class ProjectExt
     {
@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         {
             try
             {
-                project.ProjectSettings[SortReferencesByParentChildAddOn.Key_Settings_Addon] = "true";
+                project.ProjectSettings[Addon.Key_Settings_Addon] = "true";
                 project.ProjectSettings.Save(true);
 
             }
@@ -24,7 +24,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         {
             try
             {
-                project.ProjectSettings[SortReferencesByParentChildAddOn.Key_Settings_Addon] = "false";
+                project.ProjectSettings[Addon.Key_Settings_Addon] = "false";
                 project.ProjectSettings.Save(true);
             }
             catch (Exception ignored)
@@ -37,7 +37,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         {
             try
             {
-                return bool.Parse(project.ProjectSettings[SortReferencesByParentChildAddOn.Key_Settings_Addon].ToString());
+                return bool.Parse(project.ProjectSettings[Addon.Key_Settings_Addon].ToString());
             }
             catch (Exception ignored)
             {

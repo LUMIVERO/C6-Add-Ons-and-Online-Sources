@@ -1,10 +1,10 @@
-﻿using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties;
+﻿using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
+namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

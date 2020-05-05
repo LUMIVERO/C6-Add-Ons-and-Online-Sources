@@ -1,10 +1,10 @@
-﻿using SwissAcademic.Addons.ReferenceEvaluation.Properties;
+﻿using SwissAcademic.Addons.ReferenceEvaluationAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ReferenceEvaluation
+namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     public partial class ReferenceEvaluationDialog : Form
     {

@@ -1,10 +1,10 @@
-﻿using SwissAcademic.Addons.SendReferenceByEmail.Properties;
+﻿using SwissAcademic.Addons.SendReferenceByEmailAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.SendReferenceByEmail
+namespace SwissAcademic.Addons.SendReferenceByEmailAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

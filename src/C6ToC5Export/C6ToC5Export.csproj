@@ -13,7 +13,7 @@
     <ProjectGuid>{423CBE60-9BE3-49DB-9095-1BC2A64ABBE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.C6ToC5Export</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.C6ToC5ExportAddon</RootNamespace>
     <AssemblyName>C6ToC5ExportAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -73,7 +73,7 @@
   <ItemGroup>
     <Compile Include="Addon.cs" />
     <None Include="Core\ImportC6XmlinC5Macro.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="Core\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

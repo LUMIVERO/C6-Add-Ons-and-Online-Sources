@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SwissAcademic.Addons.MacroManager
+namespace SwissAcademic.Addons.MacroManagerAddon
 {
     internal class EnvironmentVariable
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties {
+namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ImportPdfsAndCategorySystem.Properties.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon.Properties.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

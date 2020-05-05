@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public class AddonSettings
     {

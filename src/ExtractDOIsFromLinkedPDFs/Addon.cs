@@ -1,10 +1,10 @@
-﻿using SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties;
+﻿using SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
+namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

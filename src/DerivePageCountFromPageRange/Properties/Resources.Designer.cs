@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.DerivePageCountFromPageRange.Properties {
+namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.DerivePageCountFromPageRange.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.DerivePageCountFromPageRangeAddon.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

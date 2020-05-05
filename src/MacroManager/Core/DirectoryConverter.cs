@@ -1,9 +1,9 @@
-﻿using SwissAcademic.Addons.MacroManager.Properties;
+﻿using SwissAcademic.Addons.MacroManagerAddon.Properties;
 using SwissAcademic.Controls;
 using System;
 using System.IO;
 
-namespace SwissAcademic.Addons.MacroManager
+namespace SwissAcademic.Addons.MacroManagerAddon
 {
     internal static class DirectoryConverter
     {

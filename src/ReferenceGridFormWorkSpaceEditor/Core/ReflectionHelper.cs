@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public static class ReflectionHelper
     {

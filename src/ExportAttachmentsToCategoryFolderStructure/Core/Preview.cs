@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
+namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 {
     internal class Preview
     {

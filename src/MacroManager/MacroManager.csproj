@@ -12,7 +12,7 @@
     <ProjectGuid>{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.MacroManager</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.MacroManagerAddon</RootNamespace>
     <AssemblyName>MacroManagerAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

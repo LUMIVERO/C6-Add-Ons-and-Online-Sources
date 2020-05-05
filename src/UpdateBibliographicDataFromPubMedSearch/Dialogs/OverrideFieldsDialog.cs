@@ -1,8 +1,8 @@
-﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Properties;
+﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Properties;
 using System;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
+namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
     public partial class OverrideFieldsDialog : Form
     {

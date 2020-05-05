@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.MacroManager
+﻿namespace SwissAcademic.Addons.MacroManagerAddon
 {
     public class MacroCommand
     {

@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace SwissAcademic.Addons.SendReferenceByEmail
+namespace SwissAcademic.Addons.SendReferenceByEmailAddon
 {
     public static class OutlookApplication
     {

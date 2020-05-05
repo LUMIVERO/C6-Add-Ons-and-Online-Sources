@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SwissAcademic.Addons.ReferenceEvaluation
+namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     internal static class Extensions
     {

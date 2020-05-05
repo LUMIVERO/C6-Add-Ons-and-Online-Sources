@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace SwissAcademic.Addons.MacroManager
+namespace SwissAcademic.Addons.MacroManagerAddon
 {
     internal static class MacroEditorFormExtensions
     {

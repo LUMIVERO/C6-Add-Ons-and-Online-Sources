@@ -13,7 +13,7 @@
     <ProjectGuid>{93D81773-5279-4A8C-8B58-E88D147900E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.CheckUrlAndSetDate</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.CheckUrlAndSetDateAddon</RootNamespace>
     <AssemblyName>CheckUrlAndSetDateAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

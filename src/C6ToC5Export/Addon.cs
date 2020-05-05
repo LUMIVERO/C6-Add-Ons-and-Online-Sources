@@ -1,11 +1,11 @@
-﻿using SwissAcademic.Addons.C6ToC5Export.Properties;
+﻿using SwissAcademic.Addons.C6ToC5ExportAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.C6ToC5Export
+namespace SwissAcademic.Addons.C6ToC5ExportAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

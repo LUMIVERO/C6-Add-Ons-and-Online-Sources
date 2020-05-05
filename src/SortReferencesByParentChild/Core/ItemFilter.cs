@@ -1,13 +1,11 @@
-﻿using SwissAcademic.WordProcessing;
-using System.Collections.Generic;
-using SwissAcademic.Resources;
-using SwissAcademic.Citavi.Metadata;
-using System.Linq;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
-using System.Globalization;
+using SwissAcademic.Resources;
+using SwissAcademic.WordProcessing;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace SwissAcademic.Addons.SortReferencesByParentChild
+namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
     public class ItemFilter : IReferenceNavigationGridDisplayItemFilter
     {

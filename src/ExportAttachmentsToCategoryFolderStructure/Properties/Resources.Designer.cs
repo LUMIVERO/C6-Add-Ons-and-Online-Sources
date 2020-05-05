@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties {
+namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon.Properties {
     using System;
     
     
@@ -39,8 +39,8 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Proper
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties.Resour" +
-                            "ces", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon.Properties.R" +
+                            "esources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

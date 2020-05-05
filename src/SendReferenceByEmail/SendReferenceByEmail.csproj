@@ -13,7 +13,7 @@
     <ProjectGuid>{87D58E63-DF39-41A5-913D-554ED57B211D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.SendReferenceByEmail</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.SendReferenceByEmailAddon</RootNamespace>
     <AssemblyName>SendReferenceByEmailAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

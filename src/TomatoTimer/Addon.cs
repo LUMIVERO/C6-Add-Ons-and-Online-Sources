@@ -1,10 +1,10 @@
-﻿using SwissAcademic.Addons.TomatoTimer.Properties;
+﻿using SwissAcademic.Addons.TomatoTimerAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.TomatoTimer
+namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

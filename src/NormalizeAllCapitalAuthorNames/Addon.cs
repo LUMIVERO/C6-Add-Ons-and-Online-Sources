@@ -1,9 +1,9 @@
-﻿using SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.Properties;
+﻿using SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 
-namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
+namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
 {
     public class Addon : CitaviAddOn<PersonList>
     {

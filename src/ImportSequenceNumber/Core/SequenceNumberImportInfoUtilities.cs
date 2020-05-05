@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
 
-namespace SwissAcademic.Addons.ImportSequenceNumber
+namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
     public static class SequenceNumberImportInfoUtilities
     {

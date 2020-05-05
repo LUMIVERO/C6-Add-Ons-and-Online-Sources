@@ -13,7 +13,7 @@
     <ProjectGuid>{5D993D2E-4005-46B3-B0D7-2DD4FDBF577B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon</RootNamespace>
     <AssemblyName>ExportAttachmentsToCategoryFolderStructureAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

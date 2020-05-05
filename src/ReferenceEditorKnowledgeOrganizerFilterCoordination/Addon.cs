@@ -1,9 +1,10 @@
-﻿using SwissAcademic.Collections;
+﻿using SwissAcademic.Citavi.Shell;
+using SwissAcademic.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Citavi.Shell.AddOns.ReferenceManagerKnowledgeOrganizerFilterCoordination
+namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinationAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

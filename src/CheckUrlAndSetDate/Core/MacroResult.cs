@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Citavi;
 using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.CheckUrlAndSetDate
+namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 {
     internal class MacroResult
     {

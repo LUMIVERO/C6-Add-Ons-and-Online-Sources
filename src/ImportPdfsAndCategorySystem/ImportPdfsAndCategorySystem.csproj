@@ -13,7 +13,7 @@
     <ProjectGuid>{A4888F2C-83AB-43A0-9716-09193F684981}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.ImportPdfsAndCategorySystem</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon</RootNamespace>
     <AssemblyName>ImportPdfsAndCategorySystemAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

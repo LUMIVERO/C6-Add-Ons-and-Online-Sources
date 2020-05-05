@@ -3,7 +3,7 @@ using SwissAcademic.Citavi.Settings;
 using System;
 using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public class WorkSpace
     {

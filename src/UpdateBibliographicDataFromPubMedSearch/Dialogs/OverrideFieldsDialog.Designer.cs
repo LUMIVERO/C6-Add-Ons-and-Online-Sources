@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
+﻿namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
     partial class OverrideFieldsDialog
     {

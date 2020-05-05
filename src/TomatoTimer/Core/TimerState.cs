@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.TomatoTimer
+﻿namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     public enum TimerState
     {

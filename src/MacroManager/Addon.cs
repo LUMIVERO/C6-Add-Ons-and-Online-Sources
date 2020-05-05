@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.MacroManager
+namespace SwissAcademic.Addons.MacroManagerAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

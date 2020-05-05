@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
+namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

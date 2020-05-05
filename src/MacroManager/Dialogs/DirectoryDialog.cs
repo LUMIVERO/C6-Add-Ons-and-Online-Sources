@@ -1,4 +1,4 @@
-﻿using SwissAcademic.Addons.MacroManager.Properties;
+﻿using SwissAcademic.Addons.MacroManagerAddon.Properties;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.MacroManager
+namespace SwissAcademic.Addons.MacroManagerAddon
 {
     public partial class DirectoryDialog : Form
     {

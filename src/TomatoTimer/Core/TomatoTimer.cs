@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Timers;
 
-namespace SwissAcademic.Addons.TomatoTimer
+namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     public class TomatoTimer
     {

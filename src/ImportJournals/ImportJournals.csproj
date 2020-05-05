@@ -13,7 +13,7 @@
     <ProjectGuid>{7C4C5EC3-3F5D-49D8-8A6B-2686404A629F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.ImportJournals</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.ImportJournalsAddon</RootNamespace>
     <AssemblyName>ImportJournalsAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

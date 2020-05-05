@@ -6,7 +6,7 @@ using SwissAcademic.Controls;
 using System;
 using System.Linq;
 
-namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public static class Extensions
     {

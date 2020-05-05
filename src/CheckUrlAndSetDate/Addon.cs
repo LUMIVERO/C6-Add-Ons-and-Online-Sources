@@ -1,9 +1,9 @@
-﻿using SwissAcademic.Addons.CheckUrlAndSetDate.Properties;
+﻿using SwissAcademic.Addons.CheckUrlAndSetDateAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 
-namespace SwissAcademic.Addons.CheckUrlAndSetDate
+namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

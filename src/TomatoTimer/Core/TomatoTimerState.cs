@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace SwissAcademic.Addons.TomatoTimer
+namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     internal class TomatoTimerState
     {

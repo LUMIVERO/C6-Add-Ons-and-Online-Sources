@@ -3,9 +3,9 @@ using SwissAcademic.Controls;
 using System;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.SortReferencesByParentChild
+namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
-    public class SortReferencesByParentChildAddOn : CitaviAddOn<MainForm>
+    public class Addon : CitaviAddOn<MainForm>
     {
         #region Constants
 

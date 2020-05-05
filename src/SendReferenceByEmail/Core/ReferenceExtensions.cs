@@ -1,4 +1,4 @@
-﻿using SwissAcademic.Addons.SendReferenceByEmail.Properties;
+﻿using SwissAcademic.Addons.SendReferenceByEmailAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.DataExchange;
 using SwissAcademic.Citavi.Shell;
@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.SendReferenceByEmail
+namespace SwissAcademic.Addons.SendReferenceByEmailAddon
 {
     static class CitaviExtensions
     {

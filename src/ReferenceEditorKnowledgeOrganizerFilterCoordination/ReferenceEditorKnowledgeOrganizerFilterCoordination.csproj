@@ -13,7 +13,7 @@
     <ProjectGuid>{DC28EE07-8F0C-42A5-95DA-1E5D479528C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.AddOns.ReferenceEditorKnowledgeOrganizerFilterCoordination</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinationAddon</RootNamespace>
     <AssemblyName>ReferenceEditorKnowledgeOrganizerFilterCoordination</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

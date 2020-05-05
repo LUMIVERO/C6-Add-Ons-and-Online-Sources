@@ -13,7 +13,7 @@
     <ProjectGuid>{1541D624-73E8-4946-8FB7-470615C496A0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.NormalizeAllCapitalAuthorNames</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon</RootNamespace>
     <AssemblyName>NormalizeAllCapitalAuthorNamesAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

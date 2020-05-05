@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.SendReferenceByEmail
+namespace SwissAcademic.Addons.SendReferenceByEmailAddon
 {
     public class MailTemplate
     {

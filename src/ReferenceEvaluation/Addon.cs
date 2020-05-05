@@ -1,8 +1,8 @@
-﻿using SwissAcademic.Addons.ReferenceEvaluation.Properties;
+﻿using SwissAcademic.Addons.ReferenceEvaluationAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 
-namespace SwissAcademic.Addons.ReferenceEvaluation
+namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

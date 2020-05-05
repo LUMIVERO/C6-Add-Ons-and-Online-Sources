@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.TomatoTimer
+namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     internal class TomatoTimerStates : List<TomatoTimerState>
     {

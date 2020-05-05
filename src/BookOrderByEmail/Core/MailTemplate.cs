@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.BookOrderByEmail
+namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     internal class MailTemplate
     {

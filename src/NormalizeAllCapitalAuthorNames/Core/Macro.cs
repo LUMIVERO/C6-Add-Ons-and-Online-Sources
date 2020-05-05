@@ -1,10 +1,10 @@
-﻿using SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.Properties;
+﻿using SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNames
+namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
 {
     internal static class Macro
     {

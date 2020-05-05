@@ -1,4 +1,4 @@
-﻿using SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Properties;
+﻿using SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.DataExchange;
 using SwissAcademic.Citavi.Shell;
@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
+namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
 {
     internal static class Macro
     {

@@ -1,6 +1,6 @@
 ﻿using SwissAcademic.Citavi;
 
-namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
+namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
 {
     public class LocationContainer
     {

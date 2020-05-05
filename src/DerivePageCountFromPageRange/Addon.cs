@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.DerivePageCountFromPageRange
+namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
 {
     public class Addon : CitaviAddOn<MainForm>
     {

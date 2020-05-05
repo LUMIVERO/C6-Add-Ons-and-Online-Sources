@@ -13,7 +13,7 @@
     <ProjectGuid>{84D6D803-B871-4FF3-8DF0-DDBB543E08F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.DerivePageCountFromPageRange</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.DerivePageCountFromPageRangeAddon</RootNamespace>
     <AssemblyName>DerivePageCountFromPageRangeAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

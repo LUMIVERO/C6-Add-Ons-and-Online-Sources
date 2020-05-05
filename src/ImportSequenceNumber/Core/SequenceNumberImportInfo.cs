@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Citavi;
 using System;
 
-namespace SwissAcademic.Addons.ImportSequenceNumber
+namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
     public class SequenceNumberImportInfo
     {

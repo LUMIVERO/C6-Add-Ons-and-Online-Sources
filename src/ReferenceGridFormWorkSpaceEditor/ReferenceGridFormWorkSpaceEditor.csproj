@@ -13,7 +13,7 @@
     <ProjectGuid>{B6961D86-3FDF-45B7-AF31-7652B319FEC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon</RootNamespace>
     <AssemblyName>ReferenceGridFormWorkSpaceEditorAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

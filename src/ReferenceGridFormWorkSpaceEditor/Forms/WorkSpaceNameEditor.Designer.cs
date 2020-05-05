@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+﻿namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     partial class WorkSpaceNameEditor
     {

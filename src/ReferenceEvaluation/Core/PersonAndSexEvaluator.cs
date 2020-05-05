@@ -1,10 +1,10 @@
-﻿using SwissAcademic.Addons.ReferenceEvaluation.Properties;
+﻿using SwissAcademic.Addons.ReferenceEvaluationAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Shell;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SwissAcademic.Addons.ReferenceEvaluation
+namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     internal class PersonAndSexEvaluator : BaseEvaluator
     {

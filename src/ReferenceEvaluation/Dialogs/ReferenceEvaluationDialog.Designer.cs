@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.ReferenceEvaluation
+﻿namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     partial class ReferenceEvaluationDialog
     {

@@ -13,7 +13,7 @@
     <ProjectGuid>{F1FB8384-4F8F-4FB4-ADFF-16993343733F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon</RootNamespace>
     <AssemblyName>ExtractDOIsFromLinkedPDFsAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

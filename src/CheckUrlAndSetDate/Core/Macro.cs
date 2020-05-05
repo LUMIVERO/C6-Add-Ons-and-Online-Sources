@@ -1,4 +1,4 @@
-﻿using SwissAcademic.Addons.CheckUrlAndSetDate.Properties;
+﻿using SwissAcademic.Addons.CheckUrlAndSetDateAddon.Properties;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Citavi.Shell;
@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.CheckUrlAndSetDate
+namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 {
     internal static class Macro
     {

@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Citavi;
 using System.Collections.Generic;
 
-namespace SwissAcademic.Addons.SortReferencesByParentChild
+namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
     public class ReferenceComparerByParentChild : IComparer<Reference>
     {

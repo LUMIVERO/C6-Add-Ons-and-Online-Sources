@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace SwissAcademic.Addons.ImportJournals
+namespace SwissAcademic.Addons.ImportJournalsAddon
 {
     static class ImportJournalsByFileMacro
     {

@@ -13,7 +13,7 @@
     <ProjectGuid>{3B04829E-9B3E-4114-AC09-E79A4AC6E0F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SwissAcademic.Addons.BookOrderByEmail</RootNamespace>
+    <RootNamespace>SwissAcademic.Addons.BookOrderByEmailAddon</RootNamespace>
     <AssemblyName>BookOrderByEmailAddon</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

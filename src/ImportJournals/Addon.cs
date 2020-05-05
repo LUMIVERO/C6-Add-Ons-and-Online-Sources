@@ -1,7 +1,7 @@
 ﻿using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 
-namespace SwissAcademic.Addons.ImportJournals
+namespace SwissAcademic.Addons.ImportJournalsAddon
 {
     public class Addon : CitaviAddOn<PeriodicalList>
     {

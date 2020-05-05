@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace SwissAcademic.Addons.BookOrderByEmail
+namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     internal static class Outlook
     {

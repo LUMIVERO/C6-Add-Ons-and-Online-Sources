@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
+﻿namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     partial class WorkSpaceEditor
     {
@@ -49,7 +49,7 @@
             // btn_remove
             // 
             this.btn_remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_remove.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties.Resources.remove;
+            this.btn_remove.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties.Resources.remove;
             this.btn_remove.Location = new System.Drawing.Point(277, 49);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(25, 23);
@@ -60,7 +60,7 @@
             // btn_add
             // 
             this.btn_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties.Resources.add;
+            this.btn_add.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties.Resources.add;
             this.btn_add.Location = new System.Drawing.Point(277, 20);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(25, 23);
@@ -71,7 +71,7 @@
             // btn_down
             // 
             this.btn_down.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_down.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties.Resources.down;
+            this.btn_down.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties.Resources.down;
             this.btn_down.Location = new System.Drawing.Point(277, 136);
             this.btn_down.Name = "btn_down";
             this.btn_down.Size = new System.Drawing.Size(25, 24);
@@ -82,7 +82,7 @@
             // btn_up
             // 
             this.btn_up.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_up.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties.Resources.up;
+            this.btn_up.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties.Resources.up;
             this.btn_up.Location = new System.Drawing.Point(277, 107);
             this.btn_up.Name = "btn_up";
             this.btn_up.Size = new System.Drawing.Size(25, 23);
@@ -93,7 +93,7 @@
             // btn_edit
             // 
             this.btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_edit.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Properties.Resources.edit;
+            this.btn_edit.Image = global::SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon.Properties.Resources.edit;
             this.btn_edit.Location = new System.Drawing.Point(277, 78);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(25, 23);

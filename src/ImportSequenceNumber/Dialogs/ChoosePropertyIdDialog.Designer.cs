@@ -1,4 +1,4 @@
-﻿namespace SwissAcademic.Addons.ImportSequenceNumber
+﻿namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
     partial class ChoosePropertyIdDialog
     {
