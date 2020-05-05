@@ -62,8 +62,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
                     e.Handled = false;
                 }
             }
-
-            base.OnBeforePerformingCommand(referenceGridForm, e);
         }
 
         public override void OnHostingFormLoaded(ReferenceGridForm referenceGridForm)
@@ -89,8 +87,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
 
 
             RefreshMenuItems();
-
-            base.OnHostingFormLoaded(referenceGridForm);
         }
 
         public override void OnLocalizing(ReferenceGridForm referenceGridForm)
@@ -102,8 +98,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
                 ((ButtonTool)menu.Tool.Tools[menu.Tool.Tools.Count - 2]).SharedProps.Caption = Properties.Resources.Button_CreateWorkSpace;
                 ((ButtonTool)menu.Tool.Tools[menu.Tool.Tools.Count - 1]).SharedProps.Caption = Properties.Resources.Button_EditWorkSpaces;
             }
-
-            base.OnLocalizing(referenceGridForm);
         }
 
         void CreateWorkSpace(ReferenceGridForm referenceGridForm)

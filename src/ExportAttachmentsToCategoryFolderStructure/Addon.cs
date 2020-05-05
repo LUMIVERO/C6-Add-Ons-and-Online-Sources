@@ -1,6 +1,6 @@
-﻿using SwissAcademic.Citavi.Shell;
+﻿using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties;
+using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
-using SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Properties;
 using System;
 using System.Windows.Forms;
 
@@ -38,8 +38,6 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                     previews.Open();
                 }
             }
-
-            base.OnBeforePerformingCommand(mainForm, e);
         }
 
         public override void OnHostingFormLoaded(MainForm mainForm)
@@ -48,8 +46,6 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                        .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                        .InsertCommandbarButton(4, Key_Button_ExportAttachmentsToCategoryFolderStructure, Resources.Button_Text, image: Resources.addon);
-
-            base.OnHostingFormLoaded(mainForm);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -58,9 +54,10 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                     .GetCommandbarButton(Key_Button_ExportAttachmentsToCategoryFolderStructure);
-            if (button != null) button.Text = Resources.Button_Text;
-
-            base.OnLocalizing(mainForm);
+            if (button != null)
+            {
+                button.Text = Resources.Button_Text;
+            }
         }
 
         public bool AskForExportPath(out string exportPath)

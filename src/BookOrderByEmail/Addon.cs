@@ -68,7 +68,11 @@ namespace SwissAcademic.Addons.BookOrderByEmail
             if (menu != null)
             {
                 menu.HasSeparator = true;
-                if (Outlook.IsInstalled) menu.AddCommandbarButton(Key_Button_OrderPerEmail, Resources.OrderByEMail);
+
+                if (Outlook.IsInstalled)
+                {
+                    menu.AddCommandbarButton(Key_Button_OrderPerEmail, Resources.OrderByEMail);
+                }
 
                 menu.AddCommandbarButton(Key_Button_OrderPerClipboard, Resources.OrderByClipboard);
                 var button = menu.AddCommandbarButton(Key_Button_ConfigOrders, Resources.ConfigureOrders);
@@ -88,13 +92,22 @@ namespace SwissAcademic.Addons.BookOrderByEmail
             {
                 menu.Text = Resources.TasksOrder;
                 var button = menu.GetCommandbarButton(Key_Button_OrderPerEmail);
-                if (button != null) button.Text = Resources.OrderByEMail;
+                if (button != null)
+                {
+                    button.Text = Resources.OrderByEMail;
+                }
 
                 button = menu.GetCommandbarButton(Key_Button_OrderPerClipboard);
-                if (button != null) button.Text = Resources.OrderByClipboard;
+                if (button != null)
+                {
+                    button.Text = Resources.OrderByClipboard;
+                }
 
                 button = menu.GetCommandbarButton(Key_Button_ConfigOrders);
-                if (button != null) button.Text = Resources.ConfigureOrders;
+                if (button != null)
+                {
+                    button.Text = Resources.ConfigureOrders;
+                }
             }
 
         }

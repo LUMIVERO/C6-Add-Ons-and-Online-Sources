@@ -54,14 +54,20 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystem
                                       .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                                       .GetCommandbarButton(Key_Button_File);
 
-            if (button != null) button.Text = Resource.AddonCommandbarButton;
+            if (button != null)
+            {
+                button.Text = Resource.AddonCommandbarButton;
+            }
 
             button = mainForm.GetMainCommandbarManager()
                              .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                              .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                              .GetCommandbarButton(Key_Button_References);
 
-            if (button != null) button.Text = Resource.AddonCommandbarButton;
+            if (button != null)
+            {
+                button.Text = Resource.AddonCommandbarButton;
+            }
         }
 
         #endregion

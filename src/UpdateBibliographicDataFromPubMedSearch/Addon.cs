@@ -30,8 +30,6 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                     }
                 }
             }
-
-            base.OnBeforePerformingCommand(mainForm, e);
         }
 
         public override void OnHostingFormLoaded(MainForm mainForm)
@@ -40,8 +38,6 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                     .InsertCommandbarButton(4, Key_Button_UpdateBibliographicDataFromPubMedSearch, Resources.CommandText, image: Resources.addon);
-
-            base.OnHostingFormLoaded(mainForm);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -50,9 +46,10 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                  .GetCommandbarButton(Key_Button_UpdateBibliographicDataFromPubMedSearch);
-            if (button != null) button.Text = Resources.CommandText;
-
-            base.OnLocalizing(mainForm);
+            if (button != null)
+            {
+                button.Text = Resources.CommandText;
+            }
         }
 
         #endregion

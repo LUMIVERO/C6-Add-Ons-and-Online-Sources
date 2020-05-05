@@ -23,9 +23,10 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
                                     .AddCommandbarButton(Key_Button_ImportSequenceNumber, Properties.Resources.MenuCaption, image: Properties.Resources.addon);
-            if (button != null) button.HasSeparator = true;
-
-            base.OnHostingFormLoaded(mainForm);
+            if (button != null)
+            {
+                button.HasSeparator = true;
+            }
         }
 
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
@@ -100,8 +101,6 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                 }
                 e.Handled = true;
             }
-
-            base.OnBeforePerformingCommand(mainForm, e);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -110,9 +109,10 @@ namespace SwissAcademic.Addons.ImportSequenceNumber
                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
                                    .GetCommandbarButton(Key_Button_ImportSequenceNumber);
-            if (button != null) button.Text = Properties.Resources.MenuCaption;
-
-            base.OnLocalizing(mainForm);
+            if (button != null)
+            {
+                button.Text = Properties.Resources.MenuCaption;
+            }
         }
 
         #endregion

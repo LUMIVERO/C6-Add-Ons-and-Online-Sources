@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Addons.DerivePageCountFromPageRange.Properties;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Metadata;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
@@ -69,7 +68,10 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                      .AddCommandbarButton(Key_Button_DerivePageCountFromPageRange, Properties.Resources.DerivePageCountFromPageRange, image: Properties.Resources.addon);
-                if (button != null) button.HasSeparator = true;
+                if (button != null)
+                {
+                    button.HasSeparator = true;
+                }
             }
 
             catch (Exception exception)
@@ -85,7 +87,10 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRange
                                   .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                   .GetCommandbarButton(Key_Button_DerivePageCountFromPageRange);
 
-            if (button != null) button.Text = Properties.Resources.DerivePageCountFromPageRange;
+            if (button != null)
+            {
+                button.Text = Properties.Resources.DerivePageCountFromPageRange;
+            }
         }
 
 

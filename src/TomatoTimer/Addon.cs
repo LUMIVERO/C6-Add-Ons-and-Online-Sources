@@ -41,8 +41,6 @@ namespace SwissAcademic.Addons.TomatoTimer
             {
                 _formsAndPanels[mainForm].ToolTipText = _tomatoTimer.ToolTip;
             }
-
-            base.OnApplicationIdle(mainForm);
         }
 
         public override void OnHostingFormLoaded(MainForm mainForm)
@@ -70,7 +68,6 @@ namespace SwissAcademic.Addons.TomatoTimer
                 _formsAndPanels.Add(mainForm, panel);
                 mainForm.FormClosing += MainForm_FormClosing;
             }
-            base.OnHostingFormLoaded(mainForm);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -81,8 +78,6 @@ namespace SwissAcademic.Addons.TomatoTimer
                 _formsAndPanels[mainForm].Text = _tomatoTimer.Status;
                 _formsAndPanels[mainForm].ToolTipText = _tomatoTimer.ToolTip;
             }
-
-            base.OnLocalizing(mainForm);
         }
 
         #endregion

@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using SwissAcademic.Collections;
+﻿using SwissAcademic.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace SwissAcademic.Citavi.Shell.AddOns.ReferenceManagerKnowledgeOrganizerFilterCoordination
 {
-    public class Addon: CitaviAddOn<MainForm>
-	{
+    public class Addon : CitaviAddOn<MainForm>
+    {
         #region Fields
 
         bool _eventsSuspended;
@@ -15,11 +15,7 @@ namespace SwissAcademic.Citavi.Shell.AddOns.ReferenceManagerKnowledgeOrganizerFi
 
         #region Methods
 
-        public override void OnHostingFormLoaded(MainForm mainForm)
-        {
-            ObserveMainForm(mainForm, true);
-            base.OnHostingFormLoaded(mainForm);
-        }
+        public override void OnHostingFormLoaded(MainForm mainForm) => ObserveMainForm(mainForm, true);
 
         void ObserveMainForm(MainForm mainForm, bool start)
         {
@@ -57,7 +53,7 @@ namespace SwissAcademic.Citavi.Shell.AddOns.ReferenceManagerKnowledgeOrganizerFi
                 foreach (var projectShell in Program.ProjectShells)
                 {
                     activeMainForm = projectShell.MainForms.FirstOrDefault(mainForm => sender == mainForm.KnowledgeOrganizerFilterSet.Filters);
-                    if (activeMainForm != null) break ;
+                    if (activeMainForm != null) break;
                 }
 
                 if (activeMainForm == null) return;
@@ -127,6 +123,5 @@ namespace SwissAcademic.Citavi.Shell.AddOns.ReferenceManagerKnowledgeOrganizerFi
         }
 
         #endregion
-
-	}
+    }
 }

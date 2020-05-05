@@ -81,7 +81,10 @@ namespace SwissAcademic.Addons.C6ToC5Export
                                  .GetCommandbarMenu("ThisProject")
                                  .GetCommandbarButton(Key_Button_Export);
 
-            if (button != null) button.Text = Resources.ExportCitaviButtonText;
+            if (button != null)
+            {
+                button.Text = Resources.ExportCitaviButtonText;
+            }
         }
 
         #endregion

@@ -41,7 +41,10 @@ namespace SwissAcademic.Addons.ReferenceEvaluation
                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                      .GetCommandbarButton(Key_Button_Addon);
 
-            if (button != null) button.Text = Resources.Addon_Command;
+            if (button != null)
+            {
+                button.Text = Resources.Addon_Command;
+            }
         }
 
         #endregion

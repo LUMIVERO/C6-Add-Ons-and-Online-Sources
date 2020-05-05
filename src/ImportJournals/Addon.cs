@@ -60,16 +60,28 @@ namespace SwissAcademic.Addons.ImportJournals
                                           .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
                                           .GetCommandbarMenu(Key_Menu_ImportJournals);
 
-            if (menu != null) menu.Text = Properties.Resources.ImportJournalsMenu;
+            if (menu != null)
+            {
+                menu.Text = Properties.Resources.ImportJournalsMenu;
 
-            var button = menu?.GetCommandbarButton(Key_Button_ImportByFile);
-            if (button != null) button.Text = Properties.Resources.ImportJournalsByFileCommandText;
+                var button = menu.GetCommandbarButton(Key_Button_ImportByFile);
+                if (button != null)
+                {
+                    button.Text = Properties.Resources.ImportJournalsByFileCommandText;
+                }
 
-            button = menu?.GetCommandbarButton(Key_Button_ImportByPubmed);
-            if (button != null) button.Text = Properties.Resources.ImportJournalsByPubMedCommandText;
+                button = menu.GetCommandbarButton(Key_Button_ImportByPubmed);
+                if (button != null)
+                {
+                    button.Text = Properties.Resources.ImportJournalsByPubMedCommandText;
+                }
 
-            button = menu?.GetCommandbarButton(Key_Button_ImportByWoodward);
-            if (button != null) button.Text = Properties.Resources.ImportJournalsByWoodwardLibraryCommandText;
+                button = menu.GetCommandbarButton(Key_Button_ImportByWoodward);
+                if (button != null)
+                {
+                    button.Text = Properties.Resources.ImportJournalsByWoodwardLibraryCommandText;
+                }
+            }
         }
 
         #endregion

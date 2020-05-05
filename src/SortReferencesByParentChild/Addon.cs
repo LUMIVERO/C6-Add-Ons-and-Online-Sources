@@ -12,13 +12,6 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         const string Key_Button_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.ButtonCommand";
         internal const string Key_Settings_Addon = "SortReferencesByParentChildRestoreComparer_1";
 
-
-        #endregion
-
-        #region Fields
-
-        CommandbarButton _button;
-
         #endregion
 
         #region EventHandlers
@@ -49,12 +42,12 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         {
             if (!mainForm.IsPreviewFullScreenForm)
             {
-                _button = mainForm
+                var button = mainForm
                              .GetReferenceEditorNavigationCommandbarManager()
                              .GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar)
                              .GetCommandbarMenu(MainFormReferenceEditorNavigationCommandbarMenuId.Sort)
                              .AddCommandbarButton(Key_Button_Addon, Properties.Resources.ParentChild);
-                _button.HasSeparator = true;
+                button.HasSeparator = true;
 
                 if (mainForm.Project.RestoreComparer())
                 {
@@ -65,8 +58,6 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
 
                 mainForm.FormClosing += MainForm_FormClosing;
             }
-
-            base.OnHostingFormLoaded(mainForm);
         }
 
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
@@ -84,14 +75,19 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                     MessageBox.Show(e.Form, exception.Message, e.Form.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            base.OnBeforePerformingCommand(mainForm, e);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            if (_button != null) _button.Text = Properties.Resources.ParentChild;
-            base.OnLocalizing(mainForm);
+            var button = mainForm.GetReferenceEditorNavigationCommandbarManager()
+                                 .GetCommandbar(MainFormReferenceEditorNavigationCommandbarId.Toolbar)
+                                 .GetCommandbarMenu(MainFormReferenceEditorNavigationCommandbarMenuId.Sort)
+                                 .GetCommandbarButton(Key_Button_Addon);
+
+            if (button != null)
+            {
+                button.Text = Properties.Resources.ParentChild;
+            }
         }
 
         public override void OnApplicationIdle(MainForm mainForm)
@@ -127,8 +123,6 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
                 }
 
             }
-
-            base.OnApplicationIdle(mainForm);
         }
 
         #endregion

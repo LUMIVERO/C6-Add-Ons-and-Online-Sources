@@ -39,7 +39,10 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                  .GetCommandbarButton(Key_Button_CheckUrl);
 
-            if (button != null) button.Text = Resources.CheckUrlAndSetDateCommandText;
+            if (button != null)
+            {
+                button.Text = Resources.CheckUrlAndSetDateCommandText;
+            }
         }
 
         #endregion

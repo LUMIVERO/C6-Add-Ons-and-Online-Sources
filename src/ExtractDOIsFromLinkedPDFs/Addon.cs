@@ -46,7 +46,10 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
                                       .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                       .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                       .GetCommandbarButton(Key_Button_ExtractDOIsFromLinkedPDFs);
-            if (button != null) button.Text = Resources.CommandButtonText;
+            if (button != null)
+            {
+                button.Text = Resources.CommandButtonText;
+            }
         }
 
         #endregion
