@@ -76,7 +76,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
 
             try
             {
-                Outlook.Send(mailTemplate);
+                OutlookApplication.SendEMail(mailTemplate);
             }
             catch (System.Runtime.InteropServices.COMException)
             {

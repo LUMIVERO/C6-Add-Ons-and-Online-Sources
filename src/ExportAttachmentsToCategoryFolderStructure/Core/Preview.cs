@@ -5,8 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
 {
@@ -96,24 +95,14 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure
 
     internal static class PreviewExtensions
     {
-        public static B Field<T, B>(this T t, string fieldName) where T : class
+        public static TResult Field<TObject, TResult>(this TObject t, string fieldName) where TObject : class
         {
             var o = t
                    .Members(fieldName, MemberTypes.Field, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
                    .Cast<FieldInfo>()
                    .FirstOrDefault(field => field.Name.Equals(fieldName, StringComparison.OrdinalIgnoreCase))?
                    .GetValue(t);
-            return (B)Convert.ChangeType(o, typeof(B));
-        }
-
-        public static B Property<T, B>(this T t, string propertyName) where T : class
-        {
-            var o = t
-                   .Members(propertyName, MemberTypes.Property, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                   .Cast<PropertyInfo>()
-                   .FirstOrDefault(prop => prop.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase))?
-                   .GetValue(t);
-            return (B)Convert.ChangeType(o, typeof(B));
+            return (TResult)Convert.ChangeType(o, typeof(TResult), Application.CurrentCulture);
         }
 
         private static IEnumerable<MemberInfo> Members<T>(this T t, string memberName, MemberTypes memberType, BindingFlags bindingFlags)

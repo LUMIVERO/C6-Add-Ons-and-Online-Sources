@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace SwissAcademic.Addons.BookOrderByEmail
@@ -23,7 +21,7 @@ namespace SwissAcademic.Addons.BookOrderByEmail
 
         static Microsoft.Office.Interop.Outlook.Application GetOutlookApplication()
         {
-            return Process.GetProcessesByName("OUTLOOK").Count() > 0
+            return Process.GetProcessesByName("OUTLOOK").Length > 0
                    ? Marshal.GetActiveObject("Outlook.Application") as Microsoft.Office.Interop.Outlook.Application
                    : new Microsoft.Office.Interop.Outlook.Application();
         }

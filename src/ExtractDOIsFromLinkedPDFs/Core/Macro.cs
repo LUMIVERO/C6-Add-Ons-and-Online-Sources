@@ -18,21 +18,22 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
         {
             if (project.ProjectType == ProjectType.DesktopCloud)
             {
-                var cts = new CancellationTokenSource();
-
-                try
+                using (var cts = new CancellationTokenSource())
                 {
-                    await GenericProgressDialog.RunTask(mainForm, FetchAllAttributes, project, Resources.GenericDialogFetchAttributsTitle, null, cts);
-                }
-                catch (OperationCanceledException)
-                {
-                    // What exactly does Task.WhenAll do when a cancellation is requested? We don't know and are too lazy to find out ;-)
-                    // To be on the safe side, we catch a possible exception and return;
-                    return;
-                }
+                    try
+                    {
+                        await GenericProgressDialog.RunTask(mainForm, FetchAllAttributes, project, Resources.GenericDialogFetchAttributsTitle, null, cts);
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        // What exactly does Task.WhenAll do when a cancellation is requested? We don't know and are too lazy to find out ;-)
+                        // To be on the safe side, we catch a possible exception and return;
+                        return;
+                    }
 
-                // But probably, we will land and return here...
-                if (cts.IsCancellationRequested) return;
+                    // But probably, we will land and return here...
+                    if (cts.IsCancellationRequested) return;
+                }
 
                 var hasUnavailableAttachments = (from location in project.AllLocations
                                                  where

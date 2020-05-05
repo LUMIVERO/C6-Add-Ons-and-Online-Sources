@@ -17,7 +17,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
         public async static void Run(MainForm mainForm)
         {
             var referencesWithUrl = mainForm.GetFilteredReferences()
-                                            .Where(reference => !String.IsNullOrEmpty(reference.OnlineAddress))
+                                            .Where(reference => !string.IsNullOrEmpty(reference.OnlineAddress))
                                             .ToList();
 
             if (referencesWithUrl.Count == 0)
@@ -60,7 +60,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
             string urlResult;
             try
             {
-                var request = WebRequest.Create(url) as HttpWebRequest;
+                var request = WebRequest.Create(new Uri(url)) as HttpWebRequest;
                 request.Method = "HEAD";
                 request.Timeout = timeOut;
 
@@ -71,16 +71,16 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
                     {
                         if (response.Headers["Location"] != null)
                         {
-                            urlResult = ((int)response.StatusCode).ToString() + " " + response.StatusDescription + " - Redirect: " + response.Headers["Location"].ToStringSafe();
+                            urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.StatusDescription + " - Redirect: " + response.Headers["Location"].ToStringSafe();
                         }
                         else
                         {
-                            urlResult = ((int)response.StatusCode).ToString() + " " + response.StatusDescription;
+                            urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.StatusDescription;
                         }
                     }
                     else
                     {
-                        urlResult = ((int)response.StatusCode).ToString() + " " + response.StatusDescription;
+                        urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.StatusDescription;
                     }
 
                     return (response.StatusCode == HttpStatusCode.OK, urlResult);
@@ -98,7 +98,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
             var result = new MacroResult();
             var timeOut = 3000;
-            var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat);
+            var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat, Resources.Culture);
 
             for (int i = 0; i < references.Count; i++)
             {
@@ -132,13 +132,13 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDate
 
                 if (exist)
                 {
-                    reference.Notes += String.Format(Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
+                    reference.Notes += string.Format(Resources.Culture, Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(Resources.Culture), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                     reference.AccessDate = newAccessDate;
                     result.ChangedCount++;
                 }
                 else
                 {
-                    reference.Notes += String.Format(Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
+                    reference.Notes += string.Format(Resources.Culture, Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(Resources.Culture), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
                     result.InvalidCount++;
                     result.InvalidReferences.Add(reference);
                 }

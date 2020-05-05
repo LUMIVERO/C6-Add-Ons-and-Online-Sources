@@ -1,7 +1,6 @@
 ﻿using Infragistics.Win.Misc;
 using SwissAcademic.Citavi.Shell;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -139,7 +138,7 @@ namespace SwissAcademic.Addons.TomatoTimer
                                              .GetType()
                                              .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic).ToList()
                                              .Where(mi => mi.Name.Equals("ShowDesktopAlert", StringComparison.OrdinalIgnoreCase))
-                                             .Where(mi => mi.GetParameters().Count() == 2)
+                                             .Where(mi => mi.GetParameters().Length == 2)
                                              .Where(mi => mi.GetParameters()[0].ParameterType.Name.Equals("UltraDesktopAlertShowWindowInfo", StringComparison.OrdinalIgnoreCase) && mi.GetParameters()[1].ParameterType.Name.Equals("Int32", StringComparison.OrdinalIgnoreCase))
                                              .FirstOrDefault();
                 showDesktopAlertMethod?.Invoke(mainForm, new object[] { info, 3000 });

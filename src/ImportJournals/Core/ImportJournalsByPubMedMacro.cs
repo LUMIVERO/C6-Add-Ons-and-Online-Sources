@@ -77,7 +77,7 @@ namespace SwissAcademic.Addons.ImportJournals
                     nlmId = match.Groups["NlmId"].Value;
 
                     if (string.IsNullOrEmpty(abbreviation1)) abbreviation1 = abbreviation2;
-                    if (!abbreviation1.Contains(".") && !String.IsNullOrEmpty(abbreviation1))
+                    if (!abbreviation1.Contains(".") && !string.IsNullOrEmpty(abbreviation1))
                     {
                         var journalTitleWords = journalTitle.ToLowerInvariant().Split(new char[] { ' ', '.', ';', ',', ':', '&', '-' }, StringSplitOptions.RemoveEmptyEntries);
                         var abbreviation1Words = abbreviation1.Split(' ');
@@ -86,7 +86,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
                         foreach (var word in abbreviation1Words)
                         {
-                            if (word.StartsWith("(") || word.EndsWith(")"))
+                            if (word.StartsWith("(",StringComparison.OrdinalIgnoreCase) || word.EndsWith(")", StringComparison.OrdinalIgnoreCase))
                             {
                                 abbreviation1WithFullStops.Add(word);
                             }
@@ -146,7 +146,7 @@ namespace SwissAcademic.Addons.ImportJournals
 
         }
 
-        private class WebClient2 : System.Net.WebClient
+        private class WebClient2 : WebClient
         {
             public int Timeout { get; set; }
 

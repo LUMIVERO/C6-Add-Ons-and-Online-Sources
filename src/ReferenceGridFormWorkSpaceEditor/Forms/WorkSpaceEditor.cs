@@ -86,7 +86,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor
         {
             base.Localize();
 
-            Text = Properties.Resources.WorkSpaceEditor_Form_Text;
+            Text = Resources.WorkSpaceEditor_Form_Text;
         }
 
         #endregion

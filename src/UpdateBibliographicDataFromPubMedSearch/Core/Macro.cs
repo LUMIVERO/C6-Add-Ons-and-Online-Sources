@@ -28,7 +28,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch
             {
                 var mergedReferences = await GenericProgressDialog.RunTask(mainForm, RunAsync, Tuple.Create(mainForm.Project, referencesWithPmid, referencesWithDoi, settings));
 
-                if (mergedReferences.Count() != 0)
+                if (mergedReferences.Any())
                 {
                     if (MessageBox.Show(mainForm, Resources.ProcessFinishWithChangesMessage.FormatString(mergedReferences.Count()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {

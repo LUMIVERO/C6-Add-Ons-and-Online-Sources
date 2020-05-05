@@ -1,5 +1,4 @@
 ﻿using SwissAcademic.Citavi;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace SwissAcademic.Addons.C6ToC5Export
@@ -17,7 +16,7 @@ namespace SwissAcademic.Addons.C6ToC5Export
                            location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
                            location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
                        ))
-                    select location).Count() > 0;
+                    select location).Any();
         }
     }
 }

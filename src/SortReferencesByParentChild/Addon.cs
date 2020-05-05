@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChild
         #region Constants
 
         const string Key_Button_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.ButtonCommand";
-        public static string Key_Settings_Addon => "SortReferencesByParentChildRestoreComparer_1";
+        internal const string Key_Settings_Addon = "SortReferencesByParentChildRestoreComparer_1";
 
 
         #endregion

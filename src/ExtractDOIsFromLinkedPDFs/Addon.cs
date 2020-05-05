@@ -16,14 +16,14 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs
 
         #region Methods
 
-        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
+        public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_ExtractDOIsFromLinkedPDFs, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 try
                 {
-                    Macro.Run(mainForm, mainForm.Project);
+                    await Macro.Run(mainForm, mainForm.Project);
                 }
                 catch (Exception ex)
                 {

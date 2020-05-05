@@ -16,14 +16,14 @@ namespace SwissAcademic.Addons.SendReferenceByEmail
 
         #region Methods
 
-        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
+        public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_SendReferenceByEmail, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 try
                 {
-                    mainForm.ActiveReference.SendByEMailAsync(mainForm);
+                    await mainForm.ActiveReference.SendByEMailAsync(mainForm);
                 }
                 catch (Exception ee)
                 {
