@@ -154,16 +154,16 @@
     <value>Name</value>
   </data>
   <data name="CategoryEvaluator_NoCategories" xml:space="preserve">
-    <value>Es wurden keine Kategorien zur Auswertung gefunden!</value>
+    <value>Es wurden keine Kategorien zur Auswertung gefunden.</value>
   </data>
   <data name="PersonEvaluator_NoPersons" xml:space="preserve">
-    <value>Es wurden keine Personen zur Auswertung gefunden!</value>
+    <value>Es wurden keine Personen zur Auswertung gefunden.</value>
   </data>
   <data name="KeywordsEvaluator_NoKeywords" xml:space="preserve">
-    <value>Es wurden keine Schlagwörter zur Auswertung gefunden!</value>
+    <value>Es wurden keine Schlagwörter zur Auswertung gefunden.</value>
   </data>
   <data name="TwoLinksEvaluator_NoReferences" xml:space="preserve">
-    <value>Es wurden keine Titel ausgewählt zur Auswertung!</value>
+    <value>Es wurden keine Titel ausgewählt zur Auswertung.</value>
   </data>
   <data name="TwoLinksEvaluator_From" xml:space="preserve">
     <value>Von</value>

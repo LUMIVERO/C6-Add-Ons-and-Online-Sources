@@ -60,7 +60,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
             }
         }
 
-        public bool AskForExportPath(out string exportPath)
+        bool AskForExportPath(out string exportPath)
         {
             exportPath = null;
             using (var fodlerBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })

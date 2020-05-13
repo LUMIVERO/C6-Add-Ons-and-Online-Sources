@@ -173,7 +173,7 @@
     <value>Cancel</value>
   </data>
   <data name="EnvironmentVariablesNotFound" xml:space="preserve">
-    <value>No environment variables for the user were found with a valid path</value>
+    <value>No environment variables for the user were found with a valid path.</value>
   </data>
   <data name="PathAsVariableMessage" xml:space="preserve">
     <value>It's possible to use environment variables for the path '{0}'. 

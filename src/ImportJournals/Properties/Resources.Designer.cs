@@ -183,7 +183,7 @@ namespace SwissAcademic.Addons.ImportJournalsAddon.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Would you like to update journal information for references in current selection? (Journal information will be updated for all references if no selection is active). ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Would you like to update journal information for references in current selection (Journal information will be updated for all references if no selection is active)? ähnelt.
         /// </summary>
         internal static string WoodwardMacroUpdateMessage {
             get {

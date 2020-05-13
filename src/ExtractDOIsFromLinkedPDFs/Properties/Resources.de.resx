@@ -127,6 +127,6 @@
     <value>PDF-Attachments werden ermittelt</value>
   </data>
   <data name="ProcessFinishMessage" xml:space="preserve">
-    <value>Der Vorgang wurde erfolgreich abgeschlossen!</value>
+    <value>Der Vorgang wurde erfolgreich abgeschlossen.</value>
   </data>
 </root>

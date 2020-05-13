@@ -1,14 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using Infragistics.Win.UltraWinGrid;
+using Newtonsoft.Json;
 using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Settings;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
 using System;
 using System.Linq;
+using UltraGrid = SwissAcademic.Controls.UltraGrid;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
-    public static class Extensions
+    internal static class Extensions
     {
         public static AddonSettings Load(this string settings)
         {
@@ -70,6 +72,18 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             workSpace.AllowUpdate = Program.Settings.ReferenceGridForm.AllowUpdate;
 
             return workSpace;
+        }
+
+        public static void LoadWorkSpace(this ReferenceGridForm referenceGridForm, WorkSpace workSpace)
+        {
+            Program.Settings.ReferenceGridForm.AllowUpdate = workSpace.AllowUpdate;
+            Program.Settings.ReferenceGridForm.GroupByBoxVisible = workSpace.GroupByBoxVisible;
+            Program.Settings.ReferenceGridForm.ColumnDescriptors.Clear();
+            workSpace.Columns.ForEach(cl => Program.Settings.ReferenceGridForm.ColumnDescriptors.Add(cl));
+#pragma warning disable CA2000 // Objekte verwerfen, bevor Bereich verloren geht
+            referenceGridForm.Invoke("mainGrid_InitializeLayout", new object(), new InitializeLayoutEventArgs(new UltraGridLayout()));
+#pragma warning restore CA2000 // Objekte verwerfen, bevor Bereich verloren geht
+            referenceGridForm.Invoke("Refresh");
         }
     }
 }

@@ -89,7 +89,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Finished adding DOIs ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Finished adding DOIs. ähnelt.
         /// </summary>
         internal static string ProcessFinishMessage {
             get {

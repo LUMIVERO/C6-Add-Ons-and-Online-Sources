@@ -92,11 +92,17 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
             IsRunning = true;
 
             Minutes = _states.Current.Minutes;
-
+#if DEBUG
+            _timer = new Timer(500)
+            {
+                AutoReset = true
+            };
+#else
             _timer = new Timer(60000)
             {
                 AutoReset = true
             };
+#endif
             _timer.Elapsed += _timer_Elapsed;
             _timer.Start();
 
@@ -136,11 +142,10 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
                 var showDesktopAlertMethod = mainForm
                                              .GetType()
-                                             .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic).ToList()
+                                             .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
                                              .Where(mi => mi.Name.Equals("ShowDesktopAlert", StringComparison.OrdinalIgnoreCase))
                                              .Where(mi => mi.GetParameters().Length == 2)
-                                             .Where(mi => mi.GetParameters()[0].ParameterType.Name.Equals("UltraDesktopAlertShowWindowInfo", StringComparison.OrdinalIgnoreCase) && mi.GetParameters()[1].ParameterType.Name.Equals("Int32", StringComparison.OrdinalIgnoreCase))
-                                             .FirstOrDefault();
+                                             .FirstOrDefault(mi => mi.GetParameters()[0].ParameterType.Name.Equals("UltraDesktopAlertShowWindowInfo", StringComparison.OrdinalIgnoreCase) && mi.GetParameters()[1].ParameterType.Name.Equals("Int32", StringComparison.OrdinalIgnoreCase));
                 showDesktopAlertMethod?.Invoke(mainForm, new object[] { info, 3000 });
 
             });

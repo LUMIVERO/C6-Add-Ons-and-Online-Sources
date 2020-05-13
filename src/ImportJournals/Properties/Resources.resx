@@ -162,6 +162,6 @@
 {1} reference(s) were changed.</value>
   </data>
   <data name="WoodwardMacroUpdateMessage" xml:space="preserve">
-    <value>Would you like to update journal information for references in current selection? (Journal information will be updated for all references if no selection is active).</value>
+    <value>Would you like to update journal information for references in current selection (Journal information will be updated for all references if no selection is active)?</value>
   </data>
 </root>

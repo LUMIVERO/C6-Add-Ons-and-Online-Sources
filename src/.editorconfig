@@ -23,3 +23,9 @@ dotnet_diagnostic.CA1307.severity = none
 
 # CA1824: Assemblys mit NeutralResourcesLanguageAttribute markieren
 dotnet_diagnostic.CA1824.severity = none
+
+# IDE0040: Zugriffsmodifizierer hinzufügen
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:none
+
+# S927: parameter names should match base declaration and other partial definitions
+dotnet_diagnostic.S927.severity = none

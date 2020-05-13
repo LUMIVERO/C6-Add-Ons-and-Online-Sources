@@ -125,6 +125,6 @@
 {0} Änderung(en) wurde(n) vorgenommen.</value>
   </data>
   <data name="FolderBrowserDialogDescription" xml:space="preserve">
-    <value>Wählen Sie den übergeordneten Ordner, aus welchem die PDF-Dateien importiert werden sollen. Für diesen wird keine Kategorie erstellt...</value>
+    <value>Wählen Sie den übergeordneten Ordner, aus welchem die PDF-Dateien importiert werden sollen. Für diesen wird keine Kategorie erstellt.</value>
   </data>
 </root>

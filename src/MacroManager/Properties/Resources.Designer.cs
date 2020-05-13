@@ -143,7 +143,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die No environment variables for the user were found with a valid path ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die No environment variables for the user were found with a valid path. ähnelt.
         /// </summary>
         internal static string EnvironmentVariablesNotFound {
             get {

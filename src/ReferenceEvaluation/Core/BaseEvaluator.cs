@@ -29,7 +29,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
         #endregion
 
-        #region Mtethods
+        #region Methods
 
         public abstract string Run(MainForm mainForm);
 
