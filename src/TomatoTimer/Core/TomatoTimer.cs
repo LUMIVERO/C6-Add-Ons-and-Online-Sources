@@ -122,12 +122,10 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
         public void ShowMessage(string message, TimerState state)
         {
-            if (string.IsNullOrEmpty(message)) return;
             var mainForm = GetActiveMainForm();
 
             mainForm.Invoke((Action)delegate
             {
-
                 var info = new UltraDesktopAlertShowWindowInfo
                 {
                     Caption = message,
@@ -137,13 +135,11 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
                     Screen = System.Windows.Forms.Screen.FromControl(mainForm)
                 };
 
-                var showDesktopAlertMethod = mainForm
-                                             .GetType()
-                                             .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
-                                             .Where(mi => mi.Name.Equals("ShowDesktopAlert", StringComparison.OrdinalIgnoreCase))
-                                             .Where(mi => mi.GetParameters().Length == 2)
-                                             .FirstOrDefault(mi => mi.GetParameters()[0].ParameterType.Name.Equals("UltraDesktopAlertShowWindowInfo", StringComparison.OrdinalIgnoreCase) && mi.GetParameters()[1].ParameterType.Name.Equals("Int32", StringComparison.OrdinalIgnoreCase));
-                showDesktopAlertMethod?.Invoke(mainForm, new object[] { info, 3000 });
+                mainForm.GetType()
+                        .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                        .Where(mi => mi.Name.Equals("ShowDesktopAlert", StringComparison.OrdinalIgnoreCase) && mi.GetParameters().Length == 2)
+                        .FirstOrDefault(mi => mi.GetParameters()[0].ParameterType.Name.Equals("UltraDesktopAlertShowWindowInfo", StringComparison.OrdinalIgnoreCase) && mi.GetParameters()[1].ParameterType.Name.Equals("Int32", StringComparison.OrdinalIgnoreCase))?
+                        .Invoke(mainForm, new object[] { info, 3000 });
 
             });
         }
