@@ -10,48 +10,41 @@ namespace SwissAcademic.Addons.MacroManagerAddon
     {
         public static void Run(this MacroEditorForm macroEditorForm)
         {
-            var method = macroEditorForm.GetType()
-                                        .GetMethods(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
-                                        .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase));
-
-            if (method != null)
-            {
-                method.Invoke(macroEditorForm, new object[] { "Run", null, null, null });
-            }
+            macroEditorForm.GetType()
+                           .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                           .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase))?
+                           .Invoke(macroEditorForm, new object[] { "Run", null, null, null });
         }
 
         public static void SetFilePath(this MacroEditorForm macroEditorForm, string filePath)
         {
-            var field = macroEditorForm.GetType()
-                                            .GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
-                                            .FirstOrDefault(f => f.Name.Equals("_fileName", StringComparison.OrdinalIgnoreCase));
-
-            if (field != null) field.SetValue(macroEditorForm, filePath);
+            macroEditorForm.GetType()
+                           .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                           .FirstOrDefault(f => f.Name.Equals("_fileName", StringComparison.OrdinalIgnoreCase))?
+                           .SetValue(macroEditorForm, filePath);
         }
 
         public static bool IsDirty(this MacroEditorForm macroEditorForm)
         {
-            var field = macroEditorForm.GetType()
-                                            .GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
-                                            .FirstOrDefault(f => f.Name.Equals("macroEditor", StringComparison.OrdinalIgnoreCase));
+            var fieldValue = macroEditorForm.GetType()
+                                            .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                                            .FirstOrDefault(f => f.Name.Equals("macroEditor", StringComparison.OrdinalIgnoreCase))?
+                                            .GetValue(macroEditorForm);
 
-            var editor = field.GetValue(macroEditorForm) as MacroEditorControl;
-
-            if (editor == null) return false;
-
-            return editor.Dirty;
+            if (fieldValue is MacroEditorControl editor)
+            {
+                return editor.Dirty;
+            }
+            return false;
         }
 
         public static void Save(this MacroEditorForm macroEditorForm)
         {
-            var method = macroEditorForm.GetType()
-                                        .GetMethods(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
-                                        .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase));
+            macroEditorForm.GetType()
+                           .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                           .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase))?
+                           .Invoke(macroEditorForm, new object[] { "Save", null, null, null });
 
-            if (method != null)
-            {
-                method.Invoke(macroEditorForm, new object[] { "Save", null, null, null });
-            }
         }
 
         public static void SetAsDefault(this MacroEditorForm macroEditorForm)

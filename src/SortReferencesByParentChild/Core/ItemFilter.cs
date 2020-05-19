@@ -11,16 +11,13 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
     {
         #region Fields
 
-        MainForm _mainForm;
+        readonly MainForm _mainForm;
 
         #endregion
 
         #region Constructors
 
-        public ItemFilter(MainForm mainForm)
-        {
-            _mainForm = mainForm;
-        }
+        public ItemFilter(MainForm mainForm) => _mainForm = mainForm;
 
         public ItemFilter()
         {
@@ -45,10 +42,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
                    .FindAll(reference => reference?.ReferenceType?.AllowedChildren?.Count > 0) ?? new List<Reference>();
         }
 
-        public bool Filters(ReferenceNavigationGridDisplayItemColumn column)
-        {
-            return true;
-        }
+        public bool Filters(ReferenceNavigationGridDisplayItemColumn column) => true;
 
         public string GetValue(Reference reference, ReferenceNavigationGridDisplayItemColumn column, out bool handled)
         {

@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
     {
         #region Fields
 
-        MainForm _mainForm;
+        readonly MainForm _mainForm;
 
         #endregion
 
@@ -19,8 +19,8 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
         public ReferenceEvaluationDialog(MainForm mainForm)
         {
             InitializeComponent();
-            this.Owner = mainForm;
-            this._mainForm = mainForm;
+            Owner = mainForm;
+            _mainForm = mainForm;
             Localizen();
             Initialize();
         }
@@ -53,34 +53,26 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
         #region Eventhandler
 
-        void BtnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        void BtnClose_Click(object sender, EventArgs e) => Close();
 
         void BtnClipboard_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtResult.Text)) return;
-
-            Clipboard.SetText(txtResult.Text);
+            if (!string.IsNullOrEmpty(txtResult.Text))
+            {
+                Clipboard.SetText(txtResult.Text);
+            }
         }
 
         void CbFunctions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboFunctions.SelectedItem == null) return;
-
-            var evaluator = cboFunctions.SelectedItem as BaseEvaluator;
-
-            if (evaluator == null) return;
-
-            evaluator.ShowHeader = chbShowHeaders.Checked;
-            txtResult.Text = evaluator.Run(_mainForm);
+            if (cboFunctions.SelectedItem is BaseEvaluator evaluator)
+            {
+                evaluator.ShowHeader = chbShowHeaders.Checked;
+                txtResult.Text = evaluator.Run(_mainForm);
+            }
         }
 
-        void ChbShowHeaders_CheckedChanged(object sender, EventArgs e)
-        {
-            CbFunctions_SelectedIndexChanged(sender, e);
-        }
+        void ChbShowHeaders_CheckedChanged(object sender, EventArgs e) => CbFunctions_SelectedIndexChanged(sender, e);
 
         #endregion
     }

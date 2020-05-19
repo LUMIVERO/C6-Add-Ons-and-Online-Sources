@@ -8,23 +8,17 @@ namespace SwissAcademic.Addons.MacroManagerAddon
     {
         #region Constructors
 
-        public MacroContainer(Form form)
-        {
-            Form = form;
-
-            Macros = new Dictionary<string, MacroCommand>();
-            Tools = new Dictionary<ToolBase, string>();
-        }
+        public MacroContainer(Form form) => Form = form;
 
         #endregion
 
         #region Properties
 
-        public Form Form { get; private set; }
+        public Form Form { get; }
 
-        public Dictionary<string, MacroCommand> Macros { get; private set; }
+        public Dictionary<string, MacroCommand> Macros { get; } = new Dictionary<string, MacroCommand>();
 
-        public Dictionary<ToolBase, string> Tools { get; private set; }
+        public Dictionary<ToolBase, string> Tools { get; } = new Dictionary<ToolBase, string>();
 
         #endregion
     }

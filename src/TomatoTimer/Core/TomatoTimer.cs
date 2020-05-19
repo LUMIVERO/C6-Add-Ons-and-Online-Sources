@@ -19,17 +19,14 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
         #region Fields
 
         Timer _timer;
-        TomatoTimerStates _states;
+        readonly TomatoTimerStates _states;
 
         #endregion
 
         #region Events
 
         public event EventHandler Updated;
-        protected void OnUpdated()
-        {
-            Updated?.Invoke(this, EventArgs.Empty);
-        }
+        protected void OnUpdated() => Updated?.Invoke(this, EventArgs.Empty);
 
         #endregion
 
@@ -70,7 +67,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
         #region EventHandlers
 
-        void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Minutes--;
             if (Minutes == 0)
@@ -103,7 +100,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
                 AutoReset = true
             };
 #endif
-            _timer.Elapsed += _timer_Elapsed;
+            _timer.Elapsed += Timer_Elapsed;
             _timer.Start();
 
             OnUpdated();
@@ -116,7 +113,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
             Minutes = 0;
             _timer.Stop();
-            _timer.Elapsed -= _timer_Elapsed;
+            _timer.Elapsed -= Timer_Elapsed;
             _timer.Dispose();
             _timer = null;
             _states.Reset();
@@ -151,10 +148,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
             });
         }
 
-        MainForm GetActiveMainForm()
-        {
-            return (Program.ActiveProjectShell.ActiveForm as MainForm) ?? Program.ActiveProjectShell.PrimaryMainForm;
-        }
+        static MainForm GetActiveMainForm() => (Program.ActiveProjectShell.ActiveForm as MainForm) ?? Program.ActiveProjectShell.PrimaryMainForm;
 
         #endregion
     }

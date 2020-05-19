@@ -5,16 +5,13 @@
 
         #region Constructors
 
-        public EvaluationEntity(T entity)
-        {
-            Entity = entity;
-        }
+        public EvaluationEntity(T entity) => Entity = entity;
 
         #endregion
 
         #region Properties
 
-        public T Entity { get; private set; }
+        public T Entity { get; }
 
         public int CountByProject { get; set; }
 

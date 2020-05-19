@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Citavi;
-using SwissAcademic.Citavi.Shell;
+﻿using SwissAcademic.Citavi.Shell;
 using System;
 using System.Collections.Generic;
 using System.Linq;

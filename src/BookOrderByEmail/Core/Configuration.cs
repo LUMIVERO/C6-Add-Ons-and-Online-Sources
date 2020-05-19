@@ -6,7 +6,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
     {
         #region Fields
 
-        Dictionary<string, string> _settings;
+        readonly Dictionary<string, string> _settings;
 
         #endregion
 
@@ -19,10 +19,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         #region Constructors
 
-        public Configuration(Dictionary<string, string> settings)
-        {
-            _settings = settings;
-        }
+        public Configuration(Dictionary<string, string> settings) => _settings = settings;
 
         #endregion
 

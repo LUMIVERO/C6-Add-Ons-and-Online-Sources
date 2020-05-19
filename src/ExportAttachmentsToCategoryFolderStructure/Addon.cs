@@ -60,16 +60,19 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
             }
         }
 
-        bool AskForExportPath(out string exportPath)
+        static bool AskForExportPath(out string exportPath)
         {
             exportPath = null;
             using (var fodlerBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
             {
-                if (fodlerBrowserDialog.ShowDialog() != DialogResult.OK) return false;
-
-                exportPath = fodlerBrowserDialog.SelectedPath;
-                return true;
+                if (fodlerBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    exportPath = fodlerBrowserDialog.SelectedPath;
+                    return true;
+                }
             }
+
+            return false;
         }
 
         #endregion

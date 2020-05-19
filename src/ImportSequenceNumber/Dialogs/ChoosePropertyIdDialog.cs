@@ -32,7 +32,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 
         #region Methods
 
-        ReferencePropertyId ConvertIndexToPropertyId(int index)
+        static ReferencePropertyId ConvertIndexToPropertyId(int index)
         {
             switch (index)
             {

@@ -11,8 +11,8 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
     {
         #region Fields
 
-        ReferenceGridForm _referenceGridForm;
-        AddonSettings _settings;
+        readonly ReferenceGridForm _referenceGridForm;
+        readonly AddonSettings _settings;
 
         #endregion
 
@@ -59,12 +59,9 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             get
             {
                 var settings = AddonSettings.Default;
-                foreach (var item in lb_workspaces.Items)
+                foreach (var workspace in lb_workspaces.Items.OfType<WorkSpace>())
                 {
-                    if (item is WorkSpace workSpace)
-                    {
-                        settings.WorkSpaces.Add(workSpace);
-                    }
+                    settings.WorkSpaces.Add(workspace);
                 }
                 return settings;
             }
@@ -97,10 +94,12 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         {
             using (var form = new WorkSpaceNameEditor(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList()))
             {
-                if (form.ShowDialog(this) == DialogResult.Cancel) return;
-                var workSpace = _referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
-                lb_workspaces.Items.Add(workSpace);
-                lb_workspaces.Refresh();
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    var workSpace = _referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
+                    lb_workspaces.Items.Add(workSpace);
+                    lb_workspaces.Refresh();
+                }
             }
         }
 
@@ -108,7 +107,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         {
             if (lb_workspaces.SelectedItem is WorkSpace workSpace)
             {
-                if (MessageBox.Show(Properties.Resources.WorkSpaceEditor_Messages_RemoveWorkSpace.FormatString(workSpace.Caption), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(Resources.WorkSpaceEditor_Messages_RemoveWorkSpace.FormatString(workSpace.Caption), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     lb_workspaces.Items.RemoveAt(lb_workspaces.SelectedIndex);
                 }
@@ -143,7 +142,10 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             {
                 using (var form = new WorkSpaceNameEditor(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList(), workspace.Caption))
                 {
-                    if (form.ShowDialog(this) == DialogResult.Cancel) return;
+                    if (form.ShowDialog(this) == DialogResult.Cancel)
+                    {
+                        return;
+                    }
 
                     workspace.Caption = form.WorkSpaceName;
                 }

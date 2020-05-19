@@ -54,7 +54,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
             if (ShowHeader)
             {
-                var headers = CreateHeader(entities, isFiltered, columnsWidth);
+                var headers = CreateHeader(isFiltered, columnsWidth);
                 _stringBuilder.AppendLine(headers);
                 _stringBuilder.AppendLine();
             }
@@ -81,7 +81,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
             return _stringBuilder.ToString();
         }
 
-        string CreateHeader(List<EvaluationEntity<Keyword>> entities, bool isFiltered, List<int> columnsWidth)
+        string CreateHeader(bool isFiltered, List<int> columnsWidth)
         {
             return Resources.Evaluator_Name
                            + ' '.Repeat(columnsWidth[0] - Resources.Evaluator_Name.Length + 10)

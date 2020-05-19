@@ -28,10 +28,10 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
             var sum = 0;
             for (var i = 0; i < issnsubstrings.Length; i++)
             {
-                sum += ((8 - i) * Int32.Parse(issnsubstrings[i]));
+                sum += (8 - i) * int.Parse(issnsubstrings[i]);
             };
 
-            return ((sum % 11) == 0);
+            return (sum % 11) == 0;
         }
     }
 }

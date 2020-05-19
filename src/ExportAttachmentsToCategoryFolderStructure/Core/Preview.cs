@@ -30,42 +30,19 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
         #region Method
 
-        public void Close()
-        {
-            _previewControl.ShowNoPreview();
-        }
+        public void Close() => _previewControl.ShowNoPreview();
 
 
-        public void Open()
-        {
-            _previewControl.ShowLocationPreview(_location, PreviewBehaviour.SkipEntryPage, false);
-        }
+        public void Open() => _previewControl.ShowLocationPreview(_location, PreviewBehaviour.SkipEntryPage, false);
 
         #endregion
     }
 
     internal class Previews : List<Preview>
     {
-        #region Constructors
+        public void Close() => ForEach(preview => preview.Close());
 
-        public Previews() : base()
-        {
-
-        }
-
-        #endregion
-
-        #region Methods
-
-        public void Close()
-        {
-            ForEach(preview => preview.Close());
-        }
-
-        public void Open()
-        {
-            ForEach(preview => preview.Open());
-        }
+        public void Open() => ForEach(preview => preview.Open());
 
         public static Previews Create()
         {
@@ -89,25 +66,23 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
             return previews;
         }
-
-        #endregion
     }
 
     internal static class PreviewExtensions
     {
-        public static TResult Field<TObject, TResult>(this TObject t, string fieldName) where TObject : class
+        public static TResult Field<TObject, TResult>(this TObject tObject, string fieldName) where TObject : class
         {
-            var o = t
+            var obj = tObject
                    .Members(fieldName, MemberTypes.Field, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
                    .Cast<FieldInfo>()
                    .FirstOrDefault(field => field.Name.Equals(fieldName, StringComparison.OrdinalIgnoreCase))?
-                   .GetValue(t);
-            return (TResult)Convert.ChangeType(o, typeof(TResult), Application.CurrentCulture);
+                   .GetValue(tObject);
+            return (TResult)Convert.ChangeType(obj, typeof(TResult), Application.CurrentCulture);
         }
 
-        private static IEnumerable<MemberInfo> Members<T>(this T t, string memberName, MemberTypes memberType, BindingFlags bindingFlags)
+        private static IEnumerable<MemberInfo> Members<TObject>(this TObject tObject, string memberName, MemberTypes memberType, BindingFlags bindingFlags)
         {
-            return t
+            return tObject
                    .GetType()
                    .GetMembers(bindingFlags)
                    .Where(prop => prop.Name.Equals(memberName, StringComparison.OrdinalIgnoreCase) && prop.MemberType == memberType)

@@ -96,7 +96,6 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
                 if (journalCollection != null)
                 {
                     MessageBox.Show(periodicalList, Properties.Resources.FileMacroResultMessage.FormatString(journalCollection.Count), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    journalCollection = null;
                 }
 
 

@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Addons.MacroManagerAddon.Properties;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -33,10 +32,11 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
         void InitializeDirectory(string directory)
         {
-            if (string.IsNullOrEmpty(directory)) return;
-
-            txtPath.Text = directory;
-            lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(directory);
+            if (!string.IsNullOrEmpty(directory))
+            {
+                txtPath.Text = directory;
+                lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(directory);
+            }
         }
 
         bool ExistDirectory(string directory)
@@ -57,12 +57,12 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
         void Localize()
         {
-            this.Text = Properties.Resources.DirectoryDialogTitle;
+            Text = Properties.Resources.DirectoryDialogTitle;
             btnCancel.Text = Properties.Resources.Btn_Cancel;
             btnOk.Text = Properties.Resources.Btn_Ok;
         }
 
-        IEnumerable<EnvironmentVariable> GetPossibleUserEnvironmentVariables()
+        static IEnumerable<EnvironmentVariable> GetPossibleUserEnvironmentVariables()
         {
             var variables = new List<EnvironmentVariable>();
 
@@ -89,8 +89,6 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             return variables;
         }
 
-
-
         string GetPathWithVariablesFromFullPath(string path)
         {
             if (string.IsNullOrEmpty(path)) return path;
@@ -108,21 +106,19 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
         void BtnOk_Click(object sender, EventArgs e)
         {
-            if (!ExistDirectory(txtPath.Text)) return;
-
-            DialogResult = DialogResult.OK;
+            if (ExistDirectory(txtPath.Text))
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
 
-        void BtnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
+        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         void BtnFolderBrowserDialog_Click(object sender, EventArgs e)
         {
             using (var folderBrowseDialog = new FolderBrowserDialog { Description = Properties.Resources.FolderBrowseDialogDescription })
             {
-                var root = System.IO.Path2.GetFullPathFromPathWithVariables(txtPath.Text);
+                var root = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
                 if (System.IO.Directory.Exists(root)) folderBrowseDialog.SelectedPath = root;
 
                 if (folderBrowseDialog.ShowDialog(this) != DialogResult.OK) return;
@@ -132,7 +128,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                 if (!string.IsNullOrEmpty(entry) && !folderBrowseDialog.SelectedPath.Equals(entry, StringComparison.OrdinalIgnoreCase) && MessageBox.Show(this, Properties.Resources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), Owner.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     txtPath.Text = entry;
-                    lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(entry);
+                    lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(entry);
                 }
                 else
                 {
@@ -173,13 +169,13 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             if (sender is ToolStripItem item)
             {
                 txtPath.Text = item.Text;
-                lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(item.Text);
+                lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(item.Text);
             }
         }
 
         void TxtPath_TextChanged(object sender, EventArgs e)
         {
-            lblEnvironmentFullPath.Text = System.IO.Path2.GetFullPathFromPathWithVariables(txtPath.Text);
+            lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
         }
 
         #endregion

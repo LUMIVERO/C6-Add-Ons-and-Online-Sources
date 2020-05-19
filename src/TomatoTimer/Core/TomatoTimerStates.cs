@@ -33,14 +33,15 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
         public TomatoTimerState Next()
         {
             _counter++;
-            if (_counter == this.Count) _counter = 0;
+            if (_counter == Count)
+            {
+                _counter = 0;
+            }
+
             return Current;
         }
 
-        public void Reset()
-        {
-            _counter = 0;
-        }
+        public void Reset() => _counter = 0;
 
         #endregion
     }

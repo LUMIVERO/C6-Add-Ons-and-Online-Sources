@@ -23,7 +23,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         #region Fields
 
         AddonSettings _settings;
-        Dictionary<ReferenceGridForm, CommandbarMenu> _menus;
+        readonly Dictionary<ReferenceGridForm, CommandbarMenu> _menus;
 
         #endregion
 
@@ -67,7 +67,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         {
             if (_settings == null)
             {
-                this.Settings.TryGetValue(Key_Settings, out string json);
+                Settings.TryGetValue(Key_Settings, out string json);
                 _settings = json.Load();
             }
 
@@ -107,7 +107,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
                 if (form.ShowDialog(referenceGridForm) == DialogResult.Cancel) return;
                 var workSpace = referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
                 _settings.WorkSpaces.Add(workSpace);
-                this.Settings[Key_Settings] = _settings.ToJson();
+                Settings[Key_Settings] = _settings.ToJson();
             }
 
             RefreshMenuItems();
@@ -121,7 +121,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
                 _settings = workSpaceEditor.Settings;
             }
 
-            this.Settings[Key_Settings] = _settings.ToJson();
+            Settings[Key_Settings] = _settings.ToJson();
 
             RefreshMenuItems();
         }

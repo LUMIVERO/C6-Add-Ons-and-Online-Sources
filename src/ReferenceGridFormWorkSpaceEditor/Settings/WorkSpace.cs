@@ -38,10 +38,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         #region Methods
 
-        public override string ToString()
-        {
-            return Caption;
-        }
+        public override string ToString() => Caption;
 
         #endregion
     }

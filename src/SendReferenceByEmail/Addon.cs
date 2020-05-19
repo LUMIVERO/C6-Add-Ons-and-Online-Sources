@@ -25,9 +25,9 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
                 {
                     await mainForm.ActiveReference.SendByEMailAsync(mainForm);
                 }
-                catch (Exception ee)
+                catch (Exception exception)
                 {
-                    MessageBox.Show(mainForm, ee.ToString(), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(mainForm, exception.ToString(), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -46,7 +46,10 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
                                  .GetCommandbarButton(Key_Button_SendReferenceByEmail);
-            if (button != null) button.Text = Resources.ButtonCaption;
+            if (button != null)
+            {
+                button.Text = Resources.ButtonCaption;
+            }
         }
 
         #endregion

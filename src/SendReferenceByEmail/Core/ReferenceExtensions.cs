@@ -100,9 +100,6 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
                     select location).ToList();
         }
 
-        static bool IsRemote(this Location location)
-        {
-            return location.LocationType == LocationType.ElectronicAddress && location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote;
-        }
+        static bool IsRemote(this Location location) => location.LocationType == LocationType.ElectronicAddress && location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote;
     }
 }

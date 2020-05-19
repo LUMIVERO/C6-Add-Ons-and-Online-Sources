@@ -6,6 +6,12 @@ dotnet_diagnostic.CA1062.severity = none
 # CA1031: Keine allgemeinen Ausnahmetypen abfangen
 dotnet_diagnostic.CA1031.severity = none
 
+# CA1822: Member als statisch markieren
+dotnet_diagnostic.CA1822.severity = none
+
+# CA1812: Nicht instanziierte interne Klassen vermeiden
+dotnet_diagnostic.CA1812.severity = none
+
 # CA2007: Aufruf von "ConfigureAwait" für erwarteten Task erwägen
 dotnet_diagnostic.CA2007.severity = none
 

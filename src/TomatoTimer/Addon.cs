@@ -16,9 +16,8 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
         #region Fields
 
-        TomatoTimer _tomatoTimer;
-
-        Dictionary<Form, Infragistics.Win.UltraWinStatusBar.UltraStatusPanel> _formsAndPanels;
+        readonly TomatoTimer _tomatoTimer;
+        readonly Dictionary<Form, Infragistics.Win.UltraWinStatusBar.UltraStatusPanel> _formsAndPanels;
 
         #endregion
 
@@ -101,8 +100,14 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
         {
             if (_formsAndPanels.ContainsValue(e.Panel))
             {
-                if (_tomatoTimer.IsRunning) _tomatoTimer.Stop();
-                else _tomatoTimer.Start();
+                if (_tomatoTimer.IsRunning)
+                {
+                    _tomatoTimer.Stop();
+                }
+                else
+                {
+                    _tomatoTimer.Start();
+                }
             }
         }
 

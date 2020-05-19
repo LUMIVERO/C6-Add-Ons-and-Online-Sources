@@ -48,17 +48,17 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
             switch (e.Key)
             {
-                case (Key_Button_ShowMacroEditor):
+                case Key_Button_ShowMacroEditor:
                     {
                         CurrentEditor(mainForm, false, out bool hidden, out bool isNew).Activate();
                     }
                     break;
-                case (Key_Button_Refresh):
+                case Key_Button_Refresh:
                     {
                         UpdateTools(container);
                     }
                     break;
-                case (Key_Button_Config):
+                case Key_Button_Config:
                     {
 
                         using (var directoryDialog = new DirectoryDialog(Settings.TryGetStringValue(Key_MacrosDirectory)) { Owner = mainForm })
@@ -72,7 +72,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                         }
                     }
                     break;
-                case (Key_Button_OpenInExplorer):
+                case Key_Button_OpenInExplorer:
                     {
                         if (IsValidDirectory(out string message))
                         {

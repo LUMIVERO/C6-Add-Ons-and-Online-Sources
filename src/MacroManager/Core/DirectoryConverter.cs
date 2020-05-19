@@ -1,5 +1,4 @@
-﻿using SwissAcademic.Addons.MacroManagerAddon.Properties;
-using SwissAcademic.Controls;
+﻿using SwissAcademic.Controls;
 using System;
 using System.IO;
 

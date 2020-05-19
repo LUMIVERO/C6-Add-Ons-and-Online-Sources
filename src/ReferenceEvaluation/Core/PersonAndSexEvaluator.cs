@@ -54,7 +54,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
             if (ShowHeader)
             {
-                var headers = CreateHeader(entities, isFiltered, columnsWidth);
+                var headers = CreateHeader(isFiltered, columnsWidth);
                 _stringBuilder.AppendLine(headers);
                 _stringBuilder.AppendLine();
             }
@@ -65,14 +65,14 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
                 if (!isFiltered)
                 {
-                    _stringBuilder.AppendLine(person.FullName + ' '.Repeat(columnsWidth[0] - person.FullName.Length + 10) + getShortSexForm(person.Sex) + ' '.Repeat(Resources.Evaluator_Sex.Length + 9) + entity.CountByProject);
+                    _stringBuilder.AppendLine(person.FullName + ' '.Repeat(columnsWidth[0] - person.FullName.Length + 10) + GetShortSexForm(person.Sex) + ' '.Repeat(Resources.Evaluator_Sex.Length + 9) + entity.CountByProject);
                 }
                 else
                 {
                     _stringBuilder.AppendLine(
                         person.FullName
                         + ' '.Repeat(columnsWidth[0] - person.FullName.Length + 10)
-                        + getShortSexForm(person.Sex)
+                        + GetShortSexForm(person.Sex)
                         + ' '.Repeat(columnsWidth[1] + 9)
                         + entity.CountBySelection
                         + ' '.Repeat(columnsWidth[2] - entity.CountBySelection.ToString().Length + 10)
@@ -82,12 +82,9 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
             return _stringBuilder.ToString();
         }
 
-        string getShortSexForm(Sex sex)
-        {
-            return sex.ToString().FirstOrDefault().ToString();
-        }
+        string GetShortSexForm(Sex sex) => sex.ToString().FirstOrDefault().ToString();
 
-        string CreateHeader(List<EvaluationEntity<Person>> entities, bool isFiltered, List<int> columnsWidth)
+        string CreateHeader(bool isFiltered, List<int> columnsWidth)
         {
             return Resources.Evaluator_Name
                            + ' '.Repeat(columnsWidth[0] - Resources.Evaluator_Name.Length + 10)

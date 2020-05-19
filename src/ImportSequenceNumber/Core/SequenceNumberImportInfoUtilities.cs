@@ -82,9 +82,6 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
             }
         }
 
-        public static int GetSuccesImportCount(this List<SequenceNumberImportInfo> sequenceNumberImportInfos)
-        {
-            return sequenceNumberImportInfos.Where(s => s.Success).Count();
-        }
+        public static int GetSuccesImportCount(this List<SequenceNumberImportInfo> sequenceNumberImportInfos) => sequenceNumberImportInfos.Count(s => s.Success);
     }
 }

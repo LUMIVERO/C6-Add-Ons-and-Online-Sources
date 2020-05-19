@@ -1,5 +1,7 @@
-﻿using SwissAcademic.Citavi.Shell;
+﻿using Infragistics.Win.UltraWinStatusBar;
+using SwissAcademic.Citavi.Shell;
 using System.Linq;
+using System.Reflection;
 
 namespace SwissAcademic.Addons.TomatoTimerAddon
 {
@@ -7,11 +9,12 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
     {
         #region Infragistics.Win.UltraWinStatusBar.UltraStatusBar
 
-        public static Infragistics.Win.UltraWinStatusBar.UltraStatusBar GetStatusBar(this MainForm mainForm)
+        public static UltraStatusBar GetStatusBar(this MainForm mainForm)
         {
-            var propertyInfo = mainForm.GetType().GetFields(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).FirstOrDefault(p => p.Name.Equals("statusBar"));
-
-            return propertyInfo?.GetValue(mainForm) as Infragistics.Win.UltraWinStatusBar.UltraStatusBar;
+            return mainForm.GetType()
+                           .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                           .FirstOrDefault(p => p.Name.Equals("statusBar"))?
+                           .GetValue(mainForm) as UltraStatusBar;
         }
 
         #endregion

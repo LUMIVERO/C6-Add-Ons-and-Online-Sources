@@ -20,12 +20,12 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
             e.Handled = true;
             switch (e.Key)
             {
-                case (Key_Button_File):
+                case Key_Button_File:
                     {
                         Macro.Run(mainForm);
                     }
                     break;
-                case (Key_Button_References):
+                case Key_Button_References:
                     {
                         Macro.Run(mainForm);
                     }

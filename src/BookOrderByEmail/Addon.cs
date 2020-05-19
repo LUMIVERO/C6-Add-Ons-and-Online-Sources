@@ -29,7 +29,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
             e.Handled = true;
             switch (e.Key)
             {
-                case (Key_Button_OrderPerEmail):
+                case Key_Button_OrderPerEmail:
                     {
                         try
                         {
@@ -41,12 +41,12 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
                         }
                     }
                     break;
-                case (Key_Button_OrderPerClipboard):
+                case Key_Button_OrderPerClipboard:
                     {
                         mainForm.ActiveReference.OrderByClipboard(_configuration);
                     }
                     break;
-                case (Key_Button_ConfigOrders):
+                case Key_Button_ConfigOrders:
                     {
                         Configurate(mainForm);
                     }
@@ -59,7 +59,10 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (_configuration == null) _configuration = new Configuration(Settings);
+            if (_configuration == null)
+            {
+                _configuration = new Configuration(Settings);
+            }
 
             var menu = mainForm
                        .GetReferenceEditorTasksCommandbarManager()
@@ -83,7 +86,10 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            if (_configuration == null) _configuration = new Configuration(Settings);
+            if (_configuration == null)
+            {
+                _configuration = new Configuration(Settings);
+            }
 
             var menu = mainForm.GetReferenceEditorTasksCommandbarManager()
                                .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)

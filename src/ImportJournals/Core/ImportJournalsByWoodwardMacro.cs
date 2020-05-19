@@ -72,7 +72,7 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
                     {
                         abbreviation1Words[i] = abbreviation1Words[i].TrimEnd('.');
                     }
-                    abbreviation2 = String.Join(" ", abbreviation1Words);
+                    abbreviation2 = string.Join(" ", abbreviation1Words);
 
 
                     // try to establish Abbreviation3
@@ -81,9 +81,9 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
 
 
                     Periodical journal = new Periodical(project, journalTitle);
-                    if (!String.IsNullOrEmpty(abbreviation1)) journal.StandardAbbreviation = abbreviation1;
-                    if (!String.IsNullOrEmpty(abbreviation2)) journal.UserAbbreviation1 = abbreviation2;
-                    if (!String.IsNullOrEmpty(abbreviation3)) journal.UserAbbreviation2 = abbreviation3;
+                    if (!string.IsNullOrEmpty(abbreviation1)) journal.StandardAbbreviation = abbreviation1;
+                    if (!string.IsNullOrEmpty(abbreviation2)) journal.UserAbbreviation1 = abbreviation2;
+                    if (!string.IsNullOrEmpty(abbreviation3)) journal.UserAbbreviation2 = abbreviation3;
 
                     journalCollection.Add(journal);
 
@@ -99,7 +99,7 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
                     foreach (var reference in references)
                     {
                         if (reference.Periodical == null) continue;
-                        if (journalCollection.Any(item => item.Name == reference.Periodical.Name) && !String.IsNullOrEmpty(reference.Periodical.Name))
+                        if (journalCollection.Any(item => item.Name == reference.Periodical.Name) && !string.IsNullOrEmpty(reference.Periodical.Name))
                         {
                             reference.Periodical = journalCollection.Where(item => item.Name == reference.Periodical.Name).FirstOrDefault();
                             refCounter++;
@@ -111,9 +111,6 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
                 {
                     project.Periodicals.AddRange(journalCollection);
                 }
-
-
-
             }
             catch (Exception e)
             {
@@ -130,12 +127,7 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
                     MessageBox.Show(periodicalList, Properties.Resources.WoodwardMacroResultMessage.FormatString(journalCollection.Count, refCounter), periodicalList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     journalCollection = null;
                 }
-
-
             }
-
-
-
         }
     }
 }

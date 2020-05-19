@@ -18,14 +18,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 
         static ReferenceComparerByParentChild _default;
 
-        public static ReferenceComparerByParentChild Default
-        {
-            get
-            {
-                if (_default == null) _default = new ReferenceComparerByParentChild();
-                return _default;
-            }
-        }
+        public static ReferenceComparerByParentChild Default => _default ?? (_default = new ReferenceComparerByParentChild());
 
         #endregion
 

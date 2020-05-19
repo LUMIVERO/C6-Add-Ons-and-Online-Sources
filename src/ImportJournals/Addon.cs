@@ -21,19 +21,19 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
             e.Handled = true;
             switch (e.Key)
             {
-                case (Key_Button_ImportByFile):
+                case Key_Button_ImportByFile:
                     {
                         ImportJournalsByFileMacro.Run(periodicalList);
                     }
                     break;
 
-                case (Key_Button_ImportByPubmed):
+                case Key_Button_ImportByPubmed:
                     {
                         ImportJournalsByPubMedMacro.Run(periodicalList);
                     }
                     break;
 
-                case (Key_Button_ImportByWoodward):
+                case Key_Button_ImportByWoodward:
                     {
                         ImportJournalsByWoodwardMacro.Run(periodicalList);
                     }

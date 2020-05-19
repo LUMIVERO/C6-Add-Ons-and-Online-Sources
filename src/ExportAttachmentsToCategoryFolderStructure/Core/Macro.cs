@@ -39,7 +39,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
                     foreach (var location in locations)
                     {
                         var sourcePath = location.Address.Resolve().GetLocalPathSafe();
-                        var destinationPath = String.Empty;
+                        var destinationPath = string.Empty;
 
                         if (location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote)
                         {
@@ -148,9 +148,6 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
             }
         }
 
-        static string MakeValidFileName(this string name)
-        {
-            return String.Join("_", name.Split(Path.GetInvalidFileNameChars(), StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
-        }
+        static string MakeValidFileName(this string name) => string.Join("_", name.Split(Path.GetInvalidFileNameChars(), StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
     }
 }

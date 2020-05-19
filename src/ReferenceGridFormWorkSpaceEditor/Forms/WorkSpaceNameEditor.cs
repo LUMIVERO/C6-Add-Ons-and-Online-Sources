@@ -12,8 +12,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         readonly bool _editMode;
         readonly string _caption;
-
-        IEnumerable<string> _captions;
+        readonly IEnumerable<string> _captions;
 
         #endregion
 
@@ -73,19 +72,16 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         #region EventHandlers
 
-        void Btn_create_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-        }
+        void Btn_create_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
 
-        void Btn_edit_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
+        void Btn_edit_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         void Txt_workspace_name_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Enter && !string.IsNullOrEmpty(txt_workspace_name.Text)) DialogResult = DialogResult.OK;
+            if (e.KeyData == Keys.Enter && !string.IsNullOrEmpty(txt_workspace_name.Text))
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
 
         #endregion
