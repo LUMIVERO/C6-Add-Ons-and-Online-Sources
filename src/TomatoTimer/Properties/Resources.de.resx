@@ -138,4 +138,7 @@
   <data name="StartMessage" xml:space="preserve">
     <value>Starten</value>
   </data>
+  <data name="Message_Go" xml:space="preserve">
+    <value>Weiter geht's!</value>
+  </data>
 </root>

@@ -37,11 +37,11 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
             _states = new TomatoTimerStates(new StoppedTimer(0))
             {
                 new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.Message_Break; } },
-                new PausingTimer(5),
+                new PausingTimer(5){ MessageResolver=()=>{return Properties.Resources.Message_Go; } },
                 new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.Message_Break; } },
-                new PausingTimer(5),
+                new PausingTimer(5){ MessageResolver=()=>{return Properties.Resources.Message_Go; } },
                 new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.FinishMessage; } },
-                new WalkingTimer(15)
+                new WalkingTimer(15){ MessageResolver=()=>{return Properties.Resources.Message_Go; } }
             };
 
             IsRunning = false;
@@ -72,7 +72,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
             Minutes--;
             if (Minutes == 0)
             {
-                ShowMessage(_states.Current.Message);
+                ShowMessage(_states.Current.Message, _states.Current.State);
                 _states.Next();
                 Minutes = _states.Current.Minutes;
                 OnUpdated();
@@ -120,7 +120,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
             OnUpdated();
         }
 
-        public void ShowMessage(string message)
+        public void ShowMessage(string message, TimerState state)
         {
             if (string.IsNullOrEmpty(message)) return;
             var mainForm = GetActiveMainForm();
@@ -131,7 +131,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
                 var info = new UltraDesktopAlertShowWindowInfo
                 {
                     Caption = message,
-                    Image = Properties.Resources.pause,
+                    Image = state == TimerState.Pausing ? null : Properties.Resources.pause,
                     ScreenPosition = ScreenPosition.Center,
                     Key = TomatoTimer_DesktopAlert_Key,
                     Screen = System.Windows.Forms.Screen.FromControl(mainForm)

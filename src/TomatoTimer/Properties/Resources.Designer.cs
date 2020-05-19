@@ -97,6 +97,15 @@ namespace SwissAcademic.Addons.TomatoTimerAddon.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [en] Weiter geht&apos;s! ähnelt.
+        /// </summary>
+        internal static string Message_Go {
+            get {
+                return ResourceManager.GetString("Message_Go", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap pause {
