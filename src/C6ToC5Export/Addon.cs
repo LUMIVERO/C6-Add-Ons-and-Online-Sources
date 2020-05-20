@@ -19,48 +19,41 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
 
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            e.Handled = true;
-            switch (e.Key)
+            if (e.Key.Equals(Key_Button_Export, StringComparison.OrdinalIgnoreCase))
             {
-                case (Key_Button_Export):
-                    {
-                        if (mainForm.Project.ProjectType == ProjectType.DesktopCloud && mainForm.Project.AllLocations.HasFileLocations())
-                        {
-                            using (var messageBox = new CitaviMessageBox(mainForm))
-                            {
-                                messageBox.DescriptionEditor.DetectHiddenLinks = true;
-                                messageBox.DescriptionTagged = Resources.ExportCloudProjectErrorMessage;
-                                messageBox.Icon = MessageBoxIcon.Error;
-                                messageBox.CancelledButton.Visible = false;
-                                messageBox.ShowDialog(mainForm);
-                            }
-                        }
-                        else
-                        {
-                            using (var saveFileDialog = new SaveFileDialog { Filter = Resources.ProjectFilters, CheckPathExists = true, Title = Resources.ExportTitle })
-                            {
-                                if (saveFileDialog.ShowDialog(e.Form) != DialogResult.OK) return;
+                e.Handled = true;
 
-                                try
-                                {
-                                    mainForm.Project.SaveAsXml(saveFileDialog.FileName, ProjectXmlExportCompatibility.Citavi5);
-                                    MessageBox.Show(e.Form, Resources.ExportFinallyMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                catch (Exception ex)
-                                {
-                                    if (MessageBox.Show(e.Form, Resources.ExportExceptionMessage.FormatString(ex.Message), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
-                                    {
-                                        Clipboard.SetText(e.ToString());
-                                    }
-                                }
-                                break;
+                if (mainForm.Project.ProjectType == ProjectType.DesktopCloud && mainForm.Project.AllLocations.HasFileLocations())
+                {
+                    using (var messageBox = new CitaviMessageBox(mainForm))
+                    {
+                        messageBox.DescriptionEditor.DetectHiddenLinks = true;
+                        messageBox.DescriptionTagged = Resources.ExportCloudProjectErrorMessage;
+                        messageBox.Icon = MessageBoxIcon.Error;
+                        messageBox.CancelledButton.Visible = false;
+                        messageBox.ShowDialog(mainForm);
+                    }
+                }
+                else
+                {
+                    using (var saveFileDialog = new SaveFileDialog { Filter = Resources.ProjectFilters, CheckPathExists = true, Title = Resources.ExportTitle })
+                    {
+                        if (saveFileDialog.ShowDialog(e.Form) != DialogResult.OK) return;
+
+                        try
+                        {
+                            mainForm.Project.SaveAsXml(saveFileDialog.FileName, ProjectXmlExportCompatibility.Citavi5);
+                            MessageBox.Show(e.Form, Resources.ExportFinallyMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            if (MessageBox.Show(e.Form, Resources.ExportExceptionMessage.FormatString(ex.Message), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                            {
+                                Clipboard.SetText(e.ToString());
                             }
                         }
                     }
-                    break;
-                default:
-                    e.Handled = false;
-                    break;
+                }
             }
         }
 

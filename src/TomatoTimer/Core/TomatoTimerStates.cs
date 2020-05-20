@@ -12,11 +12,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
         #region Constructors
 
-        public TomatoTimerStates(TomatoTimerState defaultTimer)
-        {
-            _counter = 0;
-            Default = defaultTimer;
-        }
+        public TomatoTimerStates(TomatoTimerState defaultTimer) => (_counter, Default) = (0, defaultTimer);
 
         #endregion
 

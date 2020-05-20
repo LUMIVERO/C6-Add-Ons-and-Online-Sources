@@ -43,9 +43,9 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
         public override void OnLocalizing(MainForm mainForm)
         {
             var button = mainForm.GetMainCommandbarManager()
-                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                      .GetCommandbarButton(Key_Button_ExtractDOIsFromLinkedPDFs);
+                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                                 .GetCommandbarButton(Key_Button_ExtractDOIsFromLinkedPDFs);
             if (button != null)
             {
                 button.Text = Resources.CommandButtonText;

@@ -16,43 +16,45 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
             var project = personList.Project;
 
             var authors = project.Persons.ToList();
-            if (!authors.Any()) return;
-
-            foreach (var author in authors)
+            if (authors.Any())
             {
-                var originalAuthorFullName = author.FullName.ToString();
-                var originalAuthorLastName = author.LastName.ToString();
-
-                if ((!string.IsNullOrEmpty(originalAuthorFullName) && originalAuthorFullName.Equals(originalAuthorFullName.ToUpper(), StringComparison.Ordinal)) || 
-                    (!string.IsNullOrEmpty(originalAuthorLastName) && originalAuthorLastName.Equals(originalAuthorLastName.ToUpper(), StringComparison.Ordinal) && normalizeCapitalLastname))
+                foreach (var author in authors)
                 {
-                    counter++;
+                    var originalAuthorFullName = author.FullName.ToString();
+                    var originalAuthorLastName = author.LastName.ToString();
 
-                    var authorFirstName = author.FirstName.ToString();
-                    var authorMiddleName = author.MiddleName.ToString();
-                    var authorLastName = author.LastName.ToString();
-
-                    if (!string.IsNullOrEmpty(authorFirstName)) author.FirstName = authorFirstName.ToLower().ToInitialUpper();
-                    if (!string.IsNullOrEmpty(authorMiddleName)) author.MiddleName = authorMiddleName.ToLower().ToInitialUpper();
-                    if (!string.IsNullOrEmpty(authorLastName)) author.LastName = authorLastName.ToLower().ToInitialUpper();
-
-                    var authorPrefix = author.Prefix.ToString();
-                    var authorSuffix = author.Suffix.ToString();
-
-                    if (prefixSuffixFirstCapitalLetter == true)
+                    if ((!string.IsNullOrEmpty(originalAuthorFullName) && originalAuthorFullName.Equals(originalAuthorFullName.ToUpper(), StringComparison.Ordinal)) ||
+                        (!string.IsNullOrEmpty(originalAuthorLastName) && originalAuthorLastName.Equals(originalAuthorLastName.ToUpper(), StringComparison.Ordinal) && normalizeCapitalLastname))
                     {
-                        if (!string.IsNullOrEmpty(authorPrefix)) author.Prefix = authorPrefix.ToLower().ToInitialUpper();
-                        if (!string.IsNullOrEmpty(authorSuffix)) author.Suffix = authorSuffix.ToLower().ToInitialUpper();
-                    }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(authorPrefix)) author.Prefix = authorPrefix.ToLower();
-                        if (!string.IsNullOrEmpty(authorSuffix)) author.Suffix = authorSuffix.ToLower();
-                    }
+                        counter++;
 
+                        var authorFirstName = author.FirstName.ToString();
+                        var authorMiddleName = author.MiddleName.ToString();
+                        var authorLastName = author.LastName.ToString();
+
+                        if (!string.IsNullOrEmpty(authorFirstName)) author.FirstName = authorFirstName.ToLower().ToInitialUpper();
+                        if (!string.IsNullOrEmpty(authorMiddleName)) author.MiddleName = authorMiddleName.ToLower().ToInitialUpper();
+                        if (!string.IsNullOrEmpty(authorLastName)) author.LastName = authorLastName.ToLower().ToInitialUpper();
+
+                        var authorPrefix = author.Prefix.ToString();
+                        var authorSuffix = author.Suffix.ToString();
+
+                        if (prefixSuffixFirstCapitalLetter == true)
+                        {
+                            if (!string.IsNullOrEmpty(authorPrefix)) author.Prefix = authorPrefix.ToLower().ToInitialUpper();
+                            if (!string.IsNullOrEmpty(authorSuffix)) author.Suffix = authorSuffix.ToLower().ToInitialUpper();
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(authorPrefix)) author.Prefix = authorPrefix.ToLower();
+                            if (!string.IsNullOrEmpty(authorSuffix)) author.Suffix = authorSuffix.ToLower();
+                        }
+
+                    }
                 }
+
+                MessageBox.Show(personList, Resources.ResultMessage.FormatString(counter), personList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show(personList, Resources.ResultMessage.FormatString(counter), personList.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

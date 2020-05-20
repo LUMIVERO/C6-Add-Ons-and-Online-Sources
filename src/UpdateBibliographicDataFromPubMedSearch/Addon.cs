@@ -16,7 +16,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
         #region Methods
 
 
-        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
+        public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_UpdateBibliographicDataFromPubMedSearch, System.StringComparison.OrdinalIgnoreCase))
             {
@@ -26,7 +26,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
                 {
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
-                        Macro.Run(mainForm, dialog.Settings);
+                        await Macro.Run(mainForm, dialog.Settings);
                     }
                 }
             }

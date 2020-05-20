@@ -1,5 +1,4 @@
 ﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Properties;
-using System;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
@@ -31,14 +30,6 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
             OverwriteKeywords = chbOverrideKeywords.Checked,
             OverwriteTableOfContents = chbOverrideTOC.Checked
         };
-
-        #endregion
-
-        #region Eventhandlers
-
-        void BtnOk_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
-
-        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         #endregion
     }

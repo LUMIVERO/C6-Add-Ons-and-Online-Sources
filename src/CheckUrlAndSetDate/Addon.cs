@@ -15,12 +15,12 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 
         #region Methods
 
-        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
+        public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_CheckUrl, StringComparison.OrdinalIgnoreCase))
             {
-                Macro.Run(mainForm);
                 e.Handled = true;
+                await Macro.Run(mainForm);
             }
         }
 

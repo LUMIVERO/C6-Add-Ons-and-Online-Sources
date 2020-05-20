@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
-    <Compile Include="Core\CitaviExtensions.cs" />
+    <Compile Include="Core\Extensions.cs" />
     <Compile Include="Dialogs\ConfigDialog.cs">
       <SubType>Form</SubType>
     </Compile>

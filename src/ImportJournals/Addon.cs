@@ -47,8 +47,8 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
         public override void OnHostingFormLoaded(PeriodicalList periodicalList)
         {
             var menu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu)
-                                         .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
-                                         .InsertCommandbarMenu(3, Key_Menu_ImportJournals, Properties.Resources.ImportJournalsMenu, image: Properties.Resources.addon);
+                                     .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
+                                     .InsertCommandbarMenu(3, Key_Menu_ImportJournals, Properties.Resources.ImportJournalsMenu, image: Properties.Resources.addon);
             menu?.AddCommandbarButton(Key_Button_ImportByFile, Properties.Resources.ImportJournalsByFileCommandText);
             menu?.AddCommandbarButton(Key_Button_ImportByPubmed, Properties.Resources.ImportJournalsByPubMedCommandText);
             menu?.AddCommandbarButton(Key_Button_ImportByWoodward, Properties.Resources.ImportJournalsByWoodwardLibraryCommandText);
@@ -57,8 +57,8 @@ namespace SwissAcademic.Addons.ImportJournalsAddon
         public override void OnLocalizing(PeriodicalList periodicalList)
         {
             var menu = periodicalList.GetCommandbar(PeriodicalListCommandbarId.Menu)
-                                          .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
-                                          .GetCommandbarMenu(Key_Menu_ImportJournals);
+                                     .GetCommandbarMenu(PeriodicalListCommandbarMenuId.Periodicals)
+                                     .GetCommandbarMenu(Key_Menu_ImportJournals);
 
             if (menu != null)
             {

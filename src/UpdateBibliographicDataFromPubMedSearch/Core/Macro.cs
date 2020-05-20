@@ -14,7 +14,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
     internal static class Macro
     {
-        public async static void Run(MainForm mainForm, MacroSettings settings)
+        public async static Task Run(MainForm mainForm, MacroSettings settings)
         {
             var referencesWithPmid = mainForm.GetFilteredReferences()
                                             .Where(reference => !string.IsNullOrEmpty(reference.PubMedId))

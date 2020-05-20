@@ -36,19 +36,19 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         private static bool AreEqual(this ParameterInfo[] parameterInfos, object[] parameters)
         {
-            if (parameterInfos?.Length != parameters?.Length)
+            if (parameterInfos?.Length == parameters?.Length)
             {
-                return false;
-            }
-
-            for (int i = 0; i < parameterInfos.Length; i++)
-            {
-                if (parameterInfos[i].ParameterType != parameters[i].GetType())
+                for (int i = 0; i < parameterInfos.Length; i++)
                 {
-                    return false;
+                    if (parameterInfos[i].ParameterType != parameters[i].GetType())
+                    {
+                        return false;
+                    }
                 }
+
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

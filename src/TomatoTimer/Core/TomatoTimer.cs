@@ -129,7 +129,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
                 var info = new UltraDesktopAlertShowWindowInfo
                 {
                     Caption = message,
-                    Image = state == TimerState.Pausing ? null : Properties.Resources.pause,
+                    Image = state == TimerState.Pausing ? Properties.Resources.clock : Properties.Resources.pause,
                     ScreenPosition = ScreenPosition.Center,
                     Key = TomatoTimer_DesktopAlert_Key,
                     Screen = System.Windows.Forms.Screen.FromControl(mainForm)

@@ -38,11 +38,12 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
 
                 try
                 {
-                    if (MessageBox.Show(mainForm, Properties.Resources.FilterInfo, mainForm.ProductName, MessageBoxButtons.OKCancel) != DialogResult.OK) return;
+                    if (MessageBox.Show(mainForm, Properties.Resources.FilterInfo, mainForm.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        DerivePageCountFromPageRange(mainForm.GetFilteredReferences());
 
-                    DerivePageCountFromPageRange(mainForm.GetFilteredReferences());
-
-                    MessageBox.Show(mainForm, Properties.Resources.Finished, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(mainForm, Properties.Resources.Finished, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
 
                 catch (Exception exception)

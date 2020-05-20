@@ -51,8 +51,8 @@ namespace SwissAcademic.Addons.MacroManagerAddon
         {
             try
             {
-                var field = typeof(Program).GetField("_macroEditor", BindingFlags.Static | BindingFlags.NonPublic);
-                field?.SetValue(null, macroEditorForm);
+                typeof(Program).GetField("_macroEditor", BindingFlags.Static | BindingFlags.NonPublic)?
+                               .SetValue(null, macroEditorForm);
             }
             catch (Exception)
             {

@@ -28,24 +28,36 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
         {
             if (x == null)
             {
-                if (y == null) return 0;
-                return -1;
+                return y == null ? 0 : -1;
             }
 
-            if (y == null) return 1;
+            if (y == null)
+            {
+                return 1;
+            }
 
             if (x.ParentReference == null)
             {
-                if (y.ParentReference == null) return ReferenceComparer.ShortTitleAscending.Compare(x, y);
+                if (y.ParentReference == null)
+                {
+                    return ReferenceComparer.ShortTitleAscending.Compare(x, y);
+                }
 
-                if (x == y.ParentReference) return -1;
+                if (x == y.ParentReference)
+                {
+                    return -1;
+                }
 
                 return ReferenceComparer.ShortTitleAscending.Compare(x, y.ParentReference);
             }
 
             if (y.ParentReference == null)
             {
-                if (x.ParentReference == y) return 1;
+                if (x.ParentReference == y)
+                {
+                    return 1;
+                }
+
                 return ReferenceComparer.ShortTitleAscending.Compare(x.ParentReference, y);
             }
 

@@ -43,17 +43,17 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
             mainForm.GetMainCommandbarManager()
-                       .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                       .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                       .InsertCommandbarButton(4, Key_Button_ExportAttachmentsToCategoryFolderStructure, Resources.Button_Text, image: Resources.addon);
+                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                    .InsertCommandbarButton(4, Key_Button_ExportAttachmentsToCategoryFolderStructure, Resources.Button_Text, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
             var button = mainForm.GetMainCommandbarManager()
-                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                    .GetCommandbarButton(Key_Button_ExportAttachmentsToCategoryFolderStructure);
+                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                                 .GetCommandbarButton(Key_Button_ExportAttachmentsToCategoryFolderStructure);
             if (button != null)
             {
                 button.Text = Resources.Button_Text;
@@ -63,11 +63,11 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
         static bool AskForExportPath(out string exportPath)
         {
             exportPath = null;
-            using (var fodlerBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
+            using (var folderBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
             {
-                if (fodlerBrowserDialog.ShowDialog() == DialogResult.OK)
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    exportPath = fodlerBrowserDialog.SelectedPath;
+                    exportPath = folderBrowserDialog.SelectedPath;
                     return true;
                 }
             }

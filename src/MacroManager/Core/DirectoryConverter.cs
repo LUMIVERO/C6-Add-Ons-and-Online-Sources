@@ -37,7 +37,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
                     var key = Addon.Key_Menu_Directory.FormatString(folderCounter) + "." + fileCounter;
                     var menu = commandbarMenu.InsertCommandbarMenu(index, key, Path.GetFileName(strFile), image: Properties.Resources.Macro);
-                    index = index + 1;
+                    index += 1;
                     if (isFirst)
                     {
                         menu.Tool.InstanceProps.IsFirstInGroup = true;

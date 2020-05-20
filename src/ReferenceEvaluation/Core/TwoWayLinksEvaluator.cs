@@ -20,10 +20,12 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
             _stringBuilder.Clear();
 
             var references = mainForm.GetFilteredReferences();
-            if (references.Count != 0)
+            if (references.Count == 0)
             {
-
-
+                _stringBuilder.AppendLine(Resources.TwoLinksEvaluator_NoReferences);
+            }
+            else
+            {
                 var titleHeader = Resources.TwoLinksEvaluator_ShortTitle;
                 var fromHeader = Resources.TwoLinksEvaluator_From;
                 var toHeader = Resources.TwoLinksEvaluator_To;
@@ -55,11 +57,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
                         + statistic.ToCount);
                 }
             }
-            else
-            {
-                _stringBuilder.AppendLine(Resources.TwoLinksEvaluator_NoReferences);
-                return _stringBuilder.ToString();
-            }
+
             return _stringBuilder.ToString();
         }
 

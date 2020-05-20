@@ -14,7 +14,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 {
     internal static class Macro
     {
-        public async static void Run(MainForm mainForm)
+        public async static Task Run(MainForm mainForm)
         {
             var referencesWithUrl = mainForm.GetFilteredReferences()
                                             .Where(reference => !string.IsNullOrEmpty(reference.OnlineAddress))
@@ -38,7 +38,10 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
                 isCanceled = true;
             }
 
-            if (isCanceled) return;
+            if (isCanceled)
+            {
+                return;
+            }
 
             if (result.InvalidCount != 0)
             {
