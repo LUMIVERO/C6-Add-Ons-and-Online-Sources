@@ -47,18 +47,17 @@
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(293, 62);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnFolderBrowserDialog
             // 
@@ -74,7 +73,7 @@
             // 
             this.txtPath.Location = new System.Drawing.Point(15, 25);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(271, 20);
+            this.txtPath.Size = new System.Drawing.Size(271, 23);
             this.txtPath.TabIndex = 4;
             this.txtPath.TextChanged += new System.EventHandler(this.TxtPath_TextChanged);
             // 
@@ -98,13 +97,15 @@
             this.lblEnvironmentFullPath.AutoSize = true;
             this.lblEnvironmentFullPath.Location = new System.Drawing.Point(12, 48);
             this.lblEnvironmentFullPath.Name = "lblEnvironmentFullPath";
-            this.lblEnvironmentFullPath.Size = new System.Drawing.Size(0, 13);
+            this.lblEnvironmentFullPath.Size = new System.Drawing.Size(0, 15);
             this.lblEnvironmentFullPath.TabIndex = 6;
             // 
             // DirectoryDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnOk;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(380, 97);
             this.Controls.Add(this.lblEnvironmentFullPath);
             this.Controls.Add(this.btnEnvironmentVariables);

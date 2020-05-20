@@ -1,17 +1,16 @@
 ﻿using SwissAcademic.Addons.BookOrderByEmailAddon.Properties;
-using System;
-using System.Windows.Forms;
+using SwissAcademic.Controls;
 
 namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
-    public partial class ConfigDialog : Form
+    public partial class ConfigDialog : FormBase
     {
         #region Constructors
 
-        public ConfigDialog(string receiver, string body)
+        ConfigDialog() => InitializeComponent();
+
+        public ConfigDialog(string receiver, string body) : this()
         {
-            InitializeComponent();
-            Localize();
             txtBody.Text = body;
             txtReceiver.Text = receiver;
         }
@@ -28,22 +27,15 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         #region Methods
 
-        void Localize()
+        public override void Localize()
         {
+            base.Localize();
             Text = Resources.ConfigDialog_Text;
             btnOk.Text = Resources.ConfigDialog_Ok;
             btnCancel.Text = Resources.ConfigDialog_Cancel;
             lblReceiver.Text = Resources.ConfigDialog_lbl_Receiver;
             lblBody.Text = Resources.ConfigDialog_lbl_Body;
         }
-
-        #endregion
-
-        #region Eventhandlers
-
-        void BtnOk_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
-
-        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         #endregion
     }

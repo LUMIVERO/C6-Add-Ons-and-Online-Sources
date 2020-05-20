@@ -1,15 +1,22 @@
 ﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Properties;
+using SwissAcademic.Controls;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
-    public partial class OverrideFieldsDialog : Form
+    public partial class OverrideFieldsDialog : FormBase
     {
         #region Constructors
 
-        public OverrideFieldsDialog()
+        public OverrideFieldsDialog(Form owner) : base(owner) => InitializeComponent();
+
+        #endregion
+
+        #region Methods
+
+        public override void Localize()
         {
-            InitializeComponent();
+            base.Localize();
 
             chbOverrideAbstract.Text = Resources.OverrideAbstract;
             chbOverrideKeywords.Text = Resources.OverrideKeywords;

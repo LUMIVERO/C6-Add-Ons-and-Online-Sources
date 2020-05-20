@@ -22,7 +22,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
             {
                 e.Handled = true;
 
-                using (var dialog = new OverrideFieldsDialog { Owner = mainForm })
+                using (var dialog = new OverrideFieldsDialog(mainForm))
                 {
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {

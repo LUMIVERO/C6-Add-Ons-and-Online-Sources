@@ -57,7 +57,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 
                                     if (sequenceNumbers.Count != 0)
                                     {
-                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdDialog(mainForm.Project) { Icon = e.Form.Icon })
+                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdDialog(mainForm))
                                         {
                                             if (chooseTargetFieldDialog.ShowDialog(e.Form) == DialogResult.OK)
                                             {

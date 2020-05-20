@@ -72,10 +72,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         #region EventHandlers
 
-        void Btn_create_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
-
-        void Btn_edit_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
-
         void Txt_workspace_name_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter && !string.IsNullOrEmpty(txt_workspace_name.Text))

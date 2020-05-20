@@ -61,7 +61,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                 case Key_Button_Config:
                     {
 
-                        using (var directoryDialog = new DirectoryDialog(Settings.TryGetStringValue(Key_MacrosDirectory)) { Owner = mainForm })
+                        using (var directoryDialog = new DirectoryDialog(mainForm, Settings.TryGetStringValue(Key_MacrosDirectory)))
                         {
                             if (directoryDialog.ShowDialog() == DialogResult.OK)
                             {

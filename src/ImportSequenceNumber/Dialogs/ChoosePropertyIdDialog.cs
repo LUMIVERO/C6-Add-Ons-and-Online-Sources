@@ -1,26 +1,36 @@
 ﻿using SwissAcademic.Citavi;
 using SwissAcademic.Citavi.Metadata;
+using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Resources;
 using System;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
-    public partial class ChoosePropertyIdDialog : Form
+    public partial class ChoosePropertyIdDialog : ProjectShellForm
     {
-        #region Fields
+        #region Events
 
-        readonly Project _project;
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField1].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField2].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField3].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField4].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField5].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField6].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField7].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField8].LabelText);
+            cboTargets.Items.Add(Project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField9].LabelText);
+            cboTargets.SelectedIndex = 0;
+        }
 
         #endregion
 
         #region Constructors
-        public ChoosePropertyIdDialog(Project project)
-        {
-            InitializeComponent();
-            _project = project;
-            Initialize();
-        }
+
+        public ChoosePropertyIdDialog(ProjectShellForm projectShellForm) : base(projectShellForm) => InitializeComponent();
 
         #endregion
 
@@ -59,31 +69,13 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
             }
         }
 
-        void Initialize()
+        public override void Localize()
         {
+            base.Localize();
             btnOk.Text = ControlTexts.okButton;
             btnCancel.Text = ControlTexts.CancelButton;
             lblDescription.Text = Properties.Resources.ChooseFieldMessage;
-
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField1].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField2].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField3].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField4].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField5].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField6].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField7].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField8].LabelText);
-            cboTargets.Items.Add(_project.ProjectSettings.CustomFields[ReferencePropertyDescriptor.CustomField9].LabelText);
-            cboTargets.SelectedIndex = 0;
         }
-
-        #endregion
-
-        #region Eventhandler
-
-        void BtnOk_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
-
-        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
         #endregion
     }

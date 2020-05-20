@@ -41,20 +41,20 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Location = new System.Drawing.Point(882, 549);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // lblChoice
             // 
             this.lblChoice.AutoSize = true;
             this.lblChoice.Location = new System.Drawing.Point(9, 9);
             this.lblChoice.Name = "lblChoice";
-            this.lblChoice.Size = new System.Drawing.Size(48, 13);
+            this.lblChoice.Size = new System.Drawing.Size(54, 15);
             this.lblChoice.TabIndex = 2;
             this.lblChoice.Text = "Function";
             // 
@@ -67,7 +67,7 @@
             this.cboFunctions.FormattingEnabled = true;
             this.cboFunctions.Location = new System.Drawing.Point(12, 25);
             this.cboFunctions.Name = "cboFunctions";
-            this.cboFunctions.Size = new System.Drawing.Size(945, 21);
+            this.cboFunctions.Size = new System.Drawing.Size(945, 23);
             this.cboFunctions.TabIndex = 3;
             this.cboFunctions.SelectedIndexChanged += new System.EventHandler(this.CbFunctions_SelectedIndexChanged);
             // 
@@ -91,7 +91,7 @@
             this.lblResult.AutoSize = true;
             this.lblResult.Location = new System.Drawing.Point(12, 93);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(37, 13);
+            this.lblResult.Size = new System.Drawing.Size(39, 15);
             this.lblResult.TabIndex = 5;
             this.lblResult.Text = "Result";
             // 
@@ -112,7 +112,7 @@
             this.lblOptions.AutoSize = true;
             this.lblOptions.Location = new System.Drawing.Point(9, 54);
             this.lblOptions.Name = "lblOptions";
-            this.lblOptions.Size = new System.Drawing.Size(37, 13);
+            this.lblOptions.Size = new System.Drawing.Size(39, 15);
             this.lblOptions.TabIndex = 7;
             this.lblOptions.Text = "Result";
             // 
@@ -123,7 +123,7 @@
             this.chbShowHeaders.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbShowHeaders.Location = new System.Drawing.Point(12, 70);
             this.chbShowHeaders.Name = "chbShowHeaders";
-            this.chbShowHeaders.Size = new System.Drawing.Size(80, 17);
+            this.chbShowHeaders.Size = new System.Drawing.Size(83, 19);
             this.chbShowHeaders.TabIndex = 8;
             this.chbShowHeaders.Text = "checkBox1";
             this.chbShowHeaders.UseVisualStyleBackColor = true;
@@ -131,8 +131,10 @@
             // 
             // ReferenceEvaluationDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnClose;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(969, 584);
             this.Controls.Add(this.chbShowHeaders);
             this.Controls.Add(this.lblOptions);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwissAcademic.Controls;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -9,15 +10,28 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.MacroManagerAddon
 {
-    public partial class DirectoryDialog : Form
+    public partial class DirectoryDialog : FormBase
     {
+        #region Events
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (DialogResult == DialogResult.OK)
+            {
+                e.Cancel = !ExistDirectory(txtPath.Text);
+            }
+
+            base.OnFormClosing(e);
+        }
+
+        #endregion
+
         #region Constructors
 
-        public DirectoryDialog(string directory)
+        public DirectoryDialog(Form owner, string directory) : base(owner)
         {
             InitializeComponent();
             InitializeDirectory(directory);
-            Localize();
         }
 
         #endregion
@@ -55,8 +69,9 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             return false;
         }
 
-        void Localize()
+        public override void Localize()
         {
+            base.Localize();
             Text = Properties.Resources.DirectoryDialogTitle;
             btnCancel.Text = Properties.Resources.Btn_Cancel;
             btnOk.Text = Properties.Resources.Btn_Ok;
@@ -104,22 +119,15 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
         #region Eventhandlers
 
-        void BtnOk_Click(object sender, EventArgs e)
-        {
-            if (ExistDirectory(txtPath.Text))
-            {
-                DialogResult = DialogResult.OK;
-            }
-        }
-
-        void BtnCancel_Click(object sender, EventArgs e) => DialogResult = DialogResult.Cancel;
-
         void BtnFolderBrowserDialog_Click(object sender, EventArgs e)
         {
             using (var folderBrowseDialog = new FolderBrowserDialog { Description = Properties.Resources.FolderBrowseDialogDescription })
             {
                 var root = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
-                if (System.IO.Directory.Exists(root)) folderBrowseDialog.SelectedPath = root;
+                if (System.IO.Directory.Exists(root))
+                {
+                    folderBrowseDialog.SelectedPath = root;
+                }
 
                 if (folderBrowseDialog.ShowDialog(this) != DialogResult.OK) return;
 
@@ -173,10 +181,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             }
         }
 
-        void TxtPath_TextChanged(object sender, EventArgs e)
-        {
-            lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
-        }
+        void TxtPath_TextChanged(object sender, EventArgs e) => lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
 
         #endregion
     }

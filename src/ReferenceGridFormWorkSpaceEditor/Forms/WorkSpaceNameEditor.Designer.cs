@@ -63,7 +63,6 @@
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.Text = "Abbrechen";
             this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.Btn_edit_Click);
             // 
             // btn_create
             // 
@@ -74,7 +73,6 @@
             this.btn_create.TabIndex = 3;
             this.btn_create.Text = "Anlegen";
             this.btn_create.UseVisualStyleBackColor = true;
-            this.btn_create.Click += new System.EventHandler(this.Btn_create_Click);
             // 
             // WorkSpaceNameEditor
             // 
