@@ -126,10 +126,12 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
             mainForm.Invoke((Action)delegate
             {
+                mainForm.TryCloseAlert(TomatoTimer_DesktopAlert_Key);
+
                 var info = new UltraDesktopAlertShowWindowInfo
                 {
                     Caption = message,
-                    Image = state == TimerState.Pausing ? Properties.Resources.clock : Properties.Resources.pause,
+                    Image = (state == TimerState.Pausing || state == TimerState.Walking) ? Properties.Resources.clock : Properties.Resources.pause,
                     ScreenPosition = ScreenPosition.Center,
                     Key = TomatoTimer_DesktopAlert_Key,
                     Screen = System.Windows.Forms.Screen.FromControl(mainForm)

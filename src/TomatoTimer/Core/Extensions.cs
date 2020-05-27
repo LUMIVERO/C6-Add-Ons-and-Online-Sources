@@ -18,5 +18,19 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
         }
 
         #endregion
+
+        public static void TryCloseAlert(this MainForm mainForm, string key)
+        {
+            try
+            {
+                var alert = mainForm.GetType().GetField("desktopAlert", BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(mainForm) as Infragistics.Win.Misc.UltraDesktopAlert;
+
+                if ((bool)alert?.IsOpen(key))
+                {
+                    alert?.Close(key);
+                }
+            }
+            catch (System.Exception) { }
+        }
     }
 }
