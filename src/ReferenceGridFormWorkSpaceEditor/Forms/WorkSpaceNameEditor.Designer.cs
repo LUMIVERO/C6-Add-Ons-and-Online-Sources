@@ -67,6 +67,7 @@
             // btn_create
             // 
             this.btn_create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_create.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_create.Location = new System.Drawing.Point(110, 67);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(93, 23);
