@@ -41,18 +41,19 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(212, 62);
+            this.btnOk.Location = new System.Drawing.Point(305, 62);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(293, 62);
+            this.btnCancel.Location = new System.Drawing.Point(386, 62);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             // btnFolderBrowserDialog
             // 
-            this.btnFolderBrowserDialog.Location = new System.Drawing.Point(333, 25);
+            this.btnFolderBrowserDialog.Location = new System.Drawing.Point(426, 25);
             this.btnFolderBrowserDialog.Name = "btnFolderBrowserDialog";
             this.btnFolderBrowserDialog.Size = new System.Drawing.Size(35, 20);
             this.btnFolderBrowserDialog.TabIndex = 3;
@@ -73,13 +74,13 @@
             // 
             this.txtPath.Location = new System.Drawing.Point(15, 25);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(271, 23);
+            this.txtPath.Size = new System.Drawing.Size(364, 23);
             this.txtPath.TabIndex = 4;
             this.txtPath.TextChanged += new System.EventHandler(this.TxtPath_TextChanged);
             // 
             // btnEnvironmentVariables
             // 
-            this.btnEnvironmentVariables.Location = new System.Drawing.Point(292, 24);
+            this.btnEnvironmentVariables.Location = new System.Drawing.Point(385, 25);
             this.btnEnvironmentVariables.Name = "btnEnvironmentVariables";
             this.btnEnvironmentVariables.Size = new System.Drawing.Size(35, 21);
             this.btnEnvironmentVariables.TabIndex = 5;
@@ -106,7 +107,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(380, 97);
+            this.ClientSize = new System.Drawing.Size(473, 97);
             this.Controls.Add(this.lblEnvironmentFullPath);
             this.Controls.Add(this.btnEnvironmentVariables);
             this.Controls.Add(this.txtPath);

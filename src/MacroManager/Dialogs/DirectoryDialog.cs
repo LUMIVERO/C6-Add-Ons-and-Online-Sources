@@ -14,14 +14,11 @@ namespace SwissAcademic.Addons.MacroManagerAddon
     {
         #region Events
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override void OnApplicationIdle()
         {
-            if (DialogResult == DialogResult.OK)
-            {
-                e.Cancel = !ExistDirectory(txtPath.Text);
-            }
+            base.OnApplicationIdle();
 
-            base.OnFormClosing(e);
+            btnOk.Enabled = ExistDirectory(txtPath.Text);
         }
 
         #endregion
@@ -32,6 +29,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
         {
             InitializeComponent();
             InitializeDirectory(directory);
+            Owner = owner;
         }
 
         #endregion
@@ -182,6 +180,8 @@ namespace SwissAcademic.Addons.MacroManagerAddon
         }
 
         void TxtPath_TextChanged(object sender, EventArgs e) => lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
+
+        void BtnOk_Click(object sender, EventArgs e) => DialogResult = DialogResult.OK;
 
         #endregion
     }
