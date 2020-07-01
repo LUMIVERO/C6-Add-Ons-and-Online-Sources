@@ -42,7 +42,7 @@
             this.cboTargets.FormattingEnabled = true;
             this.cboTargets.Location = new System.Drawing.Point(12, 51);
             this.cboTargets.Name = "cboTargets";
-            this.cboTargets.Size = new System.Drawing.Size(322, 21);
+            this.cboTargets.Size = new System.Drawing.Size(322, 23);
             this.cboTargets.TabIndex = 0;
             // 
             // btnCancel
@@ -59,6 +59,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Location = new System.Drawing.Point(178, 90);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
@@ -71,14 +72,14 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(12, 19);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(35, 13);
+            this.lblDescription.Size = new System.Drawing.Size(38, 15);
             this.lblDescription.TabIndex = 3;
             this.lblDescription.Text = "label1";
             // 
             // ChoosePropertyIdDialog
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
