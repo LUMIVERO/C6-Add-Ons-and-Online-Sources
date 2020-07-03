@@ -26,36 +26,26 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
                 return;
             }
 
-            var isCanceled = false;
-            MacroResult result = null;
-
             try
             {
-                result = await GenericProgressDialog.RunTask(mainForm, CheckReferences, referencesWithUrl);
+                var result = await GenericProgressDialog.RunTask(mainForm, CheckReferences, referencesWithUrl);
+
+                if (result.InvalidCount != 0)
+                {
+                    if (MessageBox.Show(string.Format(Resources.MacroResultMessage, referencesWithUrl.Count, result.ChangedCount, result.InvalidCount), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
+                    {
+                        var filter = new ReferenceFilter(result.InvalidReferences, Resources.ReferenceInvalidFilterName, false);
+                        mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(string.Format(Resources.MacroResultMessageWithoutSelection, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (OperationCanceledException)
             {
-                isCanceled = true;
             }
-
-            if (isCanceled)
-            {
-                return;
-            }
-
-            if (result.InvalidCount != 0)
-            {
-                if (MessageBox.Show(string.Format(Resources.MacroResultMessage, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes && result.InvalidReferences.Count > 0)
-                {
-                    var filter = new ReferenceFilter(result.InvalidReferences, Resources.ReferenceInvalidFilterName, false);
-                    mainForm.ReferenceEditorFilterSet.Filters.ReplaceBy(new List<ReferenceFilter> { filter });
-                }
-            }
-            else
-            {
-                MessageBox.Show(string.Format(Resources.MacroResultMessageWithoutSelection, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
         }
 
         async static Task<(bool, string)> RemoteFileExists(string url, int timeOut)
@@ -115,13 +105,13 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 
                 cancellationToken.ThrowIfCancellationRequested();
 
-                var location = (from currentLocation in reference.Locations
-                                where currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress
-                                select currentLocation).FirstOrDefault();
+                var location = reference
+                                .Locations
+                                .FirstOrDefault(currentLocation => currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress);
 
                 if (location == null || location.Address == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
                 {
-                    progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
+                    progress.ReportSafe(reference.ToString(), 100 / references.Count * i);
                     continue;
                 }
 

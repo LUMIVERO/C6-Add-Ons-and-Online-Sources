@@ -5,16 +5,8 @@ using System;
 
 namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_CheckUrl = "SwissAcademic.Addons.CheckUrlAndSetDate.CommandbarButton";
-
-        #endregion
-
-        #region Methods
-
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_CheckUrl, StringComparison.OrdinalIgnoreCase))
@@ -44,7 +36,5 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
                 button.Text = Resources.CheckUrlAndSetDateCommandText;
             }
         }
-
-        #endregion
     }
 }
