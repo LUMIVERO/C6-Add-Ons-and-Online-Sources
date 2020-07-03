@@ -8,13 +8,11 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
 {
     public class Addon : CitaviAddOn<MainForm>
     {
-        #region Fields
+        // Fields
 
         bool _eventsSuspended;
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void OnHostingFormLoaded(MainForm mainForm) => ObserveMainForm(mainForm, true);
 
@@ -34,9 +32,7 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             }
         }
 
-        #endregion
-
-        #region Event handlers
+        // EventHandlers
 
         void MainForm_FormClosed(object sender, FormClosedEventArgs e) => ObserveMainForm((MainForm)sender, false);
 
@@ -122,7 +118,5 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
                 _eventsSuspended = eventsSuspended;
             }
         }
-
-        #endregion
     }
 }
