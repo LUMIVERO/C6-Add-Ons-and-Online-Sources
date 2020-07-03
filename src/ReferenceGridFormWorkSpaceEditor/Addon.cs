@@ -8,35 +8,14 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
-    public class Addon : CitaviAddOn<ReferenceGridForm>
+    public partial class Addon : CitaviAddOn<ReferenceGridForm>
     {
-        #region Constants
-
-        const string Key_Menu = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.{0}.Menu";
-        const string Key_Button_Edit = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.{0}.EditButtonKey";
-        const string Key_Button_Create = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.{0}.CreateButtonKey";
-        const string Key_Settings = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Settings";
-        const string Key_Button_WorkSpaces = "SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditor.Buttons.{0}.{1}";
-
-        #endregion
-
-        #region Fields
+        // Fields
 
         AddonSettings _settings;
-        readonly Dictionary<ReferenceGridForm, CommandbarMenu> _menus;
+        readonly Dictionary<ReferenceGridForm, CommandbarMenu> _menus = new Dictionary<ReferenceGridForm, CommandbarMenu>();
 
-        #endregion
-
-        #region Constructors
-
-        public Addon()
-        {
-            _menus = new Dictionary<ReferenceGridForm, CommandbarMenu>();
-        }
-
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void OnBeforePerformingCommand(ReferenceGridForm referenceGridForm, BeforePerformingCommandEventArgs e)
         {
@@ -126,8 +105,6 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             RefreshMenuItems();
         }
 
-
-
         void RefreshMenuItems()
         {
             foreach (var menuPairs in _menus)
@@ -158,9 +135,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             }
         }
 
-        #endregion
-
-        #region Events
+        // Events
 
         void ReferenceGridForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -173,7 +148,5 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
                 referenceGridForm.FormClosed -= ReferenceGridForm_FormClosed;
             }
         }
-
-        #endregion
     }
 }

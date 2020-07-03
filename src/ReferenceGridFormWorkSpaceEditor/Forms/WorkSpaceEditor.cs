@@ -20,6 +20,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         public WorkSpaceEditor(ReferenceGridForm owner, AddonSettings settings) : base(owner)
         {
             InitializeComponent();
+            Owner = owner;
             _settings = settings;
         }
 

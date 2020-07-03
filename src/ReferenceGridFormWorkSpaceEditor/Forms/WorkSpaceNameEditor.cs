@@ -21,6 +21,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         public WorkSpaceNameEditor(Form owner, IEnumerable<string> captions) : base(owner)
         {
             InitializeComponent();
+            Owner = owner;
             _captions = captions;
         }
 
