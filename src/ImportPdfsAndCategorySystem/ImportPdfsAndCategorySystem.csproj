@@ -80,6 +80,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addon.Constants.cs" />
     <Compile Include="Addon.cs" />
     <Compile Include="Core\Macro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

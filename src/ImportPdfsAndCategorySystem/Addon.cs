@@ -4,17 +4,8 @@ using SwissAcademic.Controls;
 
 namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_File = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonFile";
-        const string Key_Button_References = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonReferences";
-
-        #endregion
-
-        #region Methods
-
         public override async void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             e.Handled = true;
@@ -49,27 +40,23 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var button = mainForm.GetMainCommandbarManager()
-                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                                      .GetCommandbarButton(Key_Button_File);
+            var menu = mainForm.GetMainCommandbarManager()
+                               .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
+
+            var button = menu?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File).GetCommandbarButton(Key_Button_File);
 
             if (button != null)
             {
                 button.Text = Resource.AddonCommandbarButton;
             }
 
-            button = mainForm.GetMainCommandbarManager()
-                             .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                             .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                             .GetCommandbarButton(Key_Button_References);
+            button = menu?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                          .GetCommandbarButton(Key_Button_References);
 
             if (button != null)
             {
                 button.Text = Resource.AddonCommandbarButton;
             }
         }
-
-        #endregion
     }
 }
