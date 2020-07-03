@@ -8,27 +8,14 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
 
-        const string Key_Button_DerivePageCountFromPageRange = "SwissAcademic.Addons.DerivePageCountFromPageRange.CommandbarButton";
+        // Fields
 
-        #endregion
+        readonly List<Project> _observedProjects = new List<Project>();
 
-        #region Fields
-
-        readonly List<Project> _observedProjects;
-
-        #endregion
-
-        #region Constructors
-
-        public Addon() => _observedProjects = new List<Project>();
-
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
@@ -125,9 +112,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
             else project.References.CollectionChanged -= References_CollectionChanged;
         }
 
-        #endregion
-
-        #region Eventhandlers
+        // EventHandlers
 
         void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -164,7 +149,5 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
                     break;
             }
         }
-
-        #endregion
     }
 }
