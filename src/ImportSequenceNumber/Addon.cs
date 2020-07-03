@@ -7,16 +7,8 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_ImportSequenceNumber = "SwissAcademic.Addons.ImportSequenceNumber.CommandbarButton";
-
-        #endregion
-
-        #region Methods
-
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
             var button = mainForm.GetMainCommandbarManager()
@@ -33,6 +25,8 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
         {
             if (e.Key.Equals(Key_Button_ImportSequenceNumber, StringComparison.OrdinalIgnoreCase))
             {
+                e.Handled = true;
+
                 if (mainForm.Project.ProjectType == ProjectType.DesktopSQLite)
                 {
                     using (var openFileDialog = new OpenFileDialog()
@@ -99,7 +93,6 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
                 {
                     MessageBox.Show(mainForm, Properties.Resources.OnlyDesktopProjectsSupport, Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                e.Handled = true;
             }
         }
 
@@ -114,7 +107,5 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
                 button.Text = Properties.Resources.MenuCaption;
             }
         }
-
-        #endregion
     }
 }
