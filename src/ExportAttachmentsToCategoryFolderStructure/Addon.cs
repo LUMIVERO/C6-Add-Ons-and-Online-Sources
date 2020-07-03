@@ -6,23 +6,15 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_ExportAttachmentsToCategoryFolderStructure = "SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Button";
-
-        #endregion
-
-        #region Methods
-
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_ExportAttachmentsToCategoryFolderStructure, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
-                var previews = Previews.Create();
+                var previews = Previews.Instance;
 
                 try
                 {
@@ -63,6 +55,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
         static bool AskForExportPath(out string exportPath)
         {
             exportPath = null;
+
             using (var folderBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
@@ -74,7 +67,5 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
             return false;
         }
-
-        #endregion
     }
 }
