@@ -6,16 +6,8 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.SendReferenceByEmailAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_SendReferenceByEmail = "SwissAcademic.Addons.SendReferenceByEmail.CommandbarButton";
-
-        #endregion
-
-        #region Methods
-
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_SendReferenceByEmail, StringComparison.OrdinalIgnoreCase))
@@ -34,10 +26,11 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .AddCommandbarButton(Key_Button_SendReferenceByEmail, Resources.ButtonCaption, image: Resources.addon);
+            mainForm
+                .GetMainCommandbarManager()
+                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                .AddCommandbarButton(Key_Button_SendReferenceByEmail, Resources.ButtonCaption, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -51,7 +44,5 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
                 button.Text = Resources.ButtonCaption;
             }
         }
-
-        #endregion
     }
 }
