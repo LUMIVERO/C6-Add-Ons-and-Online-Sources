@@ -15,19 +15,19 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 
         #region Methods
 
-        public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
+        public override async void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             e.Handled = true;
             switch (e.Key)
             {
                 case Key_Button_File:
                     {
-                        Macro.Run(mainForm);
+                        await Macro.Run(mainForm);
                     }
                     break;
                 case Key_Button_References:
                     {
-                        Macro.Run(mainForm);
+                        await Macro.Run(mainForm);
                     }
                     break;
                 default:

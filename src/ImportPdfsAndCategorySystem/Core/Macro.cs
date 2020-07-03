@@ -6,13 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 {
     internal static class Macro
     {
-        public static void Run(MainForm mainForm)
+        public async static Task Run(MainForm mainForm)
         {
             var counter = 0;
 
@@ -20,21 +21,22 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 
             using (var folderDialog = new FolderBrowserDialog { Description = Resource.FolderBrowserDialogDescription })
             {
-                if (folderDialog.ShowDialog() != DialogResult.OK) return;
+                if (folderDialog.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
 
                 sourcePath = folderDialog.SelectedPath;
             }
 
             var action = AttachmentAction.Copy;
-            var directoryInfo = new DirectoryInfo(sourcePath);
-            var fileInfos = Path2.GetFilesSafe(directoryInfo, "*.pdf", SearchOption.AllDirectories).ToList();
-            var newReferences = new List<Reference>();
+            var fileInfos = Path2.GetFilesSafe(new DirectoryInfo(sourcePath), "*.pdf", SearchOption.AllDirectories).ToList();
 
             foreach (var filePath in fileInfos.Select(info => info.FullName).ToList())
             {
-                var referencesFromFile = new FileImportSupport().ImportFiles(mainForm.Project, mainForm.Project.Engine.TransformerManager, new List<string>() { filePath }, action);
+                var referencesFromFile = await new FileImportSupport().ImportFilesAsync(mainForm.Project, mainForm.Project.Engine.TransformerManager, new List<string>() { filePath }, action);
 
-                if (referencesFromFile != null && referencesFromFile.Any())
+                if ((bool)referencesFromFile?.Any())
                 {
                     var referencesFromFileAdded = mainForm.Project.References.AddRange(referencesFromFile);
 
