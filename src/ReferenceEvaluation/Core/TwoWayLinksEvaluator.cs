@@ -7,13 +7,11 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     internal class TwoWayLinksEvaluator : BaseEvaluator
     {
-        #region Properties
+        // Properties
 
         public override string Caption => Resources.TwoLinksEvaluator_Caption;
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override string Run(MainForm mainForm)
         {
@@ -60,7 +58,5 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
             return _stringBuilder.ToString();
         }
-
-        #endregion
     }
 }

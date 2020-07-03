@@ -4,16 +4,8 @@ using SwissAcademic.Controls;
 
 namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_Addon = "SwissAcademic.Addons.ReferenceEvaluation.ButtonCommand";
-
-        #endregion
-
-        #region Methods
-
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_Addon, System.StringComparison.Ordinal))
@@ -26,12 +18,14 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
                 }
             }
         }
+
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .AddCommandbarButton(Key_Button_Addon, Resources.Addon_Command, image: Resources.addon);
+            mainForm
+                .GetMainCommandbarManager()
+                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                .AddCommandbarButton(Key_Button_Addon, Resources.Addon_Command, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -46,7 +40,5 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
                 button.Text = Resources.Addon_Command;
             }
         }
-
-        #endregion
     }
 }

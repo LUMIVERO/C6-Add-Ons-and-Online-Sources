@@ -9,7 +9,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     public partial class ReferenceEvaluationDialog : FormBase
     {
-        #region Events
+        // Events
 
         protected override void OnLoad(EventArgs e)
         {
@@ -28,15 +28,11 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
             btnClipboard.Enabled = !string.IsNullOrEmpty(txtResult.Text);
         }
 
-        #endregion
-
-        #region Constructors
+        // Constructors
 
         public ReferenceEvaluationDialog(MainForm mainForm) : base(mainForm) => InitializeComponent();
 
-        #endregion
-
-        #region Methods
+        //  Methods
 
         public override void Localize()
         {
@@ -51,9 +47,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
             lblOptions.Text = Resources.Form_Options;
         }
 
-        #endregion
-
-        #region Eventhandler
+        // Eventhandler
 
         void BtnClipboard_Click(object sender, EventArgs e) => Clipboard.SetText(txtResult.Text);
 
@@ -67,7 +61,5 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
         }
 
         void ChbShowHeaders_CheckedChanged(object sender, EventArgs e) => CbFunctions_SelectedIndexChanged(sender, e);
-
-        #endregion
     }
 }
