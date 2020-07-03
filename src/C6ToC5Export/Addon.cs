@@ -7,16 +7,8 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.C6ToC5ExportAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_Export = "SwissAcademic.Addons.C6ToC5Export.ExportButtonCommand";
-
-        #endregion
-
-        #region Methods
-
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             if (e.Key.Equals(Key_Button_Export, StringComparison.OrdinalIgnoreCase))
@@ -38,18 +30,19 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
                 {
                     using (var saveFileDialog = new SaveFileDialog { Filter = Resources.ProjectFilters, CheckPathExists = true, Title = Resources.ExportTitle })
                     {
-                        if (saveFileDialog.ShowDialog(e.Form) != DialogResult.OK) return;
-
-                        try
+                        if (saveFileDialog.ShowDialog(e.Form) == DialogResult.OK)
                         {
-                            mainForm.Project.SaveAsXml(saveFileDialog.FileName, ProjectXmlExportCompatibility.Citavi5);
-                            MessageBox.Show(e.Form, Resources.ExportFinallyMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-                            if (MessageBox.Show(e.Form, Resources.ExportExceptionMessage.FormatString(ex.Message), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                            try
                             {
-                                Clipboard.SetText(e.ToString());
+                                mainForm.Project.SaveAsXml(saveFileDialog.FileName, ProjectXmlExportCompatibility.Citavi5);
+                                MessageBox.Show(e.Form, Resources.ExportFinallyMessage, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception ex)
+                            {
+                                if (MessageBox.Show(e.Form, Resources.ExportExceptionMessage.FormatString(ex.Message), mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                                {
+                                    Clipboard.SetText(e.ToString());
+                                }
                             }
                         }
                     }
@@ -59,27 +52,27 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                    .GetCommandbarMenu("ThisProject")
-                    .InsertCommandbarButton(3, Key_Button_Export, Resources.ExportCitaviButtonText, image: Resources.addon);
+            mainForm
+                .GetMainCommandbarManager()
+                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                .GetCommandbarMenu("ThisProject")
+                .InsertCommandbarButton(3, Key_Button_Export, Resources.ExportCitaviButtonText, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var button = mainForm.GetMainCommandbarManager()
-                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                                 .GetCommandbarMenu("ThisProject")
-                                 .GetCommandbarButton(Key_Button_Export);
+            var button = mainForm
+                            .GetMainCommandbarManager()
+                            .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                            .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                            .GetCommandbarMenu("ThisProject")
+                            .GetCommandbarButton(Key_Button_Export);
 
             if (button != null)
             {
                 button.Text = Resources.ExportCitaviButtonText;
             }
         }
-
-        #endregion
     }
 }
