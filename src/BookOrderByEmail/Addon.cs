@@ -5,35 +5,22 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_OrderPerEmail = "SwissAcademic.Addons.BookOrderByEmail.OrderPerEmail";
-        const string Key_Button_OrderPerClipboard = "SwissAcademic.Addons.BookOrderByEmail.OrderPerClipboard";
-        const string Key_Button_ConfigOrders = "SwissAcademic.Addons.BookOrderByEmail.ConfigOrders";
-        const string Key_Menu = "SwissAcademic.Addons.BookOrderByEmail.Menu";
-
-        #endregion
-
-        #region Fields
-
-        Configuration _configuration;
-
-        #endregion
-
-        #region Methods
-
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             e.Handled = true;
+
+            var body = Settings.GetValueOrDefault(Settings_Key_Body);
+            var receiver = Settings.GetValueOrDefault(Settings_Key_Receiver);
+
             switch (e.Key)
             {
                 case Key_Button_OrderPerEmail:
                     {
                         try
                         {
-                            mainForm.ActiveReference.OrderByEMail(_configuration);
+                            mainForm.ActiveReference.OrderByEMail(receiver, body);
                         }
                         catch (System.Runtime.InteropServices.COMException)
                         {
@@ -43,7 +30,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
                     break;
                 case Key_Button_OrderPerClipboard:
                     {
-                        mainForm.ActiveReference.OrderByClipboard(_configuration);
+                        mainForm.ActiveReference.OrderByClipboard(receiver, body);
                     }
                     break;
                 case Key_Button_ConfigOrders:
@@ -59,15 +46,11 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (_configuration == null)
-            {
-                _configuration = new Configuration(Settings);
-            }
-
             var menu = mainForm
                        .GetReferenceEditorTasksCommandbarManager()
                        .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
                        .InsertCommandbarMenu(2, Key_Menu, Resources.TasksOrder, CommandbarItemStyle.ImageAndText, image: Resources.addon);
+
             if (menu != null)
             {
                 menu.HasSeparator = true;
@@ -86,11 +69,6 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            if (_configuration == null)
-            {
-                _configuration = new Configuration(Settings);
-            }
-
             var menu = mainForm.GetReferenceEditorTasksCommandbarManager()
                                .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
                                .GetCommandbarMenu(Key_Menu);
@@ -120,16 +98,14 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         void Configurate(Form form)
         {
-            using (var dialog = new ConfigDialog(_configuration.Receiver, _configuration.Body) { Owner = form })
+            using (var dialog = new ConfigDialog(Settings) { Owner = form })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    _configuration.Body = dialog.Body;
-                    _configuration.Receiver = dialog.Receiver;
+                    Settings.SetValueSafe(Settings_Key_Body, dialog.Body);
+                    Settings.SetValueSafe(Settings_Key_Receiver, dialog.Receiver);
                 }
             }
         }
-
-        #endregion
     }
 }

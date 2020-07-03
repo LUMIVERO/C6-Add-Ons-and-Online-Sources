@@ -6,7 +6,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     internal static class Outlook
     {
-        #region Methods
+        // Methods
 
         public static void Send(MailTemplate mailTemplate)
         {
@@ -26,12 +26,8 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
                    : new Microsoft.Office.Interop.Outlook.Application();
         }
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public static bool IsInstalled => Type.GetTypeFromProgID("Outlook.Application") != null;
-
-        #endregion
     }
 }

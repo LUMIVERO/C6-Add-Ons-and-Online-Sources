@@ -1,31 +1,28 @@
 ﻿using SwissAcademic.Addons.BookOrderByEmailAddon.Properties;
 using SwissAcademic.Controls;
+using System.Collections.Generic;
 
 namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     public partial class ConfigDialog : FormBase
     {
-        #region Constructors
+        // Constructors
 
         ConfigDialog() => InitializeComponent();
 
-        public ConfigDialog(string receiver, string body) : this()
+        public ConfigDialog(IDictionary<string, string> settings) : this()
         {
-            txtBody.Text = body;
-            txtReceiver.Text = receiver;
+            txtBody.Text = settings.GetValueOrDefault(Addon.Settings_Key_Body, string.Empty); ;
+            txtReceiver.Text = settings.GetValueOrDefault(Addon.Settings_Key_Receiver, string.Empty);
         }
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public string Receiver => txtReceiver.Text;
 
         public string Body => txtBody.Text;
 
-        #endregion
-
-        #region Methods
+        //  Methods
 
         public override void Localize()
         {
@@ -36,7 +33,5 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
             lblReceiver.Text = Resources.ConfigDialog_lbl_Receiver;
             lblBody.Text = Resources.ConfigDialog_lbl_Body;
         }
-
-        #endregion
     }
 }

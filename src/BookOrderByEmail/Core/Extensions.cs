@@ -2,47 +2,44 @@
 using SwissAcademic.Citavi;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     internal static class Extensions
     {
-        public static void OrderByEMail(this Reference reference, Configuration configuration)
+        public static void OrderByEMail(this Reference reference, string receiver, string body)
         {
-            var mailTemplate = reference.CreateMailTemplate(configuration);
+            var mailTemplate = reference.CreateMailTemplate(receiver, body);
             Outlook.Send(mailTemplate);
         }
 
-        public static void OrderByClipboard(this Reference reference, Configuration configuration)
+        public static void OrderByClipboard(this Reference reference, string receiver, string body)
         {
-            var mailTemplate = reference.CreateMailTemplate(configuration);
+            var mailTemplate = reference.CreateMailTemplate(receiver, body);
             Clipboard.SetText(mailTemplate.Body);
         }
 
-        static MailTemplate CreateMailTemplate(this Reference reference, Configuration configuration)
+        static MailTemplate CreateMailTemplate(this Reference reference, string receiver, string body)
         {
             var mail = new MailTemplate { Subject = Resources.Order };
 
-            if (!string.IsNullOrEmpty(configuration.Receiver))
+            if (!string.IsNullOrEmpty(receiver))
             {
-                configuration
-                    .Receiver
+                receiver
                     .Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(v => v.Trim())
-                    .ForEach(adress => mail.To.Add(adress));
+                    .ForEach(adress => mail.To.Add(adress.Trim()));
             }
 
             var isbn = string.IsNullOrEmpty(reference.Isbn)
                        ? Resources.OrderByEMailBodyTextISBNMissing
                        : reference.Isbn.ToString();
 
-            mail.Body = string.Format(Resources.OrderByEMailBodyText, reference.ToString(TextFormat.Text), isbn, configuration.Body);
+            mail.Body = string.Format(Resources.OrderByEMailBodyText, reference.ToString(TextFormat.Text), isbn, body);
             return mail;
         }
 
-        internal static void AddSafe<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
+        internal static void SetValueSafe<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (dictionary.ContainsKey(key))
             {
@@ -53,7 +50,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
             dictionary.Add(key, value);
         }
 
-        internal static TValue GetSafe<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue = default)
+        internal static TValue GetValueOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key, TValue @default = default)
         {
             if (dictionary.ContainsKey(key))
             {
@@ -61,7 +58,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
             }
 
 
-            return defaultValue;
+            return @default;
         }
     }
 }
