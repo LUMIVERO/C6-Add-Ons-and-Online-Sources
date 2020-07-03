@@ -37,9 +37,10 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 
         List<Reference> GetAvailableParents()
         {
-            return _mainForm?
-                   .GetFilteredReferences()
-                   .FindAll(reference => reference?.ReferenceType?.AllowedChildren?.Count > 0) ?? new List<Reference>();
+            return
+                _mainForm?
+                .GetFilteredReferences()
+                .FindAll(reference => reference?.ReferenceType?.AllowedChildren?.Count > 0) ?? new List<Reference>();
         }
 
         public bool Filters(ReferenceNavigationGridDisplayItemColumn column) => true;

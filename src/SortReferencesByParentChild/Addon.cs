@@ -5,15 +5,8 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.ButtonCommand";
-        internal const string Key_Settings_Addon = "SortReferencesByParentChildRestoreComparer_1";
-
-        #endregion
-
         #region EventHandlers
 
         void MainForm_FormClosing(object sender, FormClosingEventArgs e)
