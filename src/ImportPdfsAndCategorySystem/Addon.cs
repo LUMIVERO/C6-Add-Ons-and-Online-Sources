@@ -1,6 +1,7 @@
 ﻿using SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
+using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 {
@@ -13,12 +14,18 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
             {
                 case Key_Button_File:
                     {
-                        await Macro.Run(mainForm);
+                        if (ChooseDirectory(mainForm, out string directory))
+                        {
+                            await DirectoryImporter.RunAsync(mainForm, directory);
+                        }
                     }
                     break;
                 case Key_Button_References:
                     {
-                        await Macro.Run(mainForm);
+                        if (ChooseDirectory(mainForm, out string directory))
+                        {
+                            await DirectoryImporter.RunAsync(mainForm, directory);
+                        }
                     }
                     break;
                 default:
@@ -57,6 +64,21 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
             {
                 button.Text = Resource.AddonCommandbarButton;
             }
+        }
+
+        bool ChooseDirectory(Form form, out string directory)
+        {
+            using (var folderDialog = new FolderBrowserDialog { Description = Resource.FolderBrowserDialogDescription })
+            {
+                if (folderDialog.ShowDialog(form) == DialogResult.OK)
+                {
+                    directory = folderDialog.SelectedPath;
+                    return true;
+                }
+            }
+
+            directory = null;
+            return false;
         }
     }
 }
