@@ -11,10 +11,11 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
                 locations
                 .Any(location =>
                     location.LocationType == LocationType.ElectronicAddress &&
-                    (location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote ||
-                    location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
-                    location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
-                    location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri)
+                    (
+                        location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote ||
+                        location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
+                        location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
+                        location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri)
                     );
         }
     }

@@ -11,7 +11,7 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
     {
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_Export, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
@@ -57,7 +57,7 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                 .GetCommandbarMenu("ThisProject")
-                .InsertCommandbarButton(3, Key_Button_Export, Resources.ExportCitaviButtonText, image: Resources.addon);
+                .InsertCommandbarButton(3, ButtonKey, Resources.ExportCitaviButtonText, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -67,7 +67,7 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
                             .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                             .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
                             .GetCommandbarMenu("ThisProject")
-                            .GetCommandbarButton(Key_Button_Export);
+                            .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {

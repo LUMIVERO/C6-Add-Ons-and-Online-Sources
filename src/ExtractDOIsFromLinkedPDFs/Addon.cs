@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
     {
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_ExtractDOIsFromLinkedPDFs, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 try
@@ -30,7 +30,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
                 .GetMainCommandbarManager()
                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                .InsertCommandbarButton(4, Key_Button_ExtractDOIsFromLinkedPDFs, Resources.CommandButtonText, image: Resources.addon);
+                .InsertCommandbarButton(4, ButtonKey, Resources.CommandButtonText, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -38,7 +38,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
             var button = mainForm.GetMainCommandbarManager()
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(Key_Button_ExtractDOIsFromLinkedPDFs);
+                                 .GetCommandbarButton(ButtonKey);
             if (button != null)
             {
                 button.Text = Resources.CommandButtonText;

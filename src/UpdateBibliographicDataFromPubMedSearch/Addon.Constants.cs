@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string Key_Button_UpdateBibliographicDataFromPubMedSearch = "SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.UpdateBibliograficCommand";
+        const string ButtonKey = "SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearch.Command";
     }
 }

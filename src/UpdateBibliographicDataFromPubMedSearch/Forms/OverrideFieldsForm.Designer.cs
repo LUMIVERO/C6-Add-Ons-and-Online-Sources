@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
-    partial class OverrideFieldsDialog
+    partial class OverrideFieldsForm
     {
         /// <summary>
         /// Required designer variable.

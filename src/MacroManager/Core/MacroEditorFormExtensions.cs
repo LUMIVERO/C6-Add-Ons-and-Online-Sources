@@ -10,10 +10,11 @@ namespace SwissAcademic.Addons.MacroManagerAddon
     {
         public static void Run(this MacroEditorForm macroEditorForm)
         {
-            macroEditorForm.GetType()
-                           .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
-                           .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase))?
-                           .Invoke(macroEditorForm, new object[] { "Run", null, null, null });
+            macroEditorForm
+                .GetType()
+                .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase))?
+                .Invoke(macroEditorForm, new object[] { "Run", null, null, null });
         }
 
         public static void SetFilePath(this MacroEditorForm macroEditorForm, string filePath)
@@ -40,11 +41,11 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
         public static void Save(this MacroEditorForm macroEditorForm)
         {
-            macroEditorForm.GetType()
-                           .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
-                           .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase))?
-                           .Invoke(macroEditorForm, new object[] { "Save", null, null, null });
-
+            macroEditorForm
+                .GetType()
+                .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                .FirstOrDefault(mth => mth.Name.Equals("PerformCommand", StringComparison.OrdinalIgnoreCase))?
+                .Invoke(macroEditorForm, new object[] { "Save", null, null, null });
         }
 
         public static void SetAsDefault(this MacroEditorForm macroEditorForm)

@@ -7,6 +7,5 @@
         public string FromCount { get; set; }
 
         public string ToCount { get; set; }
-
     }
 }

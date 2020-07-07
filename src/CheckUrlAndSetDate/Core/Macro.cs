@@ -28,7 +28,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 
             try
             {
-                var result = await GenericProgressDialog.RunTask(mainForm, CheckReferences, referencesWithUrl);
+                var result = await GenericProgressDialog.RunTask(mainForm, CheckReferencesAsync, referencesWithUrl);
 
                 if (result.InvalidCount != 0)
                 {
@@ -43,9 +43,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
                     MessageBox.Show(string.Format(Resources.MacroResultMessageWithoutSelection, referencesWithUrl.Count.ToString(), result.ChangedCount.ToString(), result.InvalidCount.ToString()), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (OperationCanceledException)
-            {
-            }
+            catch (OperationCanceledException) { }
         }
 
         async static Task<(bool, string)> RemoteFileExists(string url, int timeOut)
@@ -86,7 +84,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
             }
         }
 
-        async static Task<MacroResult> CheckReferences(List<Reference> references, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
+        async static Task<MacroResult> CheckReferencesAsync(List<Reference> references, IProgress<PercentageAndTextProgressInfo> progress, CancellationToken cancellationToken)
         {
 
             var result = new MacroResult();

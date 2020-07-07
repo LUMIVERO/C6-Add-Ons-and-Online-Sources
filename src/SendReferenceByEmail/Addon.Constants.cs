@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string Key_Button_SendReferenceByEmail = "SwissAcademic.Addons.SendReferenceByEmail.CommandbarButton";
+        const string ButtonKey = "SwissAcademic.Addons.SendReferenceByEmail.Command";
     }
 }

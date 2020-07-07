@@ -2,9 +2,9 @@
 {
     partial class Addon
     {
-        const string Key_Menu_ImportJournals = "SwissAcademic.Addons.ImportJournals.CommandbarMenu";
-        const string Key_Button_ImportByFile = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByFile";
-        const string Key_Button_ImportByPubmed = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByPubmed";
-        const string Key_Button_ImportByWoodward = "SwissAcademic.Addons.ImportJournals.CommandbarButtonByWoodward";
+        const string MenuKey = "SwissAcademic.Addons.ImportJournals.Menu";
+        const string ButtonKey_File = "SwissAcademic.Addons.ImportJournals.Command.File";
+        const string ButtonKey_PubMed = "SwissAcademic.Addons.ImportJournals.Command.PubMed";
+        const string ButtonKey_Woodward = "SwissAcademic.Addons.ImportJournals.Command.Woodward";
     }
 }

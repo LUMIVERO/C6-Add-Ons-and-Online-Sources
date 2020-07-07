@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.MacroManagerAddon
 {
-    partial class DirectoryDialog
+    partial class DirectoryForm
     {
         /// <summary>
         /// Required designer variable.

@@ -21,17 +21,17 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         {
             e.Handled = true;
 
-            if (e.Key.Equals(Key_Button_Edit.FormatString(referenceGridForm.Id.ToString()), StringComparison.Ordinal))
+            if (e.Key.Equals(ButtonKey_Edit.FormatString(referenceGridForm.Id.ToString()), StringComparison.Ordinal))
             {
                 EditWorkSpaces(referenceGridForm);
             }
-            else if (e.Key.Equals(Key_Button_Create.FormatString(referenceGridForm.Id.ToString()), StringComparison.Ordinal))
+            else if (e.Key.Equals(ButtonKey_Create.FormatString(referenceGridForm.Id.ToString()), StringComparison.Ordinal))
             {
                 CreateWorkSpace(referenceGridForm);
             }
             else
             {
-                if (_settings.WorkSpaces.FirstOrDefault(ws => e.Key.Equals(Key_Button_WorkSpaces.FormatString(referenceGridForm.Id.ToString(), ws.Id), StringComparison.Ordinal)) is WorkSpace workSpace)
+                if (_settings.WorkSpaces.FirstOrDefault(ws => e.Key.Equals(ButtonKey.FormatString(referenceGridForm.Id.ToString(), ws.Id), StringComparison.Ordinal)) is WorkSpace workSpace)
                 {
                     referenceGridForm.LoadWorkSpace(workSpace);
                 }
@@ -46,7 +46,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         {
             if (_settings == null)
             {
-                Settings.TryGetValue(Key_Settings, out string json);
+                Settings.TryGetValue(SettingsKey, out string json);
                 _settings = json.Load();
             }
 
@@ -57,7 +57,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
                            .GetCommandbar(ReferenceGridFormCommandbarId.Menu)
                            .GetCommandbarMenu(ReferenceGridFormCommandbarMenuId.View);
 
-                var menu = viewMenu.InsertCommandbarMenu(viewMenu.Tool.Tools.Count - 1, Key_Menu.FormatString(referenceGridForm.Id.ToString()), Properties.Resources.Menu_Caption);
+                var menu = viewMenu.InsertCommandbarMenu(viewMenu.Tool.Tools.Count - 1, MenuKey.FormatString(referenceGridForm.Id.ToString()), Properties.Resources.Menu_Caption);
                 menu.HasSeparator = true;
                 _menus.Add(referenceGridForm, menu);
                 referenceGridForm.FormClosed += ReferenceGridForm_FormClosed;
@@ -81,12 +81,12 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         void CreateWorkSpace(ReferenceGridForm referenceGridForm)
         {
             var captions = _settings.WorkSpaces.Select(ws => ws.Caption).ToList();
-            using (var form = new WorkSpaceNameEditor(referenceGridForm, captions))
+            using (var form = new WorkSpaceNameEditorForm(referenceGridForm, captions))
             {
                 if (form.ShowDialog(referenceGridForm) == DialogResult.Cancel) return;
                 var workSpace = referenceGridForm.CreateWorkSpaceByName(form.WorkSpaceName);
                 _settings.WorkSpaces.Add(workSpace);
-                Settings[Key_Settings] = _settings.ToJson();
+                Settings[SettingsKey] = _settings.ToJson();
             }
 
             RefreshMenuItems();
@@ -94,13 +94,13 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         void EditWorkSpaces(ReferenceGridForm referenceGridForm)
         {
-            using (var workSpaceEditor = new WorkSpaceEditor(referenceGridForm, _settings))
+            using (var workSpaceEditor = new WorkSpaceEditorForm(referenceGridForm, _settings))
             {
                 workSpaceEditor.ShowDialog();
                 _settings = workSpaceEditor.Settings;
             }
 
-            Settings[Key_Settings] = _settings.ToJson();
+            Settings[SettingsKey] = _settings.ToJson();
 
             RefreshMenuItems();
         }
@@ -124,13 +124,13 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
                     foreach (var workSpace in _settings.WorkSpaces)
                     {
-                        menu.AddCommandbarButton(Key_Button_WorkSpaces.FormatString(referenceGridForm.Id.ToString(), workSpace.Id), workSpace.Caption);
+                        menu.AddCommandbarButton(ButtonKey.FormatString(referenceGridForm.Id.ToString(), workSpace.Id), workSpace.Caption);
                     }
 
 
-                    var button = menu.AddCommandbarButton(Key_Button_Create.FormatString(referenceGridForm.Id.ToString()), Properties.Resources.Button_CreateWorkSpace);
+                    var button = menu.AddCommandbarButton(ButtonKey_Create.FormatString(referenceGridForm.Id.ToString()), Properties.Resources.Button_CreateWorkSpace);
                     button.HasSeparator = true;
-                    menu.AddCommandbarButton(Key_Button_Edit.FormatString(referenceGridForm.Id.ToString()), Properties.Resources.Button_EditWorkSpaces);
+                    menu.AddCommandbarButton(ButtonKey_Edit.FormatString(referenceGridForm.Id.ToString()), Properties.Resources.Button_EditWorkSpaces);
                 }
             }
         }

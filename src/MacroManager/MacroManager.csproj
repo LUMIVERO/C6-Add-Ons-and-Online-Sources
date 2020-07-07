@@ -122,11 +122,11 @@
     </Compile>
     <Compile Include="Addon.cs" />
     <Compile Include="Core\MacroContainer.cs" />
-    <Compile Include="Dialogs\DirectoryDialog.cs">
+    <Compile Include="Forms\DirectoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DirectoryDialog.Designer.cs">
-      <DependentUpon>DirectoryDialog.cs</DependentUpon>
+    <Compile Include="Forms\DirectoryForm.Designer.cs">
+      <DependentUpon>DirectoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\MacroEditorFormExtensions.cs" />
     <Compile Include="Core\DirectoryConverter.cs" />
@@ -141,8 +141,8 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="Dialogs\DirectoryDialog.resx">
-      <DependentUpon>DirectoryDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DirectoryForm.resx">
+      <DependentUpon>DirectoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>

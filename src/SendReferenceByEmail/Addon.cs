@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
     {
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_SendReferenceByEmail, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 try
@@ -30,7 +30,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
                 .GetMainCommandbarManager()
                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                .AddCommandbarButton(Key_Button_SendReferenceByEmail, Resources.ButtonCaption, image: Resources.addon);
+                .AddCommandbarButton(ButtonKey, Resources.ButtonCaption, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -38,7 +38,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
             var button = mainForm.GetMainCommandbarManager()
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(Key_Button_SendReferenceByEmail);
+                                 .GetCommandbarButton(ButtonKey);
             if (button != null)
             {
                 button.Text = Resources.ButtonCaption;

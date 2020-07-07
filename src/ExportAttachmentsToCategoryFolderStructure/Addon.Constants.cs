@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string Key_Button_ExportAttachmentsToCategoryFolderStructure = "SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Button";
+        const string ButtonKey = "SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Command";
     }
 }

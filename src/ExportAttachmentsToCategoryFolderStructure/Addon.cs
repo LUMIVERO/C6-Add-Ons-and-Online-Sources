@@ -10,7 +10,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
     {
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_ExportAttachmentsToCategoryFolderStructure, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
@@ -20,7 +20,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
                 {
                     previews.Close();
 
-                    if (AskForExportPath(out string exportPath))
+                    if (ChooseDirectory(out string exportPath))
                     {
                         Macro.Run(mainForm, exportPath);
                     }
@@ -37,7 +37,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
             mainForm.GetMainCommandbarManager()
                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .InsertCommandbarButton(4, Key_Button_ExportAttachmentsToCategoryFolderStructure, Resources.Button_Text, image: Resources.addon);
+                    .InsertCommandbarButton(4, ButtonKey, Resources.Button_Text, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -45,22 +45,22 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
             var button = mainForm.GetMainCommandbarManager()
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(Key_Button_ExportAttachmentsToCategoryFolderStructure);
+                                 .GetCommandbarButton(ButtonKey);
             if (button != null)
             {
                 button.Text = Resources.Button_Text;
             }
         }
 
-        static bool AskForExportPath(out string exportPath)
+        static bool ChooseDirectory(out string directory)
         {
-            exportPath = null;
+            directory = null;
 
             using (var folderBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    exportPath = folderBrowserDialog.SelectedPath;
+                    directory = folderBrowserDialog.SelectedPath;
                     return true;
                 }
             }

@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
-    partial class ConfigDialog
+    partial class MailTemplateForm
     {
         /// <summary>
         /// Required designer variable.

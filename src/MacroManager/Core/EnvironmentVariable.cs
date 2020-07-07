@@ -4,7 +4,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 {
     internal class EnvironmentVariable
     {
-        #region Constructors
+        // Constructors
 
         public EnvironmentVariable(string name, string path, EnvironmentVariableTarget type)
         {
@@ -13,16 +13,12 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             Type = type;
         }
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public string Name { get; }
 
         public string Path { get; }
 
         public EnvironmentVariableTarget Type { get; }
-
-        #endregion
     }
 }

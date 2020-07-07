@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
-    partial class ChoosePropertyIdDialog
+    partial class ChoosePropertyIdForm
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.MacroManagerAddon
 {
-    public partial class DirectoryDialog : FormBase
+    public partial class DirectoryForm : FormBase
     {
-        #region Events
+        // Events
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -24,26 +24,20 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             base.OnFormClosing(e);
         }
 
-        #endregion
+        // Constructors
 
-        #region Constructors
-
-        public DirectoryDialog(Form owner, string directory) : base(owner)
+        public DirectoryForm(Form owner, string directory) : base(owner)
         {
             InitializeComponent();
             InitializeDirectory(directory);
             Owner = owner;
         }
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public string Directory => txtPath.Text;
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         void InitializeDirectory(string directory)
         {
@@ -116,9 +110,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             return path.Replace(entry.Path.Trim('\\'), entry.Name);
         }
 
-        #endregion
-
-        #region Eventhandlers
+        // Eventhandlers
 
         void BtnFolderBrowserDialog_Click(object sender, EventArgs e)
         {
@@ -183,7 +175,5 @@ namespace SwissAcademic.Addons.MacroManagerAddon
         }
 
         void TxtPath_TextChanged(object sender, EventArgs e) => lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
-
-        #endregion
     }
 }

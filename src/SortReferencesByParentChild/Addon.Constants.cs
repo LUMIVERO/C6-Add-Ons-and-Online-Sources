@@ -2,7 +2,7 @@
 {
     partial class Addon
     {
-        const string Key_Button_Addon = "SwissAcademic.Addons.SortReferencesByParentChild.ButtonCommand";
-        internal const string Key_Settings_Addon = "SortReferencesByParentChildRestoreComparer_1";
+        const string ButtonKey = "SwissAcademic.Addons.SortReferencesByParentChild.Command";
+        internal const string SettingsKey = "SortReferencesByParentChildRestoreComparer_1";
     }
 }

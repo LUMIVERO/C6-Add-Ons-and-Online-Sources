@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string PanelKey = "Tomato.Panel.{0}";
+        const string PanelKey = "SwissAcademic.Addons.TomatoTimer.Panel.{0}";
     }
 }

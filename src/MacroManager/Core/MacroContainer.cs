@@ -6,20 +6,16 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 {
     internal class MacroContainer
     {
-        #region Constructors
+        // Constructors
 
         public MacroContainer(Form form) => Form = form;
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public Form Form { get; }
 
         public Dictionary<string, MacroCommand> Macros { get; } = new Dictionary<string, MacroCommand>();
 
         public Dictionary<ToolBase, string> Tools { get; } = new Dictionary<ToolBase, string>();
-
-        #endregion
     }
 }

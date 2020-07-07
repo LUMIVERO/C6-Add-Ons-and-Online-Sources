@@ -11,12 +11,12 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
         {
             e.Handled = true;
 
-            var body = Settings.GetValueOrDefault(Settings_Key_Body);
-            var receiver = Settings.GetValueOrDefault(Settings_Key_Receiver);
+            var body = Settings.GetValueOrDefault(SettingsKey_Body);
+            var receiver = Settings.GetValueOrDefault(SettingsKey_Receiver);
 
             switch (e.Key)
             {
-                case Key_Button_OrderPerEmail:
+                case ButtonKey_OrderPerEmail:
                     {
                         try
                         {
@@ -28,14 +28,14 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
                         }
                     }
                     break;
-                case Key_Button_OrderPerClipboard:
+                case ButtonKey_OrderPerClipboard:
                     {
                         mainForm.ActiveReference.OrderByClipboard(receiver, body);
                     }
                     break;
-                case Key_Button_ConfigOrders:
+                case ButtonKey_ConfigOrders:
                     {
-                        Configurate(mainForm);
+                        ShowMailTemplateForm(mainForm);
                     }
                     break;
                 default:
@@ -49,7 +49,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
             var menu = mainForm
                        .GetReferenceEditorTasksCommandbarManager()
                        .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
-                       .InsertCommandbarMenu(2, Key_Menu, Resources.TasksOrder, CommandbarItemStyle.ImageAndText, image: Resources.addon);
+                       .InsertCommandbarMenu(2, MenuKey, Resources.TasksOrder, CommandbarItemStyle.ImageAndText, image: Resources.addon);
 
             if (menu != null)
             {
@@ -57,11 +57,11 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
                 if (Outlook.IsInstalled)
                 {
-                    menu.AddCommandbarButton(Key_Button_OrderPerEmail, Resources.OrderByEMail);
+                    menu.AddCommandbarButton(ButtonKey_OrderPerEmail, Resources.OrderByEMail);
                 }
 
-                menu.AddCommandbarButton(Key_Button_OrderPerClipboard, Resources.OrderByClipboard);
-                var button = menu.AddCommandbarButton(Key_Button_ConfigOrders, Resources.ConfigureOrders);
+                menu.AddCommandbarButton(ButtonKey_OrderPerClipboard, Resources.OrderByClipboard);
+                var button = menu.AddCommandbarButton(ButtonKey_ConfigOrders, Resources.ConfigureOrders);
                 button.HasSeparator = true;
             }
 
@@ -71,23 +71,23 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
         {
             var menu = mainForm.GetReferenceEditorTasksCommandbarManager()
                                .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
-                               .GetCommandbarMenu(Key_Menu);
+                               .GetCommandbarMenu(MenuKey);
             if (menu != null)
             {
                 menu.Text = Resources.TasksOrder;
-                var button = menu.GetCommandbarButton(Key_Button_OrderPerEmail);
+                var button = menu.GetCommandbarButton(ButtonKey_OrderPerEmail);
                 if (button != null)
                 {
                     button.Text = Resources.OrderByEMail;
                 }
 
-                button = menu.GetCommandbarButton(Key_Button_OrderPerClipboard);
+                button = menu.GetCommandbarButton(ButtonKey_OrderPerClipboard);
                 if (button != null)
                 {
                     button.Text = Resources.OrderByClipboard;
                 }
 
-                button = menu.GetCommandbarButton(Key_Button_ConfigOrders);
+                button = menu.GetCommandbarButton(ButtonKey_ConfigOrders);
                 if (button != null)
                 {
                     button.Text = Resources.ConfigureOrders;
@@ -96,14 +96,14 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         }
 
-        void Configurate(Form form)
+        void ShowMailTemplateForm(Form form)
         {
-            using (var dialog = new ConfigDialog(Settings) { Owner = form })
+            using (var dialog = new MailTemplateForm(Settings) { Owner = form })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Settings.SetValueSafe(Settings_Key_Body, dialog.Body);
-                    Settings.SetValueSafe(Settings_Key_Receiver, dialog.Receiver);
+                    Settings.SetValueSafe(SettingsKey_Body, dialog.Body);
+                    Settings.SetValueSafe(SettingsKey_Receiver, dialog.Receiver);
                 }
             }
         }

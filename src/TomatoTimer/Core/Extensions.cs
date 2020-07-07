@@ -9,11 +9,12 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
     {
         public static UltraStatusBar GetStatusBar(this MainForm mainForm)
         {
-            return mainForm
-                    .GetType()
-                    .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
-                    .FirstOrDefault(p => p.Name.Equals("statusBar"))?
-                    .GetValue(mainForm) as UltraStatusBar;
+            return 
+                mainForm
+                .GetType()
+                .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                .FirstOrDefault(p => p.Name.Equals("statusBar"))?
+                .GetValue(mainForm) as UltraStatusBar;
         }
 
         public static void TryCloseAlert(this MainForm mainForm, string key)

@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string Key_Button_ImportSequenceNumber = "SwissAcademic.Addons.ImportSequenceNumber.CommandbarButton";
+        const string ButtonKey = "SwissAcademic.Addons.ImportSequenceNumber.Command";
     }
 }

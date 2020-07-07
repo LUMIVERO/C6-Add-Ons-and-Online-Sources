@@ -9,7 +9,7 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
     {
         public override void OnBeforePerformingCommand(PersonList personList, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_NormalizeAllCapitalAuthorNames, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 Macro.Run(personList);
@@ -21,14 +21,14 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
             personList
                 .GetCommandbar(PersonListCommandbarId.Menu)
                 .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                .InsertCommandbarButton(2, Key_Button_NormalizeAllCapitalAuthorNames, Resources.NormalizeAuthorNamesCommandText, image: Resources.addon);
+                .InsertCommandbarButton(2, ButtonKey, Resources.NormalizeAuthorNamesCommandText, image: Resources.addon);
         }
 
         public override void OnLocalizing(PersonList personList)
         {
             var button = personList.GetCommandbar(PersonListCommandbarId.Menu)
                                    .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                                   .GetCommandbarButton(Key_Button_NormalizeAllCapitalAuthorNames);
+                                   .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {

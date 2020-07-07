@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
-    public partial class OverrideFieldsDialog : FormBase
+    public partial class OverrideFieldsForm : FormBase
     {
         // Constructors
 
-        public OverrideFieldsDialog(Form owner) : base(owner) => InitializeComponent();
+        public OverrideFieldsForm(Form owner) : base(owner) => InitializeComponent();
 
         // Methods
 

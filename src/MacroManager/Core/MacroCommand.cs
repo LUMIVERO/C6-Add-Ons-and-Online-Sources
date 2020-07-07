@@ -2,7 +2,7 @@
 {
     public class MacroCommand
     {
-        #region Constructors
+        // Constructors
 
         public MacroCommand(string path, MacroAction action)
         {
@@ -10,14 +10,10 @@
             Action = action;
         }
 
-        #endregion
-
-        #region Properties
+        //n Properties
 
         public string Path { get; }
 
         public MacroAction Action { get; }
-
-        #endregion
     }
 }

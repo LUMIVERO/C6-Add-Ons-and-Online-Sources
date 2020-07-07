@@ -8,11 +8,11 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
     {
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_Addon, System.StringComparison.Ordinal))
+            if (e.Key.Equals(ButtonKey, System.StringComparison.Ordinal))
             {
                 e.Handled = true;
 
-                using (var dialog = new ReferenceEvaluationDialog(mainForm))
+                using (var dialog = new ReferenceEvaluationForm(mainForm))
                 {
                     dialog.ShowDialog();
                 }
@@ -25,7 +25,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
                 .GetMainCommandbarManager()
                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                .AddCommandbarButton(Key_Button_Addon, Resources.Addon_Command, image: Resources.addon);
+                .AddCommandbarButton(ButtonKey, Resources.Addon_Command, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -33,7 +33,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
             var button = mainForm.GetMainCommandbarManager()
                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                     .GetCommandbarButton(Key_Button_Addon);
+                     .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {

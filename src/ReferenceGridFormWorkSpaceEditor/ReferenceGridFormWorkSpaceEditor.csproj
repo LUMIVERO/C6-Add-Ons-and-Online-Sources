@@ -118,17 +118,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WorkSpaceNameEditor.cs">
+    <Compile Include="Forms\WorkSpaceNameEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\WorkSpaceNameEditor.Designer.cs">
-      <DependentUpon>WorkSpaceNameEditor.cs</DependentUpon>
+    <Compile Include="Forms\WorkSpaceNameEditorForm.Designer.cs">
+      <DependentUpon>WorkSpaceNameEditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WorkSpaceEditor.cs">
+    <Compile Include="Forms\WorkSpaceEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\WorkSpaceEditor.Designer.cs">
-      <DependentUpon>WorkSpaceEditor.cs</DependentUpon>
+    <Compile Include="Forms\WorkSpaceEditorForm.Designer.cs">
+      <DependentUpon>WorkSpaceEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\WorkSpace.cs" />
   </ItemGroup>
@@ -141,8 +141,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\WorkSpaceEditor.resx">
-      <DependentUpon>WorkSpaceEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WorkSpaceEditorForm.resx">
+      <DependentUpon>WorkSpaceEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>
@@ -151,8 +151,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\WorkSpaceNameEditor.resx">
-      <DependentUpon>WorkSpaceNameEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WorkSpaceNameEditorForm.resx">
+      <DependentUpon>WorkSpaceNameEditorForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

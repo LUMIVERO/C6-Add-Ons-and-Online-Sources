@@ -9,11 +9,11 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
     {
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_UpdateBibliographicDataFromPubMedSearch, System.StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, System.StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
-                using (var dialog = new OverrideFieldsDialog(mainForm))
+                using (var dialog = new OverrideFieldsForm(mainForm))
                 {
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
@@ -29,7 +29,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
                 .GetMainCommandbarManager()
                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                .InsertCommandbarButton(4, Key_Button_UpdateBibliographicDataFromPubMedSearch, Resources.CommandText, image: Resources.addon);
+                .InsertCommandbarButton(4, ButtonKey, Resources.CommandText, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -37,7 +37,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
             var button = mainForm.GetMainCommandbarManager()
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(Key_Button_UpdateBibliographicDataFromPubMedSearch);
+                                 .GetCommandbarButton(ButtonKey);
             if (button != null)
             {
                 button.Text = Resources.CommandText;

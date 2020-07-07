@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string Key_Button_Export = "SwissAcademic.Addons.C6ToC5Export.ExportButtonCommand";
+        const string ButtonKey = "SwissAcademic.Addons.C6ToC5Export.Command";
     }
 }

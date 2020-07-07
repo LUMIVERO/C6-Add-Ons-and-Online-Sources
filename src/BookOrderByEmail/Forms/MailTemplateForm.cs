@@ -4,16 +4,16 @@ using System.Collections.Generic;
 
 namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
-    public partial class ConfigDialog : FormBase
+    public partial class MailTemplateForm : FormBase
     {
         // Constructors
 
-        ConfigDialog() => InitializeComponent();
+        MailTemplateForm() => InitializeComponent();
 
-        public ConfigDialog(IDictionary<string, string> settings) : this()
+        public MailTemplateForm(IDictionary<string, string> settings) : this()
         {
-            txtBody.Text = settings.GetValueOrDefault(Addon.Settings_Key_Body, string.Empty); ;
-            txtReceiver.Text = settings.GetValueOrDefault(Addon.Settings_Key_Receiver, string.Empty);
+            txtBody.Text = settings.GetValueOrDefault(Addon.SettingsKey_Body, string.Empty); ;
+            txtReceiver.Text = settings.GetValueOrDefault(Addon.SettingsKey_Receiver, string.Empty);
         }
 
         // Properties

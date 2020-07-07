@@ -90,11 +90,11 @@
     <Compile Include="Addon.Constants.cs">
       <DependentUpon>Addon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ChoosePropertyIdDialog.cs">
+    <Compile Include="Forms\ChoosePropertyIdForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ChoosePropertyIdDialog.Designer.cs">
-      <DependentUpon>ChoosePropertyIdDialog.cs</DependentUpon>
+    <Compile Include="Forms\ChoosePropertyIdForm.Designer.cs">
+      <DependentUpon>ChoosePropertyIdForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -107,8 +107,8 @@
     <Compile Include="Core\SequenceNumberImportInfoUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Dialogs\ChoosePropertyIdDialog.resx">
-      <DependentUpon>ChoosePropertyIdDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ChoosePropertyIdForm.resx">
+      <DependentUpon>ChoosePropertyIdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>

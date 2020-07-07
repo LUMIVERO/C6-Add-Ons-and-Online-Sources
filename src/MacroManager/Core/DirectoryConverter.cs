@@ -17,7 +17,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                     if (directoryInfo.GetFiles("*.cs", SearchOption.AllDirectories).Length == 0) continue;
 
                     folderCounter++;
-                    var menu = commandbarMenu.InsertCommandbarMenu(index, Addon.Key_Menu_Directory.FormatString(folderCounter), directoryInfo.Name);
+                    var menu = commandbarMenu.InsertCommandbarMenu(index, Addon.MenuKey.FormatString(folderCounter), directoryInfo.Name);
 
                     index = index + 1;
 
@@ -35,7 +35,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                 {
                     fileCounter++;
 
-                    var key = Addon.Key_Menu_Directory.FormatString(folderCounter) + "." + fileCounter;
+                    var key = Addon.MenuKey.FormatString(folderCounter) + "." + fileCounter;
                     var menu = commandbarMenu.InsertCommandbarMenu(index, key, Path.GetFileName(strFile), image: Properties.Resources.Macro);
                     index += 1;
                     if (isFirst)
@@ -45,12 +45,12 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                     }
 
                     container.Tools.Add(menu.Tool, null);
-                    key = Addon.Key_Button_Directory + "." + fileCounter + ".1";
+                    key = Addon.ButtonKey + "." + fileCounter + ".1";
                     var button = menu.AddCommandbarButton(key, Properties.Resources.EditCommand);
                     container.Macros.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Edit));
                     container.Tools.Add(button.Tool, "EditCommand");
-                    key = Addon.Key_Button_Directory + "." + fileCounter + ".2";
-                    button = menu.AddCommandbarButton(Addon.Key_Button_Directory + "." + fileCounter + ".2", Properties.Resources.RunCommand);
+                    key = Addon.ButtonKey + "." + fileCounter + ".2";
+                    button = menu.AddCommandbarButton(Addon.ButtonKey + "." + fileCounter + ".2", Properties.Resources.RunCommand);
                     container.Macros.Add(button.Tool.Key, new MacroCommand(strFile, MacroAction.Run));
                     container.Tools.Add(button.Tool, "RunCommand");
                 }

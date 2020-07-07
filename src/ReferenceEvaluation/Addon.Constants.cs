@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string Key_Button_Addon = "SwissAcademic.Addons.ReferenceEvaluation.ButtonCommand";
+        const string ButtonKey = "SwissAcademic.Addons.ReferenceEvaluation.Command";
     }
 }

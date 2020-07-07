@@ -14,7 +14,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
             var button = mainForm.GetMainCommandbarManager()
                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                    .AddCommandbarButton(Key_Button_ImportSequenceNumber, Properties.Resources.MenuCaption, image: Properties.Resources.addon);
+                                    .AddCommandbarButton(ButtonKey, Properties.Resources.MenuCaption, image: Properties.Resources.addon);
             if (button != null)
             {
                 button.HasSeparator = true;
@@ -23,7 +23,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_ImportSequenceNumber, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
@@ -51,7 +51,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 
                                     if (sequenceNumbers.Count != 0)
                                     {
-                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdDialog(mainForm))
+                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdForm(mainForm))
                                         {
                                             if (chooseTargetFieldDialog.ShowDialog(e.Form) == DialogResult.OK)
                                             {
@@ -101,7 +101,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
             var button = mainForm.GetMainCommandbarManager()
                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                   .GetCommandbarButton(Key_Button_ImportSequenceNumber);
+                                   .GetCommandbarButton(ButtonKey);
             if (button != null)
             {
                 button.Text = Properties.Resources.MenuCaption;

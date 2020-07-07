@@ -9,7 +9,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
     {
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_CheckUrl, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 await Macro.Run(mainForm);
@@ -21,7 +21,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
             mainForm.GetMainCommandbarManager()
                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .InsertCommandbarButton(7, Key_Button_CheckUrl, Resources.CheckUrlAndSetDateCommandText, image: Resources.addon);
+                    .InsertCommandbarButton(7, ButtonKey, Resources.CheckUrlAndSetDateCommandText, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -29,7 +29,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
             var button = mainForm.GetMainCommandbarManager()
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(Key_Button_CheckUrl);
+                                 .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {

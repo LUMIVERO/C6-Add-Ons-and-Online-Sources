@@ -2,7 +2,7 @@
 {
     partial class Addon
     {
-        const string Key_Button_File = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonFile";
-        const string Key_Button_References = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.CommandbarButtonReferences";
+        const string ButtonKey_Files = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.Command.Files";
+        const string ButtonKey_References = "SwissAcademic.Addons.ImportPdfsAndCategorySystem.Command.References";
     }
 }

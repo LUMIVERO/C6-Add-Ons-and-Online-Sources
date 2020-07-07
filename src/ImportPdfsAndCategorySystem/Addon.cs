@@ -12,7 +12,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
             e.Handled = true;
             switch (e.Key)
             {
-                case Key_Button_File:
+                case ButtonKey_Files:
                     {
                         if (ChooseDirectory(mainForm, out string directory))
                         {
@@ -20,7 +20,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
                         }
                     }
                     break;
-                case Key_Button_References:
+                case ButtonKey_References:
                     {
                         if (ChooseDirectory(mainForm, out string directory))
                         {
@@ -39,10 +39,10 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
             var commandBar = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
             commandBar.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                      .InsertCommandbarButton(6, Key_Button_File, Resource.AddonCommandbarButton, image: Resource.addon);
+                      .InsertCommandbarButton(6, ButtonKey_Files, Resource.AddonCommandbarButton, image: Resource.addon);
 
             commandBar.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                      .InsertCommandbarButton(3, Key_Button_References, Resource.AddonCommandbarButton, image: Resource.addon);
+                      .InsertCommandbarButton(3, ButtonKey_References, Resource.AddonCommandbarButton, image: Resource.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -50,7 +50,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
             var menu = mainForm.GetMainCommandbarManager()
                                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
 
-            var button = menu?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File).GetCommandbarButton(Key_Button_File);
+            var button = menu?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File).GetCommandbarButton(ButtonKey_Files);
 
             if (button != null)
             {
@@ -58,7 +58,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
             }
 
             button = menu?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                          .GetCommandbarButton(Key_Button_References);
+                          .GetCommandbarButton(ButtonKey_References);
 
             if (button != null)
             {

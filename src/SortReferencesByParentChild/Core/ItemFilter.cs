@@ -9,13 +9,11 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
     public class ItemFilter : IReferenceNavigationGridDisplayItemFilter
     {
-        #region Fields
+        // Fields
 
         readonly MainForm _mainForm;
 
-        #endregion
-
-        #region Constructors
+        // Constructors
 
         public ItemFilter(MainForm mainForm) => _mainForm = mainForm;
 
@@ -31,9 +29,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
         }
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         List<Reference> GetAvailableParents()
         {
@@ -199,6 +195,5 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
         }
 
-        #endregion
     }
 }

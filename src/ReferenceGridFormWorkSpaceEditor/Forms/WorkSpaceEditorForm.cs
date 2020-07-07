@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
-    public partial class WorkSpaceEditor : FormBase
+    public partial class WorkSpaceEditorForm : FormBase
     {
         #region Fields
 
@@ -17,7 +17,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         #region Constructors
 
-        public WorkSpaceEditor(ReferenceGridForm owner, AddonSettings settings) : base(owner)
+        public WorkSpaceEditorForm(ReferenceGridForm owner, AddonSettings settings) : base(owner)
         {
             InitializeComponent();
             Owner = owner;
@@ -91,7 +91,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         void Btn_add_Click(object sender, EventArgs e)
         {
-            using (var form = new WorkSpaceNameEditor(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList()))
+            using (var form = new WorkSpaceNameEditorForm(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList()))
             {
                 if (form.ShowDialog(this) == DialogResult.OK && Owner is ReferenceGridForm referenceGridForm)
                 {
@@ -139,7 +139,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         {
             if (lb_workspaces.SelectedItem is WorkSpace workspace)
             {
-                using (var form = new WorkSpaceNameEditor(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList(), workspace.Caption))
+                using (var form = new WorkSpaceNameEditorForm(this, lb_workspaces.Items.Cast<WorkSpace>().Select(ws => ws.Caption).ToList(), workspace.Caption))
                 {
                     if (form.ShowDialog(this) == DialogResult.Cancel)
                     {

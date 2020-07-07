@@ -6,9 +6,9 @@ using System;
 
 namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
-    public partial class ChoosePropertyIdDialog : ProjectShellForm
+    public partial class ChoosePropertyIdForm : ProjectShellForm
     {
-        #region Events
+        // Events
 
         protected override void OnLoad(EventArgs e)
         {
@@ -26,21 +26,15 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
             cboTargets.SelectedIndex = 0;
         }
 
-        #endregion
+        // Constructors
 
-        #region Constructors
+        public ChoosePropertyIdForm(ProjectShellForm projectShellForm) : base(projectShellForm) => InitializeComponent();
 
-        public ChoosePropertyIdDialog(ProjectShellForm projectShellForm) : base(projectShellForm) => InitializeComponent();
-
-        #endregion
-
-        #region Properties
+        // Properties
 
         public ReferencePropertyId SelectedPropertyId => ConvertIndexToPropertyId(cboTargets.SelectedIndex);
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         static ReferencePropertyId ConvertIndexToPropertyId(int index)
         {
@@ -76,7 +70,5 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
             btnCancel.Text = ControlTexts.CancelButton;
             lblDescription.Text = Properties.Resources.ChooseFieldMessage;
         }
-
-        #endregion
     }
 }

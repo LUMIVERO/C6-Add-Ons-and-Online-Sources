@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
-    public partial class ReferenceEvaluationDialog : FormBase
+    public partial class ReferenceEvaluationForm : FormBase
     {
         // Events
 
@@ -30,7 +30,7 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
         // Constructors
 
-        public ReferenceEvaluationDialog(MainForm mainForm) : base(mainForm) => InitializeComponent();
+        public ReferenceEvaluationForm(MainForm mainForm) : base(mainForm) => InitializeComponent();
 
         //  Methods
 

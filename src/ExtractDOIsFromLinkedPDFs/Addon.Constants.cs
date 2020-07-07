@@ -2,6 +2,6 @@
 {
     partial class Addon
     {
-        const string Key_Button_ExtractDOIsFromLinkedPDFs = "SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.DoiButtonCommand";
+        const string ButtonKey = "SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.Command";
     }
 }

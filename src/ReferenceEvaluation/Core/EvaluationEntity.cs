@@ -2,21 +2,16 @@
 {
     internal class EvaluationEntity<T>
     {
-
-        #region Constructors
+        // Constructors
 
         public EvaluationEntity(T entity) => Entity = entity;
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public T Entity { get; }
 
         public int CountByProject { get; set; }
 
         public int CountBySelection { get; set; }
-
-        #endregion
     }
 }

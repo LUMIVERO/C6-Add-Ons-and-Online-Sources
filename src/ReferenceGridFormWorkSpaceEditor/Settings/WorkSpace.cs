@@ -7,7 +7,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public class WorkSpace
     {
-        #region Constructors
+        // Constructors
 
         public WorkSpace()
         {
@@ -15,9 +15,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             Id = Guid.NewGuid().ToString();
         }
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         [JsonProperty]
         public string Caption { get; set; }
@@ -34,12 +32,8 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         [JsonIgnore]
         public string Id { get; set; }
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override string ToString() => Caption;
-
-        #endregion
     }
 }
