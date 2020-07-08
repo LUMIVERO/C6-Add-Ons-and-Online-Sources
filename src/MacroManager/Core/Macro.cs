@@ -1,10 +1,10 @@
 ﻿namespace SwissAcademic.Addons.MacroManagerAddon
 {
-    public class MacroCommand
+    public class Macro
     {
         // Constructors
 
-        public MacroCommand(string path, MacroAction action)
+        public Macro(string path, MacroAction action)
         {
             Path = path;
             Action = action;

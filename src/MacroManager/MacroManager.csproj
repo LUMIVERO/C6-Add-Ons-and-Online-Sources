@@ -128,11 +128,12 @@
     <Compile Include="Forms\DirectoryForm.Designer.cs">
       <DependentUpon>DirectoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\MacroEditorFormExtensions.cs" />
+    <Compile Include="Core\MacroEditorFormExt.cs" />
     <Compile Include="Core\DirectoryConverter.cs" />
-    <Compile Include="Core\MacroCommand.cs" />
+    <Compile Include="Core\Macro.cs" />
     <Compile Include="Core\MacroAction.cs" />
     <Compile Include="Core\EnvironmentVariable.cs" />
+    <Compile Include="Core\MainFormExt.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,6 +142,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\ReflectionExt.cs" />
     <EmbeddedResource Include="Forms\DirectoryForm.resx">
       <DependentUpon>DirectoryForm.cs</DependentUpon>
     </EmbeddedResource>
