@@ -18,18 +18,20 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .InsertCommandbarButton(7, ButtonKey, Resources.CheckUrlAndSetDateCommandText, image: Resources.addon);
+            mainForm
+                .GetMainCommandbarManager()
+                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                .InsertCommandbarButton(7, ButtonKey, Resources.CheckUrlAndSetDateCommandText, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var button = mainForm.GetMainCommandbarManager()
-                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(ButtonKey);
+            var button = mainForm
+                            .GetMainCommandbarManager()
+                            .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                            .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                            .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {

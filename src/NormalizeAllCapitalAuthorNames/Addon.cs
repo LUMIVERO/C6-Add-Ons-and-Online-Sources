@@ -26,9 +26,10 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
 
         public override void OnLocalizing(PersonList personList)
         {
-            var button = personList.GetCommandbar(PersonListCommandbarId.Menu)
-                                   .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                                   .GetCommandbarButton(ButtonKey);
+            var button = personList
+                            .GetCommandbar(PersonListCommandbarId.Menu)
+                            .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
+                            .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {

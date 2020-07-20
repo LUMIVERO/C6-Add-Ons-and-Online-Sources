@@ -85,39 +85,43 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 
         public void Start()
         {
-            if (IsRunning) return;
-            IsRunning = true;
-
-            Minutes = _states.Current.Minutes;
-#if DEBUG
-            _timer = new Timer(500)
+            if (!IsRunning)
             {
-                AutoReset = true
-            };
+                IsRunning = true;
+
+                Minutes = _states.Current.Minutes;
+#if DEBUG
+                _timer = new Timer(500)
+                {
+                    AutoReset = true
+                };
 #else
             _timer = new Timer(60000)
             {
                 AutoReset = true
             };
 #endif
-            _timer.Elapsed += Timer_Elapsed;
-            _timer.Start();
+                _timer.Elapsed += Timer_Elapsed;
+                _timer.Start();
 
-            OnUpdated();
+                OnUpdated();
+            }
         }
 
         public void Stop()
         {
-            if (!IsRunning) return;
-            IsRunning = false;
+            if (IsRunning)
+            {
+                IsRunning = false;
 
-            Minutes = 0;
-            _timer.Stop();
-            _timer.Elapsed -= Timer_Elapsed;
-            _timer.Dispose();
-            _timer = null;
-            _states.Reset();
-            OnUpdated();
+                Minutes = 0;
+                _timer.Stop();
+                _timer.Elapsed -= Timer_Elapsed;
+                _timer.Dispose();
+                _timer = null;
+                _states.Reset();
+                OnUpdated();
+            }
         }
 
         public void ShowMessage(string message, TimerState state)

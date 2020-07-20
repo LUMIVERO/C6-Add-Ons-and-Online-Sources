@@ -34,18 +34,21 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .InsertCommandbarButton(4, ButtonKey, Resources.Button_Text, image: Resources.addon);
+            mainForm
+                .GetMainCommandbarManager()
+                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                .InsertCommandbarButton(4, ButtonKey, Resources.Button_Text, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var button = mainForm.GetMainCommandbarManager()
-                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(ButtonKey);
+            var button = mainForm
+                            .GetMainCommandbarManager()
+                            .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                            .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                            .GetCommandbarButton(ButtonKey);
+            
             if (button != null)
             {
                 button.Text = Resources.Button_Text;

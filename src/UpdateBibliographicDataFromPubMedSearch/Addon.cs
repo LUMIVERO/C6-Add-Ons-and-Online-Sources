@@ -1,6 +1,7 @@
 ﻿using SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Properties;
 using SwissAcademic.Citavi.Shell;
 using SwissAcademic.Controls;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon

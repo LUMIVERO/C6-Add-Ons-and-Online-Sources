@@ -30,10 +30,11 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var button = mainForm.GetMainCommandbarManager()
-                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                     .GetCommandbarButton(ButtonKey);
+            var button = mainForm
+                            .GetMainCommandbarManager()
+                            .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                            .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                            .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {

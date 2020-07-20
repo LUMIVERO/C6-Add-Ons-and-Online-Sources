@@ -45,13 +45,7 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             {
                 _eventsSuspended = true;
 
-                MainForm activeMainForm = null;
-
-                foreach (var projectShell in Program.ProjectShells)
-                {
-                    activeMainForm = projectShell.MainForms.FirstOrDefault(mainForm => sender == mainForm.KnowledgeOrganizerFilterSet.Filters);
-                    if (activeMainForm != null) break;
-                }
+                var activeMainForm = GetActiveMainFormOrDefault(mainForm => sender == mainForm.KnowledgeOrganizerFilterSet.Filters);
 
                 if (activeMainForm == null) return;
 
@@ -87,13 +81,7 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             {
                 _eventsSuspended = true;
 
-                MainForm activeMainForm = null;
-
-                foreach (var projectShell in Program.ProjectShells)
-                {
-                    activeMainForm = projectShell.MainForms.FirstOrDefault(mainForm => sender == mainForm.ReferenceEditorFilterSet.Filters);
-                    if (activeMainForm != null) break;
-                }
+                var activeMainForm = GetActiveMainFormOrDefault(mainForm => sender == mainForm.ReferenceEditorFilterSet.Filters);
 
                 if (activeMainForm == null) return;
 
@@ -117,6 +105,16 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             {
                 _eventsSuspended = eventsSuspended;
             }
+        }
+
+        MainForm GetActiveMainFormOrDefault(System.Func<MainForm,bool> filter)
+        {
+            foreach (var mainForms in Program.ProjectShells.Select(projectShell => projectShell.MainForms))
+            {
+                if (mainForms.FirstOrDefault(filter) is MainForm mainForm) return mainForm;
+            }
+
+            return null;
         }
     }
 }

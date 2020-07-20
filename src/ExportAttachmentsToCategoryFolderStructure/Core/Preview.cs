@@ -78,11 +78,12 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
         private static IEnumerable<MemberInfo> Members<TObject>(this TObject tObject, string memberName, MemberTypes memberType, BindingFlags bindingFlags)
         {
-            return tObject
-                   .GetType()
-                   .GetMembers(bindingFlags)
-                   .Where(prop => prop.Name.Equals(memberName, StringComparison.OrdinalIgnoreCase) && prop.MemberType == memberType)
-                   .ToList();
+            return 
+                tObject
+                .GetType()
+                .GetMembers(bindingFlags)
+                .Where(prop => prop.Name.Equals(memberName, StringComparison.OrdinalIgnoreCase) && prop.MemberType == memberType)
+                .ToList();
         }
     }
 }

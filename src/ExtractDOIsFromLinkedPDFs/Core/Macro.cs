@@ -58,11 +58,11 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
                                   string.IsNullOrEmpty(location.Reference.Doi) &&
                                   ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
                                   location.Address.CachingStatus == CachingStatus.Available) ||
-                                  (
+                                  
                                       location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
                                       location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
                                       location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
-                                  ))
+                                  )
                               let path = location.Address.Resolve().GetLocalPathSafe()
                               where
                                  File.Exists(path) &&
