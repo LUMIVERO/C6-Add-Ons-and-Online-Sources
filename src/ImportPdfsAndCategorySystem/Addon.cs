@@ -36,29 +36,36 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            var commandBar = mainForm.GetMainCommandbarManager()
-                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
-            commandBar.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
-                      .InsertCommandbarButton(6, ButtonKey_Files, Resource.AddonCommandbarButton, image: Resource.addon);
+            var commandBar = mainForm
+                                .GetMainCommandbarManager()
+                                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
+            commandBar
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                .InsertCommandbarButton(6, ButtonKey_Files, Resource.AddonCommandbarButton, image: Resource.addon);
 
-            commandBar.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                      .InsertCommandbarButton(3, ButtonKey_References, Resource.AddonCommandbarButton, image: Resource.addon);
+            commandBar
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                .InsertCommandbarButton(3, ButtonKey_References, Resource.AddonCommandbarButton, image: Resource.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var menu = mainForm.GetMainCommandbarManager()
-                               .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
+            var menu = mainForm
+                           .GetMainCommandbarManager()
+                           .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu);
 
-            var button = menu?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File).GetCommandbarButton(ButtonKey_Files);
+            var button = menu?
+                            .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.File)
+                            .GetCommandbarButton(ButtonKey_Files);
 
             if (button != null)
             {
                 button.Text = Resource.AddonCommandbarButton;
             }
 
-            button = menu?.GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                          .GetCommandbarButton(ButtonKey_References);
+            button = menu?
+                       .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                       .GetCommandbarButton(ButtonKey_References);
 
             if (button != null)
             {
