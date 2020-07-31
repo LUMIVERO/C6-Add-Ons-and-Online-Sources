@@ -58,7 +58,7 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 
         static void AddCategories(Project project, IEnumerable<Reference> references, string categoryHierarchy)
         {
-            var categoryStrings = categoryHierarchy?.Split(new char[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var categoryStrings = categoryHierarchy?.Split(new char[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
             if ((bool)categoryStrings?.Any())
             {
                 var currentCategory = project.Categories.FirstOrDefault(item => item.Name.Equals(categoryStrings[0], StringComparison.Ordinal));
