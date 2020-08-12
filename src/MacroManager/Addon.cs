@@ -43,7 +43,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                         {
                             if (directoryDialog.ShowDialog() == DialogResult.OK)
                             {
-                                if (!Settings[SettingsKey].Equals(directoryDialog.Directory, StringComparison.OrdinalIgnoreCase))
+                                if (!directoryDialog.Directory.Equals(Settings.TryGetStringValue(SettingsKey), StringComparison.OrdinalIgnoreCase))
                                 {
                                     Settings[SettingsKey] = directoryDialog.Directory;
                                     Program.Settings.InitialDirectories.SetInitialDirectoryContext(Citavi.Settings.InitialDirectoryContext.Macros, Path2.GetFullPathFromPathWithVariables(directoryDialog.Directory));
