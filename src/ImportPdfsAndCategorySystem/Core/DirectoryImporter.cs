@@ -37,13 +37,15 @@ namespace SwissAcademic.Addons.ImportPdfsAndCategorySystemAddon
 
             var pathes = Path2.GetFilesSafe(new DirectoryInfo(directory), "*.pdf", SearchOption.AllDirectories).Select(fileInfo => fileInfo.FullName).ToList();
 
+            var fileImportSupport = new FileImportSupport();
+
             for (var i = 0; i < pathes.Count; i++)
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
                 var path = pathes[i];
 
-                var referencesFromFile = await new FileImportSupport().ImportFilesAsync(mainForm.Project, mainForm.Project.Engine.TransformerManager, new List<string>() { path }, AttachmentAction.Copy);
+                var referencesFromFile = await fileImportSupport.ImportFilesAsync(mainForm.Project, mainForm.Project.Engine.TransformerManager, new List<string>() { path }, AttachmentAction.Copy);
 
                 if ((bool)referencesFromFile?.Any())
                 {
