@@ -29,15 +29,8 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 
                 if (mainForm.Project.ProjectType == ProjectType.DesktopSQLite)
                 {
-                    using (var openFileDialog = new OpenFileDialog()
+                    using (var openFileDialog = new OpenFileDialog { Title = Properties.Resources.OpenFileDialogTitle, Filter = Properties.Resources.OpenFileDialogFilters, CheckFileExists = true, CheckPathExists = true, Multiselect = false })
                     {
-                        Title = Properties.Resources.OpenFileDialogTitle,
-                        Filter = Properties.Resources.OpenFileDialogFilters,
-                        CheckFileExists = true,
-                        CheckPathExists = true,
-                        Multiselect = false
-                    })
-
                         if (openFileDialog.ShowDialog(mainForm) == DialogResult.OK)
                         {
                             try
@@ -88,6 +81,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
                                 MessageBox.Show(mainForm, Properties.Resources.OpenProjectConfigurationException, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
+                    }
                 }
                 else
                 {
