@@ -20,7 +20,7 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
             foreach (var reference in mainForm.GetFilteredReferences())
             {
-                var locations = reference.Locations.FilterBySupportedLocations().ToList();
+                var locations = reference.Locations.FilterBySupportedLocations();
                 if (locations.Count == 0) continue;
 
                 var categoryPathes = reference.Categories.CreateCategoryPathes(exportPath);
@@ -91,18 +91,18 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
             MessageBox.Show(Resources.Messages_Completed.FormatString(System.Environment.NewLine + changeCounter, System.Environment.NewLine + errorCounter), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        static IEnumerable<Location> FilterBySupportedLocations(this ReferenceLocationCollection collection)
+        static List<Location> FilterBySupportedLocations(this ReferenceLocationCollection collection)
         {
-            foreach (var location in collection.ToList())
-            {
-                if (location.LocationType == LocationType.ElectronicAddress &&
-                        (location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote ||
-                        location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
-                         location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
-                         location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri))
-
-                    yield return location;
-            }
+            return
+                collection
+                .Where(location =>
+                       location.LocationType == LocationType.ElectronicAddress &&
+                       (
+                            location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote ||
+                            location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
+                            location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
+                            location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
+                       )).ToList();
         }
 
         static IList<string> CreateCategoryPathes(this CitaviEntityCollection<Category> categories, string exportPath)
