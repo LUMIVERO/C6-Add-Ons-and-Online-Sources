@@ -16,7 +16,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
             catch (Exception ignored)
             {
-                Telemetry.Error(ignored, string.Empty, ignored.Message, null);
+                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
             }
         }
 
@@ -29,7 +29,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
             catch (Exception ignored)
             {
-                Telemetry.Error(ignored, string.Empty, ignored.Message, null);
+                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
             }
         }
 
@@ -41,7 +41,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
             catch (Exception ignored)
             {
-                Telemetry.Error(ignored, string.Empty, ignored.Message, null);
+                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
             }
             return false;
         }
