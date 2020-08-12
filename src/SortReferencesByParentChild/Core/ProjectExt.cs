@@ -11,8 +11,6 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             try
             {
                 project.ProjectSettings[Addon.SettingsKey] = "true";
-                project.ProjectSettings.Save(true);
-
             }
             catch (Exception ignored)
             {
@@ -25,7 +23,6 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             try
             {
                 project.ProjectSettings[Addon.SettingsKey] = "false";
-                project.ProjectSettings.Save(true);
             }
             catch (Exception ignored)
             {
