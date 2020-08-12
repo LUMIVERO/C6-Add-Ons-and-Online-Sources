@@ -15,7 +15,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
                 e.Handled = true;
                 try
                 {
-                    await Macro.Run(mainForm, mainForm.Project);
+                    await Macro.RunAsync(mainForm, mainForm.Project);
                 }
                 catch (Exception ex)
                 {
