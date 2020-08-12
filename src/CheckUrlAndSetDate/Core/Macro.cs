@@ -14,11 +14,12 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 {
     internal static class Macro
     {
-        public async static Task Run(MainForm mainForm)
+        public async static Task RunAsync(MainForm mainForm)
         {
-            var referencesWithUrl = mainForm.GetFilteredReferences()
-                                            .Where(reference => !string.IsNullOrEmpty(reference.OnlineAddress))
-                                            .ToList();
+            var referencesWithUrl = mainForm
+                                        .GetFilteredReferences()
+                                        .Where(reference => !string.IsNullOrEmpty(reference.OnlineAddress))
+                                        .ToList();
 
             if (referencesWithUrl.Count == 0)
             {

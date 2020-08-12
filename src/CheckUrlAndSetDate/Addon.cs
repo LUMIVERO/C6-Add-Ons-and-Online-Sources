@@ -12,7 +12,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
             if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
-                await Macro.Run(mainForm);
+                await Macro.RunAsync(mainForm);
             }
         }
 
