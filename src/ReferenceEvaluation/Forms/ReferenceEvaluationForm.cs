@@ -30,7 +30,11 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 
         // Constructors
 
-        public ReferenceEvaluationForm(MainForm mainForm) : base(mainForm) => InitializeComponent();
+        public ReferenceEvaluationForm(MainForm mainForm) : base(mainForm)
+        {
+            InitializeComponent();
+            Owner = mainForm;
+        }
 
         //  Methods
 
