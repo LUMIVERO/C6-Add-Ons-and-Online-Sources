@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
-    partial class OverrideFieldsDialog
+    partial class OverrideFieldsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Location = new System.Drawing.Point(29, 106);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
@@ -62,7 +63,7 @@
             this.chbOverrideKeywords.AutoSize = true;
             this.chbOverrideKeywords.Location = new System.Drawing.Point(12, 12);
             this.chbOverrideKeywords.Name = "chbOverrideKeywords";
-            this.chbOverrideKeywords.Size = new System.Drawing.Size(114, 17);
+            this.chbOverrideKeywords.Size = new System.Drawing.Size(124, 19);
             this.chbOverrideKeywords.TabIndex = 2;
             this.chbOverrideKeywords.Text = "Override keywords";
             this.chbOverrideKeywords.UseVisualStyleBackColor = true;
@@ -72,7 +73,7 @@
             this.chbOverrideAbstract.AutoSize = true;
             this.chbOverrideAbstract.Location = new System.Drawing.Point(12, 35);
             this.chbOverrideAbstract.Name = "chbOverrideAbstract";
-            this.chbOverrideAbstract.Size = new System.Drawing.Size(107, 17);
+            this.chbOverrideAbstract.Size = new System.Drawing.Size(116, 19);
             this.chbOverrideAbstract.TabIndex = 3;
             this.chbOverrideAbstract.Text = "Override abstract";
             this.chbOverrideAbstract.UseVisualStyleBackColor = true;
@@ -82,7 +83,7 @@
             this.chbOverrideTOC.AutoSize = true;
             this.chbOverrideTOC.Location = new System.Drawing.Point(12, 58);
             this.chbOverrideTOC.Name = "chbOverrideTOC";
-            this.chbOverrideTOC.Size = new System.Drawing.Size(143, 17);
+            this.chbOverrideTOC.Size = new System.Drawing.Size(158, 19);
             this.chbOverrideTOC.TabIndex = 4;
             this.chbOverrideTOC.Text = "Override table of content";
             this.chbOverrideTOC.UseVisualStyleBackColor = true;
@@ -92,7 +93,7 @@
             this.chbRemoveNotes.AutoSize = true;
             this.chbRemoveNotes.Location = new System.Drawing.Point(12, 81);
             this.chbRemoveNotes.Name = "chbRemoveNotes";
-            this.chbRemoveNotes.Size = new System.Drawing.Size(95, 17);
+            this.chbRemoveNotes.Size = new System.Drawing.Size(101, 19);
             this.chbRemoveNotes.TabIndex = 5;
             this.chbRemoveNotes.Text = "Remove notes";
             this.chbRemoveNotes.UseVisualStyleBackColor = true;
@@ -100,7 +101,7 @@
             // OverrideFieldsDialog
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(197, 141);

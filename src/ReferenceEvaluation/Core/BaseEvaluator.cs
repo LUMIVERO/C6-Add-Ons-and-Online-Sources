@@ -8,27 +8,21 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     internal abstract class BaseEvaluator
     {
-        #region Fields
+        // Fields
 
         protected StringBuilder _stringBuilder;
 
-        #endregion
-
-        #region Constructors
+        // Constructors
 
         protected BaseEvaluator() => _stringBuilder = new StringBuilder();
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public abstract string Caption { get; }
 
         public bool ShowHeader { get; set; }
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public abstract string Run(MainForm mainForm);
 
@@ -41,7 +35,5 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
                    .Select(type => Activator.CreateInstance(type) as BaseEvaluator)
                    .ToList();
         }
-
-        #endregion
     }
 }

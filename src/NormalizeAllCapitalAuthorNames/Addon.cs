@@ -5,19 +5,11 @@ using System;
 
 namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
 {
-    public class Addon : CitaviAddOn<PersonList>
+    public partial class Addon : CitaviAddOn<PersonList>
     {
-        #region Constants
-
-        const string Key_Button_NormalizeAllCapitalAuthorNames = "SwissAcademic.Addons.NormalizeAllCapitalAuthorNames.CommandbarButton";
-
-        #endregion
-
-        #region Methods
-
         public override void OnBeforePerformingCommand(PersonList personList, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_NormalizeAllCapitalAuthorNames, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 Macro.Run(personList);
@@ -26,23 +18,23 @@ namespace SwissAcademic.Addons.NormalizeAllCapitalAuthorNamesAddon
 
         public override void OnHostingFormLoaded(PersonList personList)
         {
-            personList.GetCommandbar(PersonListCommandbarId.Menu)
-                      .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                      .InsertCommandbarButton(2, Key_Button_NormalizeAllCapitalAuthorNames, Resources.NormalizeAuthorNamesCommandText, image: Resources.addon);
+            personList
+                .GetCommandbar(PersonListCommandbarId.Menu)
+                .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
+                .InsertCommandbarButton(2, ButtonKey, Resources.NormalizeAuthorNamesCommandText, image: Resources.addon);
         }
 
         public override void OnLocalizing(PersonList personList)
         {
-            var button = personList.GetCommandbar(PersonListCommandbarId.Menu)
-                                   .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
-                                   .GetCommandbarButton(Key_Button_NormalizeAllCapitalAuthorNames);
+            var button = personList
+                            .GetCommandbar(PersonListCommandbarId.Menu)
+                            .GetCommandbarMenu(PersonListCommandbarMenuId.Persons)
+                            .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {
                 button.Text = Resources.NormalizeAuthorNamesCommandText;
             }
         }
-
-        #endregion
     }
 }

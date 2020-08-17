@@ -6,22 +6,14 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.TomatoTimerAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string PanelKey = "Tomato.Panel.{0}";
-
-        #endregion
-
-        #region Fields
+        // Fields
 
         readonly TomatoTimer _tomatoTimer;
         readonly Dictionary<Form, Infragistics.Win.UltraWinStatusBar.UltraStatusPanel> _formsAndPanels;
 
-        #endregion
-
-        #region Constructors
+        // Constructors
 
         public Addon()
         {
@@ -30,9 +22,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
             _formsAndPanels = new Dictionary<Form, Infragistics.Win.UltraWinStatusBar.UltraStatusPanel>();
         }
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void OnApplicationIdle(MainForm mainForm)
         {
@@ -79,9 +69,7 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
             }
         }
 
-        #endregion
-
-        #region EventHandlers
+        // EventHandlers
 
         void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -123,7 +111,5 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
                 });
             }
         }
-
-        #endregion
     }
 }

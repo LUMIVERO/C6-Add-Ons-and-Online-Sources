@@ -1,25 +1,30 @@
 ﻿using Infragistics.Win.UltraWinToolbars;
+using SwissAcademic.Citavi.Shell;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.MacroManagerAddon
 {
     internal class MacroContainer
     {
-        #region Constructors
+        // Constructors
 
-        public MacroContainer(Form form) => Form = form;
+        public MacroContainer(MainForm mainForm) => MainForm = mainForm;
 
-        #endregion
+        // Properties
 
-        #region Properties
+        public MainForm MainForm { get; }
 
-        public Form Form { get; }
-
-        public Dictionary<string, MacroCommand> Macros { get; } = new Dictionary<string, MacroCommand>();
+        public Dictionary<string, Macro> Macros { get; } = new Dictionary<string, Macro>();
 
         public Dictionary<ToolBase, string> Tools { get; } = new Dictionary<ToolBase, string>();
 
-        #endregion
+        // Methods
+
+        public void Reset()
+        {
+            Tools.ForEach(tool => tool.Key.ToolbarsManager.Tools.Remove(tool.Key));
+            Tools.Clear();
+            Macros.Clear();
+        }
     }
 }

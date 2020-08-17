@@ -13,7 +13,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
         {
             var results = new List<SequenceNumberImportInfo>();
 
-            using (var connection = new SQLiteConnection("Data Source={0};".FormatString(projectPath)))
+            using (var connection = new SQLiteConnection($"Data Source={projectPath};"))
             {
                 connection.Open();
                 var sql = "select ID, SequenceNumber from reference";

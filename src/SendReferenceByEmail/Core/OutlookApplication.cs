@@ -7,8 +7,6 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
 {
     public static class OutlookApplication
     {
-        #region Methods
-
         public static void SendEMail(MailTemplate mailTemplate)
         {
             var outlook = GetOutlookApplication();
@@ -25,7 +23,5 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
                    ? Marshal.GetActiveObject("Outlook.Application") as Application
                    : new Application();
         }
-
-        #endregion
     }
 }

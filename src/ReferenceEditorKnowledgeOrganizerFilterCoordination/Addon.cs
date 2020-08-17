@@ -8,13 +8,11 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
 {
     public class Addon : CitaviAddOn<MainForm>
     {
-        #region Fields
+        // Fields
 
         bool _eventsSuspended;
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void OnHostingFormLoaded(MainForm mainForm) => ObserveMainForm(mainForm, true);
 
@@ -34,9 +32,7 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             }
         }
 
-        #endregion
-
-        #region Event handlers
+        // EventHandlers
 
         void MainForm_FormClosed(object sender, FormClosedEventArgs e) => ObserveMainForm((MainForm)sender, false);
 
@@ -49,13 +45,7 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             {
                 _eventsSuspended = true;
 
-                MainForm activeMainForm = null;
-
-                foreach (var projectShell in Program.ProjectShells)
-                {
-                    activeMainForm = projectShell.MainForms.FirstOrDefault(mainForm => sender == mainForm.KnowledgeOrganizerFilterSet.Filters);
-                    if (activeMainForm != null) break;
-                }
+                var activeMainForm = GetActiveMainFormOrDefault(mainForm => sender == mainForm.KnowledgeOrganizerFilterSet.Filters);
 
                 if (activeMainForm == null) return;
 
@@ -91,13 +81,7 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             {
                 _eventsSuspended = true;
 
-                MainForm activeMainForm = null;
-
-                foreach (var projectShell in Program.ProjectShells)
-                {
-                    activeMainForm = projectShell.MainForms.FirstOrDefault(mainForm => sender == mainForm.ReferenceEditorFilterSet.Filters);
-                    if (activeMainForm != null) break;
-                }
+                var activeMainForm = GetActiveMainFormOrDefault(mainForm => sender == mainForm.ReferenceEditorFilterSet.Filters);
 
                 if (activeMainForm == null) return;
 
@@ -123,6 +107,14 @@ namespace SwissAcademic.Addons.ReferenceEditorKnowledgeOrganizerFilterCoordinati
             }
         }
 
-        #endregion
+        MainForm GetActiveMainFormOrDefault(System.Func<MainForm,bool> filter)
+        {
+            foreach (var mainForms in Program.ProjectShells.Select(projectShell => projectShell.MainForms))
+            {
+                if (mainForms.FirstOrDefault(filter) is MainForm mainForm) return mainForm;
+            }
+
+            return null;
+        }
     }
 }

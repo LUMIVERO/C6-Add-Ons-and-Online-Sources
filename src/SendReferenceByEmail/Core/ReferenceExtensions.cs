@@ -91,11 +91,10 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
                        location.LocationType == LocationType.ElectronicAddress &&
                        ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
                        location.Address.CachingStatus == CachingStatus.Available) ||
-                       (
                            location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
                            location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
                            location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
-                       )) &&
+                       ) &&
                        File.Exists(location.Address.Resolve().GetLocalPathSafe())
                     select location).ToList();
         }

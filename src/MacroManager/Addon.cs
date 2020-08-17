@@ -10,84 +10,65 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.MacroManagerAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
+        // Fields
 
-        const string Key_Button_ShowMacroEditor = "SwissAcademic.Addons.MacroManager.ShowMacroEditor";
-        const string Key_Button_OpenInExplorer = "SwissAcademic.Addons.MacroManager.OpenInExplorer";
-        const string Key_Button_Refresh = "SwissAcademic.Addons.MacroManager.Refresh";
-        internal const string Key_Menu_Directory = "SwissAcademic.Addons.MacroManager.Menu.{0}";
-        internal const string Key_Button_Directory = "SwissAcademic.Addons.MacroManager.Command";
-        const string Key_Menu_MacroManager = "SwissAcademic.Addons.MacroManager.MacroMenu";
-        const string Key_Button_Config = "SwissAcademic.Addons.MacroManager.ConfigCommand";
-        const string Key_MacrosDirectory = "SwissAcademic.Addons.MacroManager.MacrosDirectory";
+        readonly List<MacroContainer> _containers = new List<MacroContainer>();
 
-        #endregion
-
-        #region Fields
-
-        MacroEditorForm _editor;
-        readonly List<MacroContainer> _containers;
-
-        #endregion
-
-        #region Constructors
-
-        public Addon() => _containers = new List<MacroContainer>();
-
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             e.Handled = true;
 
-            var container = _containers.FirstOrDefault(c => c.Form.Equals(mainForm));
+            var container = _containers.FirstOrDefault(c => c.MainForm.Equals(mainForm));
 
             switch (e.Key)
             {
-                case Key_Button_ShowMacroEditor:
+                case ButtonKey_ShowMacroEditor:
                     {
-                        CurrentEditor(mainForm, false, out bool hidden, out bool isNew).Activate();
+                        GetOrCreateMacroEditorForm(false, out bool _, out bool _).Activate();
                     }
                     break;
-                case Key_Button_Refresh:
+                case ButtonKey_Refresh:
                     {
                         UpdateTools(container);
                     }
                     break;
-                case Key_Button_Config:
+                case ButtonKey_Configurate:
                     {
 
-                        using (var directoryDialog = new DirectoryDialog(mainForm, Settings.TryGetStringValue(Key_MacrosDirectory)))
+                        using (var directoryDialog = new DirectoryForm(mainForm, Settings.TryGetStringValue(SettingsKey)))
                         {
                             if (directoryDialog.ShowDialog() == DialogResult.OK)
                             {
-                                Settings[Key_MacrosDirectory] = directoryDialog.Directory;
-                                Program.Settings.InitialDirectories.SetInitialDirectoryContext(Citavi.Settings.InitialDirectoryContext.Macros, Path2.GetFullPathFromPathWithVariables(directoryDialog.Directory));
-                                UpdateTools(container);
+                                if (!directoryDialog.Directory.Equals(Settings.TryGetStringValue(SettingsKey), StringComparison.OrdinalIgnoreCase))
+                                {
+                                    Settings[SettingsKey] = directoryDialog.Directory;
+                                    Program.Settings.InitialDirectories.SetInitialDirectoryContext(Citavi.Settings.InitialDirectoryContext.Macros, Path2.GetFullPathFromPathWithVariables(directoryDialog.Directory));
+                                    UpdateTools(container);
+                                }
                             }
                         }
                     }
                     break;
-                case Key_Button_OpenInExplorer:
+                case ButtonKey_OpenInExplorer:
                     {
                         if (IsValidDirectory(out string message))
                         {
-                            var path = Path2.GetFullPathFromPathWithVariables(Settings[Key_MacrosDirectory]);
+                            var path = Path2.GetFullPathFromPathWithVariables(Settings[SettingsKey]);
                             Process.Start("explorer.exe", path);
                         }
                         else
                         {
-                            MessageBox.Show(e.Form, message, e.Form.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(mainForm, message, mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     break;
                 default:
 
-                    if (e.Key.StartsWith(Key_Button_Directory, StringComparison.OrdinalIgnoreCase))
+                    if (e.Key.StartsWith(ButtonKey, StringComparison.OrdinalIgnoreCase))
                     {
                         if (container.Macros.ContainsKey(e.Key))
                         {
@@ -97,27 +78,27 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                             {
                                 var hide = macro.Action == MacroAction.Run;
 
-                                _editor = CurrentEditor(e.Form, hide, out bool hidden, out bool isNew);
+                                var editor = GetOrCreateMacroEditorForm(hide, out bool hidden, out bool isNew);
 
-                                if (!isNew && _editor.IsDirty())
+                                if (!isNew && editor.IsDirty())
                                 {
-                                    if (MessageBox.Show(e.Form, Properties.Resources.UserWarningSaveMessage, e.Form.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                                    if (MessageBox.Show(mainForm, Properties.Resources.UserWarningSaveMessage, mainForm.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                                     {
-                                        _editor.Save();
+                                        editor.Save();
                                     }
                                 }
 
-                                _editor.MacroCode = File.ReadAllText(macro.Path);
-                                _editor.SetFilePath(macro.Path);
-                                _editor.Activate();
+                                editor.MacroCode = File.ReadAllText(macro.Path);
+                                editor.SetFilePath(macro.Path);
+                                editor.Activate();
 
-                                if (macro.Action == MacroAction.Run) _editor.Run();
+                                if (macro.Action == MacroAction.Run) editor.Run();
 
-                                if (hidden) _editor.Close();
+                                if (hidden) editor.Close();
                             }
                             else
                             {
-                                MessageBox.Show(e.Form, Properties.Resources.PathNotFoundMessage.FormatString(macro.Path), e.Form.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(mainForm, Properties.Resources.PathNotFoundMessage.FormatString(macro.Path), mainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 UpdateTools(container, true);
                             }
 
@@ -150,51 +131,52 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                 oldMacroEditorTool.Tool.ToolbarsManager.Tools.Remove(oldMacroEditorTool.Tool);
             }
 
-            var menu = mainForm.GetMainCommandbarManager()
-                           .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                           .InsertCommandbarMenu(17, Key_Menu_MacroManager, Properties.Resources.MacroCommand);
+            var menu = mainForm
+                        .GetMainCommandbarManager()
+                        .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                        .InsertCommandbarMenu(17, MenuKey_Macros, Properties.Resources.MacroCommand);
 
             if (menu != null)
             {
-                menu.AddCommandbarButton(Key_Button_Config, Properties.Resources.ConfigurateCommand);
+                menu.AddCommandbarButton(ButtonKey_Configurate, Properties.Resources.ConfigurateCommand);
 
                 UpdateTools(container, true);
 
                 if (menu != null)
                 {
 
-                    var button = menu.InsertCommandbarButton(2, Key_Button_ShowMacroEditor, Properties.Resources.MacroEditorCommand);
+                    var button = menu.InsertCommandbarButton(2, ButtonKey_ShowMacroEditor, Properties.Resources.MacroEditorCommand);
                     button.Shortcut = (Shortcut)(Keys.Alt | Keys.F11);
                     button.HasSeparator = true;
 
 
-                    button = menu.AddCommandbarButton(Key_Button_Refresh, Properties.Resources.RefreshCommand, image: Properties.Resources.Refresh);
+                    button = menu.AddCommandbarButton(ButtonKey_Refresh, Properties.Resources.RefreshCommand, image: Properties.Resources.Refresh);
                     button.Tool.InstanceProps.IsFirstInGroup = true;
                 }
             }
         }
 
-        public override void OnLocalizing(MainForm form)
+        public override void OnLocalizing(MainForm mainForm)
         {
-            var menu = GetMacroMenu(form);
+            var menu = mainForm.GetMacrosMenu();
 
             if (menu != null)
             {
                 menu.Text = Properties.Resources.MacroCommand;
 
-                var button = menu.GetCommandbarButton(Key_Button_Config);
+                var button = menu.GetCommandbarButton(ButtonKey_Configurate);
 
                 if (button != null) button.Text = Properties.Resources.ConfigurateCommand;
 
-                button = menu.GetCommandbarButton(Key_Button_ShowMacroEditor);
+                button = menu.GetCommandbarButton(ButtonKey_ShowMacroEditor);
 
                 if (button != null) button.Text = Properties.Resources.MacroEditorCommand;
 
-                button = menu.GetCommandbarButton(Key_Button_Refresh);
+                button = menu.GetCommandbarButton(ButtonKey_Refresh);
 
                 if (button != null) button.Text = Properties.Resources.RefreshCommand;
 
-                var container = _containers.FirstOrDefault(c => c.Form.Equals(form));
+                var container = _containers.FirstOrDefault(c => c.MainForm.Equals(mainForm));
 
                 if (container != null)
                 {
@@ -210,67 +192,62 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             }
         }
 
-        MacroEditorForm CurrentEditor(Form form, bool hide, out bool hidden, out bool isNew)
+        MacroEditorForm GetOrCreateMacroEditorForm(bool hide, out bool hidden, out bool isNew)
         {
-            if (_editor != null)
+            var editor = Application.OpenForms.OfType<MacroEditorForm>().FirstOrDefault();
+
+            if (editor != null)
             {
-                hidden = !_editor.Visible;
+                hidden = !editor.Visible;
                 isNew = false;
-                return _editor;
+                return editor;
             }
 
             isNew = true;
-            _editor = new MacroEditorForm();
-            _editor.FormClosed += MacroEditorForm_FormClosed;
-
+            editor = new MacroEditorForm();
 
 #if DEBUG
-            _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroInternal;
+            editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroInternal;
 #else
             _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroExternal;
 #endif
-            _editor.SetAsDefault();
+            editor.SetAsDefault();
             if (hide)
             {
-                _editor.Opacity = 0;
-                _editor.Show();
+                editor.Opacity = 0;
+                editor.Show();
             }
             else
-                _editor.Show();
+                editor.Show();
 
             hidden = hide;
 
-            if (hide) _editor.Hide();
+            if (hide) editor.Hide();
 
-            return _editor;
+            return editor;
         }
 
         void UpdateTools(MacroContainer container, bool supressMessage = false)
         {
-            foreach (var tool in container.Tools)
-            {
-                tool.Key.ToolbarsManager.Tools.Remove(tool.Key);
-            }
-
-            container.Tools.Clear();
-            container.Macros.Clear();
+            container.MainForm.SuspendLayout();
+            container.Reset();
             RunTravers(container, supressMessage);
-
+            container.MainForm.ResumeLayout();
         }
 
         void RunTravers(MacroContainer container, bool supressMessage = false)
         {
             if (IsValidDirectory(out string message))
             {
-                var menu = GetMacroMenu(container.Form);
+                var menu = container.MainForm.GetMacrosMenu();
 
                 if (menu != null)
                 {
-                    var button = menu.InsertCommandbarButton(1, Key_Button_OpenInExplorer, Properties.Resources.OpenInExplorerCommand);
+                    var button = menu.InsertCommandbarButton(1, ButtonKey_OpenInExplorer, Properties.Resources.OpenInExplorerCommand);
                     container.Tools.Add(button.Tool, "OpenInExplorerCommand");
                 }
 
-                var macrosDirectory = Path2.GetFullPathFromPathWithVariables(Settings[Key_MacrosDirectory]);
+                var macrosDirectory = Path2.GetFullPathFromPathWithVariables(Settings[SettingsKey]);
 
 
                 int folderCounter = 1;
@@ -280,12 +257,10 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                 {
                     DirectoryConverter.Travers(menu, 3, ref folderCounter, ref fileCounter, macrosDirectory, container, true);
                 }
-
-
             }
             else
             {
-                if (!supressMessage) MessageBox.Show(container.Form, message, container.Form.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!supressMessage) MessageBox.Show(container.MainForm, message, container.MainForm.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -293,13 +268,13 @@ namespace SwissAcademic.Addons.MacroManagerAddon
         {
             message = null;
 
-            if (!Settings.ContainsKey(Key_MacrosDirectory))
+            if (!Settings.ContainsKey(SettingsKey))
             {
                 message = Properties.Resources.ConfigurateAddonMessage;
                 return false;
             }
 
-            if (!Directory.Exists(Path2.GetFullPathFromPathWithVariables(Settings[Key_MacrosDirectory])))
+            if (!Directory.Exists(Path2.GetFullPathFromPathWithVariables(Settings[SettingsKey])))
             {
                 message = Properties.Resources.DirectoryNotFoundMessage;
                 return false;
@@ -308,39 +283,17 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             return true;
         }
 
-        CommandbarMenu GetMacroMenu(Form form)
-        {
-            if (form is MainForm mainForm)
-            {
-                return mainForm.GetMainCommandbarManager()
-                            .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                            .GetCommandbarMenu(Key_Menu_MacroManager);
-            }
-
-            return null;
-        }
-
-        #endregion
-
-        #region Eventhandler
-
-        void MacroEditorForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _editor.FormClosed -= MacroEditorForm_FormClosed;
-            _editor = null;
-        }
+        // Eventhandler
 
         void Form_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (sender is Form form)
+            if (sender is MainForm mainForm)
             {
-                var container = _containers.FirstOrDefault(c => c.Form.Equals(form));
+                var container = _containers.FirstOrDefault(c => c.MainForm.Equals(mainForm));
                 if (container != null) _containers.Remove(container);
 
-                form.FormClosed -= Form_FormClosed;
+                mainForm.FormClosed -= Form_FormClosed;
             }
         }
-
-        #endregion
     }
 }

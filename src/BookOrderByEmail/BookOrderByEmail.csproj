@@ -6,6 +6,7 @@
   <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props')" />
   <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.0.0\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.0.0\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
   <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
@@ -33,7 +34,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-   <StartProgram />
+    <StartProgram />
     <StartAction>Project</StartAction>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
@@ -47,6 +48,10 @@
     <Reference Include="Citavi">
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\netstandard.dll</HintPath>
     </Reference>
     <Reference Include="OUTLPIA">
       <HintPath>..\SolutionItems\OUTLPIA.DLL</HintPath>
@@ -75,15 +80,17 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addon.Constants.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Addon.cs" />
     <Compile Include="Core\Extensions.cs" />
-    <Compile Include="Dialogs\ConfigDialog.cs">
+    <Compile Include="Forms\MailTemplateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ConfigDialog.Designer.cs">
-      <DependentUpon>ConfigDialog.cs</DependentUpon>
+    <Compile Include="Forms\MailTemplateForm.Designer.cs">
+      <DependentUpon>MailTemplateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\Configuration.cs" />
     <Compile Include="Core\MailTemplate.cs" />
     <Compile Include="Core\Outlook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,8 +110,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Dialogs\ConfigDialog.resx">
-      <DependentUpon>ConfigDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MailTemplateForm.resx">
+      <DependentUpon>MailTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>

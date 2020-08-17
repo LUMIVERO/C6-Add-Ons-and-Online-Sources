@@ -6,29 +6,21 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_ExportAttachmentsToCategoryFolderStructure = "SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructure.Button";
-
-        #endregion
-
-        #region Methods
-
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_ExportAttachmentsToCategoryFolderStructure, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
-                var previews = Previews.Create();
+                var previews = Previews.Instance;
 
                 try
                 {
                     previews.Close();
 
-                    if (AskForExportPath(out string exportPath))
+                    if (ChooseDirectory(out string exportPath))
                     {
                         Macro.Run(mainForm, exportPath);
                     }
@@ -42,39 +34,41 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .InsertCommandbarButton(4, Key_Button_ExportAttachmentsToCategoryFolderStructure, Resources.Button_Text, image: Resources.addon);
+            mainForm
+                .GetMainCommandbarManager()
+                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                .InsertCommandbarButton(4, ButtonKey, Resources.Button_Text, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            var button = mainForm.GetMainCommandbarManager()
-                                 .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                                 .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(Key_Button_ExportAttachmentsToCategoryFolderStructure);
+            var button = mainForm
+                            .GetMainCommandbarManager()
+                            .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                            .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                            .GetCommandbarButton(ButtonKey);
+            
             if (button != null)
             {
                 button.Text = Resources.Button_Text;
             }
         }
 
-        static bool AskForExportPath(out string exportPath)
+        static bool ChooseDirectory(out string directory)
         {
-            exportPath = null;
+            directory = null;
+
             using (var folderBrowserDialog = new FolderBrowserDialog { Description = Resources.Messages_SelectRootFolder, SelectedPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) })
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    exportPath = folderBrowserDialog.SelectedPath;
+                    directory = folderBrowserDialog.SelectedPath;
                     return true;
                 }
             }
 
             return false;
         }
-
-        #endregion
     }
 }

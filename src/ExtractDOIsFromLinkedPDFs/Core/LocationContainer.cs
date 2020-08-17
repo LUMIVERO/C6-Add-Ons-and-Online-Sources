@@ -7,6 +7,5 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
         public Location Location { get; set; }
 
         public string Path { get; set; }
-
     }
 }

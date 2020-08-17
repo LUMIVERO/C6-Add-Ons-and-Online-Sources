@@ -14,7 +14,7 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
 {
     internal static class Macro
     {
-        public static async Task Run(MainForm mainForm, Project project)
+        public static async Task RunAsync(MainForm mainForm, Project project)
         {
             if (project.ProjectType == ProjectType.DesktopCloud)
             {
@@ -35,14 +35,12 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
                     if (cts.IsCancellationRequested) return;
                 }
 
-                var hasUnavailableAttachments = (from location in project.AllLocations
-                                                 where
+                var hasUnavailableAttachments = project.AllLocations.Any(location =>
                                                      location.LocationType == LocationType.ElectronicAddress &&
                                                      string.IsNullOrEmpty(location.Reference.Doi) &&
                                                      location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
                                                      location.Address.Properties.ContentType.Equals("application/pdf", StringComparison.OrdinalIgnoreCase) &&
-                                                     location.Address.CachingStatus != CachingStatus.Available
-                                                 select location).Any();
+                                                     location.Address.CachingStatus != CachingStatus.Available);
 
                 if (hasUnavailableAttachments)
                 {
@@ -58,11 +56,11 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
                                   string.IsNullOrEmpty(location.Reference.Doi) &&
                                   ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote &&
                                   location.Address.CachingStatus == CachingStatus.Available) ||
-                                  (
+
                                       location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
                                       location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
                                       location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
-                                  ))
+                                  )
                               let path = location.Address.Resolve().GetLocalPathSafe()
                               where
                                  File.Exists(path) &&

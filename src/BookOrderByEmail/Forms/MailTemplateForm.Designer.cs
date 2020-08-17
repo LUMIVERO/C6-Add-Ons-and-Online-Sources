@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
-    partial class ConfigDialog
+    partial class MailTemplateForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Location = new System.Drawing.Point(224, 277);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
@@ -63,7 +63,7 @@
             this.lblReceiver.AutoSize = true;
             this.lblReceiver.Location = new System.Drawing.Point(9, 9);
             this.lblReceiver.Name = "lblReceiver";
-            this.lblReceiver.Size = new System.Drawing.Size(35, 13);
+            this.lblReceiver.Size = new System.Drawing.Size(38, 15);
             this.lblReceiver.TabIndex = 2;
             this.lblReceiver.Text = "label1";
             // 
@@ -72,7 +72,7 @@
             this.lblBody.AutoSize = true;
             this.lblBody.Location = new System.Drawing.Point(9, 61);
             this.lblBody.Name = "lblBody";
-            this.lblBody.Size = new System.Drawing.Size(35, 13);
+            this.lblBody.Size = new System.Drawing.Size(38, 15);
             this.lblBody.TabIndex = 3;
             this.lblBody.Text = "label1";
             // 
@@ -82,7 +82,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtReceiver.Location = new System.Drawing.Point(12, 25);
             this.txtReceiver.Name = "txtReceiver";
-            this.txtReceiver.Size = new System.Drawing.Size(368, 20);
+            this.txtReceiver.Size = new System.Drawing.Size(368, 23);
             this.txtReceiver.TabIndex = 4;
             // 
             // txtBody
@@ -98,7 +98,7 @@
             // ConfigDialog
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(392, 312);

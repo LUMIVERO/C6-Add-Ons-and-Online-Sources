@@ -7,16 +7,16 @@ namespace SwissAcademic.Addons.C6ToC5ExportAddon
     {
         public static bool HasFileLocations(this ProjectAllLocationsCollection locations)
         {
-            return (from location in locations
-                    where
-                       location.LocationType == LocationType.ElectronicAddress &&
-                       ((location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote) ||
-                       (
-                           location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
-                           location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
-                           location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri
-                       ))
-                    select location).Any();
+            return
+                locations
+                .Any(location =>
+                    location.LocationType == LocationType.ElectronicAddress &&
+                    (
+                        location.Address.LinkedResourceType == LinkedResourceType.AttachmentRemote ||
+                        location.Address.LinkedResourceType == LinkedResourceType.AttachmentFile ||
+                        location.Address.LinkedResourceType == LinkedResourceType.AbsoluteFileUri ||
+                        location.Address.LinkedResourceType == LinkedResourceType.RelativeFileUri)
+                    );
         }
     }
 }

@@ -16,13 +16,15 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
     {
         public async static Task Run(MainForm mainForm, MacroSettings settings)
         {
-            var referencesWithPmid = mainForm.GetFilteredReferences()
-                                            .Where(reference => !string.IsNullOrEmpty(reference.PubMedId))
-                                            .ToList();
+            var referencesWithPmid = mainForm
+                                        .GetFilteredReferences()
+                                        .Where(reference => !string.IsNullOrEmpty(reference.PubMedId))
+                                        .ToList();
 
-            var referencesWithDoi = mainForm.GetFilteredReferences()
-                                           .Where(reference => string.IsNullOrEmpty(reference.PubMedId) && !string.IsNullOrEmpty(reference.Doi))
-                                           .ToList();
+            var referencesWithDoi = mainForm
+                                        .GetFilteredReferences()
+                                        .Where(reference => string.IsNullOrEmpty(reference.PubMedId) && !string.IsNullOrEmpty(reference.Doi))
+                                        .ToList();
 
             try
             {

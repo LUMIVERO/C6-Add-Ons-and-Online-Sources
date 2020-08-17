@@ -8,13 +8,11 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
     internal class PersonEvaluator : BaseEvaluator
     {
-        #region Properties
+        // Properties
 
         public override string Caption => Resources.PersonEvaluator_Caption;
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override string Run(MainForm mainForm)
         {
@@ -105,7 +103,5 @@ namespace SwissAcademic.Addons.ReferenceEvaluationAddon
                  : System.Math.Max(entities.Max(entity => entity.CountByProject.ToString().Length), Resources.Evaluator_Count.Length)
             };
         }
-
-        #endregion
     }
 }

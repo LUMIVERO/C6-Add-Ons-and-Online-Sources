@@ -8,31 +8,17 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
+        // Fields
 
-        const string Key_Button_DerivePageCountFromPageRange = "SwissAcademic.Addons.DerivePageCountFromPageRange.CommandbarButton";
+        readonly List<Project> _observedProjects = new List<Project>();
 
-        #endregion
-
-        #region Fields
-
-        readonly List<Project> _observedProjects;
-
-        #endregion
-
-        #region Constructors
-
-        public Addon() => _observedProjects = new List<Project>();
-
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_DerivePageCountFromPageRange, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
 
@@ -68,7 +54,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
                 var button = mainForm.GetMainCommandbarManager()
                                      .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                      .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                     .AddCommandbarButton(Key_Button_DerivePageCountFromPageRange, Properties.Resources.DerivePageCountFromPageRange, image: Properties.Resources.addon);
+                                     .AddCommandbarButton(ButtonKey, Properties.Resources.DerivePageCountFromPageRange, image: Properties.Resources.addon);
                 if (button != null)
                 {
                     button.HasSeparator = true;
@@ -86,14 +72,13 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
             var button = mainForm.GetMainCommandbarManager()
                                   .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                   .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                  .GetCommandbarButton(Key_Button_DerivePageCountFromPageRange);
+                                  .GetCommandbarButton(ButtonKey);
 
             if (button != null)
             {
                 button.Text = Properties.Resources.DerivePageCountFromPageRange;
             }
         }
-
 
         static void DerivePageCountFromPageRange(Reference reference)
         {
@@ -125,9 +110,7 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
             else project.References.CollectionChanged -= References_CollectionChanged;
         }
 
-        #endregion
-
-        #region Eventhandlers
+        // EventHandlers
 
         void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -164,7 +147,5 @@ namespace SwissAcademic.Addons.DerivePageCountFromPageRangeAddon
                     break;
             }
         }
-
-        #endregion
     }
 }

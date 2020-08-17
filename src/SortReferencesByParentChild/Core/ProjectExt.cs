@@ -10,13 +10,11 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
         {
             try
             {
-                project.ProjectSettings[Addon.Key_Settings_Addon] = "true";
-                project.ProjectSettings.Save(true);
-
+                project.ProjectSettings[Addon.SettingsKey] = "true";
             }
             catch (Exception ignored)
             {
-                Telemetry.Error(ignored, string.Empty, ignored.Message, null);
+                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
             }
         }
 
@@ -24,12 +22,11 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
         {
             try
             {
-                project.ProjectSettings[Addon.Key_Settings_Addon] = "false";
-                project.ProjectSettings.Save(true);
+                project.ProjectSettings[Addon.SettingsKey] = "false";
             }
             catch (Exception ignored)
             {
-                Telemetry.Error(ignored, string.Empty, ignored.Message, null);
+                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
             }
         }
 
@@ -37,11 +34,11 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
         {
             try
             {
-                return bool.Parse(project.ProjectSettings[Addon.Key_Settings_Addon].ToString());
+                return bool.Parse(project.ProjectSettings[Addon.SettingsKey].ToString());
             }
             catch (Exception ignored)
             {
-                Telemetry.Error(ignored, string.Empty, ignored.Message, null);
+                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
             }
             return false;
         }

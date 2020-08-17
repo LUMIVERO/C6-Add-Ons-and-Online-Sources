@@ -5,35 +5,22 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_OrderPerEmail = "SwissAcademic.Addons.BookOrderByEmail.OrderPerEmail";
-        const string Key_Button_OrderPerClipboard = "SwissAcademic.Addons.BookOrderByEmail.OrderPerClipboard";
-        const string Key_Button_ConfigOrders = "SwissAcademic.Addons.BookOrderByEmail.ConfigOrders";
-        const string Key_Menu = "SwissAcademic.Addons.BookOrderByEmail.Menu";
-
-        #endregion
-
-        #region Fields
-
-        Configuration _configuration;
-
-        #endregion
-
-        #region Methods
-
         public override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
             e.Handled = true;
+
+            var body = Settings.GetValueOrDefault(SettingsKey_Body);
+            var receiver = Settings.GetValueOrDefault(SettingsKey_Receiver);
+
             switch (e.Key)
             {
-                case Key_Button_OrderPerEmail:
+                case ButtonKey_OrderPerEmail:
                     {
                         try
                         {
-                            mainForm.ActiveReference.OrderByEMail(_configuration);
+                            mainForm.ActiveReference.OrderByEMail(receiver, body);
                         }
                         catch (System.Runtime.InteropServices.COMException)
                         {
@@ -41,14 +28,14 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
                         }
                     }
                     break;
-                case Key_Button_OrderPerClipboard:
+                case ButtonKey_OrderPerClipboard:
                     {
-                        mainForm.ActiveReference.OrderByClipboard(_configuration);
+                        mainForm.ActiveReference.OrderByClipboard(receiver, body);
                     }
                     break;
-                case Key_Button_ConfigOrders:
+                case ButtonKey_ConfigOrders:
                     {
-                        Configurate(mainForm);
+                        ShowMailTemplateForm(mainForm);
                     }
                     break;
                 default:
@@ -59,26 +46,22 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            if (_configuration == null)
-            {
-                _configuration = new Configuration(Settings);
-            }
-
             var menu = mainForm
                        .GetReferenceEditorTasksCommandbarManager()
                        .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
-                       .InsertCommandbarMenu(2, Key_Menu, Resources.TasksOrder, CommandbarItemStyle.ImageAndText, image: Resources.addon);
+                       .InsertCommandbarMenu(2, MenuKey, Resources.TasksOrder, CommandbarItemStyle.ImageAndText, image: Resources.addon);
+
             if (menu != null)
             {
                 menu.HasSeparator = true;
 
                 if (Outlook.IsInstalled)
                 {
-                    menu.AddCommandbarButton(Key_Button_OrderPerEmail, Resources.OrderByEMail);
+                    menu.AddCommandbarButton(ButtonKey_OrderPerEmail, Resources.OrderByEMail);
                 }
 
-                menu.AddCommandbarButton(Key_Button_OrderPerClipboard, Resources.OrderByClipboard);
-                var button = menu.AddCommandbarButton(Key_Button_ConfigOrders, Resources.ConfigureOrders);
+                menu.AddCommandbarButton(ButtonKey_OrderPerClipboard, Resources.OrderByClipboard);
+                var button = menu.AddCommandbarButton(ButtonKey_ConfigOrders, Resources.ConfigureOrders);
                 button.HasSeparator = true;
             }
 
@@ -86,30 +69,25 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         public override void OnLocalizing(MainForm mainForm)
         {
-            if (_configuration == null)
-            {
-                _configuration = new Configuration(Settings);
-            }
-
             var menu = mainForm.GetReferenceEditorTasksCommandbarManager()
                                .GetCommandbar(MainFormReferenceEditorTasksCommandbarId.Toolbar)
-                               .GetCommandbarMenu(Key_Menu);
+                               .GetCommandbarMenu(MenuKey);
             if (menu != null)
             {
                 menu.Text = Resources.TasksOrder;
-                var button = menu.GetCommandbarButton(Key_Button_OrderPerEmail);
+                var button = menu.GetCommandbarButton(ButtonKey_OrderPerEmail);
                 if (button != null)
                 {
                     button.Text = Resources.OrderByEMail;
                 }
 
-                button = menu.GetCommandbarButton(Key_Button_OrderPerClipboard);
+                button = menu.GetCommandbarButton(ButtonKey_OrderPerClipboard);
                 if (button != null)
                 {
                     button.Text = Resources.OrderByClipboard;
                 }
 
-                button = menu.GetCommandbarButton(Key_Button_ConfigOrders);
+                button = menu.GetCommandbarButton(ButtonKey_ConfigOrders);
                 if (button != null)
                 {
                     button.Text = Resources.ConfigureOrders;
@@ -118,18 +96,16 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         }
 
-        void Configurate(Form form)
+        void ShowMailTemplateForm(Form form)
         {
-            using (var dialog = new ConfigDialog(_configuration.Receiver, _configuration.Body) { Owner = form })
+            using (var dialog = new MailTemplateForm(Settings) { Owner = form })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    _configuration.Body = dialog.Body;
-                    _configuration.Receiver = dialog.Receiver;
+                    Settings.SetValueSafe(SettingsKey_Body, dialog.Body);
+                    Settings.SetValueSafe(SettingsKey_Receiver, dialog.Receiver);
                 }
             }
         }
-
-        #endregion
     }
 }

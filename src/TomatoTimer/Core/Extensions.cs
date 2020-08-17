@@ -7,17 +7,15 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     internal static class Extensions
     {
-        #region Infragistics.Win.UltraWinStatusBar.UltraStatusBar
-
         public static UltraStatusBar GetStatusBar(this MainForm mainForm)
         {
-            return mainForm.GetType()
-                           .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
-                           .FirstOrDefault(p => p.Name.Equals("statusBar"))?
-                           .GetValue(mainForm) as UltraStatusBar;
+            return 
+                mainForm
+                .GetType()
+                .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+                .FirstOrDefault(p => p.Name.Equals("statusBar"))?
+                .GetValue(mainForm) as UltraStatusBar;
         }
-
-        #endregion
 
         public static void TryCloseAlert(this MainForm mainForm, string key)
         {

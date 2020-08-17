@@ -6,6 +6,7 @@
   <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.3.0.0\build\Microsoft.CodeQuality.Analyzers.props')" />
   <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.0.0\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.0.0\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
   <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
@@ -34,7 +35,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-      <StartProgram />
+    <StartProgram />
     <StartAction>Project</StartAction>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
@@ -74,6 +75,10 @@
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\netstandard.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
@@ -101,6 +106,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addon.Constants.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Addon.cs" />
     <Compile Include="Core\Extensions.cs" />
     <Compile Include="Settings\AddonSettings.cs" />
@@ -111,17 +119,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WorkSpaceNameEditor.cs">
+    <Compile Include="Forms\WorkSpaceNameEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\WorkSpaceNameEditor.Designer.cs">
-      <DependentUpon>WorkSpaceNameEditor.cs</DependentUpon>
+    <Compile Include="Forms\WorkSpaceNameEditorForm.Designer.cs">
+      <DependentUpon>WorkSpaceNameEditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WorkSpaceEditor.cs">
+    <Compile Include="Forms\WorkSpaceEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\WorkSpaceEditor.Designer.cs">
-      <DependentUpon>WorkSpaceEditor.cs</DependentUpon>
+    <Compile Include="Forms\WorkSpaceEditorForm.Designer.cs">
+      <DependentUpon>WorkSpaceEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\WorkSpace.cs" />
   </ItemGroup>
@@ -134,8 +142,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\WorkSpaceEditor.resx">
-      <DependentUpon>WorkSpaceEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WorkSpaceEditorForm.resx">
+      <DependentUpon>WorkSpaceEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>
@@ -144,8 +152,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\WorkSpaceNameEditor.resx">
-      <DependentUpon>WorkSpaceNameEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WorkSpaceNameEditorForm.resx">
+      <DependentUpon>WorkSpaceNameEditorForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
-    public partial class WorkSpaceNameEditor : FormBase
+    public partial class WorkSpaceNameEditorForm : FormBase
     {
         #region Fields
 
@@ -18,13 +18,14 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 
         #region Constructors
 
-        public WorkSpaceNameEditor(Form owner, IEnumerable<string> captions) : base(owner)
+        public WorkSpaceNameEditorForm(Form owner, IEnumerable<string> captions) : base(owner)
         {
             InitializeComponent();
+            Owner = owner;
             _captions = captions;
         }
 
-        public WorkSpaceNameEditor(Form owner, IEnumerable<string> captions, string caption) : this(owner, captions)
+        public WorkSpaceNameEditorForm(Form owner, IEnumerable<string> captions, string caption) : this(owner, captions)
         {
             txt_workspace_name.Text = caption;
             _caption = caption;

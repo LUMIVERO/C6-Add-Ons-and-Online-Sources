@@ -9,13 +9,11 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
     public class ItemFilter : IReferenceNavigationGridDisplayItemFilter
     {
-        #region Fields
+        // Fields
 
         readonly MainForm _mainForm;
 
-        #endregion
-
-        #region Constructors
+        // Constructors
 
         public ItemFilter(MainForm mainForm) => _mainForm = mainForm;
 
@@ -31,15 +29,14 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
         }
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         List<Reference> GetAvailableParents()
         {
-            return _mainForm?
-                   .GetFilteredReferences()
-                   .FindAll(reference => reference?.ReferenceType?.AllowedChildren?.Count > 0) ?? new List<Reference>();
+            return
+                _mainForm?
+                .GetFilteredReferences()
+                .FindAll(reference => reference?.ReferenceType?.AllowedChildren?.Count > 0) ?? new List<Reference>();
         }
 
         public bool Filters(ReferenceNavigationGridDisplayItemColumn column) => true;
@@ -198,6 +195,5 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
         }
 
-        #endregion
     }
 }

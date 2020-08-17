@@ -7,6 +7,7 @@
   <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.0.0\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.0.0\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{138AD9BA-C3FA-4BC4-9B26-6CC5DCB40476}</ProjectGuid>
@@ -47,7 +48,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
-     <StartProgram />
+    <StartProgram />
     <StartAction>Project</StartAction>
     <DebugType>none</DebugType>
   </PropertyGroup>
@@ -79,6 +80,10 @@
     <Reference Include="Infragistics4.Win.v11.2">
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\netstandard.dll</HintPath>
     </Reference>
     <Reference Include="SwissAcademic">
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
@@ -113,19 +118,23 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addon.Constants.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Addon.cs" />
     <Compile Include="Core\MacroContainer.cs" />
-    <Compile Include="Dialogs\DirectoryDialog.cs">
+    <Compile Include="Forms\DirectoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DirectoryDialog.Designer.cs">
-      <DependentUpon>DirectoryDialog.cs</DependentUpon>
+    <Compile Include="Forms\DirectoryForm.Designer.cs">
+      <DependentUpon>DirectoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\MacroEditorFormExtensions.cs" />
+    <Compile Include="Core\MacroEditorFormExt.cs" />
     <Compile Include="Core\DirectoryConverter.cs" />
-    <Compile Include="Core\MacroCommand.cs" />
+    <Compile Include="Core\Macro.cs" />
     <Compile Include="Core\MacroAction.cs" />
     <Compile Include="Core\EnvironmentVariable.cs" />
+    <Compile Include="Core\MainFormExt.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,8 +143,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="Dialogs\DirectoryDialog.resx">
-      <DependentUpon>DirectoryDialog.cs</DependentUpon>
+    <Compile Include="Core\ReflectionExt.cs" />
+    <EmbeddedResource Include="Forms\DirectoryForm.resx">
+      <DependentUpon>DirectoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>

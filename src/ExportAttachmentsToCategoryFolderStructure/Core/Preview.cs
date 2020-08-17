@@ -11,60 +11,56 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 {
     internal class Preview
     {
-        #region Fields
+        // Fields
 
         readonly PreviewControl _previewControl;
         readonly Location _location;
 
-        #endregion
+        // Constructors
 
-        #region Constructors
+        public Preview(PreviewControl previewControl, Location location) => (_previewControl, _location) = (previewControl, location);
 
-        public Preview(PreviewControl previewControl, Location location)
-        {
-            _previewControl = previewControl;
-            _location = location;
-        }
-
-        #endregion
-
-        #region Method
+        // Method
 
         public void Close() => _previewControl.ShowNoPreview();
 
-
         public void Open() => _previewControl.ShowLocationPreview(_location, PreviewBehaviour.SkipEntryPage, false);
-
-        #endregion
     }
 
     internal class Previews : List<Preview>
     {
+        Previews() { }
+
         public void Close() => ForEach(preview => preview.Close());
 
         public void Open() => ForEach(preview => preview.Open());
 
-        public static Previews Create()
+        public static Previews Instance
         {
+            get
+            {
+                {
 
-            var previews = new Previews();
+                    var previews = new Previews();
 
-            var previewLocations = from projectShell in Program.ProjectShells
-                                   from mainForm in projectShell.Field<ProjectShell, List<MainForm>>("_previewFullScreenForms")
-                                   where
-                                          mainForm.PreviewControl.ActiveLocation != null
-                                   select new Preview(mainForm.PreviewControl, mainForm.PreviewControl.ActiveLocation);
+                    var previewLocations = from projectShell in Program.ProjectShells
+                                           from mainForm in projectShell.Field<ProjectShell, List<MainForm>>("_previewFullScreenForms")
+                                           where
+                                                  mainForm.PreviewControl.ActiveLocation != null
+                                           select new Preview(mainForm.PreviewControl, mainForm.PreviewControl.ActiveLocation);
 
-            previewLocations = previewLocations.Concat(from projectShell in Program.ProjectShells
-                                                       from mainForm in projectShell.MainForms
-                                                       where
-                                                           mainForm.PreviewControl != null &&
-                                                           mainForm.PreviewControl.ActiveLocation != null
-                                                       select new Preview(mainForm.PreviewControl, mainForm.PreviewControl.ActiveLocation));
+                    previewLocations = previewLocations.Concat(from projectShell in Program.ProjectShells
+                                                               from mainForm in projectShell.MainForms
+                                                               where
+                                                                   mainForm.PreviewControl != null &&
+                                                                   mainForm.PreviewControl.ActiveLocation != null
+                                                               select new Preview(mainForm.PreviewControl, mainForm.PreviewControl.ActiveLocation));
 
-            previews.AddRange(previewLocations.ToList());
+                    previews.AddRange(previewLocations.ToList());
 
-            return previews;
+                    return previews;
+                }
+            }
         }
     }
 
@@ -82,11 +78,12 @@ namespace SwissAcademic.Addons.ExportAttachmentsToCategoryFolderStructureAddon
 
         private static IEnumerable<MemberInfo> Members<TObject>(this TObject tObject, string memberName, MemberTypes memberType, BindingFlags bindingFlags)
         {
-            return tObject
-                   .GetType()
-                   .GetMembers(bindingFlags)
-                   .Where(prop => prop.Name.Equals(memberName, StringComparison.OrdinalIgnoreCase) && prop.MemberType == memberType)
-                   .ToList();
+            return 
+                tObject
+                .GetType()
+                .GetMembers(bindingFlags)
+                .Where(prop => prop.Name.Equals(memberName, StringComparison.OrdinalIgnoreCase) && prop.MemberType == memberType)
+                .ToList();
         }
     }
 }

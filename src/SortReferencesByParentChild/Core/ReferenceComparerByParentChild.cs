@@ -5,24 +5,20 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 {
     public class ReferenceComparerByParentChild : IComparer<Reference>
     {
-        #region Constructors
+        // Constructors
 
         ReferenceComparerByParentChild()
         {
 
         }
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         static ReferenceComparerByParentChild _default;
 
         public static ReferenceComparerByParentChild Default => _default ?? (_default = new ReferenceComparerByParentChild());
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public int Compare(Reference x, Reference y)
         {
@@ -68,7 +64,5 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
 
             return ReferenceComparer.ShortTitleAscending.Compare(x.ParentReference, y.ParentReference);
         }
-
-        #endregion
     }
 }

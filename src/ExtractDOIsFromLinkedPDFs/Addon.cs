@@ -6,24 +6,16 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_ExtractDOIsFromLinkedPDFs = "SwissAcademic.Addons.ExtractDOIsFromLinkedPDFs.DoiButtonCommand";
-
-        #endregion
-
-        #region Methods
-
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_ExtractDOIsFromLinkedPDFs, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
                 e.Handled = true;
                 try
                 {
-                    await Macro.Run(mainForm, mainForm.Project);
+                    await Macro.RunAsync(mainForm, mainForm.Project);
                 }
                 catch (Exception ex)
                 {
@@ -34,10 +26,11 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
 
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
-            mainForm.GetMainCommandbarManager()
-                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
-                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                    .InsertCommandbarButton(4, Key_Button_ExtractDOIsFromLinkedPDFs, Resources.CommandButtonText, image: Resources.addon);
+            mainForm
+                .GetMainCommandbarManager()
+                .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
+                .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
+                .InsertCommandbarButton(4, ButtonKey, Resources.CommandButtonText, image: Resources.addon);
         }
 
         public override void OnLocalizing(MainForm mainForm)
@@ -45,13 +38,11 @@ namespace SwissAcademic.Addons.ExtractDOIsFromLinkedPDFsAddon
             var button = mainForm.GetMainCommandbarManager()
                                  .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                  .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.References)
-                                 .GetCommandbarButton(Key_Button_ExtractDOIsFromLinkedPDFs);
+                                 .GetCommandbarButton(ButtonKey);
             if (button != null)
             {
                 button.Text = Resources.CommandButtonText;
             }
         }
-
-        #endregion
     }
 }

@@ -4,15 +4,13 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
 {
-    public partial class OverrideFieldsDialog : FormBase
+    public partial class OverrideFieldsForm : FormBase
     {
-        #region Constructors
+        // Constructors
 
-        public OverrideFieldsDialog(Form owner) : base(owner) => InitializeComponent();
+        public OverrideFieldsForm(Form owner) : base(owner) => InitializeComponent();
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public override void Localize()
         {
@@ -26,9 +24,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
             btnOk.Text = Resources.Ok;
         }
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public MacroSettings Settings => new MacroSettings
         {
@@ -37,7 +33,5 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
             OverwriteKeywords = chbOverrideKeywords.Checked,
             OverwriteTableOfContents = chbOverrideTOC.Checked
         };
-
-        #endregion
     }
 }

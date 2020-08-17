@@ -7,22 +7,14 @@ using System.Windows.Forms;
 
 namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 {
-    public class Addon : CitaviAddOn<MainForm>
+    public partial class Addon : CitaviAddOn<MainForm>
     {
-        #region Constants
-
-        const string Key_Button_ImportSequenceNumber = "SwissAcademic.Addons.ImportSequenceNumber.CommandbarButton";
-
-        #endregion
-
-        #region Methods
-
         public override void OnHostingFormLoaded(MainForm mainForm)
         {
             var button = mainForm.GetMainCommandbarManager()
                                     .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                     .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                    .AddCommandbarButton(Key_Button_ImportSequenceNumber, Properties.Resources.MenuCaption, image: Properties.Resources.addon);
+                                    .AddCommandbarButton(ButtonKey, Properties.Resources.MenuCaption, image: Properties.Resources.addon);
             if (button != null)
             {
                 button.HasSeparator = true;
@@ -31,19 +23,14 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 
         public async override void OnBeforePerformingCommand(MainForm mainForm, BeforePerformingCommandEventArgs e)
         {
-            if (e.Key.Equals(Key_Button_ImportSequenceNumber, StringComparison.OrdinalIgnoreCase))
+            if (e.Key.Equals(ButtonKey, StringComparison.OrdinalIgnoreCase))
             {
+                e.Handled = true;
+
                 if (mainForm.Project.ProjectType == ProjectType.DesktopSQLite)
                 {
-                    using (var openFileDialog = new OpenFileDialog()
+                    using (var openFileDialog = new OpenFileDialog { Title = Properties.Resources.OpenFileDialogTitle, Filter = Properties.Resources.OpenFileDialogFilters, CheckFileExists = true, CheckPathExists = true, Multiselect = false })
                     {
-                        Title = Properties.Resources.OpenFileDialogTitle,
-                        Filter = Properties.Resources.OpenFileDialogFilters,
-                        CheckFileExists = true,
-                        CheckPathExists = true,
-                        Multiselect = false
-                    })
-
                         if (openFileDialog.ShowDialog(mainForm) == DialogResult.OK)
                         {
                             try
@@ -57,7 +44,7 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
 
                                     if (sequenceNumbers.Count != 0)
                                     {
-                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdDialog(mainForm))
+                                        using (var chooseTargetFieldDialog = new ChoosePropertyIdForm(mainForm))
                                         {
                                             if (chooseTargetFieldDialog.ShowDialog(e.Form) == DialogResult.OK)
                                             {
@@ -94,12 +81,12 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
                                 MessageBox.Show(mainForm, Properties.Resources.OpenProjectConfigurationException, Strings.Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
+                    }
                 }
                 else
                 {
                     MessageBox.Show(mainForm, Properties.Resources.OnlyDesktopProjectsSupport, Properties.Resources.Information, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                e.Handled = true;
             }
         }
 
@@ -108,13 +95,11 @@ namespace SwissAcademic.Addons.ImportSequenceNumberAddon
             var button = mainForm.GetMainCommandbarManager()
                                    .GetReferenceEditorCommandbar(MainFormReferenceEditorCommandbarId.Menu)
                                    .GetCommandbarMenu(MainFormReferenceEditorCommandbarMenuId.FileThisProject)
-                                   .GetCommandbarButton(Key_Button_ImportSequenceNumber);
+                                   .GetCommandbarButton(ButtonKey);
             if (button != null)
             {
                 button.Text = Properties.Resources.MenuCaption;
             }
         }
-
-        #endregion
     }
 }

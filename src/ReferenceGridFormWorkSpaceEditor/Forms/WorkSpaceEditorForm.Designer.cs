@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
-    partial class WorkSpaceEditor
+    partial class WorkSpaceEditorForm
     {
         /// <summary>
         /// Required designer variable.

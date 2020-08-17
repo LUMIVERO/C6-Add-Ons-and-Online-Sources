@@ -1,6 +1,6 @@
 ﻿namespace SwissAcademic.Addons.ReferenceEvaluationAddon
 {
-    partial class ReferenceEvaluationDialog
+    partial class ReferenceEvaluationForm
     {
         /// <summary>
         /// Required designer variable.

@@ -4,27 +4,21 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
 {
     internal class TomatoTimerStates : List<TomatoTimerState>
     {
-        #region Fields
+        // Fields
 
         int _counter;
 
-        #endregion
-
-        #region Constructors
+        // Constructors
 
         public TomatoTimerStates(TomatoTimerState defaultTimer) => (_counter, Default) = (0, defaultTimer);
 
-        #endregion
-
-        #region Properties
+        // Properties
 
         public TomatoTimerState Current => this[_counter];
 
         public TomatoTimerState Default { get; }
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         public TomatoTimerState Next()
         {
@@ -38,7 +32,5 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
         }
 
         public void Reset() => _counter = 0;
-
-        #endregion
     }
 }
