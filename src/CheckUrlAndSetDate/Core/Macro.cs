@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,10 +17,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
     {
         public async static Task RunAsync(MainForm mainForm)
         {
-            var referencesWithUrl = mainForm
-                                        .GetFilteredReferences()
-                                        .Where(reference => !string.IsNullOrEmpty(reference.OnlineAddress))
-                                        .ToList();
+            var referencesWithUrl = mainForm.GetFilteredReferences().Where(reference => !string.IsNullOrEmpty(reference?.OnlineAddress) && GetRemoteUriLocation(reference) != null).ToList();
 
             if (referencesWithUrl.Count == 0)
             {
@@ -47,36 +45,30 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
             catch (OperationCanceledException) { }
         }
 
-        async static Task<(bool, string)> RemoteFileExists(string url, int timeOut)
+        async static Task<(bool, string)> RemoteFileExists(HttpClient client, string url, CancellationToken cancellationToken)
         {
             string urlResult;
             try
             {
-                var request = WebRequest.Create(new Uri(url)) as HttpWebRequest;
-                request.Method = "HEAD";
-                request.Timeout = timeOut;
+                var response = await client.GetAsync(new Uri(url), HttpCompletionOption.ResponseHeadersRead, cancellationToken);
 
-
-                using (var response = await request.GetResponseAsync() as HttpWebResponse)
+                if ((int)response.StatusCode >= 300 && (int)response.StatusCode <= 400)
                 {
-                    if ((int)response.StatusCode >= 300 && (int)response.StatusCode <= 400)
+                    if (response.Headers.Location != null)
                     {
-                        if (response.Headers["Location"] != null)
-                        {
-                            urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.StatusDescription + " - Redirect: " + response.Headers["Location"].ToStringSafe();
-                        }
-                        else
-                        {
-                            urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.StatusDescription;
-                        }
+                        urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.Content + " - Redirect: " + response.Headers.Location.ToStringSafe();
                     }
                     else
                     {
-                        urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.StatusDescription;
+                        urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.ReasonPhrase;
                     }
-
-                    return (response.StatusCode == HttpStatusCode.OK, urlResult);
                 }
+                else
+                {
+                    urlResult = ((int)response.StatusCode).ToString(Resources.Culture) + " " + response.ReasonPhrase;
+                }
+
+                return (response.StatusCode == HttpStatusCode.OK, urlResult);
             }
             catch (Exception e)
             {
@@ -89,54 +81,56 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
         {
 
             var result = new MacroResult();
-            var timeOut = 3000;
+
             var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat, Resources.Culture);
 
-            for (int i = 0; i < references.Count; i++)
+            using (var client = new HttpClient { Timeout = new TimeSpan(0, 0, 3) })
             {
-                var reference = references[i];
-
-                if (reference == null)
+                for (int i = 0; i < references.Count; i++)
                 {
-                    progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
-                    continue;
-                }
+                    var reference = references[i];
 
-                cancellationToken.ThrowIfCancellationRequested();
+                    var location = GetRemoteUriLocation(reference);
 
-                var location = reference
-                                .Locations
-                                .FirstOrDefault(currentLocation => currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress);
+                    cancellationToken.ThrowIfCancellationRequested();
 
-                if (location == null || location.Address == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
-                {
+                    var url = location.Address.UriString;
+
+                    result.LoopedCount++;
+
+                    var oldAccessDate = reference.AccessDate ?? string.Empty;
+
+                    (bool exist, string urlResult) = await RemoteFileExists(client, url, cancellationToken);
+
+                    if (exist)
+                    {
+                        reference.Notes += string.Format(Resources.Culture, Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(Resources.Culture), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
+                        reference.AccessDate = newAccessDate;
+                        result.ChangedCount++;
+                    }
+                    else
+                    {
+                        reference.Notes += string.Format(Resources.Culture, Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(Resources.Culture), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
+                        result.InvalidCount++;
+                        result.InvalidReferences.Add(reference);
+                    }
+
                     progress.ReportSafe(reference.ToString(), 100 / references.Count * i);
-                    continue;
                 }
-
-                var url = location.Address.UriString;
-
-                result.LoopedCount++;
-
-                var oldAccessDate = reference.AccessDate ?? string.Empty;
-
-                (bool exist, string urlResult) = await RemoteFileExists(url, timeOut);
-
-                if (exist)
-                {
-                    reference.Notes += string.Format(Resources.Culture, Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(Resources.Culture), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
-                    reference.AccessDate = newAccessDate;
-                    result.ChangedCount++;
-                }
-                else
-                {
-                    reference.Notes += string.Format(Resources.Culture, Resources.LinkCheckNotes, reference.OnlineAddress ?? string.Empty, DateTime.Now.ToString(Resources.Culture), urlResult ?? string.Empty, oldAccessDate ?? string.Empty);
-                    result.InvalidCount++;
-                    result.InvalidReferences.Add(reference);
-                }
-                progress.ReportSafe(reference.ToString(), (100 / references.Count * i));
             }
             return result;
+        }
+
+        static Location GetRemoteUriLocation(Reference reference)
+        {
+            var location = reference?.Locations.FirstOrDefault(currentLocation => currentLocation.MirrorsReferenceOnlineAddress == ReferencePropertyDescriptor.OnlineAddress);
+
+            if (location == null || location.Address == null || location.Address.LinkedResourceType != LinkedResourceType.RemoteUri)
+            {
+                return null;
+            }
+
+            return location;
         }
     }
 }
