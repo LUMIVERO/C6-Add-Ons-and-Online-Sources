@@ -16,6 +16,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon
         {
             base.Localize();
 
+            Text = DialogOwner.ProductName;
             chbOverrideAbstract.Text = Resources.OverrideAbstract;
             chbOverrideKeywords.Text = Resources.OverrideKeywords;
             chbOverrideTOC.Text = Resources.OverrideToc;

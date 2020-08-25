@@ -40,7 +40,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(110, 106);
+            this.btnCancel.Location = new System.Drawing.Point(210, 106);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(29, 106);
+            this.btnOk.Location = new System.Drawing.Point(129, 106);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
@@ -98,13 +98,11 @@
             this.chbRemoveNotes.Text = "Remove notes";
             this.chbRemoveNotes.UseVisualStyleBackColor = true;
             // 
-            // OverrideFieldsDialog
+            // OverrideFieldsForm
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(197, 141);
+            this.ClientSize = new System.Drawing.Size(297, 141);
             this.Controls.Add(this.chbRemoveNotes);
             this.Controls.Add(this.chbOverrideTOC);
             this.Controls.Add(this.chbOverrideAbstract);
@@ -114,7 +112,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "OverrideFieldsDialog";
+            this.Name = "OverrideFieldsForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
