@@ -24,13 +24,24 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             base.OnFormClosing(e);
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            InitializeDirectory(_directory);
+
+            base.OnLoad(e);
+        }
+
+        // Fields
+
+        readonly string _directory;
+
         // Constructors
 
         public DirectoryForm(Form owner, string directory) : base(owner)
         {
             InitializeComponent();
-            InitializeDirectory(directory);
             Owner = owner;
+            _directory = directory;
         }
 
         // Properties
