@@ -1,20 +1,27 @@
 ﻿using SwissAcademic.Addons.BookOrderByEmailAddon.Properties;
 using SwissAcademic.Controls;
+using System;
 using System.Collections.Generic;
 
 namespace SwissAcademic.Addons.BookOrderByEmailAddon
 {
     public partial class MailTemplateForm : FormBase
     {
+        protected override void OnLoad(EventArgs e)
+        {
+            txtBody.Text = _settings.GetValueOrDefault(Addon.SettingsKey_Body, string.Empty); ;
+            txtReceiver.Text = _settings.GetValueOrDefault(Addon.SettingsKey_Receiver, string.Empty);
+
+            base.OnLoad(e);
+        }
+
+        readonly IDictionary<string, string> _settings;
+
         // Constructors
 
         MailTemplateForm() => InitializeComponent();
 
-        public MailTemplateForm(IDictionary<string, string> settings) : this()
-        {
-            txtBody.Text = settings.GetValueOrDefault(Addon.SettingsKey_Body, string.Empty); ;
-            txtReceiver.Text = settings.GetValueOrDefault(Addon.SettingsKey_Receiver, string.Empty);
-        }
+        public MailTemplateForm(IDictionary<string, string> settings) : this() => _settings = settings;
 
         // Properties
 

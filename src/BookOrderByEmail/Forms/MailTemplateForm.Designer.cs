@@ -98,8 +98,6 @@
             // ConfigDialog
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(392, 312);
             this.Controls.Add(this.txtBody);
