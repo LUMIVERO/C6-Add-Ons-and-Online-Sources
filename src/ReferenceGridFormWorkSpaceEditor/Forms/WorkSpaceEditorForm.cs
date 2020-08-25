@@ -9,28 +9,12 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public partial class WorkSpaceEditorForm : FormBase
     {
-        #region Fields
-
-        readonly AddonSettings _settings;
-
-        #endregion
-
-        #region Constructors
-
-        public WorkSpaceEditorForm(ReferenceGridForm owner, AddonSettings settings) : base(owner)
-        {
-            InitializeComponent();
-            Owner = owner;
-            _settings = settings;
-        }
-
-        #endregion
-
-        #region EventHandlers
+        // Events
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
             InitializeListBox(_settings);
 
             btn_add.Image = Control2.ScaleBitmap(Resources.add);
@@ -43,15 +27,27 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
         protected override void OnApplicationIdle()
         {
             base.OnApplicationIdle();
+
             btn_remove.Enabled = lb_workspaces.SelectedIndex != -1;
             btn_up.Enabled = lb_workspaces.SelectedIndex != -1 && lb_workspaces.SelectedIndex != 0;
             btn_down.Enabled = lb_workspaces.SelectedIndex != -1 && lb_workspaces.SelectedIndex != lb_workspaces.Items.Count - 1;
             btn_edit.Enabled = lb_workspaces.SelectedIndex != -1;
         }
 
-        #endregion
+        // Fields
 
-        #region Properties
+        readonly AddonSettings _settings;
+
+        // Constructors
+
+        public WorkSpaceEditorForm(ReferenceGridForm owner, AddonSettings settings) : base(owner)
+        {
+            InitializeComponent();
+            Owner = owner;
+            _settings = settings;
+        }
+
+        // Properties
 
         public AddonSettings Settings
         {
@@ -66,9 +62,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             }
         }
 
-        #endregion
-
-        #region Methods
+        // Methods
 
         void InitializeListBox(AddonSettings settings)
         {
@@ -85,9 +79,7 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             Text = Resources.WorkSpaceEditor_Form_Text;
         }
 
-        #endregion
-
-        #region Events
+        // Events
 
         void Btn_add_Click(object sender, EventArgs e)
         {
@@ -152,7 +144,5 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
                 lb_workspaces.Invoke("RefreshItems");
             }
         }
-
-        #endregion
     }
 }

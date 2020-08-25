@@ -78,8 +78,6 @@
             // WorkSpaceNameEditor
             // 
             this.AcceptButton = this.btn_create;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(314, 98);
             this.Controls.Add(this.btn_create);

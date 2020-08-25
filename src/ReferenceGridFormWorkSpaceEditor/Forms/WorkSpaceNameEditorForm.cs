@@ -8,43 +8,12 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
 {
     public partial class WorkSpaceNameEditorForm : FormBase
     {
-        #region Fields
-
-        readonly bool _editMode;
-        readonly string _caption;
-        readonly IEnumerable<string> _captions;
-
-        #endregion
-
-        #region Constructors
-
-        public WorkSpaceNameEditorForm(Form owner, IEnumerable<string> captions) : base(owner)
-        {
-            InitializeComponent();
-            Owner = owner;
-            _captions = captions;
-        }
-
-        public WorkSpaceNameEditorForm(Form owner, IEnumerable<string> captions, string caption) : this(owner, captions)
-        {
-            txt_workspace_name.Text = caption;
-            _caption = caption;
-            _editMode = true;
-        }
-
-        #endregion
-
-        #region Events
-
+        // Events
         protected override void OnLoad(EventArgs e)
         {
-            Localize();
+            txt_workspace_name.Text = _caption ?? string.Empty;
             base.OnLoad(e);
         }
-
-        #endregion
-
-        #region Methods
 
         public override void Localize()
         {
@@ -63,15 +32,32 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
             base.OnApplicationIdle();
         }
 
-        #endregion
+        // Fields
 
-        #region Properties
+        readonly bool _editMode;
+        readonly string _caption;
+        readonly IEnumerable<string> _captions;
+
+        // Constructors
+
+        public WorkSpaceNameEditorForm(Form owner, IEnumerable<string> captions) : base(owner)
+        {
+            InitializeComponent();
+            Owner = owner;
+            _captions = captions;
+        }
+
+        public WorkSpaceNameEditorForm(Form owner, IEnumerable<string> captions, string caption) : this(owner, captions)
+        {
+            _caption = caption;
+            _editMode = true;
+        }
+
+        // Properties
 
         public string WorkSpaceName => txt_workspace_name.Text;
 
-        #endregion
-
-        #region EventHandlers
+        // EventHandlers
 
         void Txt_workspace_name_KeyDown(object sender, KeyEventArgs e)
         {
@@ -80,7 +66,5 @@ namespace SwissAcademic.Addons.ReferenceGridFormWorkSpaceEditorAddon
                 DialogResult = DialogResult.OK;
             }
         }
-
-        #endregion
     }
 }

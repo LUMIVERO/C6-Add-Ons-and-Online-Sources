@@ -103,8 +103,6 @@
             // 
             // WorkSpaceEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(314, 361);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_remove);
