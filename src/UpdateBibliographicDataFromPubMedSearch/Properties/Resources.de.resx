@@ -127,7 +127,7 @@
     <value>Notizen löschen</value>
   </data>
   <data name="OverrideKeywords" xml:space="preserve">
-    <value>Schlagwörter überschreiben</value>
+    <value>Schlagwörter ergänzen</value>
   </data>
   <data name="OverrideToc" xml:space="preserve">
     <value>Inhaltsverzeichnis überschreiben</value>

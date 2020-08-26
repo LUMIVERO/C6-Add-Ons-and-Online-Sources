@@ -127,7 +127,7 @@
     <value>Overwrite table of contents</value>
   </data>
   <data name="OverrideKeywords" xml:space="preserve">
-    <value>Overwrite keywords</value>
+    <value>Include keywords</value>
   </data>
   <data name="ClearNotes" xml:space="preserve">
     <value>Delete notes</value>

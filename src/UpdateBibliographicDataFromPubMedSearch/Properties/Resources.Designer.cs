@@ -117,7 +117,7 @@ namespace SwissAcademic.Addons.UpdateBibliographicDataFromPubMedSearchAddon.Prop
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Overwrite keywords ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Include keywords ähnelt.
         /// </summary>
         internal static string OverrideKeywords {
             get {
