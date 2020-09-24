@@ -10,11 +10,12 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
         {
             try
             {
+
                 project.ProjectSettings[Addon.SettingsKey] = "true";
             }
             catch (Exception ignored)
             {
-                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
+                Telemetry2.Warning(ignored);
             }
         }
 
@@ -26,7 +27,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
             catch (Exception ignored)
             {
-                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
+                Telemetry2.Warning(ignored);
             }
         }
 
@@ -38,7 +39,7 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
             }
             catch (Exception ignored)
             {
-                Telemetry.Warning(ignored, string.Empty, ignored.Message, null);
+                Telemetry2.Warning(ignored);
             }
             return false;
         }

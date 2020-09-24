@@ -142,17 +142,14 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 
                 UpdateTools(container, true);
 
-                if (menu != null)
-                {
-
-                    var button = menu.InsertCommandbarButton(2, ButtonKey_ShowMacroEditor, Properties.Resources.MacroEditorCommand);
-                    button.Shortcut = (Shortcut)(Keys.Alt | Keys.F11);
-                    button.HasSeparator = true;
+                var button = menu.InsertCommandbarButton(2, ButtonKey_ShowMacroEditor, Properties.Resources.MacroEditorCommand);
+                button.Shortcut = (Shortcut)(Keys.Alt | Keys.F11);
+                button.HasSeparator = true;
 
 
-                    button = menu.AddCommandbarButton(ButtonKey_Refresh, Properties.Resources.RefreshCommand, image: Properties.Resources.Refresh);
-                    button.Tool.InstanceProps.IsFirstInGroup = true;
-                }
+                button = menu.AddCommandbarButton(ButtonKey_Refresh, Properties.Resources.RefreshCommand, image: Properties.Resources.Refresh);
+                button.Tool.InstanceProps.IsFirstInGroup = true;
+
             }
         }
 

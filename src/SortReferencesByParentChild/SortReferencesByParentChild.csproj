@@ -127,6 +127,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Core\Telemetry2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json">
