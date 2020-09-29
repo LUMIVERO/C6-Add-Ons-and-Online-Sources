@@ -1,5 +1,4 @@
-﻿using SwissAcademic.ApplicationInsights;
-using SwissAcademic.Citavi;
+﻿using SwissAcademic.Citavi;
 using System;
 
 namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
