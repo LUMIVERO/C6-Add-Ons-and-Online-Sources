@@ -8,7 +8,7 @@ namespace SwissAcademic.Addons.ScrollSpeedInPdfPreview
     {
         public static PDFViewWPF GetViewControl(this MainForm mainForm)
         {
-            var pdfViewControl = mainForm.PreviewControl.GetType().GetField("_pdfViewControl", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mainForm.PreviewControl);
+            var pdfViewControl = mainForm.PreviewControl.GetType().GetProperty("PdfViewControl", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mainForm.PreviewControl);
             return pdfViewControl?.GetType().GetProperty("Viewer", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(pdfViewControl) as PDFViewWPF;
         }
     }
