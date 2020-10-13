@@ -127,10 +127,10 @@
     <value>Speed ({0}x)</value>
   </data>
   <data name="Command_Text" xml:space="preserve">
-    <value>Set scroll speed for PDF preview...</value>
+    <value>Set scroll speed...</value>
   </data>
   <data name="CheckBox_Text" xml:space="preserve">
-    <value>use only in full screen mode</value>
+    <value>Use only in full screen mode</value>
   </data>
   <data name="Dialog_Text" xml:space="preserve">
     <value>Scroll speed in the PDF preview</value>
