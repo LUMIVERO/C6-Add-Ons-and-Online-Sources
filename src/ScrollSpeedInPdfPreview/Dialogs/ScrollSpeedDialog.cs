@@ -20,6 +20,7 @@ namespace SwissAcademic.Addons.ScrollSpeedInPdfPreview
 
             btnCancel.Text = Resources.Button_Cancel;
             btnOk.Text = Resources.Button_OK;
+            btnReset.Text = Resources.Button_Reset;
             Text = Resources.Dialog_Text;
             chkOnllyInPreviewMode.Text = Resources.CheckBox_Text;
         }
@@ -28,7 +29,7 @@ namespace SwissAcademic.Addons.ScrollSpeedInPdfPreview
         {
             base.OnApplicationIdle();
 
-            lblSpeed.Text = Resources.Label_Speed.FormatString((tbSpeed.Value / 100.0));
+            lblSpeed.Text = Resources.Label_Speed.FormatString(tbSpeed.Value / 100.0);
         }
 
         readonly int _scrollSpeed;
@@ -44,5 +45,7 @@ namespace SwissAcademic.Addons.ScrollSpeedInPdfPreview
 
         public double ScrollSpeed => tbSpeed.Value / 100.0;
         public bool OnlyInFullScreenMode => chkOnllyInPreviewMode.Checked;
+
+        void BtnReset_Click(object sender, EventArgs e) => tbSpeed.Value = 100;
     }
 }

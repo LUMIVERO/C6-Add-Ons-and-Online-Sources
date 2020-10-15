@@ -135,4 +135,7 @@
   <data name="Dialog_Text" xml:space="preserve">
     <value>Scrollgeschwindigkeit in der PDF-Vorschau</value>
   </data>
+  <data name="Button_Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
 </root>

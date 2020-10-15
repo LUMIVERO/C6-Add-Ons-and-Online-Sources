@@ -33,6 +33,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.chkOnllyInPreviewMode = new System.Windows.Forms.CheckBox();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeed)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.tbSpeed.Maximum = 600;
             this.tbSpeed.Minimum = 1;
             this.tbSpeed.Name = "tbSpeed";
-            this.tbSpeed.Size = new System.Drawing.Size(496, 45);
+            this.tbSpeed.Size = new System.Drawing.Size(505, 45);
             this.tbSpeed.TabIndex = 0;
             this.tbSpeed.Value = 1;
             // 
@@ -54,14 +55,14 @@
             this.lblSpeed.Location = new System.Drawing.Point(12, 9);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(94, 15);
-            this.lblSpeed.TabIndex = 1;
+            this.lblSpeed.TabIndex = 4;
             this.lblSpeed.Text = "Geschwindigkeit";
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(410, 67);
+            this.btnCancel.Location = new System.Drawing.Point(419, 104);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(98, 23);
             this.btnCancel.TabIndex = 2;
@@ -70,12 +71,12 @@
             // 
             // btnOk
             // 
-            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Location = new System.Drawing.Point(306, 67);
+            this.btnOk.Location = new System.Drawing.Point(315, 104);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(98, 23);
-            this.btnOk.TabIndex = 4;
+            this.btnOk.TabIndex = 1;
             this.btnOk.Text = "Übernehmen";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
@@ -89,11 +90,23 @@
             this.chkOnllyInPreviewMode.Text = "nur im Vollbildmodus anwenden";
             this.chkOnllyInPreviewMode.UseVisualStyleBackColor = true;
             // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset.Location = new System.Drawing.Point(22, 104);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(98, 23);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "Zurücksetzen";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
+            // 
             // ScrollSpeedDialog
             // 
             this.AcceptButton = this.btnOk;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(520, 99);
+            this.ClientSize = new System.Drawing.Size(529, 149);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.chkOnllyInPreviewMode);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
@@ -116,5 +129,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.CheckBox chkOnllyInPreviewMode;
+        private System.Windows.Forms.Button btnReset;
     }
 }
