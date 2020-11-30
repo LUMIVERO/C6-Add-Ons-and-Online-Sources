@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{506FDADE-9F50-4966-B181-10605A631D7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon</RootNamespace>
+    <AssemblyName>ReferenceKnowledgeItemsMatchingAddon</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\Program Files (x86)\Citavi 6\AddOns</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</StartProgram>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Citavi">
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SwissAcademic">
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Citavi">
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Citavi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SwissAcademic.Controls">
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System " />
+    <Reference Include="System.Core " />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addon.Constants.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Addon.Constructors.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Addon.cs" />
+    <Compile Include="Addon.EventHandlers.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Addon.Fields.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Addon.Methods.cs">
+      <DependentUpon>Addon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Dictionary.cs" />
+    <Compile Include="Core\ProjectObserver.Constructors.cs">
+      <DependentUpon>ProjectObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ProjectObserver.Destructor.cs">
+      <DependentUpon>ProjectObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ProjectObserver.EventHandlers.cs">
+      <DependentUpon>ProjectObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ProjectObserver.Fields.cs">
+      <DependentUpon>ProjectObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ProjectObserver.Methods.cs">
+      <DependentUpon>ProjectObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.Constructors.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.EventHandlers.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.Events.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.Fields.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.Methods.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.Properties.cs">
+      <SubType>Form</SubType>
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ProjectObserver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsDialog.Designer.cs">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\AddonSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="addon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
