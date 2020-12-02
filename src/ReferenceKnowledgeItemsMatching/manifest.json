@@ -6,8 +6,8 @@
   "summary_localized": { "de": "..." },
   "Url": "...",
   "citavi_min_version": {
-    "Major": 5,
-    "Minor": 8,
+    "Major": 6,
+    "Minor": 7,
     "Build": 0,
     "Revision": 0,
     "MajorRevision": 0,
@@ -15,7 +15,7 @@
   },
   "Description": "...",
   "description_localized": { "de": "..." },
-  "Id": "795e18dc-ca57-4f89-a1a6-3addd2404ef5",
+  "Id": "506fdade-9f50-4966-b181-10605a631d7f",
   "Name": "ReferenceKnowledgeItemsMatchingAddon",
   "name_localized": { "de": "..." },
   "manifest_version": 1,
@@ -23,8 +23,8 @@
     "Major": 1,
     "Minor": 0,
     "Build": 0,
-    "Revision": 4,
+    "Revision": 0,
     "MajorRevision": 0,
-    "MinorRevision": 4
+    "MinorRevision": 0
   }
 }

@@ -5,6 +5,6 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
 {
     partial class SettingsDialog
     {
-        bool AreSettingsValid() => chkActivateMatching.Checked && pnlSettings.Controls.OfType<CheckBox>().Any(chk => chk.Checked);
+        bool AreSettingsValid() => chkActivateMatching.Checked && pnlSettings.Controls.OfType<CheckBox>().Any(chk => chk.Checked) || !chkActivateMatching.Checked;
     }
 }

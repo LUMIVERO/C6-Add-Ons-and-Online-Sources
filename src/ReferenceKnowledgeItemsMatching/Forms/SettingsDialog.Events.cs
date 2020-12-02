@@ -52,7 +52,7 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            if (DialogResult == DialogResult.OK)
+            if (DialogResult == DialogResult.OK && chkActivateMatching.Checked)
             {
                 RunMatchingForExistingItems = MessageBox.Show(this, Resources.MessageBox_MatchingForExistingItems, Owner.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
             }

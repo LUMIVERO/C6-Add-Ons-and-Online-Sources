@@ -83,9 +83,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     foreach (var knowledgeItem in collection.Parent.Quotations)
                     {
                         var groups = collection.ToList();
-                        knowledgeItem.Groups.SuspendNotification();
+                        ObserveKnowledgeItem(knowledgeItem, false);
                         knowledgeItem.Groups.AddRange(groups);
-                        knowledgeItem.Groups.ResumeNotification(false, false);
+                        ObserveKnowledgeItem(knowledgeItem, true);
                     }
                 }
                 else if (e.ChangeType == CollectionChangeType.ItemsAdded && e.HasRecords)
@@ -93,9 +93,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     foreach (var knowledgeItem in collection.Parent.Quotations)
                     {
                         var groups = e.Records.Select(record => record.Item).ToList();
-                        knowledgeItem.Groups.SuspendNotification();
+                        ObserveKnowledgeItem(knowledgeItem, false);
                         knowledgeItem.Groups.AddRange(groups);
-                        knowledgeItem.Groups.ResumeNotification(false, false);
+                        ObserveKnowledgeItem(knowledgeItem, true);
                     }
                 }
             }
@@ -115,9 +115,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     foreach (var knowledgeItem in collection.Parent.Quotations)
                     {
                         var keywords = collection.ToList();
-                        knowledgeItem.Keywords.SuspendNotification();
+                        ObserveKnowledgeItem(knowledgeItem, false);
                         knowledgeItem.Keywords.AddRange(keywords);
-                        knowledgeItem.Keywords.ResumeNotification(false, false);
+                        ObserveKnowledgeItem(knowledgeItem, true);
                     }
                 }
                 else if (e.ChangeType == CollectionChangeType.ItemsAdded && e.HasRecords)
@@ -125,9 +125,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     foreach (var knowledgeItem in collection.Parent.Quotations)
                     {
                         var keywords = e.Records.Select(record => record.Item).ToList();
-                        knowledgeItem.Keywords.SuspendNotification();
+                        ObserveKnowledgeItem(knowledgeItem, false);
                         knowledgeItem.Keywords.AddRange(keywords);
-                        knowledgeItem.Keywords.ResumeNotification(false, false);
+                        ObserveKnowledgeItem(knowledgeItem, true);
                     }
                 }
             }
@@ -146,9 +146,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     foreach (var knowledgeItem in collection.Parent.Quotations)
                     {
                         var categories = collection.ToList();
-                        knowledgeItem.Categories.SuspendNotification();
+                        ObserveKnowledgeItem(knowledgeItem, false);
                         knowledgeItem.Categories.AddRange(categories);
-                        knowledgeItem.Categories.ResumeNotification(false, false);
+                        ObserveKnowledgeItem(knowledgeItem, true);
                     }
                 }
                 else if (e.ChangeType == CollectionChangeType.ItemsAdded && e.HasRecords)
@@ -158,7 +158,7 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                         var categories = e.Records.Select(record => record.Item).ToList();
                         knowledgeItem.Categories.SuspendNotification();
                         knowledgeItem.Categories.AddRange(categories);
-                        knowledgeItem.Categories.ResumeNotification(false, false);
+                        ObserveKnowledgeItem(knowledgeItem, true);
                     }
                 }
             }
@@ -177,9 +177,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     if (collection.Parent.Reference is Reference reference)
                     {
                         var groups = collection.ToList();
-                        reference.Groups.SuspendNotification();
+                        ObserveReference(reference, false);
                         reference.Groups.AddRange(groups);
-                        reference.Groups.ResumeNotification(false, false);
+                        ObserveReference(reference, true);
                     }
                 }
                 else if (e.ChangeType == CollectionChangeType.ItemsAdded && e.HasRecords)
@@ -187,9 +187,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     if (collection.Parent.Reference is Reference reference)
                     {
                         var groups = e.Records.Select(record => record.Item).ToList();
-                        reference.Groups.SuspendNotification();
+                        ObserveReference(reference, false);
                         reference.Groups.AddRange(groups);
-                        reference.Groups.ResumeNotification(false, false);
+                        ObserveReference(reference, true);
                     }
                 }
             }
@@ -208,9 +208,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     if (collection.Parent.Reference is Reference reference)
                     {
                         var keywords = collection.ToList();
-                        reference.Keywords.SuspendNotification();
+                        ObserveReference(reference, false);
                         reference.Keywords.AddRange(keywords);
-                        reference.Keywords.ResumeNotification(false, false);
+                        ObserveReference(reference, true);
                     }
                 }
                 else if (e.ChangeType == CollectionChangeType.ItemsAdded && e.HasRecords)
@@ -218,9 +218,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     if (collection.Parent.Reference is Reference reference)
                     {
                         var keywords = e.Records.Select(record => record.Item).ToList();
-                        reference.Keywords.SuspendNotification();
+                        ObserveReference(reference, false);
                         reference.Keywords.AddRange(keywords);
-                        reference.Keywords.ResumeNotification(false, false);
+                        ObserveReference(reference, true);
                     }
                 }
             }
@@ -239,9 +239,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     if (collection.Parent.Reference is Reference reference)
                     {
                         var categories = collection.ToList();
-                        reference.Categories.SuspendNotification();
+                        ObserveReference(reference, false);
                         reference.Categories.AddRange(categories);
-                        reference.Categories.ResumeNotification(false, false);
+                        ObserveReference(reference, true);
                     }
                 }
                 else if (e.ChangeType == CollectionChangeType.ItemsAdded && e.HasRecords)
@@ -249,9 +249,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
                     if (collection.Parent.Reference is Reference reference)
                     {
                         var categories = e.Records.Select(record => record.Item).ToList();
-                        reference.Categories.SuspendNotification();
+                        ObserveReference(reference, false);
                         reference.Categories.AddRange(categories);
-                        reference.Categories.ResumeNotification(false, false);
+                        ObserveReference(reference, true);
                     }
                 }
             }
