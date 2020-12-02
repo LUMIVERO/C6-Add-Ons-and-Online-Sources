@@ -15,6 +15,9 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
             project.ProjectSettings.SettingChanging += ProjectSettings_SettingChanging;
             project.References.CollectionChanged += References_CollectionChanged;
             project.AllKnowledgeItems.CollectionChanged += AllKnowledgeItems_CollectionChanged;
+
+            project.References.ForEach(reference => ObserveReference(reference, true));
+            project.AllKnowledgeItems.ForEach(knowledgeItem => ObserveKnowledgeItem(knowledgeItem, true));
         }
 
         void RemoveProject(Project project)
@@ -25,21 +28,45 @@ namespace SwissAcademic.Addons.ReferenceKnowledgeItemsMatchingAddon
             project.References.CollectionChanged -= References_CollectionChanged;
             project.AllKnowledgeItems.CollectionChanged -= AllKnowledgeItems_CollectionChanged;
 
+            project.References.ForEach(reference => ObserveReference(reference, false));
+            project.AllKnowledgeItems.ForEach(knowledgeItem => ObserveKnowledgeItem(knowledgeItem, false));
+
             _projects.Remove(project);
         }
 
-        private void ProjectShells_CollectionChanged(object sender, Collections.CollectionChangedEventArgs<ProjectShell> e)
+        void ObserveReference(Reference reference, bool start)
         {
-            if (!e.HasRecords) return;
+            if (reference is null) return;
 
-            switch (e.ChangeType)
+            if (start)
             {
-                case Collections.CollectionChangeType.ItemsAdded:
-                    e.Records.ForEach(record => AddProject(record.Item?.Project));
-                    break;
-                case Collections.CollectionChangeType.ItemsDeleted:
-                    e.Records.ForEach(record => RemoveProject(record.Item?.Project));
-                    break;
+                reference.Categories.CollectionChanged += Reference_Categories_CollectionChanged;
+                reference.Keywords.CollectionChanged += Reference_Keywords_CollectionChanged;
+                reference.Groups.CollectionChanged += Reference_Groups_CollectionChanged;
+            }
+            else
+            {
+                reference.Categories.CollectionChanged -= Reference_Categories_CollectionChanged;
+                reference.Keywords.CollectionChanged -= Reference_Keywords_CollectionChanged;
+                reference.Groups.CollectionChanged -= Reference_Groups_CollectionChanged;
+            }
+        }
+
+        void ObserveKnowledgeItem(KnowledgeItem knowledgeItem, bool start)
+        {
+            if (knowledgeItem is null) return;
+
+            if (start)
+            {
+                knowledgeItem.Categories.CollectionChanged += KnowledgeItem_Categories_CollectionChanged;
+                knowledgeItem.Keywords.CollectionChanged += KnowledgeItem_Keywords_CollectionChanged;
+                knowledgeItem.Groups.CollectionChanged += KnowledgeItem_Groups_CollectionChanged;
+            }
+            else
+            {
+                knowledgeItem.Categories.CollectionChanged -= KnowledgeItem_Categories_CollectionChanged;
+                knowledgeItem.Keywords.CollectionChanged -= KnowledgeItem_Keywords_CollectionChanged;
+                knowledgeItem.Groups.CollectionChanged -= KnowledgeItem_Groups_CollectionChanged;
             }
         }
     }

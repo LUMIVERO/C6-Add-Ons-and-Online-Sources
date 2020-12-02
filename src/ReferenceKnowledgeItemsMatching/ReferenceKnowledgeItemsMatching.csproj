@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
       <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
@@ -57,6 +58,10 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System " />
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\System.Configuration.ConfigurationManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Core " />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -83,7 +88,6 @@
     <Compile Include="Addon.Methods.cs">
       <DependentUpon>Addon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\Dictionary.cs" />
     <Compile Include="Core\ProjectObserver.Constructors.cs">
       <DependentUpon>ProjectObserver.cs</DependentUpon>
     </Compile>
@@ -99,6 +103,7 @@
     <Compile Include="Core\ProjectObserver.Methods.cs">
       <DependentUpon>ProjectObserver.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Extensions.cs" />
     <Compile Include="Forms\SettingsDialog.Constructors.cs">
       <SubType>Form</SubType>
       <DependentUpon>SettingsDialog.cs</DependentUpon>
