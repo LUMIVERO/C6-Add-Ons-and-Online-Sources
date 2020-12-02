@@ -110,9 +110,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\MailTemplateForm.resx">
-      <DependentUpon>MailTemplateForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>

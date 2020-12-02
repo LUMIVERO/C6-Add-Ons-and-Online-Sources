@@ -113,9 +113,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\ReferenceEvaluationForm.resx">
-      <DependentUpon>ReferenceEvaluationForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>

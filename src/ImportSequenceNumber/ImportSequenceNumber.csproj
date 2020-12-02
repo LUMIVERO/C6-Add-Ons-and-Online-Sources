@@ -108,9 +108,6 @@
     <Compile Include="Core\SequenceNumberImportInfoUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\ChoosePropertyIdForm.resx">
-      <DependentUpon>ChoosePropertyIdForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>
