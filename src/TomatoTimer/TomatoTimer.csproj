@@ -51,24 +51,24 @@
     </Reference>
     <Reference Include="Infragistics4.Shared.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <Private>False</Private>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Shared.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Shared.v11.2.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics4.Win.Misc.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <Private>False</Private>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.Misc.v11.2.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics4.Win.UltraWinStatusBar.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.UltraWinStatusBar.v11.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Infragistics4.Win.v11.2, Version=11.2.20112.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <Private>False</Private>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Infragistics4.Win.v11.2.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\netstandard.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\\Citavi 6\bin\netstandard.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SwissAcademic">
@@ -87,7 +87,7 @@
     <Reference Include="System.Core " />
     <Reference Include="System.ValueTuple, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files (x86)\Citavi 6\bin\System.ValueTuple.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\\Citavi 6\bin\System.ValueTuple.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />

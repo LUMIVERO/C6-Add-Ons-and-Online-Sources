@@ -14,7 +14,7 @@ namespace SwissAcademic.Addons.SendReferenceByEmailAddon
             mail.Subject = mailTemplate.Subject;
             mail.Body = mailTemplate.Body;
             mailTemplate.Attachments.ForEach(a => mail.Attachments.Add(a, OlAttachmentType.olByValue, Type.Missing, Type.Missing));
-            mail.Display(true);
+            mail.Display(false);
         }
 
         static Application GetOutlookApplication()

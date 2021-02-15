@@ -16,7 +16,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
             mail.Body = mailTemplate.Body;
             mailTemplate.To.ForEach(adress => mail.Recipients.Add(adress));
             mailTemplate.Attachments.ForEach(a => mail.Attachments.Add(a, Microsoft.Office.Interop.Outlook.OlAttachmentType.olByValue, Type.Missing, Type.Missing));
-            mail.Display(true);
+            mail.Display(false);
         }
 
         static Microsoft.Office.Interop.Outlook.Application GetOutlookApplication()
