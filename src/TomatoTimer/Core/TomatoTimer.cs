@@ -40,6 +40,8 @@ namespace SwissAcademic.Addons.TomatoTimerAddon
                 new PausingTimer(5){ MessageResolver=()=>{return Properties.Resources.Message_Go; } },
                 new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.Message_Break; } },
                 new PausingTimer(5){ MessageResolver=()=>{return Properties.Resources.Message_Go; } },
+                new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.Message_Break; } },
+                new PausingTimer(5){ MessageResolver=()=>{return Properties.Resources.Message_Go; } },
                 new RunningTimer(25){ MessageResolver=()=>{return Properties.Resources.FinishMessage; } },
                 new WalkingTimer(15){ MessageResolver=()=>{return Properties.Resources.Message_Go; } }
             };
