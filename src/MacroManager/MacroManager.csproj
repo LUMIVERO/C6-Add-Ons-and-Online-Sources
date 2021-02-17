@@ -144,6 +144,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\ReflectionExt.cs" />
+    <EmbeddedResource Include="Forms\DirectoryForm.resx">
+      <DependentUpon>DirectoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.de.resx">
       <DependentUpon>Resources.resx</DependentUpon>
     </EmbeddedResource>

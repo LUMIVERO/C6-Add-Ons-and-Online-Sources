@@ -55,7 +55,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             if (!string.IsNullOrEmpty(directory))
             {
                 txtPath.Text = directory;
-                lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(directory);
+                ttDirectory.SetToolTip(txtPath, Path2.GetFullPathFromPathWithVariables(directory));
             }
         }
 
@@ -140,12 +140,12 @@ namespace SwissAcademic.Addons.MacroManagerAddon
                 if (!string.IsNullOrEmpty(entry) && !folderBrowseDialog.SelectedPath.Equals(entry, StringComparison.OrdinalIgnoreCase) && MessageBox.Show(this, Properties.Resources.PathAsVariableMessage.FormatString(folderBrowseDialog.SelectedPath, entry), Owner.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     txtPath.Text = entry;
-                    lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(entry);
+                    ttDirectory.SetToolTip(txtPath, Path2.GetFullPathFromPathWithVariables(entry));
                 }
                 else
                 {
                     txtPath.Text = folderBrowseDialog.SelectedPath;
-                    lblEnvironmentFullPath.Text = folderBrowseDialog.SelectedPath;
+                    ttDirectory.SetToolTip(txtPath, Path2.GetFullPathFromPathWithVariables(folderBrowseDialog.SelectedPath));
                 }
             }
         }
@@ -181,10 +181,13 @@ namespace SwissAcademic.Addons.MacroManagerAddon
             if (sender is ToolStripItem item)
             {
                 txtPath.Text = item.Text;
-                lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(item.Text);
+                ttDirectory.SetToolTip(txtPath, Path2.GetFullPathFromPathWithVariables(item.Text));
             }
         }
 
-        void TxtPath_TextChanged(object sender, EventArgs e) => lblEnvironmentFullPath.Text = Path2.GetFullPathFromPathWithVariables(txtPath.Text);
+        void TxtPath_TextChanged(object sender, EventArgs e)
+        {
+            ttDirectory.SetToolTip(txtPath, Path2.GetFullPathFromPathWithVariables(txtPath.Text));
+        }
     }
 }
