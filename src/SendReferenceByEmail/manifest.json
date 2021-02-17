@@ -7,7 +7,7 @@
   "Url": "www.citavi.com/SendReferenceByEmailAddon",
   "citavi_min_version": {
     "Major": 6,
-    "Minor": 5,
+    "Minor": 8,
     "Build": 0,
     "Revision": 0,
     "MajorRevision": 0,
@@ -21,7 +21,7 @@
   "manifest_version": 1,
   "Version": {
     "Major": 1,
-    "Minor": 1,
+    "Minor": 2,
     "Build": 0,
     "Revision": 0,
     "MajorRevision": 0,
