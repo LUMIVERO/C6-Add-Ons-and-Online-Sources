@@ -45,6 +45,10 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Words">
+      <HintPath>C:\Program Files (x86)\Citavi 6\bin\Aspose.Words.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Citavi">
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\Citavi.exe</HintPath>
       <Private>False</Private>
@@ -75,7 +79,7 @@
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="SwissAcademic.AI">
+    <Reference Include="SwischsAcademic.AI">
       <HintPath>C:\Program Files (x86)\Citavi 6\bin\SwissAcademic.AI.dll</HintPath>
       <Private>False</Private>
     </Reference>

@@ -131,8 +131,10 @@ namespace SwissAcademic.Addons.SortReferencesByParentChildAddon
                     {
                         string result;
 
-                        var title = string.IsNullOrEmpty(reference.TitleTagged) ? string.Empty : reference.TitleTagged.CssStyleTagsToHtmlStyleTags();
-                        var subtitle = string.IsNullOrEmpty(reference.SubtitleTagged) ? string.Empty : reference.SubtitleTagged.CssStyleTagsToHtmlStyleTags();
+
+
+                        var title = string.IsNullOrEmpty(reference.TitleTagged) ? string.Empty : reference.TitleTagged.TaggedTextToDocument().ToTaggedText(new TaggedTextConversionSettings { TagFontFamily = true, TagFontSize = true, UseCssStyleTags = false });
+                        var subtitle = string.IsNullOrEmpty(reference.SubtitleTagged) ? string.Empty : reference.SubtitleTagged.TaggedTextToDocument().ToTaggedText(new TaggedTextConversionSettings { TagFontFamily = true, TagFontSize = true, UseCssStyleTags = false });
 
                         if (string.IsNullOrEmpty(title))
                         {
