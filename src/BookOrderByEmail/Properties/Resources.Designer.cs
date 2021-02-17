@@ -98,7 +98,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Ok ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
         /// </summary>
         internal static string ConfigDialog_Ok {
             get {

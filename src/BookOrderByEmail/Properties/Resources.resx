@@ -137,7 +137,7 @@
     <value>Configure ordering</value>
   </data>
   <data name="ConfigDialog_Ok" xml:space="preserve">
-    <value>Ok</value>
+    <value>OK</value>
   </data>
   <data name="ConfigDialog_Cancel" xml:space="preserve">
     <value>Cancel</value>
