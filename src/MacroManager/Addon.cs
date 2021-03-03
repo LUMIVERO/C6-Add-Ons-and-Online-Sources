@@ -206,7 +206,7 @@ namespace SwissAcademic.Addons.MacroManagerAddon
 #if DEBUG
             editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroInternal;
 #else
-            _editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroExternal;
+            editor.MacroCode = CodeResources.MacroEditor_CodeTemplate_MacroExternal;
 #endif
             editor.SetAsDefault();
             if (hide)
