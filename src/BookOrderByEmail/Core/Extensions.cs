@@ -22,7 +22,7 @@ namespace SwissAcademic.Addons.BookOrderByEmailAddon
 
         static MailTemplate CreateMailTemplate(this Reference reference, string receiver, string body)
         {
-            var mail = new MailTemplate { Subject = Resources.Order + " " + reference.ShortTitle };
+            var mail = new MailTemplate { Subject = Resources.Order + ": " + reference.ShortTitle };
 
             if (!string.IsNullOrEmpty(receiver))
             {
