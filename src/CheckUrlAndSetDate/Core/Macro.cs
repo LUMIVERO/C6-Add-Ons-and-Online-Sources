@@ -50,7 +50,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
             string urlResult;
             try
             {
-                var response = await client.GetAsync(new Uri(url), HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+                var response = await client.GetAsync(new Uri(url), HttpCompletionOption.ResponseContentRead, cancellationToken);
 
                 if ((int)response.StatusCode >= 300 && (int)response.StatusCode <= 400)
                 {
@@ -84,7 +84,7 @@ namespace SwissAcademic.Addons.CheckUrlAndSetDateAddon
 
             var newAccessDate = DateTime.Today.ToString(Program.Engine.Settings.General.DateTimeFormat, Resources.Culture);
 
-            using (var client = new HttpClient { Timeout = new TimeSpan(0, 0, 3) })
+            using (var client = new HttpClient { Timeout = new TimeSpan(0, 0, 5) })
             {
                 for (int i = 0; i < references.Count; i++)
                 {
